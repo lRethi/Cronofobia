@@ -3,43 +3,90 @@
 [ext_resource type="PackedScene" uid="uid://bfqybp0no5khm" path="res://Placeholder/Parede/parede.tscn" id="1_vjqar"]
 [ext_resource type="PackedScene" uid="uid://4cvw5u3glyoy" path="res://Placeholder/Personagem/teste_hominho.tscn" id="2_b8gmu"]
 [ext_resource type="Script" uid="uid://dob3qddx7218q" path="res://Scripts/Camera/oObservador.cs" id="3_b8gmu"]
+[ext_resource type="PackedScene" uid="uid://cvfs7480jkt8a" path="res://Placeholder/Parede/chao.tscn" id="3_q4tad"]
 
-[sub_resource type="Environment" id="Environment_q4tad"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_b8gmu"]
+size = Vector3(0.01, 0.32, 1)
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_l1wsx"]
-
-[sub_resource type="Compositor" id="Compositor_f2als"]
-
-[node name="Node3D" type="WorldEnvironment" unique_id=427063010]
-environment = SubResource("Environment_q4tad")
-camera_attributes = SubResource("CameraAttributesPractical_l1wsx")
-compositor = SubResource("Compositor_f2als")
+[node name="Node3D" type="Node3D" unique_id=1592378380]
 
 [node name="testeHominho" parent="." unique_id=1046664859 node_paths=PackedStringArray("Camera") instance=ExtResource("2_b8gmu")]
-transform = Transform3D(0.1839711, 0, 0.1692768, 0, 0.25, 0, -0.1692768, 0, 0.1839711, 0, -0.06984034, 0)
-Camera = NodePath("../CameraPivot/Camera3D")
+transform = Transform3D(0.21650635, -0.03235238, 0.12074073, 0, 0.24148145, 0.06470476, -0.125, -0.056035966, 0.20912907, 0, -0.06984034, 0)
+Camera = NodePath("../CameraPivot")
 
-[node name="Base3D" parent="." unique_id=1082846217 instance=ExtResource("1_vjqar")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00011339784, 0, -0.32)
+[node name="Wall" type="Node3D" parent="." unique_id=1038879799]
 
-[node name="Base3D2" parent="." unique_id=1178844407 instance=ExtResource("1_vjqar")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.32, 0, -0.0089832395)
+[node name="Base3D" parent="Wall" unique_id=1082846217 instance=ExtResource("1_vjqar")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17114638, 0, -0.53650284)
 
-[node name="Base3D3" parent="." unique_id=1518925102 instance=ExtResource("1_vjqar")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.16, 0.15326613)
+[node name="Base3D3" parent="Wall" unique_id=1112546202 instance=ExtResource("1_vjqar")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1487088, 0, -0.53650284)
 
-[node name="Base3D4" parent="." unique_id=356043056 instance=ExtResource("1_vjqar")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.16, -0.16590628)
+[node name="Base3D6" parent="Wall" unique_id=739036149 instance=ExtResource("1_vjqar")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35005122, 0, -0.53650284)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=277099184]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.40844876)
-shadow_enabled = true
+[node name="Base3D2" parent="Wall" unique_id=1178844407 instance=ExtResource("1_vjqar")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.5, 0, 0.169)
 
-[node name="CameraPivot" type="Marker3D" parent="." unique_id=758610927 node_paths=PackedStringArray("Personagem")]
-transform = Transform3D(0.70710665, -0.35355338, 0.61237234, 0, 0.86602527, 0.4999999, -0.70710677, -0.35355332, 0.6123722, 0, 0.042659655, 0)
+[node name="Base3D4" parent="Wall" unique_id=1089480259 instance=ExtResource("1_vjqar")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.5, 0, -0.14513816)
+
+[node name="Base3D5" parent="Wall" unique_id=1705294839 instance=ExtResource("1_vjqar")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.5, 5.9604645e-08, -0.4)
+
+[node name="Ground" type="Node3D" parent="." unique_id=1211387815]
+
+[node name="Node3D" parent="Ground" unique_id=1091240536 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1637455, -0.15830734, 0.17600271)
+
+[node name="Node3D2" parent="Ground" unique_id=1820035507 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1637455, -0.15830734, -0.13085043)
+
+[node name="Node3D3" parent="Ground" unique_id=1642528397 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1637455, -0.15830734, -0.37298936)
+
+[node name="Node3D4" parent="Ground" unique_id=1882249009 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13800648, -0.15830734, 0.17600271)
+
+[node name="Node3D5" parent="Ground" unique_id=1418504955 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13800648, -0.15830734, -0.13085043)
+
+[node name="Node3D6" parent="Ground" unique_id=1948237522 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13800648, -0.15830734, -0.37298936)
+
+[node name="Node3D7" parent="Ground" unique_id=1396500470 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38770247, -0.15830734, 0.17600271)
+
+[node name="Node3D8" parent="Ground" unique_id=1072698020 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38770247, -0.15830734, -0.13085043)
+
+[node name="Node3D9" parent="Ground" unique_id=1959985446 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38770247, -0.15830734, -0.37298936)
+
+[node name="Limits" type="Node3D" parent="." unique_id=220032906]
+
+[node name="Invis" type="StaticBody3D" parent="Limits" unique_id=1357723782]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31942528, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Limits/Invis" unique_id=912787482]
+shape = SubResource("BoxShape3D_b8gmu")
+
+[node name="Invis2" type="StaticBody3D" parent="Limits" unique_id=1029212409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0020596683, 0, 0.3075046)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Limits/Invis2" unique_id=381466053]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_b8gmu")
+
+[node name="CameraPivot" type="Marker3D" parent="." unique_id=758610927 node_paths=PackedStringArray("Character")]
+transform = Transform3D(0.7071067, -0.12278777, 0.69636405, 0, 0.9848075, 0.17364813, -0.7071067, -0.12278777, 0.69636405, 0, 0.2, 0)
 script = ExtResource("3_b8gmu")
-Personagem = NodePath("../testeHominho")
+TargetSpeed = 2.0
+SmoothSpeed = 2.0
+DeadZone = null
+Character = NodePath("../testeHominho")
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=878034525]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, -1.1920929e-07, 1.0000002, 0.059084773, -0.12617935, 0.6225965)
+transform = Transform3D(0.9880894, 0.05503203, -0.14370498, -0.026721358, 0.9810393, 0.1919592, 0.15154415, -0.18583284, 0.97082496, -0.16490966, -0.111111104, 0.51128924)
+keep_aspect = 0
 current = true

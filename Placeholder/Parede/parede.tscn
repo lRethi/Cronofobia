@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bfqybp0no5khm"]
 
-[ext_resource type="Texture2D" uid="uid://dbrtbu57s0klg" path="res://Sprites/Placeholder/the_placehold.png" id="1_w20r4"]
+[ext_resource type="Texture2D" uid="uid://bho3fkg3qa3xt" path="res://Sprites/Cenario/Parede/pixil-frame-0(1).png" id="1_w20r4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gst2f"]
-size = Vector3(0.64, 0.32, 0.001)
+size = Vector3(0.32, 0.32, 0.001)
 
 [node name="Base3D" type="StaticBody3D" unique_id=1112546202]
 
@@ -11,4 +11,6 @@ size = Vector3(0.64, 0.32, 0.001)
 shape = SubResource("BoxShape3D_gst2f")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=411160877]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+sorting_offset = 1.0
 texture = ExtResource("1_w20r4")

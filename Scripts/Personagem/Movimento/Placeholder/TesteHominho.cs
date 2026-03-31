@@ -27,6 +27,9 @@ public partial class TesteHominho : CharacterBody3D
 
         Vector3 direction = (right * input.X + forward * input.Y);
 
+        if (direction.LengthSquared() > 0)
+            direction = direction.Normalized();
+
         v.X = direction.X * Speed;
         v.Z = direction.Z * Speed;
 
