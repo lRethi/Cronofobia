@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bfqybp0no5khm"]
+
+[ext_resource type="Texture2D" uid="uid://dbrtbu57s0klg" path="res://Sprites/Placeholder/the_placehold.png" id="1_w20r4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gst2f"]
+size = Vector3(0.64, 0.32, 0.001)
+
+[node name="Base3D" type="StaticBody3D" unique_id=1112546202]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=454416145]
+shape = SubResource("BoxShape3D_gst2f")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=411160877]
+texture = ExtResource("1_w20r4")

@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dd3yf0c5d5nvl"]
+
+[ext_resource type="PackedScene" uid="uid://bfqybp0no5khm" path="res://Placeholder/Parede/parede.tscn" id="1_vjqar"]
+[ext_resource type="PackedScene" uid="uid://4cvw5u3glyoy" path="res://Placeholder/Personagem/teste_hominho.tscn" id="2_b8gmu"]
+[ext_resource type="Script" uid="uid://dob3qddx7218q" path="res://Scripts/Camera/oObservador.cs" id="3_b8gmu"]
+
+[sub_resource type="Environment" id="Environment_q4tad"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_l1wsx"]
+
+[sub_resource type="Compositor" id="Compositor_f2als"]
+
+[node name="Node3D" type="WorldEnvironment" unique_id=427063010]
+environment = SubResource("Environment_q4tad")
+camera_attributes = SubResource("CameraAttributesPractical_l1wsx")
+compositor = SubResource("Compositor_f2als")
+
+[node name="testeHominho" parent="." unique_id=1046664859 node_paths=PackedStringArray("Camera") instance=ExtResource("2_b8gmu")]
+transform = Transform3D(0.1839711, 0, 0.1692768, 0, 0.25, 0, -0.1692768, 0, 0.1839711, 0, -0.06984034, 0)
+Camera = NodePath("../CameraPivot/Camera3D")
+
+[node name="Base3D" parent="." unique_id=1082846217 instance=ExtResource("1_vjqar")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00011339784, 0, -0.32)
+
+[node name="Base3D2" parent="." unique_id=1178844407 instance=ExtResource("1_vjqar")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.32, 0, -0.0089832395)
+
+[node name="Base3D3" parent="." unique_id=1518925102 instance=ExtResource("1_vjqar")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.16, 0.15326613)
+
+[node name="Base3D4" parent="." unique_id=356043056 instance=ExtResource("1_vjqar")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.16, -0.16590628)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=277099184]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.40844876)
+shadow_enabled = true
+
+[node name="CameraPivot" type="Marker3D" parent="." unique_id=758610927 node_paths=PackedStringArray("Personagem")]
+transform = Transform3D(0.70710665, -0.35355338, 0.61237234, 0, 0.86602527, 0.4999999, -0.70710677, -0.35355332, 0.6123722, 0, 0.042659655, 0)
+script = ExtResource("3_b8gmu")
+Personagem = NodePath("../testeHominho")
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=878034525]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, -1.1920929e-07, 1.0000002, 0.059084773, -0.12617935, 0.6225965)
+current = true
