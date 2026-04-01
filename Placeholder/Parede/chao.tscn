@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cvfs7480jkt8a"]
 
 [ext_resource type="Texture2D" uid="uid://b0mjt2vme6ob3" path="res://Sprites/Cenario/Chao/pixilart-drawing.png" id="1_6arkk"]
+[ext_resource type="Texture2D" uid="uid://dih8phs0t6c0u" path="res://Sprites/Cenario/Chao/pixil-frame-0(3).png" id="1_o18r3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o18r3"]
 size = Vector3(0.32, 0.32, 0.001)
@@ -14,3 +15,23 @@ shape = SubResource("BoxShape3D_o18r3")
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=454652147]
 transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -1, 0, 0.5, -4.371139e-08, 0, 0, 0)
 texture = ExtResource("1_6arkk")
+
+[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=1499893408]
+transform = Transform3D(0.5, 0, 0, 0, 0.08, 0, 0, 0, 0.2, -0.0014829189, -0.012566669, 0.1600607)
+sorting_offset = -1.0
+texture = ExtResource("1_o18r3")
+
+[node name="Sprite3D5" type="Sprite3D" parent="." unique_id=107656632]
+transform = Transform3D(0.5, 0, 0, 0, 0.08, 0, 0, 0, 0.2, -0.001, -0.013, -0.16)
+sorting_offset = -1.0
+texture = ExtResource("1_o18r3")
+
+[node name="Sprite3D3" type="Sprite3D" parent="." unique_id=1654605572]
+transform = Transform3D(-2.1855694e-08, 0, 0.2, 0, 0.08, 0, -0.5, 0, -8.742278e-09, -0.1612072, -0.010458579, 0.0012546778)
+sorting_offset = -1.0
+texture = ExtResource("1_o18r3")
+
+[node name="Sprite3D4" type="Sprite3D" parent="." unique_id=1288950117]
+transform = Transform3D(-2.1855694e-08, 0, 0.2, 0, 0.08, 0, -0.5, 0, -8.742278e-09, 0.16, -0.01, 0.001)
+sorting_offset = -1.0
+texture = ExtResource("1_o18r3")

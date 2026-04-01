@@ -19,4 +19,5 @@ shape = SubResource("BoxShape3D_e1q36")
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=523375165]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 sorting_offset = 2.0
+billboard = 1
 texture = SubResource("CompressedTexture2D_33q46")
