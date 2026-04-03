@@ -15,9 +15,21 @@ run/main_scene="uid://dd3yf0c5d5nvl"
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PhantomCameraManager="*uid://duq6jhf6unyis"
+
+[display]
+
+window/stretch/mode="viewport"
+
 [dotnet]
 
 project/assembly_name="My Hobo in Christ"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 
 [input]
 
@@ -45,6 +57,11 @@ move_left={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194319,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+move_jump={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+]
+}
 
 [physics]
 
@@ -52,5 +69,11 @@ move_left={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
+textures/canvas_textures/default_texture_repeat=1
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+anti_aliasing/quality/screen_space_aa=1
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true

@@ -1,45 +1,202 @@
 [gd_scene format=3 uid="uid://dd3yf0c5d5nvl"]
 
-[ext_resource type="PackedScene" uid="uid://bfqybp0no5khm" path="res://Placeholder/Parede/parede.tscn" id="1_vjqar"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_l1wsx"]
 [ext_resource type="PackedScene" uid="uid://4cvw5u3glyoy" path="res://Placeholder/Personagem/teste_hominho.tscn" id="2_b8gmu"]
-[ext_resource type="Script" uid="uid://dob3qddx7218q" path="res://Scripts/Camera/oObservador.cs" id="3_b8gmu"]
+[ext_resource type="PackedScene" uid="uid://d1jl8o6ywc7ly" path="res://Placeholder/Chao/chaoGrama.tscn" id="3_q4tad"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_f2als"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_mgg4v"]
+[ext_resource type="PackedScene" uid="uid://d4fcfd7ouy05p" path="res://Placeholder/Parede/paredeGrade.tscn" id="6_mgg4v"]
+[ext_resource type="Script" uid="uid://cdal5bf1xbslq" path="res://Placeholder/rotCameraOnMouse.cs" id="6_p7j5j"]
+[ext_resource type="PackedScene" uid="uid://bfqybp0no5khm" path="res://Placeholder/Parede/paredeGen.tscn" id="7_5ge65"]
+[ext_resource type="PackedScene" uid="uid://dasldeekug1l1" path="res://Placeholder/Parede/paredeAberta.tscn" id="8_5ge65"]
 
-[sub_resource type="Environment" id="Environment_q4tad"]
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_b8gmu"]
+rayleigh_color = Color(0.56830424, 0.34085763, 0.21422952, 1)
+ground_color = Color(0.021633534, 0.012653858, 0.0057008406, 1)
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_l1wsx"]
+[sub_resource type="Sky" id="Sky_q4tad"]
+sky_material = SubResource("PhysicalSkyMaterial_b8gmu")
 
-[sub_resource type="Compositor" id="Compositor_f2als"]
+[sub_resource type="Environment" id="Environment_l1wsx"]
+background_mode = 2
+sky = SubResource("Sky_q4tad")
+adjustment_enabled = true
+adjustment_contrast = 0.9
+adjustment_saturation = 0.75
 
-[node name="Node3D" type="WorldEnvironment" unique_id=427063010]
-environment = SubResource("Environment_q4tad")
-camera_attributes = SubResource("CameraAttributesPractical_l1wsx")
-compositor = SubResource("Compositor_f2als")
+[sub_resource type="Resource" id="Resource_5ge65"]
+script = ExtResource("5_mgg4v")
 
-[node name="testeHominho" parent="." unique_id=1046664859 node_paths=PackedStringArray("Camera") instance=ExtResource("2_b8gmu")]
-transform = Transform3D(0.1839711, 0, 0.1692768, 0, 0.25, 0, -0.1692768, 0, 0.1839711, 0, -0.06984034, 0)
-Camera = NodePath("../CameraPivot/Camera3D")
+[node name="Node3D" type="Node3D" unique_id=1702091423]
 
-[node name="Base3D" parent="." unique_id=1082846217 instance=ExtResource("1_vjqar")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00011339784, 0, -0.32)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=219137219]
+environment = SubResource("Environment_l1wsx")
 
-[node name="Base3D2" parent="." unique_id=1178844407 instance=ExtResource("1_vjqar")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.32, 0, -0.0089832395)
+[node name="DirectionalLight3D_Sky" type="DirectionalLight3D" parent="." unique_id=277099184]
+transform = Transform3D(0.5597268, 0.80208206, -0.20825574, -0.11338065, 0.3230724, 0.939558, 0.8208843, -0.5022836, 0.2717728, -2.9030802, 4.006551, 2.2080455)
+light_energy = 20.0
+sky_mode = 2
 
-[node name="Base3D3" parent="." unique_id=1518925102 instance=ExtResource("1_vjqar")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.16, 0.15326613)
-
-[node name="Base3D4" parent="." unique_id=356043056 instance=ExtResource("1_vjqar")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.16, -0.16590628)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=277099184]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.40844876)
+[node name="DirectionalLight3D_Sun" type="DirectionalLight3D" parent="." unique_id=904278444]
+transform = Transform3D(0.785724, 0.37418485, -0.4925682, -0.099354185, 0.86229426, 0.4965656, 0.610546, -0.34122482, 0.71470207, 0.57065225, 1.6545168, 2.294776)
+light_color = Color(0.53438896, 0.24995375, 0.14346337, 1)
 shadow_enabled = true
+shadow_bias = 5.0
+shadow_normal_bias = 1.0
+sky_mode = 1
 
-[node name="CameraPivot" type="Marker3D" parent="." unique_id=758610927 node_paths=PackedStringArray("Personagem")]
-transform = Transform3D(0.70710665, -0.35355338, 0.61237234, 0, 0.86602527, 0.4999999, -0.70710677, -0.35355332, 0.6123722, 0, 0.042659655, 0)
-script = ExtResource("3_b8gmu")
-Personagem = NodePath("../testeHominho")
+[node name="Ground" type="Node3D" parent="." unique_id=544070768]
 
-[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=878034525]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, -1.1920929e-07, 1.0000002, 0.059084773, -0.12617935, 0.6225965)
-current = true
+[node name="Base3D" parent="Ground" unique_id=1112546202 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.64, 0, -0.59)
+
+[node name="Base3D2" parent="Ground" unique_id=1308661472 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.64, 0, 0.05)
+
+[node name="Base3D3" parent="Ground" unique_id=212125171 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -0.59)
+
+[node name="Base3D4" parent="Ground" unique_id=2121312483 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.05)
+
+[node name="Base3D9" parent="Ground" unique_id=168150402 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.6244446, 0, -0.59)
+
+[node name="Base3D10" parent="Ground" unique_id=307291783 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.6244446, 0, 0.05)
+
+[node name="Base3D11" parent="Ground" unique_id=1243884941 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1.2644446, 0, -0.59)
+
+[node name="Base3D12" parent="Ground" unique_id=738438211 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1.2644446, 0, 0.05)
+
+[node name="Base3D5" parent="Ground" unique_id=43498978 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.912, 0, -0.59)
+
+[node name="Base3D6" parent="Ground" unique_id=117778016 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.912, 0, 0.05)
+
+[node name="Base3D7" parent="Ground" unique_id=1926433370 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.2727149, 0, -0.59)
+
+[node name="Base3D8" parent="Ground" unique_id=687202424 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.2727149, 0, 0.05)
+
+[node name="Base3D25" parent="Ground" unique_id=1453179346 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.64, 0, -1.8531094)
+
+[node name="Base3D26" parent="Ground" unique_id=1116005422 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.64, 0, -1.2131095)
+
+[node name="Base3D27" parent="Ground" unique_id=444090347 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -1.8531094)
+
+[node name="Base3D28" parent="Ground" unique_id=1297915114 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -1.2131095)
+
+[node name="Base3D29" parent="Ground" unique_id=1251485317 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.6244446, 0, -1.8531094)
+
+[node name="Base3D30" parent="Ground" unique_id=1272366421 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.6244446, 0, -1.2131095)
+
+[node name="Base3D31" parent="Ground" unique_id=30455487 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1.2644446, 0, -1.8531094)
+
+[node name="Base3D32" parent="Ground" unique_id=965856975 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1.2644446, 0, -1.2131095)
+
+[node name="Base3D33" parent="Ground" unique_id=167682702 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.912, 0, -1.8531094)
+
+[node name="Base3D34" parent="Ground" unique_id=1448297230 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.912, 0, -1.2131095)
+
+[node name="Base3D35" parent="Ground" unique_id=39026596 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.2727149, 0, -1.8531094)
+
+[node name="Base3D36" parent="Ground" unique_id=1559678558 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.2727149, 0, -1.2131095)
+
+[node name="Base3D13" parent="Ground" unique_id=2021173392 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.64, 0, 0.6912717)
+
+[node name="Base3D14" parent="Ground" unique_id=1511591155 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.64, 0, 1.3312716)
+
+[node name="Base3D15" parent="Ground" unique_id=1191930319 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.6912717)
+
+[node name="Base3D16" parent="Ground" unique_id=583309 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 1.3312716)
+
+[node name="Base3D17" parent="Ground" unique_id=308311025 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.6244446, 0, 0.6912717)
+
+[node name="Base3D18" parent="Ground" unique_id=1381892397 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.6244446, 0, 1.3312716)
+
+[node name="Base3D19" parent="Ground" unique_id=1698587466 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1.2644446, 0, 0.6912717)
+
+[node name="Base3D20" parent="Ground" unique_id=179759089 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1.2644446, 0, 1.3312716)
+
+[node name="Base3D22" parent="Ground" unique_id=1890534040 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.912, 0, 1.3312716)
+
+[node name="Base3D23" parent="Ground" unique_id=1115989656 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.2727149, 0, 0.6912717)
+
+[node name="Base3D24" parent="Ground" unique_id=1382248706 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.2727149, 0, 1.3312716)
+
+[node name="Base3D37" parent="Ground" unique_id=605763544 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.41477418, 0.1898182, 0.90730935)
+
+[node name="testeHominho" parent="." unique_id=1046664859 node_paths=PackedStringArray("cameraNode") instance=ExtResource("2_b8gmu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1447776, 0.20573959, -0.34946325)
+cameraNode = NodePath("../PhantomCamera3D")
+
+[node name="Base3D" parent="." unique_id=886481567 instance=ExtResource("6_mgg4v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1851468, 0.32006353, -2.123322)
+
+[node name="Base3D2" parent="." unique_id=927966306 instance=ExtResource("6_mgg4v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8281443, 0.3200633, -2.1189768)
+
+[node name="Base3D3" parent="." unique_id=1456007275 instance=ExtResource("7_5ge65")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7446685, 0.16006365, -1.232658)
+
+[node name="Base3D4" parent="." unique_id=1871878929 instance=ExtResource("8_5ge65")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47880197, 0.32006365, -1.1025171)
+
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1167174207 node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1447776, 0.20573959, 0.6505368)
+script = ExtResource("4_f2als")
+follow_mode = 6
+follow_target = NodePath("../testeHominho")
+tween_resource = SubResource("Resource_5ge65")
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+align_rotation_with_view = Callable()
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1005305001]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.50000006, 0, -0.50000006, 0.8660254, 0.1447776, 0.7057396, 0.5165621)
+top_level = true
+fov = 90.0
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=1356699522]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("1_l1wsx")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=430484026 node_paths=PackedStringArray("cameraNode")]
+script = ExtResource("6_p7j5j")
+cameraNode = NodePath("../PhantomCamera3D")
+
+[node name="Base3D5" parent="." unique_id=1501155010 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.9102066, 4.7683716e-07, 0.6911942)

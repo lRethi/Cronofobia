@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bfqybp0no5khm"]
+
+[ext_resource type="Texture2D" uid="uid://dlvhq5ju0qlpy" path="res://Sprites/Cenario/pixil-frame-0.png" id="1_bxynh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gst2f"]
+size = Vector3(0.64, 0.32, 0.005)
+
+[node name="Base3D" type="StaticBody3D" unique_id=1112546202]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=454416145]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00015625358, 0.0010461435, 0)
+shape = SubResource("BoxShape3D_gst2f")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=411160877]
+shaded = true
+alpha_cut = 3
+texture_filter = 0
+texture = ExtResource("1_bxynh")
