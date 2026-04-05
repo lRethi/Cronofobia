@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dd3yf0c5d5nvl"]
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_l1wsx"]
+[ext_resource type="Script" uid="uid://dwbafmkhb60pp" path="res://GameState.cs" id="1_smobe"]
 [ext_resource type="PackedScene" uid="uid://4cvw5u3glyoy" path="res://Placeholder/Personagem/teste_hominho.tscn" id="2_b8gmu"]
 [ext_resource type="PackedScene" uid="uid://d1jl8o6ywc7ly" path="res://Placeholder/Chao/chaoGrama.tscn" id="3_q4tad"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_f2als"]
@@ -8,7 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://d4fcfd7ouy05p" path="res://Placeholder/Parede/paredeGrade.tscn" id="6_mgg4v"]
 [ext_resource type="Script" uid="uid://cdal5bf1xbslq" path="res://Placeholder/rotCameraOnMouse.cs" id="6_p7j5j"]
 [ext_resource type="PackedScene" uid="uid://bfqybp0no5khm" path="res://Placeholder/Parede/paredeGen.tscn" id="7_5ge65"]
+[ext_resource type="Script" uid="uid://g406lwqsh4u2" path="res://Objetos/Personagens/mecanicaIniciarDialogo.cs" id="7_igvpc"]
 [ext_resource type="PackedScene" uid="uid://dasldeekug1l1" path="res://Placeholder/Parede/paredeAberta.tscn" id="8_5ge65"]
+[ext_resource type="Resource" uid="uid://bkqe00n2qo2l6" path="res://Assets/Dialogos/teste.dialogue" id="8_qxm0q"]
+[ext_resource type="PackedScene" uid="uid://ctandxc0poegn" path="res://Objetos/Personagens/SirMinhoca.tscn" id="10_nkdv0"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_b8gmu"]
 rayleigh_color = Color(0.56830424, 0.34085763, 0.21422952, 1)
@@ -28,6 +32,9 @@ adjustment_saturation = 0.75
 script = ExtResource("5_mgg4v")
 
 [node name="Node3D" type="Node3D" unique_id=1702091423]
+
+[node name="GameState" type="Node" parent="." unique_id=2009294268]
+script = ExtResource("1_smobe")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=219137219]
 environment = SubResource("Environment_l1wsx")
@@ -155,38 +162,40 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.27
 [node name="Base3D37" parent="Ground" unique_id=605763544 instance=ExtResource("3_q4tad")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.41477418, 0.1898182, 0.90730935)
 
+[node name="Base3D21" parent="Ground" unique_id=1501155010 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.9102066, 4.7683716e-07, 0.6911942)
+
+[node name="Base3D38" parent="Ground" unique_id=886481567 instance=ExtResource("6_mgg4v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1851468, 0.32006353, -2.123322)
+
+[node name="Base3D39" parent="Ground" unique_id=927966306 instance=ExtResource("6_mgg4v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8281443, 0.3200633, -2.1189768)
+
+[node name="Base3D40" parent="Ground" unique_id=1456007275 instance=ExtResource("7_5ge65")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7446685, 0.16006365, -1.232658)
+
+[node name="Base3D41" parent="Ground" unique_id=1871878929 instance=ExtResource("8_5ge65")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47880197, 0.32006365, -1.1025171)
+
 [node name="testeHominho" parent="." unique_id=1046664859 node_paths=PackedStringArray("cameraNode") instance=ExtResource("2_b8gmu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1447776, 0.20573959, -0.34946325)
 cameraNode = NodePath("../PhantomCamera3D")
 
-[node name="Base3D" parent="." unique_id=886481567 instance=ExtResource("6_mgg4v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1851468, 0.32006353, -2.123322)
+[node name="SirNhoca" parent="." unique_id=1088714365 node_paths=PackedStringArray("personagem") instance=ExtResource("10_nkdv0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.71313715, 0.09082116, 0.41039884)
+script = ExtResource("7_igvpc")
+dialogue = ExtResource("8_qxm0q")
+personagem = NodePath("../testeHominho")
 
-[node name="Base3D2" parent="." unique_id=927966306 instance=ExtResource("6_mgg4v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8281443, 0.3200633, -2.1189768)
-
-[node name="Base3D3" parent="." unique_id=1456007275 instance=ExtResource("7_5ge65")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7446685, 0.16006365, -1.232658)
-
-[node name="Base3D4" parent="." unique_id=1871878929 instance=ExtResource("8_5ge65")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47880197, 0.32006365, -1.1025171)
-
-[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1167174207 node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1447776, 0.20573959, 0.6505368)
-script = ExtResource("4_f2als")
-follow_mode = 6
-follow_target = NodePath("../testeHominho")
-tween_resource = SubResource("Resource_5ge65")
-align_transform_with_view = Callable()
-align_position_with_view = Callable()
-align_rotation_with_view = Callable()
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+[node name="Sprite3D" parent="SirNhoca" index="1" unique_id=1766881007 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../testeHominho")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1005305001]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.50000006, 0, -0.50000006, 0.8660254, 0.1447776, 0.7057396, 0.5165621)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1447776, 0.20573959, 0.6505368)
 top_level = true
 fov = 90.0
+near = 0.1
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=1356699522]
 process_priority = 300
@@ -198,5 +207,16 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 script = ExtResource("6_p7j5j")
 cameraNode = NodePath("../PhantomCamera3D")
 
-[node name="Base3D5" parent="." unique_id=1501155010 instance=ExtResource("3_q4tad")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.9102066, 4.7683716e-07, 0.6911942)
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1167174207 node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1447776, 0.20573959, 0.6505368)
+script = ExtResource("4_f2als")
+follow_mode = 6
+follow_target = NodePath("../testeHominho")
+tween_resource = SubResource("Resource_5ge65")
+collision_mask = 22
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+align_rotation_with_view = Callable()
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[editable path="SirNhoca"]

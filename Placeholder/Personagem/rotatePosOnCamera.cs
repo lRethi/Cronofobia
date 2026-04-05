@@ -18,6 +18,9 @@ public partial class rotatePosOnCamera : Sprite3D
 		direcao.Y = 0;
 		direcao = -direcao;
 
-		LookAt(GlobalPosition + direcao, Vector3.Up);
+		if (GetParent() is Node3D parentNode)
+		{
+			parentNode.LookAt(parentNode.GlobalPosition + direcao, Vector3.Up);
+		}
 	}
 }

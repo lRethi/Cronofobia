@@ -8,6 +8,8 @@
 size = Vector3(0.25, 0.32, 0.001)
 
 [node name="testeHominho" type="CharacterBody3D" unique_id=1046664859]
+collision_mask = 15
+platform_wall_layers = 4
 script = ExtResource("1_3hk36")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1464751793]
@@ -22,6 +24,7 @@ shaded = true
 alpha_cut = 2
 alpha_antialiasing_mode = 1
 alpha_antialiasing_edge = 0.1
+texture_filter = 0
 render_priority = 5
 texture = ExtResource("2_3hk36")
 script = ExtResource("3_qgn2i")

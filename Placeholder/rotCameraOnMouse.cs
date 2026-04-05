@@ -6,7 +6,7 @@ using System;
 public partial class rotCameraOnMouse : Node3D
 {
 	[Export] Node cameraNode;
-	float sensibilidade = 0.05f;
+	float sensibilidade = 0.1f;
 	float yaw;
 	float pitch;
 	// Called when the node enters the scene tree for the first time.
@@ -18,12 +18,15 @@ public partial class rotCameraOnMouse : Node3D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Input(InputEvent @event)
 	{
+		if (GameState.EmDialogo)
+			return;
+
 		if (@event is InputEventMouseMotion motion)
 		{
 			yaw += -motion.Relative.X * sensibilidade;
 			pitch -= -motion.Relative.Y * sensibilidade;
 			yaw = Mathf.Wrap(yaw, -180f, 180f);
-			pitch = Mathf.Clamp(pitch, -35f, 35f);
+			pitch = Mathf.Clamp(pitch, -35f, 15f);
 		}
 	}
 

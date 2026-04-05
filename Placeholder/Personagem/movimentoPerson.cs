@@ -11,6 +11,20 @@ public partial class movimentoPerson : CharacterBody3D
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector3 velocity = Velocity;
+		if (GameState.EmDialogo)
+		{
+			// continua aplicando gravidade
+			if (!IsOnFloor())
+				velocity += GetGravity() * (float)delta;
+
+			// trava mov horizontal
+			velocity.X = 0;
+			velocity.Z = 0;
+
+			Velocity = velocity;
+			MoveAndSlide();
+			return;
+		}
 
 		if (!IsOnFloor())
 			velocity += GetGravity() * (float)delta;
