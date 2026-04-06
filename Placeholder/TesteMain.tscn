@@ -1,93 +1,132 @@
 [gd_scene format=3 uid="uid://dd3yf0c5d5nvl"]
 
-[ext_resource type="PackedScene" uid="uid://bfqybp0no5khm" path="res://Placeholder/Parede/parede.tscn" id="1_vjqar"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_l1wsx"]
+[ext_resource type="Script" uid="uid://dwbafmkhb60pp" path="res://GameState.cs" id="1_smobe"]
 [ext_resource type="PackedScene" uid="uid://4cvw5u3glyoy" path="res://Placeholder/Personagem/teste_hominho.tscn" id="2_b8gmu"]
-[ext_resource type="Script" uid="uid://dob3qddx7218q" path="res://Scripts/Camera/oObservador.cs" id="3_b8gmu"]
-[ext_resource type="PackedScene" uid="uid://cvfs7480jkt8a" path="res://Placeholder/Parede/chao.tscn" id="3_q4tad"]
+[ext_resource type="PackedScene" uid="uid://d1jl8o6ywc7ly" path="res://Placeholder/Chao/chaoGrama.tscn" id="3_q4tad"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_f2als"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_mgg4v"]
+[ext_resource type="PackedScene" uid="uid://d4fcfd7ouy05p" path="res://Placeholder/Parede/paredeGrade.tscn" id="6_mgg4v"]
+[ext_resource type="Script" uid="uid://cdal5bf1xbslq" path="res://Placeholder/rotCameraOnMouse.cs" id="6_p7j5j"]
+[ext_resource type="PackedScene" uid="uid://bfqybp0no5khm" path="res://Placeholder/Parede/paredeGen.tscn" id="7_5ge65"]
+[ext_resource type="Script" uid="uid://g406lwqsh4u2" path="res://Objetos/Personagens/mecanicaIniciarDialogo.cs" id="7_igvpc"]
+[ext_resource type="PackedScene" uid="uid://dasldeekug1l1" path="res://Placeholder/Parede/paredeAberta.tscn" id="8_5ge65"]
+[ext_resource type="Resource" uid="uid://bkqe00n2qo2l6" path="res://Assets/Dialogos/teste.dialogue" id="8_qxm0q"]
+[ext_resource type="PackedScene" uid="uid://ctandxc0poegn" path="res://Objetos/Personagens/SirMinhoca.tscn" id="10_nkdv0"]
+[ext_resource type="PackedScene" uid="uid://bmewbkg4s48ic" path="res://Placeholder/Chao/chaoCalcada.tscn" id="14_mvrps"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_b8gmu"]
-size = Vector3(0.01, 0.32, 1)
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_b8gmu"]
+rayleigh_color = Color(0.56830424, 0.34085763, 0.21422952, 1)
+ground_color = Color(0.021633534, 0.012653858, 0.0057008406, 1)
 
-[node name="Node3D" type="Node3D" unique_id=1592378380]
+[sub_resource type="Sky" id="Sky_q4tad"]
+sky_material = SubResource("PhysicalSkyMaterial_b8gmu")
 
-[node name="testeHominho" parent="." unique_id=1046664859 node_paths=PackedStringArray("Camera") instance=ExtResource("2_b8gmu")]
-transform = Transform3D(0.21650635, -0.03235238, 0.12074073, 0, 0.24148145, 0.06470476, -0.125, -0.056035966, 0.20912907, 0, -0.06984034, 0)
-Camera = NodePath("../CameraPivot")
+[sub_resource type="Environment" id="Environment_l1wsx"]
+background_mode = 2
+sky = SubResource("Sky_q4tad")
+adjustment_enabled = true
+adjustment_contrast = 0.9
+adjustment_saturation = 0.75
 
-[node name="Wall" type="Node3D" parent="." unique_id=1038879799]
+[sub_resource type="Sky" id="Sky_smobe"]
 
-[node name="Base3D" parent="Wall" unique_id=1082846217 instance=ExtResource("1_vjqar")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17114638, 0, -0.53650284)
+[sub_resource type="LightmapGIData" id="LightmapGIData_mvrps"]
 
-[node name="Base3D3" parent="Wall" unique_id=1112546202 instance=ExtResource("1_vjqar")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1487088, 0, -0.53650284)
+[sub_resource type="Resource" id="Resource_5ge65"]
+script = ExtResource("5_mgg4v")
 
-[node name="Base3D6" parent="Wall" unique_id=739036149 instance=ExtResource("1_vjqar")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35005122, 0, -0.53650284)
+[node name="Node3D" type="Node3D" unique_id=1702091423]
 
-[node name="Base3D2" parent="Wall" unique_id=1178844407 instance=ExtResource("1_vjqar")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.5, 0, 0.169)
+[node name="GameState" type="Node" parent="." unique_id=2009294268]
+script = ExtResource("1_smobe")
 
-[node name="Base3D4" parent="Wall" unique_id=1089480259 instance=ExtResource("1_vjqar")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.5, 0, -0.14513816)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=219137219]
+environment = SubResource("Environment_l1wsx")
 
-[node name="Base3D5" parent="Wall" unique_id=1705294839 instance=ExtResource("1_vjqar")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.5, 5.9604645e-08, -0.4)
+[node name="DirectionalLight3D_Sky" type="DirectionalLight3D" parent="." unique_id=277099184]
+transform = Transform3D(0.5597268, 0.80208206, -0.20825574, -0.11338065, 0.3230724, 0.939558, 0.8208843, -0.5022836, 0.2717728, -2.9030802, 4.006551, 2.2080455)
+light_energy = 20.0
+sky_mode = 2
 
-[node name="Ground" type="Node3D" parent="." unique_id=1211387815]
+[node name="DirectionalLight3D_Sun" type="DirectionalLight3D" parent="." unique_id=904278444]
+transform = Transform3D(0.78572404, 0.37418485, -0.49256822, -0.09935419, 0.86229426, 0.4965656, 0.61054605, -0.34122482, 0.7147021, 0.57065225, 1.6545168, 2.294776)
+light_color = Color(0.53438896, 0.24995375, 0.14346337, 1)
+shadow_enabled = true
+shadow_bias = 5.0
+sky_mode = 1
 
-[node name="Node3D" parent="Ground" unique_id=1091240536 instance=ExtResource("3_q4tad")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1637455, -0.15830734, 0.17600271)
+[node name="LightmapGI" type="LightmapGI" parent="." unique_id=1632256123]
+quality = 2
+directional = true
+environment_mode = 2
+environment_custom_sky = SubResource("Sky_smobe")
+light_data = SubResource("LightmapGIData_mvrps")
 
-[node name="Node3D2" parent="Ground" unique_id=1820035507 instance=ExtResource("3_q4tad")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1637455, -0.15830734, -0.13085043)
+[node name="Ground" type="Node3D" parent="." unique_id=544070768]
 
-[node name="Node3D3" parent="Ground" unique_id=1642528397 instance=ExtResource("3_q4tad")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1637455, -0.15830734, -0.37298936)
+[node name="Base3D" parent="Ground" unique_id=1112546202 instance=ExtResource("3_q4tad")]
+transform = Transform3D(10, 0, 0, 0, -4.371139e-07, -10, 0, 10, -4.371139e-07, 0.64, 0, -0.59)
 
-[node name="Node3D4" parent="Ground" unique_id=1882249009 instance=ExtResource("3_q4tad")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13800648, -0.15830734, 0.17600271)
+[node name="Base3D37" parent="." unique_id=605763544 instance=ExtResource("3_q4tad")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.41477418, 0.1898182, 0.90730935)
 
-[node name="Node3D5" parent="Ground" unique_id=1418504955 instance=ExtResource("3_q4tad")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13800648, -0.15830734, -0.13085043)
+[node name="Base3D38" parent="." unique_id=886481567 instance=ExtResource("6_mgg4v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1851468, 0.32006353, -2.123322)
 
-[node name="Node3D6" parent="Ground" unique_id=1948237522 instance=ExtResource("3_q4tad")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13800648, -0.15830734, -0.37298936)
+[node name="Base3D39" parent="." unique_id=927966306 instance=ExtResource("6_mgg4v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8281443, 0.3200633, -2.1189768)
 
-[node name="Node3D7" parent="Ground" unique_id=1396500470 instance=ExtResource("3_q4tad")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38770247, -0.15830734, 0.17600271)
+[node name="Base3D40" parent="." unique_id=1456007275 instance=ExtResource("7_5ge65")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7446685, 0.16006365, -1.232658)
 
-[node name="Node3D8" parent="Ground" unique_id=1072698020 instance=ExtResource("3_q4tad")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38770247, -0.15830734, -0.13085043)
+[node name="Base3D41" parent="." unique_id=1871878929 instance=ExtResource("8_5ge65")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47880197, 0.32006365, -1.1025171)
 
-[node name="Node3D9" parent="Ground" unique_id=1959985446 instance=ExtResource("3_q4tad")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38770247, -0.15830734, -0.37298936)
+[node name="testeHominho" parent="." unique_id=1046664859 node_paths=PackedStringArray("cameraNode") instance=ExtResource("2_b8gmu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1447776, 0.20573959, -0.34946325)
+cameraNode = NodePath("../PhantomCamera3D")
 
-[node name="Limits" type="Node3D" parent="." unique_id=220032906]
+[node name="SirNhoca" parent="." unique_id=1088714365 node_paths=PackedStringArray("personagem") instance=ExtResource("10_nkdv0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.71313715, 0.09082116, 0.41039884)
+script = ExtResource("7_igvpc")
+dialogue = ExtResource("8_qxm0q")
+personagem = NodePath("../testeHominho")
 
-[node name="Invis" type="StaticBody3D" parent="Limits" unique_id=1357723782]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31942528, 0, 0)
+[node name="Sprite3D" parent="SirNhoca" index="1" unique_id=1766881007 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../testeHominho")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Limits/Invis" unique_id=912787482]
-shape = SubResource("BoxShape3D_b8gmu")
-
-[node name="Invis2" type="StaticBody3D" parent="Limits" unique_id=1029212409]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0020596683, 0, 0.3075046)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Limits/Invis2" unique_id=381466053]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
-shape = SubResource("BoxShape3D_b8gmu")
-
-[node name="CameraPivot" type="Marker3D" parent="." unique_id=758610927 node_paths=PackedStringArray("Character")]
-transform = Transform3D(0.7071067, -0.18301263, 0.6830125, 0, 0.9659255, 0.25881895, -0.7071067, -0.18301263, 0.6830125, 0.38779888, 0.16015059, 0.43623325)
-script = ExtResource("3_b8gmu")
-TargetSpeed = 2.0
-SmoothSpeed = 2.0
-DeadZone = null
-Character = NodePath("../testeHominho")
-
-[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=878034525]
-transform = Transform3D(0.9880894, 0.05503203, -0.14370498, -0.026721358, 0.9810393, 0.1919592, 0.15154415, -0.18583284, 0.97082496, -0.03558807, -0.027313702, 0.09604779)
-keep_aspect = 0
-current = true
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1005305001]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1447776, 0.20573959, 0.6505368)
+top_level = true
 fov = 90.0
+near = 0.1
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=1356699522]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("1_l1wsx")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=430484026 node_paths=PackedStringArray("cameraNode")]
+script = ExtResource("6_p7j5j")
+cameraNode = NodePath("../PhantomCamera3D")
+
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1167174207 node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1447776, 0.20573959, 0.6505368)
+script = ExtResource("4_f2als")
+follow_mode = 6
+follow_target = NodePath("../testeHominho")
+tween_resource = SubResource("Resource_5ge65")
+collision_mask = 22
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+align_rotation_with_view = Callable()
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Base3D" parent="." unique_id=1596922163 instance=ExtResource("14_mvrps")]
+transform = Transform3D(3, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 4.830269, 0.0074181557, -0.43249533)
+
+[editable path="Ground/Base3D"]
+[editable path="SirNhoca"]

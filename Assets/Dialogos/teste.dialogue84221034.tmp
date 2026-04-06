@@ -1,0 +1,41 @@
+~ start
+
+if GetFlag("aceitou_ajuda"):
+    => accepted_help
+
+if GetFlag("recusou_ajuda"):
+    => refused_help
+
+Protagonista: Cara... Quem é você?
+Sir Minhoca: Hahah! Isso importa, amigão?
+Sir Minhoca: Tô precisando de uma coisa...
+Sir Minhoca: Pode conseguir água pra mim?
+
+- Pode ser.
+    do SetFlag("aceitou_ajuda")
+    Sir Minhoca: Aí sim! Me traz um copo das boas.
+    => END
+
+- Melhor não.
+    do SetFlag("recusou_ajuda")
+    Sir Minhoca: Poxa... Sérião? Bom, então tá né.
+    => END
+
+
+~ accepted_help
+Sir Minhoca: *assobiando* Uma águinha na lagoaaa...
+=> END
+
+
+~ refused_help
+Sir Minhoca: Cara... Certeza que não quer ajudar?
+
+- Tá... Pode ser.
+    do SetFlag("aceitou_ajuda")
+	do SetFlag("recusou_ajuda", false)
+    Sir Minhoca: Aí sim! Prometo que vai valer a pena!
+    => END
+
+- Já disse que não.
+    Sir Minhoca: Tá bom... Mas se mudar de ideia!
+    => END

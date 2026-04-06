@@ -1,17 +1,19 @@
 [gd_scene format=3 uid="uid://d1jl8o6ywc7ly"]
 
+[ext_resource type="Texture2D" uid="uid://b0mjt2vme6ob3" path="res://Sprites/Cenario/Chao/pixilart-drawing.png" id="1_k3m5n"]
 [ext_resource type="Texture2D" uid="uid://m7x7upm0lnhp" path="res://Sprites/Cenario/pixilart-drawing.png" id="1_yjwan"]
 [ext_resource type="Texture2D" uid="uid://dyg3doyp5561r" path="res://Sprites/Cenario/pixil-frame-0(3).png" id="2_k3m5n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gst2f"]
 size = Vector3(0.64, 0.64, 0.16)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yjwan"]
-render_priority = 1
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("1_yjwan")
-detail_albedo = ExtResource("1_yjwan")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_akuvx"]
+albedo_texture = ExtResource("1_k3m5n")
+uv1_world_triplanar = true
+uv2_triplanar = true
+uv2_world_triplanar = true
 texture_filter = 0
+texture_repeat = false
 
 [node name="Base3D" type="StaticBody3D" unique_id=1112546202]
 collision_layer = 2
@@ -24,7 +26,8 @@ debug_color = Color(0.91764706, 0, 0.56078434, 1)
 
 [node name="spriteChaoBase" type="Sprite3D" parent="." unique_id=411160877]
 transform = Transform3D(1, 0, 0, 0, -1, 1.509958e-07, 0, -1.509958e-07, -1, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_yjwan")
+material_override = SubResource("StandardMaterial3D_akuvx")
+transparent = false
 shaded = true
 alpha_cut = 1
 texture_filter = 0
@@ -34,6 +37,7 @@ region_rect = Rect2(64, 0, 32, 0)
 
 [node name="spriteSkirt1" type="Sprite3D" parent="." unique_id=2043371189]
 transform = Transform3D(1, 0, 0, 0, -2.6226834e-08, 1, 0, -0.6, -4.371139e-08, 0, 0.31895557, 0.09514638)
+transparent = false
 shaded = true
 alpha_cut = 1
 alpha_antialiasing_mode = 1
@@ -45,6 +49,7 @@ region_rect = Rect2(64, 0, 32, 0)
 
 [node name="spriteSkirt2" type="Sprite3D" parent="." unique_id=774333031]
 transform = Transform3D(1, 0, 0, 0, -2.6226834e-08, 1, 0, -0.6, -4.371139e-08, 0, -0.32, 0.095)
+transparent = false
 shaded = true
 alpha_cut = 1
 alpha_antialiasing_mode = 1
@@ -56,6 +61,8 @@ region_rect = Rect2(64, 0, 32, 0)
 
 [node name="spriteSkirt3" type="Sprite3D" parent="." unique_id=255407250]
 transform = Transform3D(1.9106855e-15, 2.6226836e-08, -0.99999994, 1, -2.6226836e-08, 0, -4.371139e-08, -0.6000001, -4.3711385e-08, 0.32, 0, 0.095)
+flip_h = true
+transparent = false
 shaded = true
 alpha_cut = 1
 alpha_antialiasing_mode = 1
@@ -67,6 +74,8 @@ region_rect = Rect2(64, 0, 32, 0)
 
 [node name="spriteSkirt4" type="Sprite3D" parent="." unique_id=416855138]
 transform = Transform3D(1.9106855e-15, 2.6226836e-08, -0.99999994, 1, -2.6226836e-08, 0, -4.371139e-08, -0.6000001, -4.3711385e-08, -0.32, 0, 0.095)
+flip_h = true
+transparent = false
 shaded = true
 alpha_cut = 1
 alpha_antialiasing_mode = 1

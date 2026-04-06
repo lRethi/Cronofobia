@@ -24,7 +24,7 @@ public partial class rotCameraOnMouse : Node3D
 		if (@event is InputEventMouseMotion motion)
 		{
 			yaw += -motion.Relative.X * sensibilidade;
-			pitch -= -motion.Relative.Y * sensibilidade;
+			pitch -= motion.Relative.Y * sensibilidade;
 			yaw = Mathf.Wrap(yaw, -180f, 180f);
 			pitch = Mathf.Clamp(pitch, -35f, 15f);
 		}

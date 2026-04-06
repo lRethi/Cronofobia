@@ -1,23 +1,31 @@
 [gd_scene format=3 uid="uid://4cvw5u3glyoy"]
 
-[ext_resource type="Script" uid="uid://cbkmvxr7vppfn" path="res://Scripts/Personagem/Movimento/Placeholder/TesteHominho.cs" id="1_3hk36"]
+[ext_resource type="Script" uid="uid://ll1ivuggxg3w" path="res://Placeholder/Personagem/movimentoPerson.cs" id="1_3hk36"]
+[ext_resource type="Texture2D" uid="uid://clexvxpgypep5" path="res://Sprites/Personagens/Bill/pixil-frame-0(5).png" id="2_3hk36"]
+[ext_resource type="Script" uid="uid://c60fr053jegfr" path="res://Placeholder/Personagem/rotatePosOnCamera.cs" id="3_qgn2i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e1q36"]
-size = Vector3(0.3252368, 0.37142578, 0.001)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_33q46"]
-load_path = "res://.godot/imported/pixil-frame-0(5).png-560b4b7c88abd1e5b7deb232bd3d2562.s3tc.ctex"
+size = Vector3(0.25, 0.32, 0.001)
 
 [node name="testeHominho" type="CharacterBody3D" unique_id=1046664859]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+collision_mask = 15
+platform_wall_layers = 4
 script = ExtResource("1_3hk36")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1464751793]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03603393, -0.025712892, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.034457028, -0.009103999, 0)
 shape = SubResource("BoxShape3D_e1q36")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=523375165]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-sorting_offset = 2.0
+layers = 3
+sorting_offset = 5.0
+pixel_size = 0.0008
 billboard = 1
-texture = SubResource("CompressedTexture2D_33q46")
+shaded = true
+alpha_cut = 2
+alpha_antialiasing_mode = 1
+alpha_antialiasing_edge = 0.1
+texture_filter = 0
+render_priority = 5
+texture = ExtResource("2_3hk36")
+script = ExtResource("3_qgn2i")

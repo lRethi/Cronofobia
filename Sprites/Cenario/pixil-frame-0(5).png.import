@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/pixil-frame-0(5).png-c58f027388f5598d2aafc35e
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

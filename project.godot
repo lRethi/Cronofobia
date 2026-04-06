@@ -15,9 +15,28 @@ run/main_scene="uid://dd3yf0c5d5nvl"
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PhantomCameraManager="*uid://duq6jhf6unyis"
+DialogueManager="*uid://c3rodes2l3gxb"
+GameState="*uid://dwbafmkhb60pp"
+
+[dialogue_manager]
+
+runtime/advanced/uses_dotnet=true
+runtime/balloon_path="uid://bdi24af5ywmv4"
+
+[display]
+
+window/stretch/mode="viewport"
+
 [dotnet]
 
 project/assembly_name="My Hobo in Christ"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [input]
 
@@ -45,6 +64,28 @@ move_left={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194319,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+move_jump={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+]
+}
+interact={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
+]
+}
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://Assets/Dialogos/teste.dialogue", "res://teste.dialogue")
+
+[layer_names]
+
+3d_physics/layer_1="Personagens"
+3d_physics/layer_2="Cenário"
+3d_physics/layer_3="Parede"
+3d_physics/layer_4="Hitbox"
+3d_physics/layer_5="Camera"
 
 [physics]
 
@@ -52,8 +93,15 @@ move_left={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 textures/canvas_textures/default_texture_repeat=1
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
+lights_and_shadows/directional_shadow/size=512
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=0
+lights_and_shadows/positional_shadow/soft_shadow_filter_quality=0
+anti_aliasing/quality/screen_space_aa=1
 2d/snap/snap_2d_transforms_to_pixel=true
 2d/snap/snap_2d_vertices_to_pixel=true
+lights_and_shadows/positional_shadow/atlas_size=512
+lights_and_shadows/positional_shadow/atlas_size.mobile=256

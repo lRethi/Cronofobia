@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://catlynq0ub38k"
-path.s3tc="res://.godot/imported/pixil-frame-0(2).png-b687a7f5ef83a784cb71dc9f3af80537.s3tc.ctex"
+path="res://.godot/imported/pixil-frame-0(2).png-b687a7f5ef83a784cb71dc9f3af80537.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Sprites/Cenario/Chao/pixil-frame-0(2).png"
-dest_files=["res://.godot/imported/pixil-frame-0(2).png-b687a7f5ef83a784cb71dc9f3af80537.s3tc.ctex"]
+dest_files=["res://.godot/imported/pixil-frame-0(2).png-b687a7f5ef83a784cb71dc9f3af80537.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

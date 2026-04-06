@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0mjt2vme6ob3"
-path.s3tc="res://.godot/imported/pixilart-drawing.png-a0f73376ef45bc6240fed9878def5df7.s3tc.ctex"
+path="res://.godot/imported/pixilart-drawing.png-a0f73376ef45bc6240fed9878def5df7.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Sprites/Cenario/Chao/pixilart-drawing.png"
-dest_files=["res://.godot/imported/pixilart-drawing.png-a0f73376ef45bc6240fed9878def5df7.s3tc.ctex"]
+dest_files=["res://.godot/imported/pixilart-drawing.png-a0f73376ef45bc6240fed9878def5df7.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
