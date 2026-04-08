@@ -29,13 +29,13 @@ public partial class rotCameraPerson : Sprite3D
 
 		Vector3 distanciaPersonNPC = personagem.GlobalPosition - GlobalPosition;
 
-		if (distanciaPersonNPC.Length() <= 0.6f)
+		if (distanciaPersonNPC.Length() <= 2f)
 		{
 			// olha pro personagem
 			Vector3 direcaoPerson = personagem.GlobalPosition - GlobalPosition;
 			OlharParaAlvo(direcaoPerson);
 
-			if (distanciaPersonNPC.Length() <= 0.3f)
+			if (distanciaPersonNPC.Length() <= 1.25f)
 			{
 				mat.SetShaderParameter("enable_outline", true);
 			}

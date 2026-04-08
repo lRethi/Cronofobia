@@ -24,7 +24,7 @@ public partial class ativarOutline : Sprite3D
 
         float distancia = (personagem.GlobalPosition - GlobalPosition).Length();
 
-        bool perto = distancia <= 0.5f;
+        bool perto = distancia <= 2f;
 
         mat.SetShaderParameter("enable_outline", perto);
     }

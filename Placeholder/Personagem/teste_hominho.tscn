@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://c60fr053jegfr" path="res://Placeholder/Personagem/rotatePosOnCamera.cs" id="3_qgn2i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e1q36"]
-size = Vector3(0.25, 0.32, 0.001)
+size = Vector3(0.81431884, 0.9739624, 0.001)
 
 [node name="testeHominho" type="CharacterBody3D" unique_id=1046664859]
 collision_mask = 15
@@ -13,14 +13,13 @@ platform_wall_layers = 4
 script = ExtResource("1_3hk36")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1464751793]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.034457028, -0.009103999, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.115908414, -0.057254493, 0)
 shape = SubResource("BoxShape3D_e1q36")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=523375165]
 layers = 3
 sorting_offset = 5.0
-pixel_size = 0.0008
-billboard = 1
+pixel_size = 0.0025
 shaded = true
 alpha_cut = 2
 alpha_antialiasing_mode = 1

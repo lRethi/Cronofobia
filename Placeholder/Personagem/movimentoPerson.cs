@@ -3,8 +3,8 @@ using System;
 
 public partial class movimentoPerson : CharacterBody3D
 {
-	public const float Speed = 1.0f;
-	public const float JumpVelocity = 2.5f;
+	public const float Speed = 3f;
+	public const float JumpVelocity = 5f;
 
 	[Export] public Node cameraNode;
 

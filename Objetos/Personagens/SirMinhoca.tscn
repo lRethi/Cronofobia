@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://cbeumlxm2r5cw" path="res://Objetos/Personagens/rotCameraPerson.cs" id="2_8mx3u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8mx3u"]
-size = Vector3(0.1044458, 0.1801001, 0.003)
+size = Vector3(0.4145392, 0.5650445, 0.003)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ubrxv"]
 render_priority = 0
@@ -21,12 +21,12 @@ shader_parameter/glow_intensity = 0.750000035625
 collision_mask = 9
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1984777287]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005010985, 0.016168207, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0074343905, 0.054549843, 0)
 shape = SubResource("BoxShape3D_8mx3u")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1766881007]
 material_overlay = SubResource("ShaderMaterial_ubrxv")
-pixel_size = 0.0008
+pixel_size = 0.0025
 shaded = true
 alpha_cut = 2
 alpha_antialiasing_mode = 1

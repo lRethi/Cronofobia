@@ -29,7 +29,7 @@ GD.Print(gs);
 			return;
 
 		float distancia = (personagem.GlobalPosition - GlobalPosition).Length();
-		playerPerto = distancia <= 0.3f;
+		playerPerto = distancia <= 1.25f;
 
 		if (playerPerto && Input.IsActionJustPressed("interact"))
 		{
