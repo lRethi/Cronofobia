@@ -16,7 +16,6 @@ public partial class movimentoPerson : CharacterBody3D
 			// continua aplicando gravidade
 			if (!IsOnFloor())
 				velocity += GetGravity() * (float)delta;
-
 			// trava mov horizontal
 			velocity.X = 0;
 			velocity.Z = 0;
