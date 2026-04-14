@@ -39,6 +39,7 @@ GD.Print(gs);
 
 	private void IniciarDialogo()
 	{
+		TimeState.Instance.CongelarTempo();
 		GD.Print("IniciarDialogo chamado");
 
 		if (dialogoAtivo)
@@ -55,6 +56,7 @@ GD.Print(gs);
 
 	private void OnDialogueEnded(Resource dialogueResource)
 	{
+		TimeState.Instance.DescongelarTempo();
 		if (dialogueResource != dialogue)
 			return;
 

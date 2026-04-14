@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 PhantomCameraManager="*uid://duq6jhf6unyis"
 DialogueManager="*uid://c3rodes2l3gxb"
 GameState="*uid://dwbafmkhb60pp"
+TimeState="*uid://ctqrihnrqm85g"
 
 [dialogue_manager]
 
