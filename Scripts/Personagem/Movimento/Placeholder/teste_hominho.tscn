@@ -1,38 +1,32 @@
 [gd_scene format=3 uid="uid://4cvw5u3glyoy"]
 
-[ext_resource type="Script" uid="uid://ll1ivuggxg3w" path="res://Placeholder/Personagem/movimentoPerson.cs" id="1_3hk36"]
-[ext_resource type="Texture2D" uid="uid://clexvxpgypep5" path="res://Sprites/Personagens/Bill/pixil-frame-0(5).png" id="2_3hk36"]
-[ext_resource type="Script" uid="uid://c60fr053jegfr" path="res://Placeholder/Personagem/rotatePosOnCamera.cs" id="3_qgn2i"]
+[ext_resource type="Script" uid="uid://ll1ivuggxg3w" path="res://Scripts/Personagem/Movimento/Placeholder/movimentoPerson.cs" id="1_3hk36"]
+[ext_resource type="Texture2D" uid="uid://bqk83ow5333fm" path="res://Sprites/Personagens/Protagonista/SobreCostas.png" id="2_t40vy"]
+[ext_resource type="Script" uid="uid://c60fr053jegfr" path="res://Scripts/Personagem/Movimento/Placeholder/rotatePosOnCamera.cs" id="3_qgn2i"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_e1q36"]
-size = Vector3(0.13430482, 0.9739624, 0.001)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_qgn2i"]
-size = Vector3(0.76470566, 0.001, 0.0037841797)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t40vy"]
+radius = 0.39697266
+height = 0.9544983
 
 [node name="testeHominho" type="CharacterBody3D" unique_id=1046664859]
 collision_mask = 15
 platform_wall_layers = 4
 script = ExtResource("1_3hk36")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1464751793]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.073563725, -0.057254493, 0)
-shape = SubResource("BoxShape3D_e1q36")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1329961710]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.34307384, 0)
+shape = SubResource("CapsuleShape3D_t40vy")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=523375165]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00042042136, -0.003430277, 0.00068211555)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.012, 0, 0)
 layers = 3
 sorting_offset = 5.0
-pixel_size = 0.0025
+pixel_size = 0.0016
 shaded = true
 alpha_cut = 2
 alpha_antialiasing_mode = 1
 alpha_antialiasing_edge = 0.1
 texture_filter = 0
 render_priority = 50
-texture = ExtResource("2_3hk36")
+texture = ExtResource("2_t40vy")
 script = ExtResource("3_qgn2i")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=777865145]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.110212326, -0.1245569, 0)
-shape = SubResource("BoxShape3D_qgn2i")
