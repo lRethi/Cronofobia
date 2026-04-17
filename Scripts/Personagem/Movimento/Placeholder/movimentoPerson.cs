@@ -28,9 +28,6 @@ public partial class movimentoPerson : CharacterBody3D
 		if (!IsOnFloor())
 			velocity += GetGravity() * (float)delta;
 
-		if (Input.IsActionJustPressed("move_jump") && IsOnFloor())
-			velocity.Y = JumpVelocity;
-
 		Vector2 inputDir = Input.GetVector("move_left", "move_right", "move_forward", "move_back");
 
 		if (cameraNode == null)
