@@ -1,16 +1,21 @@
 [gd_scene format=3 uid="uid://d22plyp0k3sk4"]
 
 [ext_resource type="Texture2D" uid="uid://3wl003nt6p10" path="res://Assets/Dialogos/Sir Minhoca/portrait.png" id="1_58rqq"]
+[ext_resource type="Script" uid="uid://dmo24cwcuwuts" path="res://Scripts/Personagem/inimPerseguirProta.cs" id="1_kktd2"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_kktd2"]
-height = 0.31640625
-radius = 0.12988281
+height = 0.50146484
+radius = 0.18896484
 
-[node name="evilNhoca" type="RigidBody3D" unique_id=1480838477]
+[sub_resource type="SphereShape3D" id="SphereShape3D_77wdk"]
+radius = 5.0
+
+[node name="evilNhoca" type="CharacterBody3D" unique_id=856536261]
+script = ExtResource("1_kktd2")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1272247020]
 modulate = Color(0.6488441, 0.14754117, 0.115282916, 1)
-shaded = true
+pixel_size = 0.016
 alpha_cut = 2
 texture_filter = 0
 texture = ExtResource("1_58rqq")
@@ -18,7 +23,7 @@ texture = ExtResource("1_58rqq")
 [node name="Sprite3D2" type="Sprite3D" parent="." unique_id=1888347178]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.001)
 modulate = Color(0.6488441, 0.14754117, 0.115282916, 1)
-shaded = true
+pixel_size = 0.016
 alpha_cut = 2
 texture_filter = 0
 texture = ExtResource("1_58rqq")
@@ -26,7 +31,7 @@ texture = ExtResource("1_58rqq")
 [node name="Sprite3D4" type="Sprite3D" parent="." unique_id=482297407]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.002)
 modulate = Color(0.6488441, 0.14754117, 0.115282916, 1)
-shaded = true
+pixel_size = 0.016
 alpha_cut = 2
 texture_filter = 0
 render_priority = 1
@@ -35,7 +40,7 @@ texture = ExtResource("1_58rqq")
 [node name="Sprite3D3" type="Sprite3D" parent="." unique_id=511810688]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.001)
 modulate = Color(0.6488441, 0.14754117, 0.115282916, 1)
-shaded = true
+pixel_size = 0.016
 alpha_cut = 2
 texture_filter = 0
 texture = ExtResource("1_58rqq")
@@ -43,12 +48,19 @@ texture = ExtResource("1_58rqq")
 [node name="Sprite3D5" type="Sprite3D" parent="." unique_id=1495862830]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.002)
 modulate = Color(0.6488441, 0.14754117, 0.115282916, 1)
-shaded = true
+pixel_size = 0.016
 alpha_cut = 2
 texture_filter = 0
 render_priority = 1
 texture = ExtResource("1_58rqq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1507469783]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.022460938, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06713867, 0)
 shape = SubResource("CylinderShape3D_kktd2")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=331671090]
+
+[node name="AlertArea" type="Area3D" parent="." unique_id=392329362]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AlertArea" unique_id=250693854]
+shape = SubResource("SphereShape3D_77wdk")

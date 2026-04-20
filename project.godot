@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="My Hobo in Christ"
-run/main_scene="uid://dd3yf0c5d5nvl"
+run/main_scene="uid://cft56mpii0pya"
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
