@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpykppbd8hy1j"
-path.s3tc="res://.godot/imported/rua.png-b015048c5b9606355611dde6e691fe60.s3tc.ctex"
+uid="uid://f6hrdxcldhco"
+path.s3tc="res://.godot/imported/PrédioFeio.png-7a6edb6536c803ccdab05caa9551a945.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Sprites/Cenario/Chao/rua.png"
-dest_files=["res://.godot/imported/rua.png-b015048c5b9606355611dde6e691fe60.s3tc.ctex"]
+source_file="res://Sprites/Cenario/Parede/PrédioFeio.png"
+dest_files=["res://.godot/imported/PrédioFeio.png-7a6edb6536c803ccdab05caa9551a945.s3tc.ctex"]
 
 [params]
 
