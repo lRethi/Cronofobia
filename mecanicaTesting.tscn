@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://4kv8f8ejgwqn" path="res://addons/TileMapLayer3D/nodes/tilemap_layer_3d.gd" id="10_mgmrd"]
 [ext_resource type="Script" uid="uid://dk0ib5b4w24ll" path="res://addons/TileMapLayer3D/core/animated_tiles/animated_tile_data.gd" id="11_6yxy1"]
 [ext_resource type="Script" uid="uid://bli432i5uj51v" path="res://addons/TileMapLayer3D/core/tile_creation_placement/tilemap_layer_settings.gd" id="12_hnptk"]
-[ext_resource type="Texture2D" uid="uid://c7yaoggf686bh" path="res://Sprites/Cenario/Chao/Praça_Tile_Set.png" id="13_j4oa3"]
+[ext_resource type="Texture2D" uid="uid://bdotph6is0l3" path="res://Sprites/Cenario/Chao/Praça.png" id="13_j4oa3"]
 [ext_resource type="Script" uid="uid://c2lxt2vjdjb4b" path="res://addons/TileMapLayer3D/nodes/static_collision_body.gd" id="13_ttvet"]
 [ext_resource type="Shape3D" uid="uid://dowf2egnjh7xn" path="res://mecanicaTesting_CollisionData/mecanicaTesting_TileMapLayer3D_collision.res" id="14_ras4l"]
 
