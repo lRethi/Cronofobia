@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdeg3s5sxys27"
-path.s3tc="res://.godot/imported/rua.png-b015048c5b9606355611dde6e691fe60.s3tc.ctex"
+uid="uid://dodoub7q54qgm"
+path.s3tc="res://.godot/imported/coreto.png-4988d9831b700080ad4d5071996d2903.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Sprites/Cenario/Chao/rua.png"
-dest_files=["res://.godot/imported/rua.png-b015048c5b9606355611dde6e691fe60.s3tc.ctex"]
+source_file="res://Sprites/Cenario/Parede/coreto.png"
+dest_files=["res://.godot/imported/coreto.png-4988d9831b700080ad4d5071996d2903.s3tc.ctex"]
 
 [params]
 
