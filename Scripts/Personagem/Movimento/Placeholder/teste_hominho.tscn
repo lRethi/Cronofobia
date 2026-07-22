@@ -8,6 +8,19 @@
 radius = 0.39697266
 height = 0.9544983
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5u1g7"]
+transparency = 4
+albedo_texture = ExtResource("2_t40vy")
+emission = Color(0.26468948, 0.26468948, 0.26468948, 1)
+emission_energy_multiplier = 0.5
+emission_operator = 1
+backlight_enabled = true
+backlight = Color(0.1111969, 0.11119682, 0.11119684, 1)
+uv2_world_triplanar = true
+texture_filter = 0
+disable_receive_shadows = true
+billboard_mode = 2
+
 [node name="testeHominho" type="CharacterBody3D" unique_id=1046664859]
 collision_mask = 15
 platform_wall_layers = 4
@@ -21,7 +34,10 @@ shape = SubResource("CapsuleShape3D_t40vy")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.012, 0, 0)
 layers = 3
 sorting_offset = 5.0
+material_override = SubResource("StandardMaterial3D_5u1g7")
+cast_shadow = 2
 pixel_size = 0.0016
+billboard = 2
 shaded = true
 alpha_cut = 2
 alpha_antialiasing_mode = 1

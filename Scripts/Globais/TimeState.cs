@@ -4,10 +4,17 @@ public partial class TimeState : Node
 {
 	public static TimeState Instance { get; private set; }
 
-	[Export] public float duracaoDiaSegundos = 60f;
+	[Export] public float duracaoDiaSegundos = 120f;
 
-	public float tempoNormalizado { get; private set; } = 0f; // 0 → 1
-	public float tempoHoras => tempoNormalizado * 24f;
+	public float minutoDoDia {get; set;} = 480f; // 0 -> 1440
+	public float horaDecimal => minutoDoDia / 60f; // 0 -> 24
+
+	public float tempoNormalizado => minutoDoDia / 1440f; // 0 -> 1
+
+	public int tempoHoras => (int)(minutoDoDia / 60);
+	public int tempoMinutos => (int)(minutoDoDia % 60);
+
+	public string horarioFormatado => $"{tempoHoras:D2}:{tempoMinutos:D2}";
 	public float escalaTempo = 1f;
 
 	public override void _EnterTree()
@@ -19,10 +26,10 @@ public partial class TimeState : Node
 	{
 		float deltaF = (float)delta * escalaTempo;
 
-		tempoNormalizado += deltaF / duracaoDiaSegundos;
+		minutoDoDia += (deltaF * escalaTempo) * (1440f / duracaoDiaSegundos);
 
-		if (tempoNormalizado >= 1f)
-			tempoNormalizado -= 1f;
+		if (minutoDoDia >= 1440f)
+			minutoDoDia -= 1440f;
 	}
 
 	public void CongelarTempo()

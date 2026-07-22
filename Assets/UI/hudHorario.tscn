@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b8kdadftm2bc7"]
+
+[ext_resource type="Script" uid="uid://dirg55aihlh7o" path="res://mostrarHorarioNaTela.cs" id="1_wvnxa"]
+
+[node name="Control" type="Control" unique_id=1654327781]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wvnxa")
+
+[node name="Label" type="Label" parent="." unique_id=1459719339]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 648.0
+text = "11"
+horizontal_alignment = 1
+autowrap_trim_flags = 64
