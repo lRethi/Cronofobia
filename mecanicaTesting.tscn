@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cft56mpii0pya"]
 
-[ext_resource type="Script" uid="uid://dwbafmkhb60pp" path="res://GameState.cs" id="1_htxgo"]
+[ext_resource type="Script" uid="uid://dwbafmkhb60pp" path="res://Scripts/Globais/GameState.cs" id="1_htxgo"]
 [ext_resource type="Script" uid="uid://boeny7dre6w0n" path="res://Scripts/dayAndNightCycle.cs" id="2_ttvet"]
 [ext_resource type="PackedScene" uid="uid://4cvw5u3glyoy" path="res://Scripts/Personagem/Movimento/Placeholder/teste_hominho.tscn" id="3_ras4l"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_vvule"]

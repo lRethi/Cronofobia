@@ -1,74 +1,188 @@
 using Godot;
-using System;
+using PhantomCamera;
 
 public partial class cameraBonitaDoFred : Node3D
 {
-	[Export]
-	Node cameraNode;
+    private PhantomCamera3D _pcam;
 
-	Quaternion targetRotation;
-	float speed = 5.0f;
-	float currentPitch = -15f;
-	float currentYaw = 0f;
-	float basePitch = -15f;
-	float pitchOffset = 0f;
-	int pitchState = 0;
-	int yawState = 0;
+    private Tween cameraTween;
 
-	public override async void _Ready()
+    [Export]
+    private float rotationDuration = 0.25f;
+
+    private readonly float basePitch = 0f;
+
+    private int pitchState = 0;
+    private int yawState = 0;
+
+    private Vector3 currentRotation;
+    private Vector3 targetRotation;
+
+    private Vector3 currentOffset;
+    private Vector3 targetOffset;
+
+	private Camera3D objCamera;
+
+	public float GetCameraYaw()
 	{
-		await ToSignal(GetTree(), "process_frame");
-
-		targetRotation = (Quaternion)cameraNode.Call("get_third_person_quaternion");
+		return yawState * 90f;
 	}
 
-	public override void _Process(double delta)
+    private readonly Vector3[] pitchOffsets =
+    {
+        new Vector3(0f, -2f, -0.8f),
+        new Vector3(0f, 0f, 0f),
+        new Vector3(0f, 1.8f, -0.35f)
+    };
+
+	private float currentFov;
+	private float targetFov;
+
+	private readonly float[] pitchFovs =
 	{
-		Quaternion current = (Quaternion)cameraNode.Call("get_third_person_quaternion");
+		90f,
+		75f,
+		90f
+	};
 
-		Quaternion result = current.Slerp(targetRotation, (float)delta * speed);
+    public override async void _Ready()
+    {
+        await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
 
-		cameraNode.Call("set_third_person_quaternion", result);
+        _pcam = GetNode<Node3D>("%PhantomCamera3D").AsPhantomCamera3D();
+		objCamera = GetNode<Camera3D>("../Camera3D");
+
+        currentRotation = _pcam.GetThirdPersonRotationDegrees();
+        targetRotation = currentRotation;
+
+        currentOffset = _pcam.FollowOffset;
+        targetOffset = currentOffset;
+
+        yawState = Mathf.RoundToInt(currentRotation.Y / 90f);
+        pitchState = Mathf.Clamp(
+            Mathf.RoundToInt((currentRotation.X - basePitch) / 90f),
+            -1,
+            1
+        );
+
+		currentFov = objCamera.Fov;
+		targetFov = currentFov;
+    }
+
+    public override void _Input(InputEvent @event)
+    {
+        if (@event.IsActionPressed("cam_left"))
+        {
+            yawState++;
+			objCamera.Fov = 75f;
+            UpdateTarget();
+        }
+        else if (@event.IsActionPressed("cam_right"))
+        {
+            yawState--;
+			objCamera.Fov = 75f;
+            UpdateTarget();
+        }
+        else if (@event.IsActionPressed("cam_back"))
+        {
+            pitchState = Mathf.Clamp(pitchState + 1, -1, 1);
+			objCamera.Fov = 90f;
+            UpdateTarget();
+        }
+        else if (@event.IsActionPressed("cam_forward"))
+        {
+            pitchState = Mathf.Clamp(pitchState - 1, -1, 1);
+			objCamera.Fov = 90f;
+            UpdateTarget();
+        }
+    }
+
+    private void UpdateTarget()
+    {
+        targetRotation = new Vector3(
+            basePitch + pitchState * 90f,
+            yawState * 90f,
+            0f
+        );
+
+		targetOffset = GetRotatedOffset(pitchOffsets[pitchState + 1]);
+
+		targetFov = pitchFovs[pitchState + 1];
+
+        AnimateCamera();
+    }
+
+	private Vector3 GetRotatedOffset(Vector3 offset)
+	{
+		float yawRadians = Mathf.DegToRad(yawState * 90f);
+
+		float x = offset.X * Mathf.Cos(yawRadians) + offset.Z * Mathf.Sin(yawRadians);
+		float z = offset.X * Mathf.Sin(yawRadians) + offset.Z * Mathf.Cos(yawRadians);
+
+		return new Vector3(
+			x,
+			offset.Y,
+			z
+		);
 	}
 
-	public override void _Input(InputEvent @event)
-	{
-		if (@event.IsActionPressed("cam_back"))
-		{
-			pitchState++;
-			pitchState = Mathf.Clamp(pitchState, -1, 1);
-			currentPitch = basePitch + pitchState * 90f;
-			SetTarget(new Vector3(currentPitch, currentYaw, 0));
-		}
-		else if (@event.IsActionPressed("cam_left"))
-		{
-			yawState--;
-			currentYaw = yawState * 90f;
-			SetTarget(new Vector3(currentPitch, currentYaw, 0));
-		}
-		else if (@event.IsActionPressed("cam_forward"))
-		{
-			pitchState--;
-			pitchState = Mathf.Clamp(pitchState, -1, 1);
-			currentPitch = basePitch + pitchState * 90f;
-			SetTarget(new Vector3(currentPitch, currentYaw, 0));
-		}
-		else if (@event.IsActionPressed("cam_right"))
-		{
-			yawState++;
-			currentYaw = yawState * 90f;
-			SetTarget(new Vector3(currentPitch, currentYaw, 0));
-		}
-	}
+    private void AnimateCamera()
+    {
+        cameraTween?.Kill();
 
-	void SetTarget(Vector3 degrees)
-	{
-		Vector3 rad = new Vector3(
-			Mathf.DegToRad(degrees.X),
-			Mathf.DegToRad(degrees.Y),
-			Mathf.DegToRad(degrees.Z)
+        Vector3 startRotation = currentRotation;
+        Vector3 endRotation = targetRotation;
+
+        Vector3 startOffset = currentOffset;
+        Vector3 endOffset = targetOffset;
+
+        cameraTween = CreateTween();
+
+        cameraTween.SetParallel(true);
+
+        cameraTween.TweenMethod(
+            Callable.From<Vector3>(rotation =>
+            {
+                currentRotation = rotation;
+                _pcam.SetThirdPersonRotationDegrees(rotation);
+            }),
+            startRotation,
+            endRotation,
+            rotationDuration
+        );
+
+        cameraTween.TweenMethod(
+            Callable.From<Vector3>(offset =>
+            {
+                currentOffset = offset;
+                _pcam.FollowOffset = offset;
+            }),
+            startOffset,
+            endOffset,
+            rotationDuration
+        );
+
+		float startFov = currentFov;
+		float endFov = targetFov;
+
+		cameraTween.TweenMethod(
+			Callable.From<float>(fov =>
+			{
+				currentFov = fov;
+				objCamera.Fov = fov;
+			}),
+			startFov,
+			endFov,
+			rotationDuration
 		);
 
-		targetRotation = new Quaternion(Basis.FromEuler(rad));
-	}
+        cameraTween.SetEase(Tween.EaseType.InOut);
+        cameraTween.SetTrans(Tween.TransitionType.Cubic);
+
+        cameraTween.Finished += () =>
+        {
+            currentRotation = endRotation;
+            currentOffset = endOffset;
+        };
+    }
 }

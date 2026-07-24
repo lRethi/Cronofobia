@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bt0y13avl08jo"]
+
+[ext_resource type="Script" uid="uid://f36ircj7s7vj" path="res://Scripts/Geral/HudMain.cs" id="1_lsyh3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8c2qd"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ctbi"]
+font_size = 24
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.39200002)
+
+[node name="hudMain" type="Control" unique_id=1394536996]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lsyh3")
+
+[node name="objFomeFlavor" type="Label" parent="." unique_id=551525719]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -2.0
+offset_right = 175.0
+offset_bottom = 56.0
+text = "Fome:"
+label_settings = SubResource("LabelSettings_8c2qd")
+
+[node name="objSedeFlavor" type="Label" parent="." unique_id=2039055162]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 23.0
+offset_right = 184.0
+offset_bottom = 81.0
+text = "Sede:"
+label_settings = SubResource("LabelSettings_8c2qd")
+
+[node name="objFome" type="Label" parent="." unique_id=177126806]
+layout_mode = 0
+offset_left = 82.0
+offset_top = -1.0
+offset_right = 122.0
+offset_bottom = 33.0
+text = "0/3"
+label_settings = SubResource("LabelSettings_8c2qd")
+
+[node name="objSede" type="Label" parent="." unique_id=1714391281]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 24.0
+offset_right = 122.0
+offset_bottom = 58.0
+text = "0/3"
+label_settings = SubResource("LabelSettings_8c2qd")
+
+[node name="objDinheiro" type="Label" parent="." unique_id=570230181]
+layout_mode = 0
+offset_left = 1046.0
+offset_top = 2.0
+offset_right = 1150.0
+offset_bottom = 36.0
+text = "R$100.00"
+label_settings = SubResource("LabelSettings_8ctbi")

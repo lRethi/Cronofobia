@@ -7,6 +7,14 @@ public partial class movimentoPerson : CharacterBody3D
 	public const float JumpVelocity = 5f;
 
 	[Export] public Node cameraNode;
+	[Export] public Node3D cameraPivotNode;
+
+	private cameraBonitaDoFred cameraScript;
+
+	public override void _Ready()
+	{
+		cameraScript = cameraPivotNode as cameraBonitaDoFred;
+	}
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -38,20 +46,20 @@ public partial class movimentoPerson : CharacterBody3D
 		}
 
 		// pega a base da câmera
-		var camTransform = (Transform3D)cameraNode.Get("global_transform");
-		Basis camBasis = camTransform.Basis;
+		float yaw = Mathf.DegToRad(cameraScript.GetCameraYaw());
 
-		// transforma as direções baseaando nela, pra sempre ficar consistente com a posição da câmera
-		Vector3 forward = camBasis.Z;
-		Vector3 right = camBasis.X;
+		Vector3 forward = new Vector3(
+			Mathf.Sin(yaw),
+			0,
+			Mathf.Cos(yaw)
+		);
 
-		forward.Y = 0;
-		right.Y = 0;
+		Vector3 right = new Vector3(
+			Mathf.Cos(yaw),
+			0,
+			-Mathf.Sin(yaw)
+		);
 
-		forward = forward.Normalized();
-		right = right.Normalized();
-
-		// dir final
 		Vector3 direction = (forward * inputDir.Y + right * inputDir.X).Normalized();
 
 		if (direction != Vector3.Zero)

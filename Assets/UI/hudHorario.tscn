@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b8kdadftm2bc7"]
 
-[ext_resource type="Script" uid="uid://dirg55aihlh7o" path="res://mostrarHorarioNaTela.cs" id="1_wvnxa"]
+[ext_resource type="Script" uid="uid://dirg55aihlh7o" path="res://Scripts/Geral/mostrarHorarioNaTela.cs" id="1_wvnxa"]
 
 [node name="Control" type="Control" unique_id=1654327781]
 layout_mode = 3

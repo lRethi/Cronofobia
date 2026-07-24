@@ -21,6 +21,7 @@ TimeState="*uid://ctqrihnrqm85g"
 PhantomCameraManager="*uid://duq6jhf6unyis"
 DialogueManager="*uid://c3rodes2l3gxb"
 GameState="*uid://dwbafmkhb60pp"
+NeedsState="*uid://bc6wkwajvx6jm"
 
 [dialogue_manager]
 

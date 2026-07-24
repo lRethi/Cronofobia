@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://mrlhhnue7vnr"]
+
+[ext_resource type="Script" uid="uid://cdj11gs6dxbd3" path="res://Scripts/Geral/genericPickupScript.cs" id="1_fnn3y"]
+[ext_resource type="Texture2D" uid="uid://c7je55fx6ole2" path="res://Sprites/Objetos/objMoeda.png" id="2_uruk5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8c2qd"]
+radius = 0.19335938
+height = 0.38671875
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uyn1v"]
+transparency = 4
+albedo_texture = ExtResource("2_uruk5")
+backlight_enabled = true
+backlight = Color(0.10980392, 0.10980392, 0.10980392, 1)
+texture_filter = 0
+disable_receive_shadows = true
+billboard_mode = 2
+
+[node name="moedaPickup" type="Area3D" unique_id=1197714594]
+script = ExtResource("1_fnn3y")
+tipoRecurso = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=337365301]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.013336182, 0)
+shape = SubResource("CapsuleShape3D_8c2qd")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1119932678]
+material_override = SubResource("StandardMaterial3D_uyn1v")
+pixel_size = 0.0008
+billboard = 2
+shaded = true
+texture_filter = 0
+texture = ExtResource("2_uruk5")
