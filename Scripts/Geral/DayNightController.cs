@@ -17,9 +17,9 @@ public partial class DayNightController : Node3D
 	[Export] public Color corFogHorizonteNoite = new Color(0.1f, 0.1f, 0.2f);
 	[Export] public Color corFogHorizonteCrepusculo = new Color(0.8f, 0.4f, 0.2f);
 
-	[Export] public float densidadeFogHorizonteDia = 0.2f;
+	[Export] public float densidadeFogHorizonteDia = 0.7f;
 	[Export] public float densidadeFogHorizonteNoite = 1.2f;
-	[Export] public float densidadeFogHorizonteCrepusculo = 0.8f;
+	[Export] public float densidadeFogHorizonteCrepusculo = 0.9f;
 
     [Export] public float intensidadeMaximaSol = 1.5f;
     [Export] public float intensidadeMaximaLua = 0.5f;

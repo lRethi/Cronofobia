@@ -5,8 +5,18 @@ using System.Threading.Tasks;
 
 public partial class GameState : Node
 {
-    public static bool EmDialogo = false;
+    public static GameState Instance { get; private set; }
+    public static bool TempoCongelado = false;
     public Dictionary Flags = new();
+
+    public override void _EnterTree()
+        {
+            if (Instance != null && Instance != this) {
+            QueueFree();
+            return;
+        }
+        Instance = this;
+    }
 
     public override void _Ready()
     {
@@ -22,13 +32,13 @@ public partial class GameState : Node
 
     private void OnDialogueStarted(Resource _)
     {
-        EmDialogo = true;
+        TempoCongelado = true;
         Input.MouseMode = Input.MouseModeEnum.Visible;
     }
 
     private void OnDialogueEnded(Resource _)
     {
-        EmDialogo = false;
+        TempoCongelado = false;
         Input.MouseMode = Input.MouseModeEnum.Captured;
     }
 
@@ -41,5 +51,9 @@ public partial class GameState : Node
     {
         Flags[key] = value;
         await Task.CompletedTask;
+    }
+    public void endGame(string endingName)
+    {
+        GetTree().ChangeSceneToFile($"res://Assets/Endings/{endingName}.tscn");
     }
 }

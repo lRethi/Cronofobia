@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d22plyp0k3sk4"]
 
 [ext_resource type="Texture2D" uid="uid://3wl003nt6p10" path="res://Assets/Dialogos/Sir Minhoca/portrait.png" id="1_58rqq"]
-[ext_resource type="Script" uid="uid://dmo24cwcuwuts" path="res://Scripts/Personagem/inimPerseguirProta.cs" id="1_kktd2"]
+[ext_resource type="Script" uid="uid://dmo24cwcuwuts" path="res://Scripts/Protagonista/inimPerseguirProta.cs" id="1_kktd2"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_kktd2"]
 height = 0.50146484
