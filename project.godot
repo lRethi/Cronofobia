@@ -22,6 +22,7 @@ PhantomCameraManager="*uid://duq6jhf6unyis"
 DialogueManager="*uid://c3rodes2l3gxb"
 GameState="*uid://dwbafmkhb60pp"
 NeedsState="*uid://bc6wkwajvx6jm"
+EffectManager="*uid://cpsmsm3iolax2"
 
 [dialogue_manager]
 
@@ -95,7 +96,7 @@ cam_back={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Assets/Dialogos/teste.dialogue", "res://teste.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Assets/Dialogos/teste.dialogue")
 
 [layer_names]
 

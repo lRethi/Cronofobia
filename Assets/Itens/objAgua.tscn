@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b4mgjc55khc8n"]
 
 [ext_resource type="Script" uid="uid://cdj11gs6dxbd3" path="res://Scripts/Geral/genericPickupScript.cs" id="1_cw13h"]
-[ext_resource type="Texture2D" uid="uid://on0g33jm2uhj" path="res://Sprites/Objetos/agua.png" id="2_cw13h"]
+[ext_resource type="Texture2D" uid="uid://on0g33jm2uhj" path="res://Assets/Sprites/Objetos/agua.png" id="2_cw13h"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8c2qd"]
 radius = 0.19335938

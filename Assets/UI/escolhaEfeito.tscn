@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://b6aneasi37fd0"]
+
+[ext_resource type="Script" uid="uid://c52ngx5pg1inc" path="res://Scripts/Efeitos/escolhaEfeito.cs" id="1_ye2l0"]
+[ext_resource type="Texture2D" uid="uid://dqq07qtjhc3kk" path="res://Assets/Sprites/Placeholder/the_placeholder.png" id="2_b5n2j"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ctbi"]
+font_size = 12
+font_color = Color(0, 0.5529412, 0.5019608, 1)
+outline_size = 1
+shadow_size = 2
+shadow_color = Color(0.11119685, 0.11119684, 0.11119684, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8c2qd"]
+font_size = 12
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="escolhaEfeito" type="CanvasLayer" unique_id=1867270824 node_paths=PackedStringArray("botao1", "botao2", "botao3")]
+script = ExtResource("1_ye2l0")
+botao1 = NodePath("Button")
+botao2 = NodePath("Button2")
+botao3 = NodePath("Button3")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2134032743]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="." unique_id=1882876557]
+offset_left = 228.0
+offset_top = 152.0
+offset_right = 428.0
+offset_bottom = 452.0
+
+[node name="Sprite" type="TextureRect" parent="Button" unique_id=98759424]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 55.0
+offset_right = 150.0
+offset_bottom = 155.0
+texture = ExtResource("2_b5n2j")
+
+[node name="Nome" type="Label" parent="Button" unique_id=452649168]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 15.0
+offset_right = 190.0
+offset_bottom = 40.0
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+label_settings = SubResource("LabelSettings_8ctbi")
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 1
+uppercase = true
+
+[node name="Desc" type="Label" parent="Button" unique_id=11460095]
+custom_maximum_size = Vector2(180, 98)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 190.0
+offset_right = 190.0
+offset_bottom = 247.0
+text = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+label_settings = SubResource("LabelSettings_8c2qd")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Button2" type="Button" parent="." unique_id=1428214510]
+offset_left = 478.0
+offset_top = 153.0
+offset_right = 678.0
+offset_bottom = 453.0
+
+[node name="Sprite" type="TextureRect" parent="Button2" unique_id=1711173415]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 55.0
+offset_right = 150.0
+offset_bottom = 155.0
+texture = ExtResource("2_b5n2j")
+
+[node name="Nome" type="Label" parent="Button2" unique_id=2056203471]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 15.0
+offset_right = 190.0
+offset_bottom = 40.0
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+label_settings = SubResource("LabelSettings_8ctbi")
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 1
+uppercase = true
+
+[node name="Desc" type="Label" parent="Button2" unique_id=105380741]
+custom_maximum_size = Vector2(180, 98)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 190.0
+offset_right = 190.0
+offset_bottom = 247.0
+text = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+label_settings = SubResource("LabelSettings_8c2qd")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Button3" type="Button" parent="." unique_id=582060231]
+offset_left = 728.0
+offset_top = 153.0
+offset_right = 928.0
+offset_bottom = 453.0
+
+[node name="Sprite" type="TextureRect" parent="Button3" unique_id=1583495177]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 55.0
+offset_right = 150.0
+offset_bottom = 155.0
+texture = ExtResource("2_b5n2j")
+
+[node name="Nome" type="Label" parent="Button3" unique_id=778399865]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 15.0
+offset_right = 190.0
+offset_bottom = 40.0
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+label_settings = SubResource("LabelSettings_8ctbi")
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 1
+uppercase = true
+
+[node name="Desc" type="Label" parent="Button3" unique_id=1680420039]
+custom_maximum_size = Vector2(180, 98)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 190.0
+offset_right = 190.0
+offset_bottom = 247.0
+text = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+label_settings = SubResource("LabelSettings_8c2qd")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1

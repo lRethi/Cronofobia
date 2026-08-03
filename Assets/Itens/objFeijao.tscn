@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d1kp3yfxc7qii"]
 
 [ext_resource type="Script" uid="uid://cdj11gs6dxbd3" path="res://Scripts/Geral/genericPickupScript.cs" id="1_b6x47"]
-[ext_resource type="Texture2D" uid="uid://b71b4aej2ag1x" path="res://Sprites/Objetos/objFeijao.png" id="2_b6x47"]
+[ext_resource type="Texture2D" uid="uid://b71b4aej2ag1x" path="res://Assets/Sprites/Objetos/objFeijao.png" id="2_b6x47"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8c2qd"]
 radius = 0.19335938

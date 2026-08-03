@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://mrlhhnue7vnr"]
 
 [ext_resource type="Script" uid="uid://cdj11gs6dxbd3" path="res://Scripts/Geral/genericPickupScript.cs" id="1_fnn3y"]
-[ext_resource type="Texture2D" uid="uid://c7je55fx6ole2" path="res://Sprites/Objetos/objMoeda.png" id="2_uruk5"]
+[ext_resource type="Texture2D" uid="uid://c7je55fx6ole2" path="res://Assets/Sprites/Objetos/objMoeda.png" id="2_uruk5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8c2qd"]
 radius = 0.19335938
