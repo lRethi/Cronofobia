@@ -1,11 +1,12 @@
 using Godot;
+using System;
 
 public partial class TimeState : Node
 {
 	public static TimeState Instance { get; private set; }
 
 	[Export] public float duracaoDiaSegundos = 120f;
-	public float minutoDoDia {get; set;} = 1300f; // 0 -> 1440
+	public float minutoDoDia {get; set;} = 1080f; // 0 -> 1440
 
 	public float minutoInicioDia {get; private set;} = 480f; // 08:00
 
@@ -28,26 +29,62 @@ public partial class TimeState : Node
     public static bool aguaSuficiente = true;
 	public bool noiteFinalizada {get; private set;} = false;
 
+	public event Action<DayState> DayStateChanged;
+	private DayState currentDayState = DayState.Morning;
+	public DayState CurrentDayState => currentDayState;
+
 	public override void _EnterTree()
 		{
 			if (Instance != null && Instance != this) {
-			QueueFree();
-			return;
+				QueueFree();
+				return;
 		}
 		Instance = this;
+	}
+
+	public override void _Ready()
+	{
+		currentDayState = GetDayState(minutoDoDia);
 	}
 
 	public override void _Process(double delta)
 	{
 		float deltaF = (float)delta * escalaTempo;
 
-		minutoDoDia += (deltaF * escalaTempo) * (1440f / duracaoDiaSegundos);
+		minutoDoDia += deltaF * (1440f / duracaoDiaSegundos);
 
 		if (!noiteFinalizada && minutoDoDia >= minutoFimNoite)
 		{
 			noiteFinalizada = true;
 			finalizarNoite();
 		}
+		ChangeDayState();
+	}
+
+	private void ChangeDayState()
+	{
+		DayState novoEstado = GetDayState(minutoDoDia);
+
+		if (novoEstado == currentDayState)
+			return;
+
+		currentDayState = novoEstado;
+
+		DayStateChanged?.Invoke(currentDayState);
+	}
+
+	public DayState GetDayState(float minuto)
+	{
+		if (minuto >= 1380 || minuto < 480)
+			return DayState.Night;
+
+		if (minuto >= 1080)
+			return DayState.Evening;
+
+		if (minuto >= 720)
+			return DayState.Afternoon;
+
+		return DayState.Morning;
 	}
 
 	public void CongelarTempo()
@@ -96,6 +133,7 @@ public partial class TimeState : Node
 		minutoDoDia = minutoInicioDia;
 		EffectManager.Instance.InicioDoDia();
 		noiteFinalizada = false;
+		ChangeDayState();
 		DescongelarTempo();
 	}
 	public void alterarInicioDia(float novoInicio)
@@ -106,4 +144,11 @@ public partial class TimeState : Node
 	{
 		minutoFimNoite = Mathf.Clamp(novoFim, 0f, 1440f);
 	}
+}
+public enum DayState
+{
+    Morning,
+    Afternoon,
+    Evening,
+    Night
 }

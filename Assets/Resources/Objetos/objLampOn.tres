@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DirectionalSpriteResource" format=3 uid="uid://b6wd8l5d4l3ce"]
+
+[ext_resource type="Texture2D" uid="uid://c7v3o6uixhoy8" path="res://Assets/Sprites/Cenario/Props/light1.png" id="1_cgcob"]
+[ext_resource type="Script" uid="uid://dxulphw667pgt" path="res://Scripts/Resources/DirectionalSpriteResource.cs" id="1_d7av7"]
+
+[resource]
+script = ExtResource("1_d7av7")
+Back = ExtResource("1_cgcob")
+Right = ExtResource("1_cgcob")
+Front = ExtResource("1_cgcob")
+Left = ExtResource("1_cgcob")
+metadata/_custom_type_script = "uid://dxulphw667pgt"

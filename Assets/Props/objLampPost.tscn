@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://5q3xgalcvrw1"]
+
+[ext_resource type="Script" uid="uid://jdhhj58wp64a" path="res://Scripts/Camera/DirectionalSprite.cs" id="1_vp34j"]
+[ext_resource type="Resource" uid="uid://b2ckc6xa3hjyr" path="res://Assets/Resources/Objetos/objLampOff.tres" id="2_bnlyk"]
+[ext_resource type="Texture2D" uid="uid://b6w7b2myqmh77" path="res://Assets/Sprites/Cenario/Props/light0.png" id="3_tbwqn"]
+[ext_resource type="Script" uid="uid://c4iemfodbhpjs" path="res://Scripts/Objetos/lampPostController.cs" id="4_bnlyk"]
+[ext_resource type="Resource" uid="uid://b6wd8l5d4l3ce" path="res://Assets/Resources/Objetos/objLampOn.tres" id="5_jp2v4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8c2qd"]
+radius = 0.20361328
+height = 3.0831604
+
+[node name="objLampPost" type="StaticBody3D" unique_id=426340957 node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_vp34j")
+directionalTextures = ExtResource("2_bnlyk")
+sprite = NodePath("Sprite3D")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=654709719]
+visibility_range_end = 50.0
+pixel_size = 0.0024
+billboard = 2
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("3_tbwqn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=337798619]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.08607483, 0)
+shape = SubResource("CapsuleShape3D_8c2qd")
+
+[node name="LampPostController" type="Node" parent="." unique_id=72539487 node_paths=PackedStringArray("directionalSprite", "light")]
+script = ExtResource("4_bnlyk")
+directionalSprite = NodePath("..")
+offSprites = ExtResource("2_bnlyk")
+onSprites = ExtResource("5_jp2v4")
+light = NodePath("../LightAnchor/OmniLight3D")
+
+[node name="LightAnchor" type="Node3D" parent="." unique_id=752805224]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1296195, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="LightAnchor" unique_id=938369404]
+light_color = Color(1, 0.9490196, 0.8235294, 1)
+light_energy = 1.2
+distance_fade_enabled = true
+distance_fade_begin = 50.0
+distance_fade_shadow = 60.0
+omni_range = 7.0

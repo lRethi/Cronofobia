@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Godot;
 
-public partial class DirectionalSprite : RigidBody3D
+public partial class DirectionalSprite : StaticBody3D
 {
     [Export]
     private DirectionalSpriteResource directionalTextures;
@@ -16,7 +16,7 @@ public partial class DirectionalSprite : RigidBody3D
 
     public override void _Ready()
     {
-        cameraScript = GetNode<cameraBonitaDoFred>("%CameraPivot");
+        cameraScript = GetNode<cameraBonitaDoFred>("../CameraPivot");
         cameraScript.CameraChanged += atualizarSprite;
         atualizarSprite(cameraScript.GetYawState(), cameraScript.GetPitchState());
     }
@@ -46,6 +46,16 @@ public partial class DirectionalSprite : RigidBody3D
         {
             cameraScript.CameraChanged -= atualizarSprite;
         }
+    }
+    public void SetSpriteSet(DirectionalSpriteResource resource)
+    {
+        if (resource == null || resource == directionalTextures)
+            return;
+
+        directionalTextures = resource;
+
+        if (cameraScript != null)
+            atualizarSprite(cameraScript.GetYawState(), cameraScript.GetPitchState());
     }
 }
 public enum SpriteDirection
