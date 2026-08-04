@@ -6,6 +6,8 @@ public partial class cameraBonitaDoFred : Node3D
     private PhantomCamera3D _pcam;
 
     private Tween cameraTween;
+    [Signal]
+    public delegate void CameraChangedEventHandler(int yaw, int pitch);
 
     [Export]
     private float rotationDuration = 0.25f;
@@ -27,6 +29,14 @@ public partial class cameraBonitaDoFred : Node3D
 	{
 		return yawState * 90f;
 	}
+    public int GetYawState()
+    {
+        return yawState;
+    }
+    public int GetPitchState()
+    {
+        return pitchState;
+    }
 
     private readonly Vector3[] pitchOffsets =
     {
@@ -183,6 +193,7 @@ public partial class cameraBonitaDoFred : Node3D
         {
             currentRotation = endRotation;
             currentOffset = endOffset;
+            EmitSignal(SignalName.CameraChanged, yawState, pitchState);
         };
     }
 }

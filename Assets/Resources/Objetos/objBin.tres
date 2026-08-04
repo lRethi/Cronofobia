@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DirectionalSpriteResource" format=3 uid="uid://b6wd8l5d4l3ce"]
+
+[ext_resource type="Script" uid="uid://dxulphw667pgt" path="res://Scripts/Resources/DirectionalSpriteResource.cs" id="1_d7av7"]
+[ext_resource type="Texture2D" uid="uid://bogp3fo4t2owc" path="res://Assets/Sprites/Cenario/Props/binB.png" id="1_yndda"]
+[ext_resource type="Texture2D" uid="uid://bhy02e6ewon1g" path="res://Assets/Sprites/Cenario/Props/binF.png" id="2_he242"]
+[ext_resource type="Texture2D" uid="uid://b75ofuvhd1l47" path="res://Assets/Sprites/Cenario/Props/binL.png" id="3_cxrix"]
+[ext_resource type="Texture2D" uid="uid://44wcf18fkk4c" path="res://Assets/Sprites/Cenario/Props/binR.png" id="4_dimo7"]
+
+[resource]
+script = ExtResource("1_d7av7")
+Back = ExtResource("1_yndda")
+Right = ExtResource("4_dimo7")
+Front = ExtResource("2_he242")
+Left = ExtResource("3_cxrix")
+metadata/_custom_type_script = "uid://dxulphw667pgt"
