@@ -16,6 +16,7 @@ directionalTextures = ExtResource("2_bnlyk")
 sprite = NodePath("Sprite3D")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=654709719]
+cast_shadow = 0
 visibility_range_end = 50.0
 pixel_size = 0.0024
 billboard = 2

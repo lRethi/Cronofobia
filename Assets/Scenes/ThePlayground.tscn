@@ -35,6 +35,7 @@
 
 [sub_resource type="Sky" id="Sky_q4tad"]
 sky_material = SubResource("PhysicalSkyMaterial_b8gmu")
+radiance_size = 1
 
 [sub_resource type="Environment" id="Environment_l1wsx"]
 background_mode = 2
@@ -116,8 +117,8 @@ environment = SubResource("Environment_l1wsx")
 [node name="DayNightController" type="Node3D" parent="." unique_id=112382640]
 script = ExtResource("2_11sfv")
 densidadeFogHorizonteDia = 0.05
-densidadeFogHorizonteNoite = 0.1
-densidadeFogHorizonteCrepusculo = 0.07
+densidadeFogHorizonteNoite = 0.09
+densidadeFogHorizonteCrepusculo = 0.06
 
 [node name="DirectionalLight3D_Sun" type="DirectionalLight3D" parent="DayNightController" unique_id=904278444]
 transform = Transform3D(0.97588885, 0.18190728, -0.12062637, 0.12820515, -0.030452127, 0.99128, 0.17664772, -0.9828441, -0.053039335, 0, 0, 0)

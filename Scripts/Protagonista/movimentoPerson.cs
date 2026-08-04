@@ -8,8 +8,10 @@ public partial class movimentoPerson : CharacterBody3D
 
 	[Export] public Node cameraNode;
 	[Export] public Node3D cameraPivotNode;
-
 	private cameraBonitaDoFred cameraScript;
+
+	public movementDirection lastMovedDirection {private set; get;}
+	public movementDirection currentMovingDirection {private get; set;}
 
 	public override void _Ready()
 	{
@@ -76,4 +78,12 @@ public partial class movimentoPerson : CharacterBody3D
 		Velocity = velocity;
 		MoveAndSlide();
 	}
+}
+
+public enum movementDirection
+{
+	Back = 0,
+    Right = 1,
+    Front = 2,
+    Left = 3 
 }
