@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Godot;
 
 public partial class DirectionalSprite : StaticBody3D
@@ -14,14 +13,39 @@ public partial class DirectionalSprite : StaticBody3D
     [Export]
     public SpriteDirection FacingDirection = SpriteDirection.Front;
 
+    private StandardMaterial3D material;
+
     public override void _Ready()
     {
+        SetupMaterial();
+        ApplyMaterialSettings();
+
         cameraScript = GetNode<cameraBonitaDoFred>("../CameraPivot");
         cameraScript.CameraChanged += atualizarSprite;
-        atualizarSprite(cameraScript.GetYawState(), cameraScript.GetPitchState());
+
+        atualizarSprite(
+            cameraScript.GetYawState(),
+            cameraScript.GetPitchState()
+        );
     }
 
-    private Texture2D GetTexture(SpriteDirection direction)
+    private void SetupMaterial()
+    {
+        material = sprite.MaterialOverride as StandardMaterial3D;
+
+        if (material == null)
+        {
+            material = new StandardMaterial3D();
+            sprite.MaterialOverride = material;
+        }
+
+        material.Transparency = BaseMaterial3D.TransparencyEnum.AlphaScissor;
+        material.TextureFilter = BaseMaterial3D.TextureFilterEnum.Nearest;
+        material.CullMode = BaseMaterial3D.CullModeEnum.Disabled;
+        material.ShadingMode = BaseMaterial3D.ShadingModeEnum.PerPixel;
+    }
+
+    private DirectionalSpriteData GetSpriteData(SpriteDirection direction)
     {
         return direction switch
         {
@@ -38,14 +62,40 @@ public partial class DirectionalSprite : StaticBody3D
         int horizontal = (cameraYaw - (int)FacingDirection + 4) % 4;
         SpriteDirection direction = (SpriteDirection)horizontal;
 
-        sprite.Texture = GetTexture(direction);
+        DirectionalSpriteData data = GetSpriteData(direction);
+
+        if (data == null)
+            return;
+
+        material.AlbedoTexture = data.Texture;
+        material.NormalTexture = data.NormalMap;
+
+        material.EmissionEnabled = data.Emission != null;
+        material.EmissionTexture = data.Emission;
     }
+
     public override void _ExitTree()
     {
         if (cameraScript != null)
         {
             cameraScript.CameraChanged -= atualizarSprite;
         }
+    }
+
+    private void ApplyMaterialSettings()
+    {
+        material.SpecularMode = directionalTextures.Specular
+            ? BaseMaterial3D.SpecularModeEnum.SchlickGgx
+            : BaseMaterial3D.SpecularModeEnum.Disabled;
+
+        material.Metallic = directionalTextures.Metallic;
+        material.Roughness = directionalTextures.Roughness;
+        material.EmissionEnergyMultiplier = directionalTextures.EmissionEnergy;
+        material.Emission = directionalTextures.EmissionColor;
+
+        sprite.CastShadow = directionalTextures.CastShadow
+            ? GeometryInstance3D.ShadowCastingSetting.On
+            : GeometryInstance3D.ShadowCastingSetting.Off;
     }
     public void SetSpriteSet(DirectionalSpriteResource resource)
     {
@@ -54,8 +104,15 @@ public partial class DirectionalSprite : StaticBody3D
 
         directionalTextures = resource;
 
+        ApplyMaterialSettings();
+
         if (cameraScript != null)
-            atualizarSprite(cameraScript.GetYawState(), cameraScript.GetPitchState());
+        {
+            atualizarSprite(
+                cameraScript.GetYawState(),
+                cameraScript.GetPitchState()
+            );
+        }
     }
 }
 public enum SpriteDirection

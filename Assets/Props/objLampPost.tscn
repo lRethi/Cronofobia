@@ -6,6 +6,13 @@
 [ext_resource type="Script" uid="uid://c4iemfodbhpjs" path="res://Scripts/Objetos/lampPostController.cs" id="4_bnlyk"]
 [ext_resource type="Resource" uid="uid://b6wd8l5d4l3ce" path="res://Assets/Resources/Objetos/objLampOn.tres" id="5_jp2v4"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fkgdr"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("3_tbwqn")
+texture_filter = 0
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8c2qd"]
 radius = 0.20361328
 height = 3.0831604
@@ -16,6 +23,7 @@ directionalTextures = ExtResource("2_bnlyk")
 sprite = NodePath("Sprite3D")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=654709719]
+material_override = SubResource("StandardMaterial3D_fkgdr")
 cast_shadow = 0
 visibility_range_end = 50.0
 pixel_size = 0.0024
