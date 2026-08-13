@@ -12,12 +12,6 @@ public partial class lampPostController : Node
     public DirectionalSpriteResource onSprites;
 
     [Export]
-    public DirectionalSpriteResource normalMapsOn;
-    
-    [Export]
-    public DirectionalSpriteResource normalMapsOff;
-
-    [Export]
     public OmniLight3D light;
 
     public override void _Ready()

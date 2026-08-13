@@ -43,6 +43,7 @@ public partial class DirectionalSprite : StaticBody3D
         material.TextureFilter = BaseMaterial3D.TextureFilterEnum.Nearest;
         material.CullMode = BaseMaterial3D.CullModeEnum.Disabled;
         material.ShadingMode = BaseMaterial3D.ShadingModeEnum.PerPixel;
+        material.BillboardMode = BaseMaterial3D.BillboardModeEnum.FixedY;
     }
 
     private DirectionalSpriteData GetSpriteData(SpriteDirection direction)
@@ -93,6 +94,9 @@ public partial class DirectionalSprite : StaticBody3D
         material.EmissionEnergyMultiplier = directionalTextures.EmissionEnergy;
         material.Emission = directionalTextures.EmissionColor;
 
+        material.BacklightEnabled = true;
+        material.Backlight = Color.FromHtml("#2f2f2f");
+
         sprite.CastShadow = directionalTextures.CastShadow
             ? GeometryInstance3D.ShadowCastingSetting.On
             : GeometryInstance3D.ShadowCastingSetting.Off;
@@ -103,6 +107,12 @@ public partial class DirectionalSprite : StaticBody3D
             return;
 
         directionalTextures = resource;
+
+        if (material == null)
+            SetupMaterial();
+
+        if (directionalTextures == null)
+            return;
 
         ApplyMaterialSettings();
 
