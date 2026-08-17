@@ -35,5 +35,4 @@ Back = SubResource("Resource_gtxms")
 Right = SubResource("Resource_pgn7h")
 Front = SubResource("Resource_5bbfu")
 Left = SubResource("Resource_n4a2i")
-Metallic = 0.5
 metadata/_custom_type_script = "uid://dxulphw667pgt"

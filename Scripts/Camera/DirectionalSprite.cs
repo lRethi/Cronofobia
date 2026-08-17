@@ -14,19 +14,40 @@ public partial class DirectionalSprite : StaticBody3D
     public SpriteDirection FacingDirection = SpriteDirection.Front;
 
     private StandardMaterial3D material;
+    private ShaderMaterial overlayMaterial;
 
     public override void _Ready()
     {
         SetupMaterial();
-        ApplyMaterialSettings();
+        SetupOverlay();
 
         cameraScript = GetNode<cameraBonitaDoFred>("../CameraPivot");
         cameraScript.CameraChanged += atualizarSprite;
+
+        ApplyMaterialSettings();
+        ApplyOverlaySettings();
 
         atualizarSprite(
             cameraScript.GetYawState(),
             cameraScript.GetPitchState()
         );
+    }
+
+    private void SetupOverlay()
+    {
+        overlayMaterial = sprite.MaterialOverlay as ShaderMaterial;
+
+        if (overlayMaterial == null)
+        {
+            overlayMaterial = new ShaderMaterial();
+
+            Shader shader = GD.Load<Shader>(
+                "res://Scripts/Shaders/objShine.gdshader"
+            );
+
+            overlayMaterial.Shader = shader;
+            sprite.MaterialOverlay = overlayMaterial;
+        }
     }
 
     private void SetupMaterial()
@@ -46,6 +67,29 @@ public partial class DirectionalSprite : StaticBody3D
         material.BillboardMode = BaseMaterial3D.BillboardModeEnum.FixedY;
     }
 
+        private void ApplyOverlaySettings()
+    {
+        overlayMaterial.SetShaderParameter(
+            "glow_enabled",
+            directionalTextures.GlowEnabled
+        );
+
+        overlayMaterial.SetShaderParameter(
+            "glow_base_color",
+            directionalTextures.GlowBaseColor
+        );
+
+        overlayMaterial.SetShaderParameter(
+            "glow_tolerance",
+            directionalTextures.GlowTolerance
+        );
+
+        overlayMaterial.SetShaderParameter(
+            "glow_strength",
+            directionalTextures.GlowStrength
+        );
+    }
+
     private DirectionalSpriteData GetSpriteData(SpriteDirection direction)
     {
         return direction switch
@@ -58,6 +102,17 @@ public partial class DirectionalSprite : StaticBody3D
         };
     }
 
+    public void SetGlowEnabled(bool enabled)
+    {
+        if (overlayMaterial == null)
+            return;
+
+        overlayMaterial.SetShaderParameter(
+            "glow_enabled",
+            enabled
+        );
+    }
+    
     public void atualizarSprite(int cameraYaw, int cameraPitch)
     {
         int horizontal = (cameraYaw - (int)FacingDirection + 4) % 4;
@@ -71,8 +126,10 @@ public partial class DirectionalSprite : StaticBody3D
         material.AlbedoTexture = data.Texture;
         material.NormalTexture = data.NormalMap;
 
-        material.EmissionEnabled = data.Emission != null;
-        material.EmissionTexture = data.Emission;
+        overlayMaterial.SetShaderParameter(
+            "albedo_texture",
+            data.Texture
+        );
     }
 
     public override void _ExitTree()
@@ -85,15 +142,6 @@ public partial class DirectionalSprite : StaticBody3D
 
     private void ApplyMaterialSettings()
     {
-        material.SpecularMode = directionalTextures.Specular
-            ? BaseMaterial3D.SpecularModeEnum.SchlickGgx
-            : BaseMaterial3D.SpecularModeEnum.Disabled;
-
-        material.Metallic = directionalTextures.Metallic;
-        material.Roughness = directionalTextures.Roughness;
-        material.EmissionEnergyMultiplier = directionalTextures.EmissionEnergy;
-        material.Emission = directionalTextures.EmissionColor;
-
         material.BacklightEnabled = true;
         material.Backlight = Color.FromHtml("#2f2f2f");
 
@@ -111,10 +159,11 @@ public partial class DirectionalSprite : StaticBody3D
         if (material == null)
             SetupMaterial();
 
-        if (directionalTextures == null)
-            return;
+        if (overlayMaterial == null)
+            SetupOverlay();
 
         ApplyMaterialSettings();
+        ApplyOverlaySettings();
 
         if (cameraScript != null)
         {

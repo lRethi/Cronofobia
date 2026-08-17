@@ -83,13 +83,13 @@ public partial class cameraBonitaDoFred : Node3D
     {
         if (@event.IsActionPressed("cam_left"))
         {
-            yawRotation--;
+            yawRotation++;
 			objCamera.Fov = 75f;
             UpdateTarget();
         }
         else if (@event.IsActionPressed("cam_right"))
         {
-            yawRotation++;
+            yawRotation--;
 			objCamera.Fov = 75f;
             UpdateTarget();
         }

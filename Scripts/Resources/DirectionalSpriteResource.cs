@@ -16,20 +16,17 @@ public partial class DirectionalSpriteResource : Resource
     public DirectionalSpriteData Left { get; set; }
 
     [Export]
-    public bool Specular { get; set; } = false;
-
-    [Export]
-    public float Metallic { get; set; } = 0f;
-
-    [Export]
-    public float Roughness { get; set; } = 1f;
-
-    [Export]
-    public float EmissionEnergy { get; set; } = 1f;
-
-    [Export]
-    public Color EmissionColor { get; set; } = Colors.White;
-
-    [Export]
     public bool CastShadow { get; set; } = true;
+
+    [Export]
+    public bool GlowEnabled { get; set; } = false;
+
+    [Export]
+    public Color GlowBaseColor { get; set; } = Color.FromHtml("#bdba97");
+
+    [Export]
+    public float GlowTolerance { get; set; } = 0.15f;
+
+    [Export]
+    public float GlowStrength { get; set; } = 4f;
 }

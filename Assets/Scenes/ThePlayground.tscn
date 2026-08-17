@@ -40,6 +40,7 @@ radiance_size = 1
 [sub_resource type="Environment" id="Environment_l1wsx"]
 background_mode = 2
 sky = SubResource("Sky_q4tad")
+glow_enabled = true
 fog_enabled = true
 fog_light_color = Color(0.8, 0.7019608, 0.5019608, 1)
 fog_light_energy = 0.3
@@ -146,7 +147,6 @@ cameraPivotNode = NodePath("../CameraPivot")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1005305001]
 physics_interpolation_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2527323, 0.94725525, -7.424593)
-top_level = true
 near = 0.1
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=1356699522]
@@ -168,9 +168,6 @@ tween_resource = SubResource("Resource_5ge65")
 follow_distance = 2.0
 spring_length = 2.0
 collision_mask = 22
-align_transform_with_view = Callable()
-align_position_with_view = Callable()
-align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="TimeState" type="Node" parent="." unique_id=1125371784]

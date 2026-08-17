@@ -6,7 +6,7 @@ public partial class TimeState : Node
 	public static TimeState Instance { get; private set; }
 
 	[Export] public float duracaoDiaSegundos = 120f;
-	public float minutoDoDia {get; set;} = 1080f; // 0 -> 1440
+	public float minutoDoDia {get; set;} = 1020f; // 0 -> 1440
 
 	public float minutoInicioDia {get; private set;} = 480f; // 08:00
 

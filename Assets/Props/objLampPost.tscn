@@ -2,13 +2,11 @@
 
 [ext_resource type="Script" uid="uid://jdhhj58wp64a" path="res://Scripts/Camera/DirectionalSprite.cs" id="1_vp34j"]
 [ext_resource type="Resource" uid="uid://b2ckc6xa3hjyr" path="res://Assets/Resources/Objetos/objLampOff.tres" id="2_bnlyk"]
+[ext_resource type="Shader" uid="uid://do7x0wapd3lx8" path="res://Scripts/Shaders/objShine.gdshader" id="3_cunev"]
 [ext_resource type="Texture2D" uid="uid://b6w7b2myqmh77" path="res://Assets/Sprites/Cenario/Props/light0.png" id="3_tbwqn"]
 [ext_resource type="Script" uid="uid://c4iemfodbhpjs" path="res://Scripts/Objetos/lampPostController.cs" id="4_bnlyk"]
-[ext_resource type="Script" uid="uid://dxulphw667pgt" path="res://Scripts/Resources/DirectionalSpriteResource.cs" id="5_bnlyk"]
-[ext_resource type="Texture2D" uid="uid://bstkucydtaa01" path="res://Assets/Emission Maps/light1_em.png" id="5_cunev"]
-[ext_resource type="Texture2D" uid="uid://c1ipd0ky8r1o5" path="res://Assets/Normal Maps/light1_n.webp" id="6_iiifp"]
+[ext_resource type="Resource" uid="uid://b6wd8l5d4l3ce" path="res://Assets/Resources/Objetos/objLampOn.tres" id="7_jl73f"]
 [ext_resource type="Texture2D" uid="uid://c7v3o6uixhoy8" path="res://Assets/Sprites/Cenario/Props/light1.png" id="7_mjn2s"]
-[ext_resource type="Script" uid="uid://b0fa1dne8hw5f" path="res://Scripts/Resources/DirectionalSpriteData.cs" id="8_ni8qi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fkgdr"]
 transparency = 2
@@ -17,48 +15,18 @@ alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("3_tbwqn")
 texture_filter = 0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iiifp"]
+render_priority = 0
+shader = ExtResource("3_cunev")
+shader_parameter/albedo_texture = ExtResource("7_mjn2s")
+shader_parameter/glow_base_color = Color(0.741, 0.729, 0.592, 1)
+shader_parameter/glow_tolerance = 0.4
+shader_parameter/glow_strength = 1.0
+shader_parameter/glow_enabled = false
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8c2qd"]
 radius = 0.20361328
 height = 3.0831604
-
-[sub_resource type="Resource" id="Resource_cunev"]
-script = ExtResource("8_ni8qi")
-Texture = ExtResource("7_mjn2s")
-NormalMap = ExtResource("6_iiifp")
-Emission = ExtResource("5_cunev")
-metadata/_custom_type_script = "uid://b0fa1dne8hw5f"
-
-[sub_resource type="Resource" id="Resource_jl73f"]
-script = ExtResource("8_ni8qi")
-Texture = ExtResource("7_mjn2s")
-NormalMap = ExtResource("6_iiifp")
-Emission = ExtResource("5_cunev")
-metadata/_custom_type_script = "uid://b0fa1dne8hw5f"
-
-[sub_resource type="Resource" id="Resource_jp2v4"]
-script = ExtResource("8_ni8qi")
-Texture = ExtResource("7_mjn2s")
-NormalMap = ExtResource("6_iiifp")
-Emission = ExtResource("5_cunev")
-metadata/_custom_type_script = "uid://b0fa1dne8hw5f"
-
-[sub_resource type="Resource" id="Resource_ct4i2"]
-script = ExtResource("8_ni8qi")
-Texture = ExtResource("7_mjn2s")
-NormalMap = ExtResource("6_iiifp")
-Emission = ExtResource("5_cunev")
-metadata/_custom_type_script = "uid://b0fa1dne8hw5f"
-
-[sub_resource type="Resource" id="Resource_t460t"]
-script = ExtResource("5_bnlyk")
-Back = SubResource("Resource_cunev")
-Right = SubResource("Resource_ct4i2")
-Front = SubResource("Resource_jl73f")
-Left = SubResource("Resource_jp2v4")
-Metallic = 0.5
-EmissionEnergy = 0.35
-CastShadow = false
-metadata/_custom_type_script = "uid://dxulphw667pgt"
 
 [node name="objLampPost" type="StaticBody3D" unique_id=426340957 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_vp34j")
@@ -66,6 +34,7 @@ sprite = NodePath("Sprite3D")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=654709719]
 material_override = SubResource("StandardMaterial3D_fkgdr")
+material_overlay = SubResource("ShaderMaterial_iiifp")
 cast_shadow = 0
 visibility_range_end = 50.0
 pixel_size = 0.0024
@@ -82,7 +51,7 @@ shape = SubResource("CapsuleShape3D_8c2qd")
 script = ExtResource("4_bnlyk")
 directionalSprite = NodePath("..")
 offSprites = ExtResource("2_bnlyk")
-onSprites = SubResource("Resource_t460t")
+onSprites = ExtResource("7_jl73f")
 light = NodePath("../LightAnchor/OmniLight3D")
 
 [node name="LightAnchor" type="Node3D" parent="." unique_id=752805224]
