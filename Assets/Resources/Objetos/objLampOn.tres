@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="DirectionalSpriteResource" format=3 uid="uid://b6wd8l5d4l3ce"]
+
+[ext_resource type="Texture2D" uid="uid://c1ipd0ky8r1o5" path="res://Assets/Normal Maps/light1_n.webp" id="1_ata8c"]
+[ext_resource type="Texture2D" uid="uid://c7v3o6uixhoy8" path="res://Assets/Sprites/Cenario/Props/light1.png" id="1_cgcob"]
+[ext_resource type="Script" uid="uid://dxulphw667pgt" path="res://Scripts/Resources/DirectionalSpriteResource.cs" id="1_d7av7"]
+[ext_resource type="Script" uid="uid://b0fa1dne8hw5f" path="res://Scripts/Resources/DirectionalSpriteData.cs" id="3_v05ye"]
+
+[sub_resource type="Resource" id="Resource_cunev"]
+script = ExtResource("3_v05ye")
+Texture = ExtResource("1_cgcob")
+NormalMap = ExtResource("1_ata8c")
+metadata/_custom_type_script = "uid://b0fa1dne8hw5f"
+
+[sub_resource type="Resource" id="Resource_mjn2s"]
+script = ExtResource("3_v05ye")
+Texture = ExtResource("1_cgcob")
+NormalMap = ExtResource("1_ata8c")
+metadata/_custom_type_script = "uid://b0fa1dne8hw5f"
+
+[sub_resource type="Resource" id="Resource_ni8qi"]
+script = ExtResource("3_v05ye")
+Texture = ExtResource("1_cgcob")
+NormalMap = ExtResource("1_ata8c")
+metadata/_custom_type_script = "uid://b0fa1dne8hw5f"
+
+[sub_resource type="Resource" id="Resource_iiifp"]
+script = ExtResource("3_v05ye")
+Texture = ExtResource("1_cgcob")
+NormalMap = ExtResource("1_ata8c")
+metadata/_custom_type_script = "uid://b0fa1dne8hw5f"
+
+[resource]
+script = ExtResource("1_d7av7")
+Back = SubResource("Resource_cunev")
+Right = SubResource("Resource_iiifp")
+Front = SubResource("Resource_mjn2s")
+Left = SubResource("Resource_ni8qi")
+CastShadow = false
+GlowEnabled = true
+GlowTolerance = 0.5
+GlowStrength = 2.0
+metadata/_custom_type_script = "uid://dxulphw667pgt"

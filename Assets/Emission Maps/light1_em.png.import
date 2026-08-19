@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0f5dq3g1ecg3"
-path.s3tc="res://.godot/imported/trash1.png-7654aaf4c059a407c8f710e3b3128972.s3tc.ctex"
+uid="uid://bstkucydtaa01"
+path.s3tc="res://.godot/imported/light1_em.png-c1a81b1913ee60c1efd3dd8870fe28b2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Sprites/Cenario/Props/trash1.png"
-dest_files=["res://.godot/imported/trash1.png-7654aaf4c059a407c8f710e3b3128972.s3tc.ctex"]
+source_file="res://Assets/Emission Maps/light1_em.png"
+dest_files=["res://.godot/imported/light1_em.png-c1a81b1913ee60c1efd3dd8870fe28b2.s3tc.ctex"]
 
 [params]
 

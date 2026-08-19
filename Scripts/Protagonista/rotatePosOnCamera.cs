@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class rotatePosOnCamera : Sprite3D
+public partial class rotatePosOnCamera : Node3D
 {
 	Camera3D camera;
 	// Called when the node enters the scene tree for the first time.

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://b0n7lhbax0ruf"]
+
+[ext_resource type="Texture2D" uid="uid://mt0omn7dqf73" path="res://Assets/Sprites/Cenario/Props/trash2.png" id="1_hppba"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hppba"]
+load_path = "res://.godot/imported/trash1.png-7654aaf4c059a407c8f710e3b3128972.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1pmgr"]
+load_path = "res://.godot/imported/lixo3_n.webp-dd181ee6f0665488edea676ce3e4471e.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2j4y"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = SubResource("CompressedTexture2D_hppba")
+normal_enabled = true
+normal_texture = SubResource("CompressedTexture2D_1pmgr")
+backlight_enabled = true
+backlight = Color(0.18431373, 0.18431373, 0.18431373, 1)
+texture_filter = 0
+billboard_mode = 2
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8c2qd"]
+radius = 0.29882813
+height = 0.59765625
+
+[node name="objTrash_var3" type="StaticBody3D" unique_id=426340957]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=654709719]
+material_override = SubResource("StandardMaterial3D_u2j4y")
+pixel_size = 0.0016
+billboard = 2
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("1_hppba")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=337798619]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.016845703, 0)
+shape = SubResource("CapsuleShape3D_8c2qd")

@@ -1,20 +1,24 @@
 [gd_scene format=3 uid="uid://do2x0pe173kn1"]
 
 [ext_resource type="Script" uid="uid://jdhhj58wp64a" path="res://Scripts/Camera/DirectionalSprite.cs" id="1_ofs2w"]
-[ext_resource type="Resource" uid="uid://b6wd8l5d4l3ce" path="res://Assets/Resources/Objetos/objBin.tres" id="2_m2q8e"]
+[ext_resource type="Resource" uid="uid://b3s1v41ypftn4" path="res://Assets/Resources/Objetos/objBin.tres" id="2_m2q8e"]
 [ext_resource type="Texture2D" uid="uid://bhy02e6ewon1g" path="res://Assets/Sprites/Cenario/Props/binF.png" id="3_m6gnf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8c2qd"]
 radius = 0.29882813
 height = 0.59765625
 
-[node name="objBin" type="RigidBody3D" unique_id=1657193161 node_paths=PackedStringArray("sprite")]
+[node name="objBin" type="StaticBody3D" unique_id=426340957 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_ofs2w")
 directionalTextures = ExtResource("2_m2q8e")
 sprite = NodePath("Sprite3D")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=654709719]
+visibility_range_end = 50.0
 pixel_size = 0.0016
+billboard = 2
+alpha_cut = 2
+texture_filter = 0
 texture = ExtResource("3_m6gnf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=337798619]

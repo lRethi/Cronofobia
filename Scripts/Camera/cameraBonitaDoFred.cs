@@ -15,7 +15,7 @@ public partial class cameraBonitaDoFred : Node3D
     private readonly float basePitch = 0f;
 
     private int pitchState = 0;
-    private int yawState = 0;
+    private int yawRotation = 0;
 
     private Vector3 currentRotation;
     private Vector3 targetRotation;
@@ -27,11 +27,11 @@ public partial class cameraBonitaDoFred : Node3D
 
 	public float GetCameraYaw()
 	{
-		return yawState * 90f;
+		return yawRotation * 90f;
 	}
     public int GetYawState()
     {
-        return yawState;
+        return Mathf.PosMod(yawRotation, 4);
     }
     public int GetPitchState()
     {
@@ -68,7 +68,7 @@ public partial class cameraBonitaDoFred : Node3D
         currentOffset = _pcam.FollowOffset;
         targetOffset = currentOffset;
 
-        yawState = Mathf.RoundToInt(currentRotation.Y / 90f);
+        yawRotation = Mathf.RoundToInt(currentRotation.Y / 90f);
         pitchState = Mathf.Clamp(
             Mathf.RoundToInt((currentRotation.X - basePitch) / 90f),
             -1,
@@ -83,13 +83,13 @@ public partial class cameraBonitaDoFred : Node3D
     {
         if (@event.IsActionPressed("cam_left"))
         {
-            yawState++;
+            yawRotation++;
 			objCamera.Fov = 75f;
             UpdateTarget();
         }
         else if (@event.IsActionPressed("cam_right"))
         {
-            yawState--;
+            yawRotation--;
 			objCamera.Fov = 75f;
             UpdateTarget();
         }
@@ -111,7 +111,7 @@ public partial class cameraBonitaDoFred : Node3D
     {
         targetRotation = new Vector3(
             basePitch + pitchState * 90f,
-            yawState * 90f,
+            yawRotation * 90f,
             0f
         );
 
@@ -124,7 +124,7 @@ public partial class cameraBonitaDoFred : Node3D
 
 	private Vector3 GetRotatedOffset(Vector3 offset)
 	{
-		float yawRadians = Mathf.DegToRad(yawState * 90f);
+		float yawRadians = Mathf.DegToRad(yawRotation * 90f);
 
 		float x = offset.X * Mathf.Cos(yawRadians) + offset.Z * Mathf.Sin(yawRadians);
 		float z = offset.X * Mathf.Sin(yawRadians) + offset.Z * Mathf.Cos(yawRadians);
@@ -193,7 +193,7 @@ public partial class cameraBonitaDoFred : Node3D
         {
             currentRotation = endRotation;
             currentOffset = endOffset;
-            EmitSignal(SignalName.CameraChanged, yawState, pitchState);
+            EmitSignal(SignalName.CameraChanged, GetYawState(), pitchState);
         };
     }
 }
