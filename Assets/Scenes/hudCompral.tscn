@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cklvtrqrtdppf"]
+
+[ext_resource type="Script" uid="uid://cxygpwetgj17n" path="res://Scripts/Geral/cenaCompra.cs" id="1_da0d2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_irs17"]
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" unique_id=1899817424]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=985613195]
+layout_mode = 0
+offset_left = 370.0
+offset_top = 292.0
+offset_right = 790.0
+offset_bottom = 382.0
+script = ExtResource("1_da0d2")
+
+[node name="botCompra" type="Button" parent="Panel" unique_id=129112706]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 25.0
+offset_right = 100.0
+offset_bottom = 56.0
+text = "Comprar"
+
+[node name="botFecha" type="Button" parent="Panel" unique_id=1251073693]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 50.0
+offset_right = 255.0
+offset_bottom = 81.0
+text = "Sair"
+
+[node name="botRouba" type="Button" parent="Panel" unique_id=1995711883]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 25.0
+offset_right = 410.0
+offset_bottom = 56.0
+text = "Roubar"
+
+[node name="lblPreco" type="Label" parent="Panel" unique_id=2100338904]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 5.0
+offset_right = 255.0
+offset_bottom = 28.0
+text = "R$0.00"
+label_settings = SubResource("LabelSettings_irs17")
+horizontal_alignment = 1
