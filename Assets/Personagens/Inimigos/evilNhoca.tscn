@@ -20,40 +20,6 @@ alpha_cut = 2
 texture_filter = 0
 texture = ExtResource("1_58rqq")
 
-[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=1888347178]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.001)
-modulate = Color(0.6488441, 0.14754117, 0.115282916, 1)
-pixel_size = 0.016
-alpha_cut = 2
-texture_filter = 0
-texture = ExtResource("1_58rqq")
-
-[node name="Sprite3D4" type="Sprite3D" parent="." unique_id=482297407]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.002)
-modulate = Color(0.6488441, 0.14754117, 0.115282916, 1)
-pixel_size = 0.016
-alpha_cut = 2
-texture_filter = 0
-render_priority = 1
-texture = ExtResource("1_58rqq")
-
-[node name="Sprite3D3" type="Sprite3D" parent="." unique_id=511810688]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.001)
-modulate = Color(0.6488441, 0.14754117, 0.115282916, 1)
-pixel_size = 0.016
-alpha_cut = 2
-texture_filter = 0
-texture = ExtResource("1_58rqq")
-
-[node name="Sprite3D5" type="Sprite3D" parent="." unique_id=1495862830]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.002)
-modulate = Color(0.6488441, 0.14754117, 0.115282916, 1)
-pixel_size = 0.016
-alpha_cut = 2
-texture_filter = 0
-render_priority = 1
-texture = ExtResource("1_58rqq")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1507469783]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06713867, 0)
 shape = SubResource("CylinderShape3D_kktd2")

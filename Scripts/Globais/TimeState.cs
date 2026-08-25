@@ -78,7 +78,7 @@ public partial class TimeState : Node
 		if (minuto >= 1380 || minuto < 480)
 			return DayState.Night;
 
-		if (minuto >= 1080)
+		if (minuto >= 1020)
 			return DayState.Evening;
 
 		if (minuto >= 720)

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://c4vccexgyrjmw"]
+
+[ext_resource type="Script" uid="uid://dmo24cwcuwuts" path="res://Scripts/Protagonista/inimPerseguirProta.cs" id="1_gcw2n"]
+[ext_resource type="Texture2D" uid="uid://wl85vwr6w7c7" path="res://Assets/Sprites/Personagens/Inimigos/droneApagado.webp" id="2_07r1c"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_kktd2"]
+height = 1.2054939
+radius = 1.0078125
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_77wdk"]
+radius = 5.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_irs17"]
+radius = 2.0
+
+[node name="droneInimigo" type="CharacterBody3D" unique_id=856536261]
+script = ExtResource("1_gcw2n")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1272247020]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44912255, 0)
+pixel_size = 0.008
+billboard = 1
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("2_07r1c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1507469783]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0064258575, 0)
+shape = SubResource("CylinderShape3D_kktd2")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=331671090]
+
+[node name="AlertArea" type="Area3D" parent="." unique_id=392329362]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AlertArea" unique_id=250693854]
+shape = SubResource("SphereShape3D_77wdk")
+
+[node name="CollisionArea" type="Area3D" parent="." unique_id=1869543609]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9394732, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionArea" unique_id=1279313551]
+shape = SubResource("SphereShape3D_irs17")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=483277700]
+transform = Transform3D(1, 0, 0, 0, -0.013442844, 0.99990964, 0, -0.99990964, -0.013442844, 0, 0, 0)
+light_color = Color(0.71820784, 0, 0.06291329, 1)
+light_energy = 2.0

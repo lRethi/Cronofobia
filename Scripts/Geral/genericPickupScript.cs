@@ -1,19 +1,19 @@
-using System.Security.Cryptography;
 using Godot;
 
 public partial class genericPickupScript : Area3D
 {
     [Export] public TipoRecursoEnum tipoRecurso;
-    [Export] public float ValorRecurso = 1f;
-    [Export] public float varPreco = 0f;
-    [Export] public bool varCompravel = false;
+    [Export] public float valorRecurso = 1f;
+    [Export] public float preco = 0f;
+    [Export] public bool compravel = false;
+    [Export] public PackedScene cenaCompra;
 
-	public enum TipoRecursoEnum
-	{
-		Fome,
-		Sede,
-		Dinheiro
-	}
+    public enum TipoRecursoEnum
+    {
+        Fome,
+        Sede,
+        Dinheiro
+    }
 
     public override void _Ready()
     {
@@ -25,40 +25,73 @@ public partial class genericPickupScript : Area3D
         if (body is not movimentoPerson)
             return;
 
-        if(!varCompravel) pegarItem();
+        if (!compravel)
+        {
+            PegarItem();
+            QueueFree();
+            return;
+        }
 
+        MostrarCenaCompra();
+    }
+
+    private void MostrarCenaCompra()
+    {
+        var cena = cenaCompra.Instantiate<cenaCompra>();
+
+        GetTree().CurrentScene.AddChild(cena);
+
+        cena.SetupScene(preco);
+
+        cena.Comprar += ComprarItem;
+        cena.Roubar += RoubarItem;
+        cena.Fechar += FecharCompra;
+        TimeState.Instance.CongelarTempo();
+    }
+
+    private void ComprarItem(int precoCompra)
+    {
+        if (NeedsState.Instance.varDinheiro < precoCompra)
+            return;
+
+        NeedsState.Instance.SetDinheiro(
+            NeedsState.Instance.varDinheiro - precoCompra
+        );
+
+        PegarItem();
         QueueFree();
     }
 
-    private void mostrarCenaCompra()
+    private void RoubarItem()
     {
-        
-    }
-    public void comprarItem(float precoCompra)
-    {
-        NeedsState.Instance.SetDinheiro(NeedsState.Instance.varDinheiro - precoCompra);
-        pegarItem();
+        PegarItem();
+        QueueFree();
     }
 
-    public void roubarItem()
+    private void FecharCompra()
     {
-        pegarItem();
     }
 
-    private void pegarItem()
+    private void PegarItem()
     {
         switch (tipoRecurso)
         {
             case TipoRecursoEnum.Fome:
-                NeedsState.Instance.SetFome(NeedsState.Instance.varFome + ValorRecurso);
+                NeedsState.Instance.SetFome(
+                    NeedsState.Instance.varFome + valorRecurso
+                );
                 break;
 
             case TipoRecursoEnum.Sede:
-                NeedsState.Instance.SetSede(NeedsState.Instance.varSede + ValorRecurso);
+                NeedsState.Instance.SetSede(
+                    NeedsState.Instance.varSede + valorRecurso
+                );
                 break;
 
             case TipoRecursoEnum.Dinheiro:
-                NeedsState.Instance.SetDinheiro(NeedsState.Instance.varDinheiro + ValorRecurso);
+                NeedsState.Instance.SetDinheiro(
+                    NeedsState.Instance.varDinheiro + valorRecurso
+                );
                 break;
         }
     }

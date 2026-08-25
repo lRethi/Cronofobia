@@ -41,7 +41,7 @@ public partial class cameraBonitaDoFred : Node3D
     private readonly Vector3[] pitchOffsets =
     {
         new Vector3(0f, -2f, -0.8f),
-        new Vector3(0f, 0f, 0f),
+        new Vector3(0f, 0.15f, 0f),
         new Vector3(0f, 1.8f, -0.35f)
     };
 

@@ -6,13 +6,18 @@
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Control" type="Control" unique_id=1899817424]
+[node name="Control" type="Control" unique_id=1899817424 node_paths=PackedStringArray("lblPreco", "botCompra", "botRouba", "botFecha")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_da0d2")
+lblPreco = NodePath("Panel/lblPreco")
+botCompra = NodePath("Panel/botCompra")
+botRouba = NodePath("Panel/botRouba")
+botFecha = NodePath("Panel/botFecha")
 
 [node name="Panel" type="Panel" parent="." unique_id=985613195]
 layout_mode = 0
@@ -20,7 +25,6 @@ offset_left = 370.0
 offset_top = 292.0
 offset_right = 790.0
 offset_bottom = 382.0
-script = ExtResource("1_da0d2")
 
 [node name="botCompra" type="Button" parent="Panel" unique_id=129112706]
 layout_mode = 0

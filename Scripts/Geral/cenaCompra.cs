@@ -1,42 +1,62 @@
 using Godot;
-using System;
-using System.Security.Cryptography;
 
-public partial class cenaCompra : Panel
+public partial class cenaCompra : Control
 {
-	[Export] public Label lblPreco;
-	[Export] public Button botCompra;
-	[Export] public Button botRouba;
-	[Export] public Button botFecha;
-	private float randomAffix = 0f;
-	public float varPreco {get; private set;}
+    [Export] public Label lblPreco;
+    [Export] public Button botCompra;
+    [Export] public Button botRouba;
+    [Export] public Button botFecha;
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+    public float varPreco { get; private set; }
+	public int custo { get; private set; }
+
+    [Signal]
+    public delegate void ComprarEventHandler(int custo);
+
+    [Signal]
+    public delegate void RoubarEventHandler();
+
+    [Signal]
+    public delegate void FecharEventHandler();
+
+    public override void _Ready()
+    {
+        botCompra.Pressed += OnBotCompra;
+        botRouba.Pressed += OnBotRouba;
+        botFecha.Pressed += OnBotFecha;
+    }
+
+    public void SetupScene(float precoRecebido)
 	{
+		int centavos = (int)(GD.Randi() % 4) + 96;
+
+		varPreco = precoRecebido + centavos / 100f;
+		custo = Mathf.CeilToInt(varPreco);
+
+		lblPreco.Text = $"R${varPreco:0.00}";
+
+		botCompra.Disabled =
+			NeedsState.Instance.varDinheiro < custo;
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-		if (botCompra.Pressed
-	}
+    private void OnBotCompra()
+    {
+        EmitSignal(SignalName.Comprar, custo);
+		TimeState.Instance.DescongelarTempo();
+        QueueFree();
+    }
 
-	
+    private void OnBotRouba()
+    {
+        EmitSignal(SignalName.Roubar);
+		TimeState.Instance.DescongelarTempo();
+        QueueFree();
+    }
 
-	private void generateRandomAffix()
-	{
-		randomAffix = GD.Randi() % 96 + 5;
-	}
-
-	public void setupScene(float precoRecebido)
-	{
-		varPreco = precoRecebido;
-		generateRandomAffix();
-		lblPreco.Text = $"R${varPreco}.{randomAffix}";
-		if(varPreco+1 > NeedsState.Instance.varDinheiro)
-		{
-			botCompra.Disabled = true;
-		}
-	}
+    private void OnBotFecha()
+    {
+        EmitSignal(SignalName.Fechar);
+		TimeState.Instance.DescongelarTempo();
+        QueueFree();
+    }
 }

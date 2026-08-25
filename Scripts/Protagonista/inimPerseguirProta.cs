@@ -25,16 +25,33 @@ public partial class inimPerseguirProta : CharacterBody3D
 
 	private bool playerNaArea = false;
 
+	private Area3D collisionArea;
+
+	[Export] public float tempoDeVida = 10f;
+
+	[Signal]
+	public delegate void PlayerColidiuEventHandler();
+
 	public override void _Ready()
 	{
 		agent = GetNode<NavigationAgent3D>("NavigationAgent3D");
 		alertArea = GetNode<Area3D>("AlertArea");
+		collisionArea = GetNode<Area3D>("CollisionArea");
 
 		agent.TargetDesiredDistance = 0.05f;
 		agent.PathDesiredDistance = 0.05f;
 
 		alertArea.BodyEntered += OnBodyEntered;
 		alertArea.BodyExited += OnBodyExited;
+
+		collisionArea.BodyEntered += OnCollisionAreaBodyEntered;
+
+		GetTree().CreateTimer(tempoDeVida).Timeout += Desaparecer;
+	}
+
+	void Desaparecer()
+	{
+		QueueFree();
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -191,5 +208,14 @@ public partial class inimPerseguirProta : CharacterBody3D
 	{
 		if (body == player)
 			playerNaArea = false;
+	}
+
+	void OnCollisionAreaBodyEntered(Node body)
+	{
+		if (body != player)
+			return;
+
+		if (estadoAtual == EnemyState.Chase || estadoAtual == EnemyState.Search)
+			EmitSignal(SignalName.PlayerColidiu);
 	}
 }
