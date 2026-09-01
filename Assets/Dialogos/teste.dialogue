@@ -1,5 +1,8 @@
 ~ start
 
+if GetFlag("minhoca_finalizado")
+    => finished_quest
+
 if GetFlag("aceitou_ajuda"):
     => accepted_help
 
@@ -13,6 +16,7 @@ Sir Minhoca: Pode conseguir água pra mim?
 
 - Pode ser.
     do SetFlag("aceitou_ajuda")
+    do StartQuest("agua_minhoca")
     Sir Minhoca: Aí sim! Me traz um copo das boas.
     => END
 
@@ -21,11 +25,21 @@ Sir Minhoca: Pode conseguir água pra mim?
     Sir Minhoca: Poxa... Sérião? Bom, então tá né.
     => END
 
-
 ~ accepted_help
-Sir Minhoca: *assobiando* Uma águinha na lagoaaa...
+Sir Minhoca: Trouxe a minha água?
+- Sim. [if NeedsState.get_varSede() >= 1]
+	do SetFlag("minhoca_finalizado", true)
+    do NeedsState.SetSede(NeedsState.get_varSede() - 1)
+	Sir Minhoca: Caraca... Valeu!
+	Sir Minhoca: *sluuuurp*
+	Protagonista: (... ele parece ocupado se deliciando na água, melhor não incomodar.)
+- Não.
+    Sir Minhoca: Erm... Tá bom! Mas, se você puder não demorar tanto...
 => END
 
+~ finished_quest
+Sir Minhoca: *assobiando* Uma águinha na lagoaaa...
+=> END
 
 ~ refused_help
 Sir Minhoca: Cara... Certeza que não quer ajudar?
