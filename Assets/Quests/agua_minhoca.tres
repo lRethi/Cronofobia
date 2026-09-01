@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="QuestAguaMinhoca" format=3 uid="uid://cshn2frthqs77"]
+
+[ext_resource type="Script" uid="uid://btybvo3bnekmr" path="res://Assets/Quests/Scripts/QuestAguaMinhoca.cs" id="1_n7r0v"]
+
+[resource]
+script = ExtResource("1_n7r0v")
+metadata/_custom_type_script = "uid://btybvo3bnekmr"

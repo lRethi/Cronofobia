@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dqkglb3p1sdnk" path="res://Assets/Sprites/Personagens/NPCs/pixil-frame-0(2).png" id="1_3be31"]
 [ext_resource type="Shader" uid="uid://ba2yn3rm04xny" path="res://Assets/Shaders/HighlightNPC.gdshader" id="1_vbydv"]
+[ext_resource type="Script" uid="uid://g406lwqsh4u2" path="res://Scripts/Dialogos/mecanicaIniciarDialogo.cs" id="1_xn30h"]
 [ext_resource type="Script" uid="uid://cbeumlxm2r5cw" path="res://Scripts/Camera/rotCameraPerson.cs" id="2_8mx3u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8mx3u"]
@@ -19,6 +20,7 @@ shader_parameter/glow_intensity = 0.750000035625
 
 [node name="SirNhoca" type="StaticBody3D" unique_id=1088714365]
 collision_mask = 9
+script = ExtResource("1_xn30h")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1984777287]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0074343905, 0.054549843, 0)

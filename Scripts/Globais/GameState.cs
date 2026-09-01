@@ -9,6 +9,9 @@ public partial class GameState : Node
     public static bool TempoCongelado = false;
     public Dictionary Flags = new();
 
+    [Signal]
+    public delegate void FlagChangedEventHandler(string key, bool value);
+
     public override void _EnterTree()
         {
             if (Instance != null && Instance != this) {
@@ -50,8 +53,15 @@ public partial class GameState : Node
     public async Task SetFlag(string key, bool value = true)
     {
         Flags[key] = value;
+        EmitSignal(SignalName.FlagChanged, key, value);
         await Task.CompletedTask;
     }
+
+    public void StartQuest(string questId)
+    {
+        QuestState.Instance.AddQuest(questId);
+    }
+    
     public void endGame(string endingName)
     {
         GetTree().ChangeSceneToFile($"res://Assets/Endings/{endingName}.tscn");
