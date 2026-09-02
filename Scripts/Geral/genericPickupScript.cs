@@ -2,16 +2,16 @@ using Godot;
 
 public partial class genericPickupScript : Area3D
 {
-    [Export] public TipoRecursoEnum tipoRecurso;
+    [Export] public TipoPickup tipoPickup;
+    [Export] public ItemDefinition item;
     [Export] public float valorRecurso = 1f;
     [Export] public float preco = 0f;
     [Export] public bool compravel = false;
     [Export] public PackedScene cenaCompra;
 
-    public enum TipoRecursoEnum
+    public enum TipoPickup
     {
-        Fome,
-        Sede,
+        Item,
         Dinheiro
     }
 
@@ -27,8 +27,9 @@ public partial class genericPickupScript : Area3D
 
         if (!compravel)
         {
-            PegarItem();
-            QueueFree();
+            if (PegarItem())
+                QueueFree();
+
             return;
         }
 
@@ -38,11 +39,8 @@ public partial class genericPickupScript : Area3D
     private void MostrarCenaCompra()
     {
         var cena = cenaCompra.Instantiate<cenaCompra>();
-
         GetTree().CurrentScene.AddChild(cena);
-
         cena.SetupScene(preco);
-
         cena.Comprar += ComprarItem;
         cena.Roubar += RoubarItem;
         cena.Fechar += FecharCompra;
@@ -54,17 +52,21 @@ public partial class genericPickupScript : Area3D
         if (NeedsState.Instance.varDinheiro < precoCompra)
             return;
 
+        if (!PegarItem())
+            return;
+
         NeedsState.Instance.SetDinheiro(
             NeedsState.Instance.varDinheiro - precoCompra
         );
 
-        PegarItem();
         QueueFree();
     }
 
     private void RoubarItem()
     {
-        PegarItem();
+        if (!PegarItem())
+            return;
+
         QueueFree();
     }
 
@@ -72,27 +74,21 @@ public partial class genericPickupScript : Area3D
     {
     }
 
-    private void PegarItem()
+    private bool PegarItem()
     {
-        switch (tipoRecurso)
+        switch (tipoPickup)
         {
-            case TipoRecursoEnum.Fome:
-                NeedsState.Instance.SetFome(
-                    NeedsState.Instance.varFome + valorRecurso
-                );
-                break;
+            case TipoPickup.Item:
+                return InventoryState.Instance.AdicionarItem(item);
 
-            case TipoRecursoEnum.Sede:
-                NeedsState.Instance.SetSede(
-                    NeedsState.Instance.varSede + valorRecurso
-                );
-                break;
-
-            case TipoRecursoEnum.Dinheiro:
+            case TipoPickup.Dinheiro:
                 NeedsState.Instance.SetDinheiro(
                     NeedsState.Instance.varDinheiro + valorRecurso
                 );
-                break;
+
+                return true;
         }
+
+        return false;
     }
 }

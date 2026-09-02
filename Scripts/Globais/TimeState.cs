@@ -25,8 +25,8 @@ public partial class TimeState : Node
 	public float maximoDias {private set; get;} = 7f;
 
 	public static bool lugarParaDormir = true;
-    public static bool comidaSuficiente = true;
-    public static bool aguaSuficiente = true;
+	public static bool comidaSuficiente = true;
+	public static bool aguaSuficiente = true;
 	public bool noiteFinalizada {get; private set;} = false;
 
 	public event Action<DayState> DayStateChanged;
@@ -147,8 +147,8 @@ public partial class TimeState : Node
 }
 public enum DayState
 {
-    Morning,
-    Afternoon,
-    Evening,
-    Night
+	Morning,
+	Afternoon,
+	Evening,
+	Night
 }

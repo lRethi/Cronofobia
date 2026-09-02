@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://cxr650alwe5f6"]
+
+[ext_resource type="Script" uid="uid://c34nkk713lbx5" path="res://Scripts/Resources/ItemDefinition.cs" id="1_mafrq"]
+[ext_resource type="Texture2D" uid="uid://b71b4aej2ag1x" path="res://Assets/Sprites/Objetos/objFeijao.png" id="1_t8xmd"]
+
+[resource]
+script = ExtResource("1_mafrq")
+Id = "lata_feijao"
+Nome = "Lata de Feijão"
+Descricao = "Uma lata de feijão. Não parece muito apetitosa, mas ainda está boa."
+Textura = ExtResource("1_t8xmd")
+FomeAoUsar = 1.0
+metadata/_custom_type_script = "uid://c34nkk713lbx5"

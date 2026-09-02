@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cdj11gs6dxbd3" path="res://Scripts/Geral/genericPickupScript.cs" id="1_b6x47"]
 [ext_resource type="Texture2D" uid="uid://b71b4aej2ag1x" path="res://Assets/Sprites/Objetos/objFeijao.png" id="2_b6x47"]
+[ext_resource type="Resource" uid="uid://cxr650alwe5f6" path="res://Assets/Resources/Itens/LataFeijao.tres" id="2_v0qdu"]
+[ext_resource type="PackedScene" uid="uid://cklvtrqrtdppf" path="res://Assets/UI/hudCompra.tscn" id="3_b3flj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8c2qd"]
 radius = 0.19335938
@@ -18,6 +20,8 @@ billboard_mode = 2
 
 [node name="lataFeijao" type="Area3D" unique_id=1197714594]
 script = ExtResource("1_b6x47")
+item = ExtResource("2_v0qdu")
+cenaCompra = ExtResource("3_b3flj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=337365301]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.013336182, 0)

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dd3yf0c5d5nvl"]
 
 [ext_resource type="Script" uid="uid://dwbafmkhb60pp" path="res://Scripts/Globais/GameState.cs" id="1_x8k4i"]
-[ext_resource type="LightmapGIData" uid="uid://7lgjborrwd4n" path="res://Assets/Scenes/ThePlayground.lmbake" id="2_3qlyq"]
 [ext_resource type="Script" uid="uid://23qigdj8fnin" path="res://Scripts/Geral/DayNightController.cs" id="2_11sfv"]
+[ext_resource type="PackedScene" uid="uid://c3qp6nf2wgnsr" path="res://Assets/UI/telaInventario.tscn" id="2_ueqtk"]
 [ext_resource type="PackedScene" uid="uid://4cvw5u3glyoy" path="res://Assets/Personagens/Protagonista.tscn" id="2_vgdj8"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_w30fg"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="8_11sfv"]
@@ -55,8 +55,6 @@ fog_height = -0.1
 fog_height_density = -0.35
 fog_depth_end = 20.0
 adjustment_enabled = true
-
-[sub_resource type="Sky" id="Sky_smobe"]
 
 [sub_resource type="Resource" id="Resource_5ge65"]
 script = ExtResource("9_an17c")
@@ -157,15 +155,6 @@ shadow_opacity = 0.75
 transform = Transform3D(0.97588885, 0.18190728, -0.12062637, 0.12820515, -0.030452127, 0.99128, 0.17664772, -0.9828441, -0.053039335, 0, 0, 0)
 light_angular_distance = 0.5
 shadow_bias = 5.0
-
-[node name="LightmapGI" type="LightmapGI" parent="." unique_id=1632256123]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -27.329361)
-visible = false
-quality = 2
-directional = true
-environment_mode = 2
-environment_custom_sky = SubResource("Sky_smobe")
-light_data = ExtResource("2_3qlyq")
 
 [node name="testeHominho" parent="." unique_id=1046664859 node_paths=PackedStringArray("cameraNode", "cameraPivotNode") instance=ExtResource("2_vgdj8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36977458, 0.8375257, -1.6887856)
@@ -398,89 +387,8 @@ metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
 [node name="hudMain" parent="." unique_id=1394536996 instance=ExtResource("26_qeaow")]
 
-[node name="moedaPickup" parent="." unique_id=1197714594 instance=ExtResource("22_an17c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3529577, 0.3047999, -32.337082)
-
-[node name="moedaPickup2" parent="." unique_id=1241766326 instance=ExtResource("22_an17c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.623546, 0.3047999, -32.47019)
-
-[node name="moedaPickup3" parent="." unique_id=968952477 instance=ExtResource("22_an17c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.025133, 0.30479968, -34.09694)
-
-[node name="moedaPickup4" parent="." unique_id=1159188390 instance=ExtResource("22_an17c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.351773, 0.3047999, -33.1653)
-
-[node name="moedaPickup5" parent="." unique_id=782262718 instance=ExtResource("22_an17c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.28297, 0.30479968, -33.789158)
-
-[node name="moedaPickup6" parent="." unique_id=1007884269 instance=ExtResource("22_an17c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.927103, 0.3047999, -32.337082)
-
-[node name="moedaPickup7" parent="." unique_id=337305188 instance=ExtResource("22_an17c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.197691, 0.3047999, -32.47019)
-
-[node name="moedaPickup8" parent="." unique_id=1991105817 instance=ExtResource("22_an17c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5992785, 0.30479968, -34.09694)
-
-[node name="moedaPickup9" parent="." unique_id=1819944672 instance=ExtResource("22_an17c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9259176, 0.3047999, -33.1653)
-
-[node name="moedaPickup10" parent="." unique_id=859581999 instance=ExtResource("22_an17c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.857115, 0.30479968, -33.789158)
-
-[node name="moedaPickup11" parent="." unique_id=326110248 instance=ExtResource("22_an17c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.840135, 0.3047999, -32.337082)
-
-[node name="moedaPickup12" parent="." unique_id=669027329 instance=ExtResource("22_an17c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.110723, 0.3047999, -32.47019)
-
-[node name="moedaPickup13" parent="." unique_id=240574818 instance=ExtResource("22_an17c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5123105, 0.30479968, -34.09694)
-
-[node name="moedaPickup14" parent="." unique_id=223238733 instance=ExtResource("22_an17c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8389497, 0.3047999, -33.1653)
-
-[node name="moedaPickup15" parent="." unique_id=1417337740 instance=ExtResource("22_an17c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.770147, 0.30479968, -33.789158)
-
-[node name="moedaPickup16" parent="." unique_id=301272628 instance=ExtResource("22_an17c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6330967, 0.3047999, -32.337082)
-
-[node name="moedaPickup17" parent="." unique_id=1742580662 instance=ExtResource("22_an17c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9036846, 0.3047999, -32.47019)
-
-[node name="moedaPickup18" parent="." unique_id=135254142 instance=ExtResource("22_an17c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.305272, 0.30479968, -34.09694)
-
-[node name="moedaPickup19" parent="." unique_id=341529898 instance=ExtResource("22_an17c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6319113, 0.3047999, -33.1653)
-
-[node name="moedaPickup20" parent="." unique_id=1607949170 instance=ExtResource("22_an17c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5631084, 0.30479968, -33.789158)
-
-[node name="galaoAgua" parent="." unique_id=1907643581 instance=ExtResource("18_h3j6h")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.404334, 0.6464596, -8.160776)
-
-[node name="galaoAgua2" parent="." unique_id=1788374618 instance=ExtResource("18_h3j6h")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5.98745, 0.9192001, -29.983763)
-
-[node name="galaoAgua3" parent="." unique_id=1299761035 instance=ExtResource("18_h3j6h")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.468936, 0.9191999, -31.191029)
-
-[node name="garrafaAgua" parent="." unique_id=465387996 instance=ExtResource("20_uipgk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.402951, 0.3047999, -29.06134)
-
-[node name="lataFeijao" parent="." unique_id=1732559544 instance=ExtResource("19_qeaow")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3215878, 0.3047999, -30.854208)
-
-[node name="lataFeijao2" parent="." unique_id=2103567832 instance=ExtResource("19_qeaow")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6568289, 0.30479968, -30.74441)
-
-[node name="lataFeijao3" parent="." unique_id=777380099 instance=ExtResource("19_qeaow")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9985259, 0.3047999, -31.879787)
-
-[node name="lataFeijao4" parent="." unique_id=2088660020 instance=ExtResource("19_qeaow")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40386295, 0.3047999, -29.444414)
+[node name="Inventory" parent="." unique_id=1651639305 instance=ExtResource("2_ueqtk")]
+visible = false
 
 [node name="objBin" parent="." unique_id=1657193161 instance=ExtResource("26_654w1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.40570354, -16)
@@ -492,3 +400,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3871694, 1.6342652, -1.291
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10464883, 0.3586347, -3.6715722)
 dialogue = ExtResource("34_p7qbl")
 personagem = NodePath("../testeHominho")
+
+[node name="garrafaAgua" parent="." unique_id=1197714594 instance=ExtResource("20_uipgk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5863266, 0.3047999, -10.195332)
+
+[node name="lataFeijao" parent="." unique_id=110619584 instance=ExtResource("19_qeaow")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.453418, 0.3047998, -9.287083)
+
+[node name="garrafaAgua2" parent="." unique_id=991715990 instance=ExtResource("20_uipgk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.730157, 0.3047999, -10.195332)
+
+[node name="lataFeijao2" parent="." unique_id=2076779181 instance=ExtResource("19_qeaow")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.597248, 0.3047998, -9.287083)
+
+[node name="galaoAgua" parent="." unique_id=953221070 instance=ExtResource("18_h3j6h")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 7.6561, 0.523178, -8.35817)
+preco = 3.0
+compravel = true
+
+[node name="moedaPickup" parent="." unique_id=130964378 instance=ExtResource("22_an17c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2986574, 0.3047999, -5.8404202)
+
+[node name="moedaPickup2" parent="." unique_id=1382103823 instance=ExtResource("22_an17c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3799143, 0.3047999, -5.3242073)
+
+[node name="moedaPickup3" parent="." unique_id=1856332331 instance=ExtResource("22_an17c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.348313, 0.3047999, -4.876289)
+
+[node name="moedaPickup4" parent="." unique_id=1049387694 instance=ExtResource("22_an17c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3848343, 0.3047999, -4.303458)
