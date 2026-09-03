@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cdj11gs6dxbd3" path="res://Scripts/Geral/genericPickupScript.cs" id="1_cw13h"]
 [ext_resource type="Texture2D" uid="uid://on0g33jm2uhj" path="res://Assets/Sprites/Objetos/agua.png" id="2_cw13h"]
+[ext_resource type="Resource" uid="uid://bl25yxs68bcmm" path="res://Assets/Resources/Itens/GarrafaAgua.tres" id="2_e3keg"]
+[ext_resource type="PackedScene" uid="uid://cklvtrqrtdppf" path="res://Assets/UI/hudCompra.tscn" id="3_flesy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8c2qd"]
 radius = 0.19335938
@@ -18,8 +20,8 @@ billboard_mode = 2
 
 [node name="garrafaAgua" type="Area3D" unique_id=1197714594]
 script = ExtResource("1_cw13h")
-tipoRecurso = 1
-ValorRecurso = 0.5
+item = ExtResource("2_e3keg")
+cenaCompra = ExtResource("3_flesy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=337365301]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.013336182, 0)

@@ -8,7 +8,7 @@ public partial class DayNightController : Node3D
     private PhysicalSkyMaterial skyMaterial;
 
     [Export] public Color corNoite = new Color(0.08f, 0.10f, 0.22f);
-    [Export] public Color corDia = new Color(0.85f, 0.82f, 0.68f);
+    [Export] public Color corDia = new Color(0.65f, 0.62f, 0.48f);
 	[Export] public Color corCrepusculo = new Color(0.85f, 0.45f, 0.55f);
     [Export] public Color corNascerDoSol = new Color(0.95f, 0.72f, 0.55f);
     [Export] public Color corPorDoSol = new Color(1.0f, 0.65f, 0.45f);
@@ -17,9 +17,9 @@ public partial class DayNightController : Node3D
 	[Export] public Color corFogHorizonteNoite = new Color(0.1f, 0.1f, 0.2f);
 	[Export] public Color corFogHorizonteCrepusculo = new Color(0.8f, 0.4f, 0.2f);
 
-	[Export] public float densidadeFogHorizonteDia = 0.7f;
-	[Export] public float densidadeFogHorizonteNoite = 1.2f;
-	[Export] public float densidadeFogHorizonteCrepusculo = 0.9f;
+	[Export] public float densidadeFogHorizonteDia = 0.07f;
+	[Export] public float densidadeFogHorizonteNoite = 0.12f;
+	[Export] public float densidadeFogHorizonteCrepusculo = 0.10f;
 
     [Export] public float intensidadeMaximaSol = 1.5f;
     [Export] public float intensidadeMaximaLua = 0.5f;

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://bl25yxs68bcmm"]
+
+[ext_resource type="Texture2D" uid="uid://on0g33jm2uhj" path="res://Assets/Sprites/Objetos/agua.png" id="1_gglak"]
+[ext_resource type="Script" uid="uid://c34nkk713lbx5" path="res://Scripts/Resources/ItemDefinition.cs" id="2_557fw"]
+
+[resource]
+script = ExtResource("2_557fw")
+Id = "garrafa_agua"
+Nome = "Garrafa de Água"
+Descricao = "Uma garrafa de água. Já se passaram os tempos onde a água era acessível à todos... Melhor beber com cuidado."
+Textura = ExtResource("1_gglak")
+SedeAoUsar = 1.0
+metadata/_custom_type_script = "uid://c34nkk713lbx5"

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djk3je7m0sqbk"
-path.s3tc="res://.godot/imported/untitled@10x.png-8d60ee17a3b47b641588dbed29334286.s3tc.ctex"
+uid="uid://v3qdewwv7ajs"
+path.s3tc="res://.godot/imported/Banco.png-8a0a25819978bbf4079362ed4be77624.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Sprites/Cenario/Parede/untitled@10x.png"
-dest_files=["res://.godot/imported/untitled@10x.png-8d60ee17a3b47b641588dbed29334286.s3tc.ctex"]
+source_file="res://Assets/Sprites/Cenario/Parede/Banco.png"
+dest_files=["res://.godot/imported/Banco.png-8a0a25819978bbf4079362ed4be77624.s3tc.ctex"]
 
 [params]
 

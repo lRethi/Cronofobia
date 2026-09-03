@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cdj11gs6dxbd3" path="res://Scripts/Geral/genericPickupScript.cs" id="1_fnn3y"]
 [ext_resource type="Texture2D" uid="uid://c7je55fx6ole2" path="res://Assets/Sprites/Objetos/objMoeda.png" id="2_uruk5"]
+[ext_resource type="PackedScene" uid="uid://cklvtrqrtdppf" path="res://Assets/UI/hudCompra.tscn" id="2_uyn1v"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8c2qd"]
 radius = 0.19335938
@@ -18,7 +19,8 @@ billboard_mode = 2
 
 [node name="moedaPickup" type="Area3D" unique_id=1197714594]
 script = ExtResource("1_fnn3y")
-tipoRecurso = 2
+tipoPickup = 1
+cenaCompra = ExtResource("2_uyn1v")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=337365301]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.013336182, 0)

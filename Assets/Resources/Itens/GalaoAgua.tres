@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://b68f7c0h123n"]
+
+[ext_resource type="Texture2D" uid="uid://bxkmdd3nkapgu" path="res://Assets/Sprites/Objetos/galaoAgua.png" id="1_pd3sf"]
+[ext_resource type="Script" uid="uid://c34nkk713lbx5" path="res://Scripts/Resources/ItemDefinition.cs" id="2_5y7x2"]
+
+[resource]
+script = ExtResource("2_5y7x2")
+Id = "galao_agua"
+Nome = "Galão de Água"
+Descricao = "Um galão de água. Mais do que capaz de te carregar durante o dia todo."
+Textura = ExtResource("1_pd3sf")
+SedeAoUsar = 3.0
+metadata/_custom_type_script = "uid://c34nkk713lbx5"

@@ -3,10 +3,10 @@
 if GetFlag("minhoca_finalizado")
     => finished_quest
 
-if GetFlag("aceitou_ajuda"):
+if GetFlag("aceitou_ajuda")
     => accepted_help
 
-if GetFlag("recusou_ajuda"):
+if GetFlag("recusou_ajuda")
     => refused_help
 
 Protagonista: Cara... Quem é você?
@@ -15,38 +15,98 @@ Sir Minhoca: Tô precisando de uma coisa...
 Sir Minhoca: Pode conseguir água pra mim?
 
 - Pode ser.
-    do SetFlag("aceitou_ajuda")
-    do StartQuest("agua_minhoca")
+    $> GameState.SetFlag("aceitou_ajuda", true)
+    $> GameState.SetFlag("recusou_ajuda", false)
+    $> GameState.StartQuest("agua_minhoca")
     Sir Minhoca: Aí sim! Me traz um copo das boas.
     => END
 
 - Melhor não.
-    do SetFlag("recusou_ajuda")
+    $> GameState.SetFlag("recusou_ajuda", true)
+    $> GameState.SetFlag("aceitou_ajuda", false)
     Sir Minhoca: Poxa... Sérião? Bom, então tá né.
     => END
 
+
 ~ accepted_help
+
 Sir Minhoca: Trouxe a minha água?
-- Sim. [if NeedsState.get_varSede() >= 1]
-	do SetFlag("minhoca_finalizado", true)
-    do NeedsState.SetSede(NeedsState.get_varSede() - 1)
-	Sir Minhoca: Caraca... Valeu!
-	Sir Minhoca: *sluuuurp*
-	Protagonista: (... ele parece ocupado se deliciando na água, melhor não incomodar.)
+
+- Tenho.
+    $> InventoryState.OferecerItem()
+    => verificar_oferta
+
 - Não.
     Sir Minhoca: Erm... Tá bom! Mas, se você puder não demorar tanto...
+    => END
+
+
+~ verificar_oferta
+
+if InventoryState.ItemOferecidoId == ""
+    => nao_ofereceu
+
+if InventoryState.ItemOferecidoId == "garrafa_agua"
+    => ofereceu_garrafa
+
+if InventoryState.ItemOferecidoId == "galao_agua"
+    => ofereceu_galao
+
+=> ofereceu_errado
+
+
+~ nao_ofereceu
+
+Sir Minhoca: Por que você falou que tinha se não ia me dar..?
 => END
 
+
+~ ofereceu_garrafa
+
+Sir Minhoca: Caraca... Valeu!
+Sir Minhoca: *sluuuurp*
+
+$> InventoryState.ConsumirItemOferecido()
+$> GameState.SetFlag("minhoca_finalizado", true)
+
+Protagonista: (... ele parece ocupado se deliciando na água, melhor não incomodar.)
+=> END
+
+
+~ ofereceu_galao
+
+Sir Minhoca: UM GALÃO INTEIRO?
+Sir Minhoca: E-Eu vou conseguir sobreviver um mês inteiro com isso!
+
+$> InventoryState.ConsumirItemOferecido()
+$> GameState.SetFlag("minhoca_finalizado", true)
+
+Sir Minhoca: Valeu, amigão! De verdade!
+=> END
+
+
+~ ofereceu_errado
+
+Sir Minhoca: Erm...
+Sir Minhoca: Isso aí não é exatamente o que eu pedi.
+Sir Minhoca: Eu precisava de água. Sabe, aquele negócio líquido, inodoro, transparente, que vem em garrafinha plástica.
+=> END
+
+
 ~ finished_quest
+
 Sir Minhoca: *assobiando* Uma águinha na lagoaaa...
 => END
 
+
 ~ refused_help
+
 Sir Minhoca: Cara... Certeza que não quer ajudar?
 
 - Tá... Pode ser.
-    do SetFlag("aceitou_ajuda")
-	do SetFlag("recusou_ajuda", false)
+    $> GameState.SetFlag("aceitou_ajuda", true)
+    $> GameState.SetFlag("recusou_ajuda", false)
+    $> GameState.StartQuest("agua_minhoca")
     Sir Minhoca: Aí sim! Prometo que vai valer a pena!
     => END
 

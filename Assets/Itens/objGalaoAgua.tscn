@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://dvo2rfyvp1ns0"]
 
 [ext_resource type="Script" uid="uid://cdj11gs6dxbd3" path="res://Scripts/Geral/genericPickupScript.cs" id="1_ya3p8"]
+[ext_resource type="Resource" uid="uid://b68f7c0h123n" path="res://Assets/Resources/Itens/GalaoAgua.tres" id="2_ny6el"]
 [ext_resource type="Texture2D" uid="uid://bxkmdd3nkapgu" path="res://Assets/Sprites/Objetos/galaoAgua.png" id="2_ya3p8"]
+[ext_resource type="PackedScene" uid="uid://cklvtrqrtdppf" path="res://Assets/UI/hudCompra.tscn" id="3_57i47"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8c2qd"]
 radius = 0.19335938
@@ -19,7 +21,8 @@ billboard_mode = 2
 [node name="galaoAgua" type="Area3D" unique_id=1197714594]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_ya3p8")
-tipoRecurso = 1
+item = ExtResource("2_ny6el")
+cenaCompra = ExtResource("3_57i47")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=337365301]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.013336182, 0)

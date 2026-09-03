@@ -8,7 +8,7 @@ public partial class cenaCompra : Control
     [Export] public Button botFecha;
 
     public float varPreco { get; private set; }
-	public int custo { get; private set; }
+    public int custo { get; private set; }
 
     [Signal]
     public delegate void ComprarEventHandler(int custo);
@@ -27,36 +27,41 @@ public partial class cenaCompra : Control
     }
 
     public void SetupScene(float precoRecebido)
-	{
-		int centavos = (int)(GD.Randi() % 4) + 96;
+    {
+        int centavos = (int)(GD.Randi() % 4) + 96;
+        varPreco = precoRecebido + centavos / 100f;
+        custo = Mathf.CeilToInt(varPreco);
 
-		varPreco = precoRecebido + centavos / 100f;
-		custo = Mathf.CeilToInt(varPreco);
+        lblPreco.Text = $"R${varPreco:0.00}";
 
-		lblPreco.Text = $"R${varPreco:0.00}";
+        botCompra.Disabled =
+            NeedsState.Instance.varDinheiro < custo;
 
-		botCompra.Disabled =
-			NeedsState.Instance.varDinheiro < custo;
-	}
+        TimeState.Instance.CongelarTempo();
+        Input.MouseMode = Input.MouseModeEnum.Visible;
+    }
 
     private void OnBotCompra()
     {
         EmitSignal(SignalName.Comprar, custo);
-		TimeState.Instance.DescongelarTempo();
+        TimeState.Instance.DescongelarTempo();
+        Input.MouseMode = Input.MouseModeEnum.Captured;
         QueueFree();
     }
 
     private void OnBotRouba()
     {
         EmitSignal(SignalName.Roubar);
-		TimeState.Instance.DescongelarTempo();
+        TimeState.Instance.DescongelarTempo();
+        Input.MouseMode = Input.MouseModeEnum.Captured;
         QueueFree();
     }
 
     private void OnBotFecha()
     {
         EmitSignal(SignalName.Fechar);
-		TimeState.Instance.DescongelarTempo();
+        TimeState.Instance.DescongelarTempo();
+        Input.MouseMode = Input.MouseModeEnum.Captured;
         QueueFree();
     }
 }
