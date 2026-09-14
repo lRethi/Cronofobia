@@ -1,0 +1,19 @@
+if GetFlag("aceitou_ajudar_semtetos")
+	=> segDialogo
+
+~ start
+% Sir Minhoca: Testing.
+% Sir Minhoca: Hallo.
+% Sir Minhoca: Hiiii.
+=> decisaoDialogo
+
+~ decisaoDialogo
+Sir Minhoca: O dia está bem bonito hoje, não é?
+- Qual a raiz de pi? =>< segDialogo
+- Sim.
+=> END
+
+~ segDialogo
+Sir Minhoca: Não sei!
+| ULTRALINK: {°-°} Im here too!
+=> decisaoDialogo

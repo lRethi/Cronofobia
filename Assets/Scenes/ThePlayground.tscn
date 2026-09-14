@@ -39,7 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://bt0y13avl08jo" path="res://Assets/UI/hud_main.tscn" id="26_qeaow"]
 [ext_resource type="PackedScene" uid="uid://5q3xgalcvrw1" path="res://Assets/Props/objLampPost.tscn" id="30_cowwq"]
 [ext_resource type="PackedScene" uid="uid://ctandxc0poegn" path="res://Assets/Personagens/SirMinhoca.tscn" id="33_05ac5"]
-[ext_resource type="Resource" uid="uid://bkqe00n2qo2l6" path="res://Assets/Dialogos/teste.dialogue" id="34_p7qbl"]
+[ext_resource type="Resource" uid="uid://b47uhpkq62epd" path="res://Assets/Dialogos/Quests/01SemTetos/dialogoGenericoSemTeto.dialogue" id="36_ueqtk"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_b8gmu"]
 
@@ -692,7 +692,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3871694, 1.6342652, -1.291
 
 [node name="SirNhoca" parent="." unique_id=1088714365 node_paths=PackedStringArray("personagem") instance=ExtResource("33_05ac5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10464883, 0.3586347, -3.6715722)
-dialogue = ExtResource("34_p7qbl")
+dialogue = ExtResource("36_ueqtk")
 personagem = NodePath("../testeHominho")
 
 [node name="garrafaAgua" parent="." unique_id=1197714594 instance=ExtResource("20_uipgk")]

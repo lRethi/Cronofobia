@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://b47uhpkq62epd"
+path="res://.godot/imported/dialogoGenericoSemTeto.dialogue-af803b2a9781eb4ace255cb6b97939a9.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/01SemTetos/dialogoGenericoSemTeto.dialogue"
+dest_files=["res://.godot/imported/dialogoGenericoSemTeto.dialogue-af803b2a9781eb4ace255cb6b97939a9.tres"]
+
+[params]
+
+defaults=true

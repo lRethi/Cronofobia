@@ -4,6 +4,7 @@
 [ext_resource type="Shader" uid="uid://ba2yn3rm04xny" path="res://Assets/Shaders/HighlightNPC.gdshader" id="1_vbydv"]
 [ext_resource type="Script" uid="uid://g406lwqsh4u2" path="res://Scripts/Dialogos/mecanicaIniciarDialogo.cs" id="1_xn30h"]
 [ext_resource type="Script" uid="uid://cbeumlxm2r5cw" path="res://Scripts/Camera/rotCameraPerson.cs" id="2_8mx3u"]
+[ext_resource type="Script" uid="uid://b3hrgs61lvn5x" path="res://addons/dialogue_manager/nodes/marker/DialogueMarker3D.cs" id="5_vhch2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8mx3u"]
 size = Vector3(0.4145392, 0.5650445, 0.003)
@@ -21,6 +22,11 @@ shader_parameter/glow_intensity = 0.750000035625
 [node name="SirNhoca" type="StaticBody3D" unique_id=1088714365]
 collision_mask = 9
 script = ExtResource("1_xn30h")
+
+[node name="DialogueMarker3D" type="Marker3D" parent="." unique_id=888527718]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44449052, 0.31752193, 0.16019109)
+script = ExtResource("5_vhch2")
+CharacterName = "Sir Minhoca"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1984777287]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0074343905, 0.054549843, 0)
