@@ -10,7 +10,7 @@
 size = Vector3(0.4145392, 0.5650445, 0.003)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ubrxv"]
-render_priority = 0
+render_priority = -1
 shader = ExtResource("1_vbydv")
 shader_parameter/sprite_texture = ExtResource("1_3be31")
 shader_parameter/enable_outline = false
@@ -19,20 +19,21 @@ shader_parameter/outline_thickness = 5.0000002375
 shader_parameter/glow_speed = 4.5000002104901196
 shader_parameter/glow_intensity = 0.750000035625
 
-[node name="SirNhoca" type="StaticBody3D" unique_id=1088714365]
-collision_mask = 9
+[node name="SirNhoca" type="Node3D" unique_id=2040080851]
 script = ExtResource("1_xn30h")
 
-[node name="DialogueMarker3D" type="Marker3D" parent="." unique_id=888527718]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=408448575]
+
+[node name="DialogueMarker3D" type="Marker3D" parent="StaticBody3D" unique_id=888527718]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44449052, 0.31752193, 0.16019109)
 script = ExtResource("5_vhch2")
 CharacterName = "Sir Minhoca"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1984777287]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1984777287]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0074343905, 0.054549843, 0)
 shape = SubResource("BoxShape3D_8mx3u")
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1766881007]
+[node name="Sprite3D" type="Sprite3D" parent="StaticBody3D" unique_id=1766881007]
 material_overlay = SubResource("ShaderMaterial_ubrxv")
 pixel_size = 0.0025
 shaded = true
@@ -42,3 +43,26 @@ alpha_antialiasing_edge = 1.0
 texture_filter = 0
 texture = ExtResource("1_3be31")
 script = ExtResource("2_8mx3u")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=809659741]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4629574, 0, 0)
+
+[node name="DialogueMarker3D" type="Marker3D" parent="StaticBody3D2" unique_id=1758220976]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44449052, 0.31752193, 0.16019109)
+script = ExtResource("5_vhch2")
+CharacterName = "Evil Nhoca"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=948126527]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0074343905, 0.054549843, 0)
+shape = SubResource("BoxShape3D_8mx3u")
+
+[node name="Sprite3D" type="Sprite3D" parent="StaticBody3D2" unique_id=1314325900]
+material_overlay = SubResource("ShaderMaterial_ubrxv")
+modulate = Color(0.81960785, 0, 0, 1)
+pixel_size = 0.0025
+shaded = true
+alpha_cut = 2
+alpha_antialiasing_mode = 1
+alpha_antialiasing_edge = 1.0
+texture_filter = 0
+texture = ExtResource("1_3be31")

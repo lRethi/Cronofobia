@@ -12,6 +12,7 @@ public partial class DialogueBalloon : CanvasLayer
     [Export] public string NextAction = "ui_accept";
     [Export] public string SkipAction = "ui_cancel";
     [Export] public Vector2 ULTRALINKOffset = new Vector2(160, 12);
+    private dialogueCameraController DialogueCameraController;
 
     private Control npcDialogueLayer;
     private PanelContainer npcDialogueBox;
@@ -41,6 +42,7 @@ public partial class DialogueBalloon : CanvasLayer
         npcDialogueBox = GetNode<PanelContainer>("%NPCDialogueBox");
         characterName = GetNode<RichTextLabel>("%CharacterName");
         dialogueLabel = GetNode<DialogueLabel>("%DialogueLabel");
+        DialogueCameraController = GetNode<dialogueCameraController>("../%DialogueCameraController");
 
         animationPlayer = GetNode<AnimationPlayer>("%AnimationPlayer");
 
@@ -220,6 +222,11 @@ public partial class DialogueBalloon : CanvasLayer
                 );
         }
 
+        if (IsInstanceValid(currentDialogueMarker))
+        {
+            DialogueCameraController.StartDialogue(currentDialogueMarker);
+        }
+
         isWaitingForInput = false;
 
         npcDialogueLayer.Hide();
@@ -307,6 +314,8 @@ public partial class DialogueBalloon : CanvasLayer
 
     private async void EndDialogue()
     {
+        DialogueCameraController.EndDialogue();
+        
         isWaitingForInput = false;
 
         animationPlayer.Play("NPC_Out");

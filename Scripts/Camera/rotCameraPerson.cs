@@ -1,65 +1,62 @@
 using Godot;
-using System;
 
 public partial class rotCameraPerson : Sprite3D
 {
-	ShaderMaterial mat;
-	Camera3D camera;
+    ShaderMaterial mat;
+    Camera3D camera;
 
-	[Export] CharacterBody3D personagem;
+    [Export] CharacterBody3D personagem;
 
-	public override void _Ready()
-	{
-		// pega a câmera da viewport
-		camera = GetViewport().GetCamera3D();
+    public override void _Ready()
+    {
+        personagem = GetNode<CharacterBody3D>("../../../%charGeraldoSalvador");
 
-		// duplica material se existir
-		if (MaterialOverlay != null)
-		{
-			MaterialOverlay = MaterialOverlay.Duplicate() as Material;
-			mat = MaterialOverlay as ShaderMaterial;
-		}
-	}
+        camera = GetViewport().GetCamera3D();
 
-	public override void _Process(double delta)
-	{
-		// checagem de segurança
-		if (personagem == null || camera == null || mat == null)
-			return;
+        if (MaterialOverlay != null)
+        {
+            MaterialOverlay = MaterialOverlay.Duplicate() as Material;
+            mat = MaterialOverlay as ShaderMaterial;
+        }
+    }
 
-		Vector3 distanciaPersonNPC = personagem.GlobalPosition - GlobalPosition;
+    public override void _Process(double delta)
+    {
+        if (personagem == null || camera == null || mat == null)
+            return;
 
-		if (distanciaPersonNPC.Length() <= 2f)
-		{
-			// olha pro personagem
-			Vector3 direcaoPerson = personagem.GlobalPosition - GlobalPosition;
-			OlharParaAlvo(direcaoPerson);
+        Vector3 direcaoCamera =
+            camera.GlobalPosition - GlobalPosition;
 
-			if (distanciaPersonNPC.Length() <= 1.25f)
-			{
-				mat.SetShaderParameter("enable_outline", true);
-			}
-			else
-			{
-				mat.SetShaderParameter("enable_outline", false);
-			}
-		}
-		else
-		{
-			// olha pra câmera
-			Vector3 direcaoCamera = camera.GlobalPosition - GlobalPosition;
-			OlharParaAlvo(direcaoCamera);
-		}
-	}
+        OlharParaAlvo(direcaoCamera);
 
-	public void OlharParaAlvo(Vector3 alvoDir)
-	{
-		alvoDir.Y = 0;
-		alvoDir = -alvoDir;
+        Vector3 distanciaPersonNPC =
+            personagem.GlobalPosition - GlobalPosition;
 
-		if (GetParent() is Node3D parentNode)
-		{
-			parentNode.LookAt(parentNode.GlobalPosition + alvoDir, Vector3.Up);
-		}
-	}
+        bool podeInteragir =
+            distanciaPersonNPC.Length() <= 1.25f;
+
+        bool mostrarOutline =
+            podeInteragir &&
+            !GameState.Instance.DialogoAberto;
+
+        mat.SetShaderParameter(
+            "enable_outline",
+            mostrarOutline
+        );
+    }
+
+    public void OlharParaAlvo(Vector3 alvoDir)
+    {
+        alvoDir.Y = 0;
+        alvoDir = -alvoDir;
+
+        if (GetParent() is Node3D parentNode)
+        {
+            parentNode.LookAt(
+                parentNode.GlobalPosition + alvoDir,
+                Vector3.Up
+            );
+        }
+    }
 }

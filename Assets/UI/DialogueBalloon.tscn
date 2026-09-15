@@ -3,10 +3,81 @@
 [ext_resource type="Script" uid="uid://db2gd2d1xp67h" path="res://Scripts/Dialogos/DialogueBalloon.cs" id="1_1sks0"]
 [ext_resource type="Script" uid="uid://b8beyexrpj6n7" path="res://addons/dialogue_manager/nodes/dialogue_label/DialogueLabel.cs" id="1_414uv"]
 [ext_resource type="Script" uid="uid://bf0gf4upyxj5l" path="res://addons/dialogue_manager/nodes/responses_menu/DialogueResponsesMenu.cs" id="2_1sks0"]
+[ext_resource type="Texture2D" uid="uid://drigbbqkn520u" path="res://Assets/Sprites/HUD/caixaDialogo(1).png" id="2_013uw"]
+[ext_resource type="Texture2D" uid="uid://0ch6fppaxyen" path="res://Assets/Sprites/HUD/caixaDialogo.png" id="4_pt8ea"]
+[ext_resource type="Texture2D" uid="uid://bsc3yil7d8xci" path="res://Assets/Sprites/HUD/opcaoDialogo.png" id="6_paylq"]
+[ext_resource type="Texture2D" uid="uid://h3fsji0jjwyy" path="res://Assets/Sprites/HUD/opcaoDialogoSel.png" id="7_pt8ea"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_irs17"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+texture = ExtResource("2_013uw")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+modulate_color = Color(0.8732984, 0.8732984, 0.8732984, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dputa"]
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+texture = ExtResource("4_pt8ea")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p6ubn"]
+content_margin_left = 8.0
+content_margin_top = 2.0
+content_margin_right = 8.0
+content_margin_bottom = 2.0
+texture = ExtResource("6_paylq")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_013uw"]
+content_margin_left = 8.0
+content_margin_top = 2.0
+content_margin_right = 8.0
+content_margin_bottom = 2.0
+texture = ExtResource("7_pt8ea")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_paylq"]
+content_margin_left = 8.0
+content_margin_top = 2.0
+content_margin_right = 8.0
+content_margin_bottom = 2.0
+texture = ExtResource("7_pt8ea")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vr5vl"]
+content_margin_left = 8.0
+content_margin_top = 2.0
+content_margin_right = 8.0
+content_margin_bottom = 2.0
+texture = ExtResource("7_pt8ea")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
 
 [sub_resource type="Animation" id="Animation_1sks0"]
 resource_name = "NPC_In"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -34,7 +105,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_w6ggy"]
 resource_name = "NPC_Out"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -125,7 +196,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_013uw"]
 resource_name = "ULTRALINK_In"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -189,7 +260,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_pt8ea"]
 resource_name = "ULTRALINK_Out"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -285,17 +356,20 @@ grow_vertical = 2
 [node name="NPCDialogueBox" type="PanelContainer" parent="DialogueUI/NPCDialogueLayer" unique_id=1890199348]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
-custom_maximum_size = Vector2(600, -1)
-layout_mode = 0
-offset_left = 677.0
-offset_top = 68.0
-offset_right = 678.0
-offset_bottom = 95.0
+custom_maximum_size = Vector2(300, -1)
+layout_mode = 1
+offset_left = 679.0
+offset_top = 71.0
+offset_right = 775.0
+offset_bottom = 167.0
 scale = Vector2(0.96, 0.96)
+theme_override_styles/panel = SubResource("StyleBoxTexture_irs17")
 
 [node name="MarginContainer" type="MarginContainer" parent="DialogueUI/NPCDialogueLayer/NPCDialogueBox" unique_id=330490904]
 unique_name_in_owner = true
 layout_mode = 2
+offset_transform_position = Vector2(1, 0)
+theme_override_constants/margin_left = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="DialogueUI/NPCDialogueLayer/NPCDialogueBox/MarginContainer" unique_id=1092333992]
 unique_name_in_owner = true
@@ -303,17 +377,28 @@ layout_mode = 2
 
 [node name="CharacterName" type="RichTextLabel" parent="DialogueUI/NPCDialogueLayer/NPCDialogueBox/MarginContainer/VBoxContainer" unique_id=461252276]
 unique_name_in_owner = true
+custom_maximum_size = Vector2(280, -1)
 layout_mode = 2
+offset_transform_position_ratio = Vector2(0.04, 0.2)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.98234254, 0.9823423, 0.9823424, 1)
 bbcode_enabled = true
-text = "NPC"
+text = "Bobinho da silva roberto dois cinco quatro"
 fit_content = true
 
 [node name="DialogueLabel" type="RichTextLabel" parent="DialogueUI/NPCDialogueLayer/NPCDialogueBox/MarginContainer/VBoxContainer" unique_id=1801510450]
 unique_name_in_owner = true
+custom_maximum_size = Vector2(280, -1)
 layout_mode = 2
+offset_transform_position_ratio = Vector2(0.04, 0)
+offset_transform_visual_only = false
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.98234254, 0.9823423, 0.9823424, 1)
+theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
-text = "Aaaaa"
+text = "Assim que se fala doido, hahaha! Me diz que tá funcionando POR FAVOR."
 fit_content = true
+autowrap_mode = 2
 script = ExtResource("1_414uv")
 
 [node name="ULTRALINKDialogueLayer" type="Control" parent="DialogueUI" unique_id=2105672977]
@@ -328,12 +413,12 @@ grow_vertical = 2
 [node name="ULTRALINKDialogueBox" type="PanelContainer" parent="DialogueUI/ULTRALINKDialogueLayer" unique_id=1321832228]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
-custom_maximum_size = Vector2(600, -1)
-layout_mode = 0
-offset_right = 91.0
-offset_bottom = 50.0
-offset_transform_enabled = true
+custom_maximum_size = Vector2(300, -1)
+layout_mode = 1
+offset_right = 46.0
+offset_bottom = 66.0
 offset_transform_position = Vector2(20, 0)
+theme_override_styles/panel = SubResource("StyleBoxTexture_dputa")
 
 [node name="MarginContainer" type="MarginContainer" parent="DialogueUI/ULTRALINKDialogueLayer/ULTRALINKDialogueBox" unique_id=1639406004]
 layout_mode = 2
@@ -343,8 +428,9 @@ layout_mode = 2
 
 [node name="ULTRALINKName" type="RichTextLabel" parent="DialogueUI/ULTRALINKDialogueLayer/ULTRALINKDialogueBox/MarginContainer/VBoxContainer" unique_id=797165025]
 unique_name_in_owner = true
+custom_maximum_size = Vector2(280, -1)
 layout_mode = 2
-theme_override_colors/default_color = Color(9.62615e-07, 0.8351825, 0.72978586, 1)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
 text = "º3º"
 fit_content = true
@@ -352,9 +438,8 @@ fit_content = true
 [node name="ULTRALINKLabel" type="RichTextLabel" parent="DialogueUI/ULTRALINKDialogueLayer/ULTRALINKDialogueBox/MarginContainer/VBoxContainer" unique_id=680910473]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/default_color = Color(0.5728249, 0.91563237, 0.80947477, 1)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
-text = "Aaaa"
 fit_content = true
 script = ExtResource("1_414uv")
 
@@ -379,6 +464,10 @@ ResponseTemplate = NodePath("ResponseExample")
 
 [node name="ResponseExample" type="Button" parent="DialogueUI/PlayerResponsesLayer/ResponsesMenu" unique_id=526082471]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_p6ubn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_013uw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_paylq")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_vr5vl")
 text = "Response example"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DialogueUI" unique_id=2143847114]

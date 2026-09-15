@@ -11,9 +11,11 @@ if GetFlag("aceitou_ajudar_semtetos")
 Sir Minhoca: O dia está bem bonito hoje, não é?
 - Qual a raiz de pi? =>< segDialogo
 - Sim.
+Evil Nhoca: Dumbass.
 => END
 
 ~ segDialogo
 Sir Minhoca: Não sei!
 | ULTRALINK: {°-°} Im here too!
+Evil Nhoca: Testing, testing, hallo!
 => decisaoDialogo

@@ -12,6 +12,9 @@ public partial class cameraBonitaDoFred : Node3D
     [Export]
     private float rotationDuration = 0.25f;
 
+    [Export]
+    private Node3D player;
+
     private readonly float basePitch = 0f;
 
     private int pitchState = 0;
@@ -24,6 +27,12 @@ public partial class cameraBonitaDoFred : Node3D
     private Vector3 targetOffset;
 
 	private Camera3D objCamera;
+    private bool dialogueMode = false;
+    private Vector3 dialogueRotation;
+    private Vector3 dialogueOffset;
+    private Vector3 savedRotation;
+    private Vector3 savedOffset;
+    private float savedFov;
 
 	public float GetCameraYaw()
 	{
@@ -81,6 +90,8 @@ public partial class cameraBonitaDoFred : Node3D
 
     public override void _Input(InputEvent @event)
     {
+        if (dialogueMode) return;
+
         if (@event.IsActionPressed("cam_left"))
         {
             yawRotation++;
@@ -105,6 +116,122 @@ public partial class cameraBonitaDoFred : Node3D
 			objCamera.Fov = 90f;
             UpdateTarget();
         }
+    }
+
+    public void StartDialogueCamera(Vector3 npcPosition, float duration)
+    {
+
+        if (!dialogueMode)
+        {
+            savedRotation = currentRotation;
+            savedOffset = currentOffset;
+            savedFov = currentFov;
+
+            dialogueMode = true;
+        }
+
+        cameraTween?.Kill();
+
+        Vector3 relativePosition =
+            player.GlobalTransform.Basis.Inverse() *
+            (npcPosition - player.GlobalPosition);
+
+        float side = relativePosition.X >= 0f ? 1f : -1f;
+
+        float depth =
+            relativePosition.Z >= 0f ? 0.9f : -0.9f;
+
+        dialogueOffset = new Vector3(
+            0.65f * side,
+            0.1f,
+            depth
+        );
+
+        dialogueRotation = new Vector3(
+            2.5f,
+            currentRotation.Y - (5f * side),
+            0f
+        );
+
+        Vector3 startRotation = currentRotation;
+        Vector3 startOffset = currentOffset;
+
+        cameraTween = CreateTween();
+        cameraTween.SetParallel(true);
+
+        cameraTween.TweenMethod(
+            Callable.From<Vector3>(rotation =>
+            {
+                currentRotation = rotation;
+                _pcam.SetThirdPersonRotationDegrees(rotation);
+            }),
+            startRotation,
+            dialogueRotation,
+            duration
+        );
+
+        cameraTween.TweenMethod(
+            Callable.From<Vector3>(offset =>
+            {
+                currentOffset = offset;
+                _pcam.FollowOffset = offset;
+            }),
+            startOffset,
+            dialogueOffset,
+            duration
+        );
+
+        cameraTween.SetEase(Tween.EaseType.InOut);
+        cameraTween.SetTrans(Tween.TransitionType.Cubic);
+
+        cameraTween.Finished += () =>
+        {
+            currentRotation = dialogueRotation;
+            currentOffset = dialogueOffset;
+        };
+    }
+
+    public void EndDialogueCamera(float duration)
+    {
+        cameraTween?.Kill();
+
+        Vector3 startRotation = currentRotation;
+        Vector3 startOffset = currentOffset;
+
+        cameraTween = CreateTween();
+        cameraTween.SetParallel(true);
+
+        cameraTween.TweenMethod(
+            Callable.From<Vector3>(rotation =>
+            {
+                currentRotation = rotation;
+                _pcam.SetThirdPersonRotationDegrees(rotation);
+            }),
+            startRotation,
+            savedRotation,
+            duration
+        );
+
+        cameraTween.TweenMethod(
+            Callable.From<Vector3>(offset =>
+            {
+                currentOffset = offset;
+                _pcam.FollowOffset = offset;
+            }),
+            startOffset,
+            savedOffset,
+            duration
+        );
+
+        cameraTween.SetEase(Tween.EaseType.InOut);
+        cameraTween.SetTrans(Tween.TransitionType.Cubic);
+
+        cameraTween.Finished += () =>
+        {
+            currentRotation = savedRotation;
+            currentOffset = savedOffset;
+            dialogueMode = false;
+        };
     }
 
     private void UpdateTarget()
