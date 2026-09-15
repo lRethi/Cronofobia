@@ -25,7 +25,6 @@ backlight_texture = ExtResource("2_t40vy")
 uv2_world_triplanar = true
 texture_filter = 0
 disable_receive_shadows = true
-billboard_mode = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r8oty"]
 render_priority = 0
@@ -70,3 +69,7 @@ light_size = 1.0
 omni_range = 0.2
 omni_shadow_mode = 0
 script = ExtResource("3_qgn2i")
+
+[node name="DialogueCameraMarker3D" type="Marker3D" parent="." unique_id=1383471804]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.65, 0.145, 0.35)

@@ -1,0 +1,386 @@
+[gd_scene format=3 uid="uid://m862hogvykuf"]
+
+[ext_resource type="Script" uid="uid://db2gd2d1xp67h" path="res://Scripts/Dialogos/DialogueBalloon.cs" id="1_1sks0"]
+[ext_resource type="Script" uid="uid://b8beyexrpj6n7" path="res://addons/dialogue_manager/nodes/dialogue_label/DialogueLabel.cs" id="1_414uv"]
+[ext_resource type="Script" uid="uid://bf0gf4upyxj5l" path="res://addons/dialogue_manager/nodes/responses_menu/DialogueResponsesMenu.cs" id="2_1sks0"]
+
+[sub_resource type="Animation" id="Animation_1sks0"]
+resource_name = "NPC_In"
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%NPCDialogueBox:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%NPCDialogueBox:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.96, 0.96), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_w6ggy"]
+resource_name = "NPC_Out"
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%NPCDialogueBox:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%NPCDialogueBox:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.96, 0.96)]
+}
+
+[sub_resource type="Animation" id="Animation_ghphg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%NPCDialogueBox:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%NPCDialogueBox:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.96, 0.96)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%ULTRALINKDialogueBox:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%ULTRALINKDialogueBox:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%ULTRALINKDialogueBox:offset_transform_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(20, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_013uw"]
+resource_name = "ULTRALINK_In"
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%ULTRALINKDialogueBox:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%ULTRALINKDialogueBox:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.96, 0.96), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%ULTRALINKDialogueBox:offset_transform_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(20, 0), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%NPCDialogueBox:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.96, 0.96), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%NPCDialogueBox:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pt8ea"]
+resource_name = "ULTRALINK_Out"
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%ULTRALINKDialogueBox:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%ULTRALINKDialogueBox:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.96, 0.96)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%ULTRALINKDialogueBox:offset_transform_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(20, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%NPCDialogueBox:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%NPCDialogueBox:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.96, 0.96)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w6ggy"]
+_data = {
+&"NPC_In": SubResource("Animation_1sks0"),
+&"NPC_Out": SubResource("Animation_w6ggy"),
+&"RESET": SubResource("Animation_ghphg"),
+&"ULTRALINK_In": SubResource("Animation_013uw"),
+&"ULTRALINK_Out": SubResource("Animation_pt8ea")
+}
+
+[node name="DialogueBalloon" type="CanvasLayer" unique_id=1165952088]
+script = ExtResource("1_1sks0")
+
+[node name="DialogueUI" type="Control" parent="." unique_id=323043626]
+unique_name_in_owner = true
+propagate_maximum_size = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NPCDialogueLayer" type="Control" parent="DialogueUI" unique_id=611411544]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NPCDialogueBox" type="PanelContainer" parent="DialogueUI/NPCDialogueLayer" unique_id=1890199348]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+custom_maximum_size = Vector2(600, -1)
+layout_mode = 0
+offset_left = 677.0
+offset_top = 68.0
+offset_right = 678.0
+offset_bottom = 95.0
+scale = Vector2(0.96, 0.96)
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueUI/NPCDialogueLayer/NPCDialogueBox" unique_id=330490904]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogueUI/NPCDialogueLayer/NPCDialogueBox/MarginContainer" unique_id=1092333992]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CharacterName" type="RichTextLabel" parent="DialogueUI/NPCDialogueLayer/NPCDialogueBox/MarginContainer/VBoxContainer" unique_id=461252276]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "NPC"
+fit_content = true
+
+[node name="DialogueLabel" type="RichTextLabel" parent="DialogueUI/NPCDialogueLayer/NPCDialogueBox/MarginContainer/VBoxContainer" unique_id=1801510450]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "Aaaaa"
+fit_content = true
+script = ExtResource("1_414uv")
+
+[node name="ULTRALINKDialogueLayer" type="Control" parent="DialogueUI" unique_id=2105672977]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ULTRALINKDialogueBox" type="PanelContainer" parent="DialogueUI/ULTRALINKDialogueLayer" unique_id=1321832228]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+custom_maximum_size = Vector2(600, -1)
+layout_mode = 0
+offset_right = 91.0
+offset_bottom = 50.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(20, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueUI/ULTRALINKDialogueLayer/ULTRALINKDialogueBox" unique_id=1639406004]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogueUI/ULTRALINKDialogueLayer/ULTRALINKDialogueBox/MarginContainer" unique_id=1715643128]
+layout_mode = 2
+
+[node name="ULTRALINKName" type="RichTextLabel" parent="DialogueUI/ULTRALINKDialogueLayer/ULTRALINKDialogueBox/MarginContainer/VBoxContainer" unique_id=797165025]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/default_color = Color(9.62615e-07, 0.8351825, 0.72978586, 1)
+bbcode_enabled = true
+text = "º3º"
+fit_content = true
+
+[node name="ULTRALINKLabel" type="RichTextLabel" parent="DialogueUI/ULTRALINKDialogueLayer/ULTRALINKDialogueBox/MarginContainer/VBoxContainer" unique_id=680910473]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/default_color = Color(0.5728249, 0.91563237, 0.80947477, 1)
+bbcode_enabled = true
+text = "Aaaa"
+fit_content = true
+script = ExtResource("1_414uv")
+
+[node name="PlayerResponsesLayer" type="Control" parent="DialogueUI" unique_id=823359944]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResponsesMenu" type="VBoxContainer" parent="DialogueUI/PlayerResponsesLayer" unique_id=323354606 node_paths=PackedStringArray("ResponseTemplate")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 491.0
+offset_top = 216.0
+offset_right = 644.0
+offset_bottom = 256.0
+script = ExtResource("2_1sks0")
+ResponseTemplate = NodePath("ResponseExample")
+
+[node name="ResponseExample" type="Button" parent="DialogueUI/PlayerResponsesLayer/ResponsesMenu" unique_id=526082471]
+layout_mode = 2
+text = "Response example"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogueUI" unique_id=2143847114]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_w6ggy")
