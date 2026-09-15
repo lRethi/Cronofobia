@@ -1,12 +1,48 @@
 [gd_scene format=3 uid="uid://c3qp6nf2wgnsr"]
 
 [ext_resource type="Script" uid="uid://bskkegyi70235" path="res://Scripts/Protagonista/inventarioFuncionamento.cs" id="1_6ypas"]
+[ext_resource type="Texture2D" uid="uid://bq6cquua3pk6v" path="res://Assets/Sprites/HUD/invSlots.png" id="2_kptbr"]
+[ext_resource type="Texture2D" uid="uid://0ch6fppaxyen" path="res://Assets/Sprites/HUD/caixaDialogo.png" id="3_78ui5"]
+[ext_resource type="Texture2D" uid="uid://bsc3yil7d8xci" path="res://Assets/Sprites/HUD/opcaoDialogo.png" id="4_pmyiq"]
+[ext_resource type="Texture2D" uid="uid://h3fsji0jjwyy" path="res://Assets/Sprites/HUD/opcaoDialogoSel.png" id="5_0vaky"]
+[ext_resource type="Texture2D" uid="uid://d120r3cjxo3cx" path="res://Assets/Sprites/HUD/opcaoDialogoDisabled.png" id="6_gq3fx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_irs17"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dputa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p6ubn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_786tl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sjuhh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_61v60"]
+texture = ExtResource("3_78ui5")
 
 [sub_resource type="LabelSettings" id="LabelSettings_8ctbi"]
 line_spacing = 0.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_o2taf"]
 font_size = 11
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4bw8n"]
+texture = ExtResource("4_pmyiq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_78ui5"]
+texture = ExtResource("5_0vaky")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pmyiq"]
+texture = ExtResource("5_0vaky")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0vaky"]
+texture = ExtResource("6_gq3fx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gq3fx"]
+texture = ExtResource("5_0vaky")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_73xor"]
+texture = ExtResource("3_78ui5")
 
 [node name="Inventory" type="Control" unique_id=1651639305 node_paths=PackedStringArray("slotsInventario", "texturasSlots", "telaUso", "lblNomeItem", "lblDescricaoItem", "botUsar", "botDescartar", "botSair", "telaOferecer", "botSim", "botNao")]
 layout_mode = 3
@@ -29,20 +65,27 @@ telaOferecer = NodePath("telaOferecer")
 botSim = NodePath("telaOferecer/botSim")
 botNao = NodePath("telaOferecer/botNao")
 
-[node name="Base" type="Panel" parent="." unique_id=550574065]
+[node name="Base" type="TextureRect" parent="." unique_id=694704928]
 layout_mode = 0
-offset_left = 375.0
-offset_top = 75.0
-offset_right = 775.0
-offset_bottom = 575.0
+offset_left = 325.0
+offset_top = 73.0
+offset_right = 825.0
+offset_bottom = 573.0
 mouse_filter = 2
+texture = ExtResource("2_kptbr")
+expand_mode = 3
 
 [node name="Slot1" type="Button" parent="Base" unique_id=501694953]
 layout_mode = 0
-offset_left = 35.0
-offset_top = 60.0
-offset_right = 185.0
-offset_bottom = 210.0
+offset_left = 51.0
+offset_top = 47.0
+offset_right = 201.0
+offset_bottom = 197.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_irs17")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dputa")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p6ubn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_786tl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sjuhh")
 
 [node name="TextureRect" type="TextureRect" parent="Base/Slot1" unique_id=1587469755]
 layout_mode = 0
@@ -55,10 +98,15 @@ expand_mode = 4
 
 [node name="Slot2" type="Button" parent="Base" unique_id=1473211345]
 layout_mode = 0
-offset_left = 215.0
-offset_top = 60.0
-offset_right = 365.0
-offset_bottom = 210.0
+offset_left = 298.0
+offset_top = 49.0
+offset_right = 448.0
+offset_bottom = 199.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_irs17")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dputa")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p6ubn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_786tl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sjuhh")
 
 [node name="TextureRect2" type="TextureRect" parent="Base/Slot2" unique_id=569808047]
 layout_mode = 0
@@ -71,10 +119,15 @@ expand_mode = 4
 
 [node name="Slot3" type="Button" parent="Base" unique_id=476317390]
 layout_mode = 0
-offset_left = 35.0
-offset_top = 290.0
-offset_right = 185.0
-offset_bottom = 440.0
+offset_left = 51.0
+offset_top = 299.0
+offset_right = 201.0
+offset_bottom = 449.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_irs17")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dputa")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p6ubn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_786tl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sjuhh")
 
 [node name="TextureRect3" type="TextureRect" parent="Base/Slot3" unique_id=192592359]
 layout_mode = 0
@@ -87,10 +140,15 @@ expand_mode = 4
 
 [node name="Slot4" type="Button" parent="Base" unique_id=496423985]
 layout_mode = 0
-offset_left = 215.0
-offset_top = 290.0
-offset_right = 365.0
-offset_bottom = 440.0
+offset_left = 301.0
+offset_top = 298.0
+offset_right = 451.0
+offset_bottom = 448.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_irs17")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dputa")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p6ubn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_786tl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sjuhh")
 
 [node name="TextureRect4" type="TextureRect" parent="Base/Slot4" unique_id=30274675]
 layout_mode = 0
@@ -103,10 +161,11 @@ expand_mode = 4
 
 [node name="telaUso" type="Panel" parent="." unique_id=1005301396]
 layout_mode = 0
-offset_left = 789.0
-offset_top = 76.0
-offset_right = 975.0
-offset_bottom = 295.0
+offset_left = 857.0
+offset_top = 74.0
+offset_right = 1043.0
+offset_bottom = 293.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_61v60")
 
 [node name="nomeItem" type="Label" parent="telaUso" unique_id=893042791]
 custom_maximum_size = Vector2(185, 46)
@@ -136,34 +195,49 @@ autowrap_mode = 3
 [node name="botUso" type="Button" parent="telaUso" unique_id=458862063]
 layout_mode = 0
 offset_left = 70.0
-offset_top = 110.0
+offset_top = 109.0
 offset_right = 114.0
-offset_bottom = 141.0
+offset_bottom = 140.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_4bw8n")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_78ui5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_pmyiq")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_0vaky")
+theme_override_styles/focus = SubResource("StyleBoxTexture_gq3fx")
 text = "Usar"
 
 [node name="botDescartar" type="Button" parent="telaUso" unique_id=474858427]
 layout_mode = 0
 offset_left = 50.0
-offset_top = 145.0
+offset_top = 141.0
 offset_right = 134.0
-offset_bottom = 176.0
+offset_bottom = 172.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_4bw8n")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_78ui5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_pmyiq")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_0vaky")
+theme_override_styles/focus = SubResource("StyleBoxTexture_gq3fx")
 text = "Descartar"
 
 [node name="botSair" type="Button" parent="telaUso" unique_id=1596479836]
 layout_mode = 0
-offset_left = 73.0
-offset_top = 181.0
-offset_right = 111.0
-offset_bottom = 212.0
+offset_left = 72.0
+offset_top = 173.0
+offset_right = 110.0
+offset_bottom = 204.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_4bw8n")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_78ui5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_pmyiq")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_0vaky")
+theme_override_styles/focus = SubResource("StyleBoxTexture_gq3fx")
 text = "Sair"
 
 [node name="telaOferecer" type="Panel" parent="." unique_id=1883475400]
-visible = false
 layout_mode = 0
-offset_left = 791.0
-offset_top = 317.0
-offset_right = 976.0
-offset_bottom = 381.0
+offset_left = 859.0
+offset_top = 311.0
+offset_right = 1044.0
+offset_bottom = 375.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_73xor")
 
 [node name="Label" type="Label" parent="telaOferecer" unique_id=1601349411]
 layout_mode = 0
@@ -179,6 +253,11 @@ offset_left = 26.0
 offset_top = 30.0
 offset_right = 63.0
 offset_bottom = 61.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_4bw8n")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_78ui5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_pmyiq")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_0vaky")
+theme_override_styles/focus = SubResource("StyleBoxTexture_gq3fx")
 text = "Sim"
 
 [node name="botNao" type="Button" parent="telaOferecer" unique_id=754744597]
@@ -187,4 +266,9 @@ offset_left = 122.0
 offset_top = 30.0
 offset_right = 162.0
 offset_bottom = 61.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_4bw8n")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_78ui5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_pmyiq")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_0vaky")
+theme_override_styles/focus = SubResource("StyleBoxTexture_gq3fx")
 text = "Não"

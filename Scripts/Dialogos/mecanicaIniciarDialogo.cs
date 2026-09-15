@@ -3,7 +3,7 @@ using System;
 using DialogueManagerRuntime;
 using Godot.Collections;
 
-public partial class mecanicaIniciarDialogo : StaticBody3D
+public partial class mecanicaIniciarDialogo : Node3D
 {
 	[Export] public Resource dialogue;
 	[Export] public CharacterBody3D personagem;
