@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://b8kdadftm2bc7"]
 
 [ext_resource type="Script" uid="uid://dirg55aihlh7o" path="res://Scripts/Geral/mostrarHorarioNaTela.cs" id="1_wvnxa"]
+[ext_resource type="FontFile" uid="uid://csxaaxokix70k" path="res://Assets/Fontes/phantomguardians.regular.ttf" id="2_awjqk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rxsqe"]
+font_size = 18
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Control" type="Control" unique_id=1654327781]
 layout_mode = 3
@@ -15,6 +20,8 @@ script = ExtResource("1_wvnxa")
 layout_mode = 0
 offset_right = 1151.0
 offset_bottom = 648.0
+theme_override_fonts/font = ExtResource("2_awjqk")
 text = "11"
+label_settings = SubResource("LabelSettings_rxsqe")
 horizontal_alignment = 1
 autowrap_trim_flags = 64

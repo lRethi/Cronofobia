@@ -1,0 +1,1077 @@
+shader_type sky;
+
+uniform vec3 sky_day_top : source_color = vec3(0.22, 0.28, 0.38);
+uniform vec3 sky_day_bottom : source_color = vec3(0.68, 0.55, 0.43);
+
+uniform vec3 sky_twilight_top : source_color = vec3(0.08, 0.025, 0.055);
+uniform vec3 sky_twilight_bottom : source_color = vec3(0.65, 0.16, 0.08);
+
+uniform vec3 sky_night_top : source_color = vec3(0.006, 0.004, 0.015);
+uniform vec3 sky_night_bottom : source_color = vec3(0.055, 0.008, 0.018);
+
+uniform vec3 city_day_color : source_color = vec3(0.025, 0.024, 0.028);
+uniform vec3 city_night_color : source_color = vec3(0.006, 0.006, 0.012);
+
+uniform vec3 window_color : source_color = vec3(0.95, 0.20, 0.045);
+uniform vec3 window_cold_color : source_color = vec3(0.20, 0.35, 0.65);
+uniform vec3 ultralink_color : source_color = vec3(0.65, 0.025, 0.025);
+
+uniform vec3 haze_day_color : source_color = vec3(0.55, 0.45, 0.35);
+uniform vec3 haze_night_color : source_color = vec3(0.09, 0.012, 0.025);
+
+uniform float day_factor = 1.0;
+uniform float twilight_factor = 0.0;
+uniform float night_factor = 0.0;
+uniform float artificial_light_factor = 0.0;
+
+uniform float city_density = 1.0;
+uniform float city_height = 0.30;
+uniform float horizon_height = 0.015;
+uniform float horizon_haze = 0.25;
+
+uniform float window_density = 0.65;
+uniform float window_brightness = 2.0;
+
+uniform float antenna_density = 0.10;
+uniform float star_density = 0.025;
+uniform float star_brightness = 0.25;
+
+float hash(float value)
+{
+	return fract(sin(value * 12.9898) * 43758.5453);
+}
+
+float hash_vec2(vec2 value)
+{
+	return fract(
+		sin(
+			dot(
+				value,
+				vec2(127.1, 311.7)
+			)
+		) * 43758.5453
+	);
+}
+
+float noise(vec2 value)
+{
+	vec2 cell = floor(value);
+	vec2 local = fract(value);
+
+	local = local * local * (3.0 - 2.0 * local);
+
+	float a = hash_vec2(cell);
+	float b = hash_vec2(cell + vec2(1.0, 0.0));
+	float c = hash_vec2(cell + vec2(0.0, 1.0));
+	float d = hash_vec2(cell + vec2(1.0, 1.0));
+
+	return mix(
+		mix(a, b, local.x),
+		mix(c, d, local.x),
+		local.y
+	);
+}
+
+float get_building_type(float id)
+{
+	return hash(id + 47.19);
+}
+
+float get_building_width(float id)
+{
+	float type = get_building_type(id);
+	float random_width = hash(id + 17.31);
+
+	if (type < 0.20)
+	{
+		return mix(0.62, 0.96, random_width);
+	}
+
+	if (type < 0.42)
+	{
+		return mix(0.38, 0.82, random_width);
+	}
+
+	if (type < 0.60)
+	{
+		return mix(0.68, 0.98, random_width);
+	}
+
+	if (type < 0.76)
+	{
+		return mix(0.42, 0.92, random_width);
+	}
+
+	if (type < 0.90)
+	{
+		return mix(0.34, 0.70, random_width);
+	}
+
+	return mix(0.22, 0.48, random_width);
+}
+
+float get_building_height(float id)
+{
+	float type = get_building_type(id);
+	float random_height = hash(id);
+
+	if (type < 0.20)
+	{
+		return mix(0.07, 0.18, random_height);
+	}
+
+	if (type < 0.42)
+	{
+		return mix(0.16, 0.32, random_height);
+	}
+
+	if (type < 0.60)
+	{
+		return mix(0.10, 0.24, random_height);
+	}
+
+	if (type < 0.76)
+	{
+		return mix(0.24, 0.46, random_height);
+	}
+
+	if (type < 0.90)
+	{
+		return mix(0.34, 0.68, random_height);
+	}
+
+	return mix(0.70, 1.00, random_height);
+}
+
+float get_building_profile(
+	float id,
+	float local_position
+)
+{
+	float type = get_building_type(id);
+
+	if (type >= 0.20 && type < 0.42)
+	{
+		float roof_center =
+			1.0 -
+			abs(local_position - 0.5) * 2.0;
+
+		return mix(
+			0.82,
+			1.0,
+			roof_center
+		);
+	}
+
+	if (type >= 0.42 && type < 0.60)
+	{
+		float roof =
+			noise(
+				vec2(
+					id * 0.17,
+					local_position * 3.0
+				)
+			);
+
+		return mix(
+			0.82,
+			1.0,
+			roof
+		);
+	}
+
+	if (type >= 0.76 && type < 0.90)
+	{
+		float upper_section =
+			smoothstep(
+				0.68,
+				0.92,
+				local_position
+			);
+
+		return mix(
+			1.0,
+			0.90,
+			upper_section
+		);
+	}
+
+	return 1.0;
+}
+
+float get_city_layer(
+	vec2 horizontal_direction,
+	float scale,
+	float offset,
+	float height_multiplier
+)
+{
+	float angle = atan(
+		horizontal_direction.y,
+		horizontal_direction.x
+	);
+
+	float normalized_angle =
+		angle / 6.28318530718 + 0.5;
+
+	float position =
+		normalized_angle * scale + offset;
+
+	float id = floor(position);
+	float local_position = fract(position);
+
+	float width =
+		get_building_width(id);
+
+	float inside =
+		1.0 - step(width, local_position);
+
+	float height =
+		get_building_height(id);
+
+	float profile =
+		get_building_profile(
+			id,
+			local_position
+		);
+
+	return height *
+		height_multiplier *
+		profile *
+		inside;
+}
+
+float get_industrial_layer(
+	vec2 horizontal_direction,
+	float scale,
+	float offset
+)
+{
+	float angle = atan(
+		horizontal_direction.y,
+		horizontal_direction.x
+	);
+
+	float normalized_angle =
+		angle / 6.28318530718 + 0.5;
+
+	float position =
+		normalized_angle * scale + offset;
+
+	float id = floor(position);
+	float local_position = fract(position);
+
+	float type =
+		get_building_type(id);
+
+	float width =
+		get_building_width(id);
+
+	float inside =
+		1.0 - step(width, local_position);
+
+	float industrial =
+		step(0.60, type) *
+		step(type, 0.76);
+
+	float base_height =
+		mix(
+			0.10,
+			0.24,
+			hash(id + 21.7)
+		);
+
+	float roof_variation =
+		noise(
+			vec2(
+				id * 0.31,
+				local_position * 4.0
+			)
+		);
+
+	float height =
+		base_height *
+		mix(
+			0.78,
+			1.18,
+			roof_variation
+		);
+
+	float rooftop =
+		smoothstep(
+			0.18,
+			0.82,
+			local_position
+		);
+
+	float chimney_seed =
+		hash(id + 83.17);
+
+	float chimney =
+		step(0.55, chimney_seed) *
+		smoothstep(
+			0.78,
+			0.94,
+			local_position
+		) *
+		0.12;
+
+	return (
+		height +
+		chimney
+	) *
+	industrial *
+	inside;
+}
+
+float get_windows(
+	vec3 direction,
+	float scale,
+	float offset,
+	float layer_strength
+)
+{
+	vec2 horizontal_direction =
+		normalize(
+			vec2(
+				direction.x,
+				direction.z
+			)
+		);
+
+	float angle = atan(
+		horizontal_direction.y,
+		horizontal_direction.x
+	);
+
+	float normalized_angle =
+		angle / 6.28318530718 + 0.5;
+
+	float position =
+		normalized_angle * scale + offset;
+
+	float id = floor(position);
+	float local_x = fract(position);
+
+	float building_width =
+		get_building_width(id);
+
+	if (local_x > building_width)
+	{
+		return 0.0;
+	}
+
+	float building_height =
+		get_building_height(id) *
+		city_height *
+		layer_strength;
+
+	float profile =
+		get_building_profile(
+			id,
+			local_x
+		);
+
+	float top =
+		horizon_height +
+		building_height *
+		profile;
+
+	if (direction.y > top)
+	{
+		return 0.0;
+	}
+
+	float normalized_height =
+		1.0 -
+		max(direction.y, 0.0) /
+		max(top, 0.001);
+
+	float type =
+		get_building_type(id);
+
+	float floors =
+		mix(
+			3.0,
+			20.0,
+			hash(id + 73.21)
+		);
+
+	if (type < 0.20)
+	{
+		floors =
+			mix(
+				1.0,
+				4.0,
+				hash(id + 74.21)
+			);
+	}
+
+	if (type >= 0.60 && type < 0.76)
+	{
+		floors =
+			mix(
+				2.0,
+				7.0,
+				hash(id + 75.21)
+			);
+	}
+
+	float columns =
+		mix(
+			3.0,
+			13.0,
+			hash(id + 13.72)
+		);
+
+	if (type < 0.20)
+	{
+		columns =
+			mix(
+				2.0,
+				5.0,
+				hash(id + 14.72)
+			);
+	}
+
+	if (type >= 0.60 && type < 0.76)
+	{
+		columns =
+			mix(
+				3.0,
+				8.0,
+				hash(id + 15.72)
+			);
+	}
+
+	float floor_position =
+		normalized_height * floors;
+
+	float base_floor_id =
+		floor(floor_position);
+
+	float floor_local =
+		fract(floor_position);
+
+	float column_position =
+		local_x * columns;
+
+	float base_column_id =
+		floor(column_position);
+
+	float column_local =
+		fract(column_position);
+
+	float cell_seed =
+		id +
+		base_floor_id * 17.31 +
+		base_column_id * 43.71;
+
+	float random_window =
+		hash(cell_seed);
+
+	float enabled =
+		step(
+			1.0 - window_density,
+			random_window
+		);
+
+	float facade_zone =
+		noise(
+			vec2(
+				id * 0.73 +
+				base_column_id * 0.37,
+				base_floor_id * 0.61
+			)
+		);
+
+	float zone_mask =
+		smoothstep(
+			0.22,
+			0.68,
+			facade_zone
+		);
+
+	float cluster_random =
+		hash(
+			id +
+			base_floor_id * 91.37 +
+			floor(base_column_id / 2.0) * 53.17
+		);
+
+	float cluster_mask =
+		step(
+			0.25,
+			cluster_random
+		);
+
+	float horizontal_jitter =
+		(
+			hash(cell_seed + 17.41) -
+			0.5
+		) * 0.24;
+
+	float vertical_jitter =
+		(
+			hash(cell_seed + 31.72) -
+			0.5
+		) * 0.24;
+
+	float jittered_column =
+		column_local +
+		horizontal_jitter;
+
+	float jittered_floor =
+		floor_local +
+		vertical_jitter;
+
+	float window_width =
+		mix(
+			0.42,
+			0.72,
+			hash(cell_seed + 51.83)
+		);
+
+	float window_height =
+		mix(
+			0.38,
+			0.70,
+			hash(cell_seed + 71.24)
+		);
+
+	float horizontal_gap =
+		step(
+			0.5 - window_width * 0.5,
+			jittered_column
+		) *
+		step(
+			jittered_column,
+			0.5 + window_width * 0.5
+		);
+
+	float vertical_gap =
+		step(
+			0.5 - window_height * 0.5,
+			jittered_floor
+		) *
+		step(
+			jittered_floor,
+			0.5 + window_height * 0.5
+		);
+
+	float irregularity =
+		noise(
+			vec2(
+				local_x * columns * 0.55 +
+				id * 0.19,
+				normalized_height * floors * 0.65 +
+				id * 0.31
+			)
+		);
+
+	float irregular_mask =
+		smoothstep(
+			0.25,
+			0.75,
+			irregularity
+		);
+
+	float final_cluster =
+		mix(
+			cluster_mask,
+			cluster_mask * zone_mask,
+			0.65
+		);
+
+	final_cluster *=
+		mix(
+			0.72,
+			1.0,
+			irregular_mask
+		);
+
+	if (type < 0.20)
+	{
+		final_cluster *= 0.72;
+	}
+
+	if (type >= 0.60 && type < 0.76)
+	{
+		final_cluster *= 0.48;
+	}
+
+	return enabled *
+		horizontal_gap *
+		vertical_gap *
+		final_cluster;
+}
+
+float get_ultralink_tower(
+	vec2 horizontal_direction,
+	float vertical
+)
+{
+	float angle = atan(
+		horizontal_direction.y,
+		horizontal_direction.x
+	);
+
+	float normalized_angle =
+		angle / 6.28318530718 + 0.5;
+
+	float tower_center = 0.71;
+
+	float distance_from_center =
+		abs(normalized_angle - tower_center);
+
+	distance_from_center =
+		min(
+			distance_from_center,
+			1.0 - distance_from_center
+		);
+
+	float tower_width =
+		smoothstep(
+			0.035,
+			0.0,
+			distance_from_center
+		);
+
+	float tower_height = 0.78;
+
+	float body =
+		step(
+			vertical,
+			horizon_height + tower_height
+		);
+
+	float upper_section =
+		smoothstep(
+			0.66,
+			0.78,
+			vertical
+		);
+
+	float antenna =
+		smoothstep(
+			0.76,
+			0.86,
+			vertical
+		);
+
+	float structure =
+		tower_width *
+		body;
+
+	float red_lights =
+		tower_width *
+		upper_section *
+		artificial_light_factor;
+
+	float antenna_light =
+		tower_width *
+		antenna *
+		artificial_light_factor;
+
+	return structure +
+		red_lights * 0.5 +
+		antenna_light * 0.8;
+}
+
+float get_antennas(
+	vec3 direction,
+	float scale,
+	float offset
+)
+{
+	vec2 horizontal_direction =
+		normalize(
+			vec2(
+				direction.x,
+				direction.z
+			)
+		);
+
+	float angle = atan(
+		horizontal_direction.y,
+		horizontal_direction.x
+	);
+
+	float normalized_angle =
+		angle / 6.28318530718 + 0.5;
+
+	float position =
+		normalized_angle * scale + offset;
+
+	float id = floor(position);
+	float local_position = fract(position);
+
+	float random_value =
+		hash(id + 55.13);
+
+	float enabled =
+		step(
+			1.0 - antenna_density,
+			random_value
+		);
+
+	float center =
+		1.0 -
+		abs(local_position - 0.5) * 25.0;
+
+	center =
+		max(center, 0.0);
+
+	float top =
+		smoothstep(
+			0.68,
+			0.94,
+			direction.y
+		);
+
+	return enabled *
+		center *
+		top;
+}
+
+float get_stars(vec3 direction)
+{
+	if (direction.y < 0.10)
+	{
+		return 0.0;
+	}
+
+	vec2 coordinates =
+		normalize(
+			vec2(
+				direction.x,
+				direction.z
+			)
+		) * 500.0;
+
+	float value =
+		noise(
+			coordinates +
+			direction.y * 37.0
+		);
+
+	return step(
+		1.0 - star_density,
+		value
+	);
+}
+
+void sky()
+{
+	vec3 direction =
+		normalize(EYEDIR);
+
+	float vertical =
+		clamp(
+			direction.y * 0.5 + 0.5,
+			0.0,
+			1.0
+		);
+
+	vec3 day_sky =
+		mix(
+			sky_day_bottom,
+			sky_day_top,
+			smoothstep(
+				0.0,
+				0.78,
+				vertical
+			)
+		);
+
+	vec3 twilight_sky =
+		mix(
+			sky_twilight_bottom,
+			sky_twilight_top,
+			smoothstep(
+				0.0,
+				0.78,
+				vertical
+			)
+		);
+
+	vec3 night_sky =
+		mix(
+			sky_night_bottom,
+			sky_night_top,
+			smoothstep(
+				0.0,
+				0.78,
+				vertical
+			)
+		);
+
+	vec3 sky_color =
+		mix(
+			night_sky,
+			day_sky,
+			day_factor
+		);
+
+	sky_color =
+		mix(
+			sky_color,
+			twilight_sky,
+			twilight_factor
+		);
+
+	float horizon =
+		1.0 -
+		smoothstep(
+			0.0,
+			horizon_haze,
+			abs(direction.y)
+		);
+
+	vec3 haze_color =
+		mix(
+			haze_night_color,
+			haze_day_color,
+			day_factor
+		);
+
+	haze_color =
+		mix(
+			haze_color,
+			vec3(0.48, 0.10, 0.055),
+			twilight_factor
+		);
+
+	sky_color +=
+		haze_color *
+		horizon *
+		0.42;
+
+	vec2 horizontal_direction =
+		normalize(
+			vec2(
+				direction.x,
+				direction.z
+			)
+		);
+
+	float city_near =
+		get_city_layer(
+			horizontal_direction,
+			95.0 * city_density,
+			0.0,
+			1.0
+		);
+
+	float city_mid =
+		get_city_layer(
+			horizontal_direction,
+			145.0 * city_density,
+			31.7,
+			0.68
+		);
+
+	float city_far =
+		get_city_layer(
+			horizontal_direction,
+			210.0 * city_density,
+			71.3,
+			0.42
+		);
+
+	float industrial =
+		get_industrial_layer(
+			horizontal_direction,
+			125.0 * city_density,
+			52.8
+		);
+
+	float skyline =
+		max(
+			city_near,
+			max(
+				city_mid,
+				city_far
+			)
+		);
+
+	skyline =
+		max(
+			skyline,
+			industrial
+		);
+
+	float skyline_height =
+		horizon_height +
+		skyline *
+		city_height;
+
+	float skyline_mask =
+		1.0 -
+		smoothstep(
+			skyline_height,
+			skyline_height + 0.018,
+			direction.y
+		);
+
+	vec3 city_color =
+		mix(
+			city_night_color,
+			city_day_color,
+			day_factor
+		);
+
+	sky_color =
+		mix(
+			sky_color,
+			city_color,
+			skyline_mask
+		);
+
+	float windows_near =
+		get_windows(
+			direction,
+			95.0 * city_density,
+			0.0,
+			1.0
+		);
+
+	float windows_mid =
+		get_windows(
+			direction,
+			145.0 * city_density,
+			31.7,
+			0.68
+		);
+
+	float windows_far =
+		get_windows(
+			direction,
+			210.0 * city_density,
+			71.3,
+			0.42
+		);
+
+	float windows =
+		max(
+			windows_near,
+			max(
+				windows_mid * 0.65,
+				windows_far * 0.3
+			)
+		);
+
+	windows *=
+		skyline_mask *
+		artificial_light_factor;
+
+	float cold_windows =
+		windows *
+		(
+			1.0 -
+			step(
+				0.72,
+				noise(
+					horizontal_direction * 80.0
+				)
+			)
+		);
+
+	float warm_windows =
+		windows -
+		cold_windows;
+
+	sky_color +=
+		window_color *
+		warm_windows *
+		window_brightness;
+
+	sky_color +=
+		window_cold_color *
+		cold_windows *
+		window_brightness *
+		0.65;
+
+	float antennas_near =
+		get_antennas(
+			direction,
+			95.0 * city_density,
+			0.0
+		);
+
+	float antennas_mid =
+		get_antennas(
+			direction,
+			145.0 * city_density,
+			31.7
+		);
+
+	float antennas =
+		max(
+			antennas_near,
+			antennas_mid * 0.5
+		);
+
+	sky_color +=
+		window_color *
+		antennas *
+		artificial_light_factor *
+		1.5;
+
+	float tower =
+		get_ultralink_tower(
+			horizontal_direction,
+			direction.y
+		);
+
+	float tower_body =
+		tower *
+		skyline_mask;
+
+	sky_color =
+		mix(
+			sky_color,
+			city_color * 0.45,
+			min(tower_body, 1.0)
+		);
+
+	float tower_lights =
+		tower *
+		artificial_light_factor *
+		skyline_mask;
+
+	sky_color +=
+		ultralink_color *
+		tower_lights *
+		2.2;
+
+	float stars =
+		get_stars(direction);
+
+	stars *=
+		night_factor;
+
+	sky_color +=
+		vec3(
+			stars *
+			star_brightness
+		);
+
+	float atmosphere_red =
+		smoothstep(
+			0.0,
+			0.38,
+			1.0 - abs(direction.y)
+		);
+
+	sky_color +=
+		vec3(
+			0.045,
+			0.004,
+			0.003
+		) *
+		atmosphere_red *
+		night_factor;
+
+	COLOR = sky_color;
+}

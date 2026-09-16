@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://b8beyexrpj6n7" path="res://addons/dialogue_manager/nodes/dialogue_label/DialogueLabel.cs" id="1_414uv"]
 [ext_resource type="Script" uid="uid://bf0gf4upyxj5l" path="res://addons/dialogue_manager/nodes/responses_menu/DialogueResponsesMenu.cs" id="2_1sks0"]
 [ext_resource type="Texture2D" uid="uid://drigbbqkn520u" path="res://Assets/Sprites/HUD/caixaDialogo(1).png" id="2_013uw"]
+[ext_resource type="FontFile" uid="uid://csxaaxokix70k" path="res://Assets/Fontes/phantomguardians.regular.ttf" id="3_vr5vl"]
+[ext_resource type="FontFile" uid="uid://d0l83dbasooy7" path="res://Assets/Fontes/neuromax.regular.ttf" id="4_o62ln"]
 [ext_resource type="Texture2D" uid="uid://0ch6fppaxyen" path="res://Assets/Sprites/HUD/caixaDialogo.png" id="4_pt8ea"]
 [ext_resource type="Texture2D" uid="uid://bsc3yil7d8xci" path="res://Assets/Sprites/HUD/opcaoDialogo.png" id="6_paylq"]
 [ext_resource type="Texture2D" uid="uid://h3fsji0jjwyy" path="res://Assets/Sprites/HUD/opcaoDialogoSel.png" id="7_pt8ea"]
@@ -382,6 +384,7 @@ layout_mode = 2
 offset_transform_position_ratio = Vector2(0.04, 0.2)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.98234254, 0.9823423, 0.9823424, 1)
+theme_override_fonts/normal_font = ExtResource("3_vr5vl")
 bbcode_enabled = true
 text = "Bobinho da silva roberto dois cinco quatro"
 fit_content = true
@@ -394,6 +397,7 @@ offset_transform_position_ratio = Vector2(0.04, 0)
 offset_transform_visual_only = false
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.98234254, 0.9823423, 0.9823424, 1)
+theme_override_fonts/normal_font = ExtResource("4_o62ln")
 theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "Assim que se fala doido, hahaha! Me diz que tá funcionando POR FAVOR."
@@ -431,6 +435,7 @@ unique_name_in_owner = true
 custom_maximum_size = Vector2(280, -1)
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_vr5vl")
 bbcode_enabled = true
 text = "º3º"
 fit_content = true
@@ -439,6 +444,7 @@ fit_content = true
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_o62ln")
 bbcode_enabled = true
 fit_content = true
 script = ExtResource("1_414uv")
@@ -464,6 +470,7 @@ ResponseTemplate = NodePath("ResponseExample")
 
 [node name="ResponseExample" type="Button" parent="DialogueUI/PlayerResponsesLayer/ResponsesMenu" unique_id=526082471]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_o62ln")
 theme_override_styles/normal = SubResource("StyleBoxTexture_p6ubn")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_013uw")
 theme_override_styles/hover = SubResource("StyleBoxTexture_paylq")
