@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://bskkegyi70235" path="res://Scripts/Protagonista/inventarioFuncionamento.cs" id="1_6ypas"]
 [ext_resource type="Texture2D" uid="uid://bq6cquua3pk6v" path="res://Assets/Sprites/HUD/invSlots.png" id="2_kptbr"]
 [ext_resource type="Texture2D" uid="uid://0ch6fppaxyen" path="res://Assets/Sprites/HUD/caixaDialogo.png" id="3_78ui5"]
-[ext_resource type="Texture2D" uid="uid://bsc3yil7d8xci" path="res://Assets/Sprites/HUD/opcaoDialogo.png" id="4_pmyiq"]
-[ext_resource type="Texture2D" uid="uid://h3fsji0jjwyy" path="res://Assets/Sprites/HUD/opcaoDialogoSel.png" id="5_0vaky"]
+[ext_resource type="FontFile" uid="uid://csxaaxokix70k" path="res://Assets/Fontes/phantomguardians.regular.ttf" id="4_0vaky"]
+[ext_resource type="Texture2D" uid="uid://bsjl4wr5fjgyl" path="res://Assets/Sprites/HUD/botMenu.png" id="4_78ui5"]
+[ext_resource type="FontFile" uid="uid://d0l83dbasooy7" path="res://Assets/Fontes/neuromax.regular.ttf" id="5_gq3fx"]
+[ext_resource type="Texture2D" uid="uid://coyjnlrn275bw" path="res://Assets/Sprites/HUD/botMenuSel.png" id="5_pmyiq"]
 [ext_resource type="Texture2D" uid="uid://d120r3cjxo3cx" path="res://Assets/Sprites/HUD/opcaoDialogoDisabled.png" id="6_gq3fx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_irs17"]
@@ -22,27 +24,36 @@ texture = ExtResource("3_78ui5")
 
 [sub_resource type="LabelSettings" id="LabelSettings_8ctbi"]
 line_spacing = 0.0
+font = ExtResource("4_0vaky")
+font_size = 18
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_o2taf"]
+font = ExtResource("5_gq3fx")
 font_size = 11
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4bw8n"]
-texture = ExtResource("4_pmyiq")
+texture = ExtResource("4_78ui5")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_78ui5"]
-texture = ExtResource("5_0vaky")
+texture = ExtResource("5_pmyiq")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pmyiq"]
-texture = ExtResource("5_0vaky")
+texture = ExtResource("5_pmyiq")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0vaky"]
 texture = ExtResource("6_gq3fx")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gq3fx"]
-texture = ExtResource("5_0vaky")
+texture = ExtResource("5_pmyiq")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_73xor"]
 texture = ExtResource("3_78ui5")
+
+[sub_resource type="LabelSettings" id="LabelSettings_irs17"]
+font = ExtResource("4_0vaky")
+font_color = Color(0, 0, 0, 1)
 
 [node name="Inventory" type="Control" unique_id=1651639305 node_paths=PackedStringArray("slotsInventario", "texturasSlots", "telaUso", "lblNomeItem", "lblDescricaoItem", "botUsar", "botDescartar", "botSair", "telaOferecer", "botSim", "botNao")]
 layout_mode = 3
@@ -198,6 +209,8 @@ offset_left = 70.0
 offset_top = 109.0
 offset_right = 114.0
 offset_bottom = 140.0
+theme_override_colors/font_color = Color(0.16565618, 0.16565657, 0.16565624, 1)
+theme_override_fonts/font = ExtResource("5_gq3fx")
 theme_override_styles/normal = SubResource("StyleBoxTexture_4bw8n")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_78ui5")
 theme_override_styles/hover = SubResource("StyleBoxTexture_pmyiq")
@@ -211,6 +224,8 @@ offset_left = 50.0
 offset_top = 141.0
 offset_right = 134.0
 offset_bottom = 172.0
+theme_override_colors/font_color = Color(0.16565618, 0.16565657, 0.16565624, 1)
+theme_override_fonts/font = ExtResource("5_gq3fx")
 theme_override_styles/normal = SubResource("StyleBoxTexture_4bw8n")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_78ui5")
 theme_override_styles/hover = SubResource("StyleBoxTexture_pmyiq")
@@ -224,6 +239,8 @@ offset_left = 72.0
 offset_top = 173.0
 offset_right = 110.0
 offset_bottom = 204.0
+theme_override_colors/font_color = Color(0.16565618, 0.16565657, 0.16565624, 1)
+theme_override_fonts/font = ExtResource("5_gq3fx")
 theme_override_styles/normal = SubResource("StyleBoxTexture_4bw8n")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_78ui5")
 theme_override_styles/hover = SubResource("StyleBoxTexture_pmyiq")
@@ -243,9 +260,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_73xor")
 layout_mode = 0
 offset_left = 54.0
 offset_top = 3.0
-offset_right = 130.0
+offset_right = 124.0
 offset_bottom = 26.0
-text = "Oferecer?"
+text = "  Oferecer?"
+label_settings = SubResource("LabelSettings_irs17")
 
 [node name="botSim" type="Button" parent="telaOferecer" unique_id=1293087438]
 layout_mode = 0
@@ -253,6 +271,8 @@ offset_left = 26.0
 offset_top = 30.0
 offset_right = 63.0
 offset_bottom = 61.0
+theme_override_colors/font_color = Color(0.16565618, 0.16565657, 0.16565624, 1)
+theme_override_fonts/font = ExtResource("5_gq3fx")
 theme_override_styles/normal = SubResource("StyleBoxTexture_4bw8n")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_78ui5")
 theme_override_styles/hover = SubResource("StyleBoxTexture_pmyiq")
@@ -266,6 +286,8 @@ offset_left = 122.0
 offset_top = 30.0
 offset_right = 162.0
 offset_bottom = 61.0
+theme_override_colors/font_color = Color(0.16565618, 0.16565657, 0.16565624, 1)
+theme_override_fonts/font = ExtResource("5_gq3fx")
 theme_override_styles/normal = SubResource("StyleBoxTexture_4bw8n")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_78ui5")
 theme_override_styles/hover = SubResource("StyleBoxTexture_pmyiq")

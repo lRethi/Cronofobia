@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bt0y13avl08jo"]
 
 [ext_resource type="Script" uid="uid://f36ircj7s7vj" path="res://Scripts/Geral/HudMain.cs" id="1_lsyh3"]
+[ext_resource type="FontFile" uid="uid://d0l83dbasooy7" path="res://Assets/Fontes/neuromax.regular.ttf" id="2_xr72i"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8c2qd"]
 font_size = 24
@@ -62,5 +63,6 @@ offset_left = 1046.0
 offset_top = 2.0
 offset_right = 1150.0
 offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("2_xr72i")
 text = "R$100.00"
 label_settings = SubResource("LabelSettings_8ctbi")

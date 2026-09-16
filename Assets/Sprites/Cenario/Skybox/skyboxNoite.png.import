@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://caqiex350fbhm"
-path.s3tc="res://.godot/imported/Predio do lado do predio do victor.png-424fcc8f1a8ff616aa7f75a0cfe6f7dc.s3tc.ctex"
+uid="uid://bo26mvc6y33ir"
+path.s3tc="res://.godot/imported/skyboxNoite.png-086bb30c8ba22578c2d1461cc874193f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Sprites/Cenario/Parede/Predio do lado do predio do victor.png"
-dest_files=["res://.godot/imported/Predio do lado do predio do victor.png-424fcc8f1a8ff616aa7f75a0cfe6f7dc.s3tc.ctex"]
+source_file="res://Assets/Sprites/Cenario/Skybox/skyboxNoite.png"
+dest_files=["res://.godot/imported/skyboxNoite.png-086bb30c8ba22578c2d1461cc874193f.s3tc.ctex"]
 
 [params]
 
