@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxdm3k0j8tu6b"
-path="res://.godot/imported/caixabanco.png-d5d3325f86d12befcb899b7367dda840.ctex"
+uid="uid://dc6gkmwxhfqh1"
+path="res://.godot/imported/Alameda.png-ecfff84e585c73d9f88d4f7befbec762.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Cenario/Parede/caixabanco.png"
-dest_files=["res://.godot/imported/caixabanco.png-d5d3325f86d12befcb899b7367dda840.ctex"]
+source_file="res://Assets/Sprites/Cenario/Parede/Alameda.png"
+dest_files=["res://.godot/imported/Alameda.png-ecfff84e585c73d9f88d4f7befbec762.ctex"]
 
 [params]
 
