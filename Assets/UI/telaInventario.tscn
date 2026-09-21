@@ -171,6 +171,7 @@ mouse_filter = 2
 expand_mode = 4
 
 [node name="telaUso" type="Panel" parent="." unique_id=1005301396]
+visible = false
 layout_mode = 0
 offset_left = 857.0
 offset_top = 74.0
@@ -249,6 +250,7 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_gq3fx")
 text = "Sair"
 
 [node name="telaOferecer" type="Panel" parent="." unique_id=1883475400]
+visible = false
 layout_mode = 0
 offset_left = 859.0
 offset_top = 311.0
