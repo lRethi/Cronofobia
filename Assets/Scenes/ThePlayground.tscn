@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dd3yf0c5d5nvl"]
 
 [ext_resource type="Script" uid="uid://dwbafmkhb60pp" path="res://Scripts/Globais/GameState.cs" id="1_x8k4i"]
-[ext_resource type="Script" uid="uid://23qigdj8fnin" path="res://Scripts/Geral/DayNightController.cs" id="2_11sfv"]
 [ext_resource type="Shader" uid="uid://cihlkpwta3awt" path="res://Scripts/Shaders/citySkybox.gdshader" id="2_iamn6"]
 [ext_resource type="PackedScene" uid="uid://c3qp6nf2wgnsr" path="res://Assets/UI/telaInventario.tscn" id="2_ueqtk"]
 [ext_resource type="PackedScene" uid="uid://4cvw5u3glyoy" path="res://Assets/Personagens/Protagonista.tscn" id="2_vgdj8"]
@@ -312,7 +311,7 @@ script = ExtResource("12_qeaow")
 tileset_texture = ExtResource("28_7mstw")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(0, 320, 320, 320)
-tileset_zoom = 0.10999999999999997
+tileset_zoom = 0.10999999999999996
 mesh_mode = 1
 
 [sub_resource type="Resource" id="Resource_qeaow"]
@@ -351,22 +350,6 @@ script = ExtResource("1_x8k4i")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=219137219]
 environment = SubResource("Environment_l1wsx")
 
-[node name="DayNightController" type="Node3D" parent="." unique_id=112382640]
-script = ExtResource("2_11sfv")
-
-[node name="DirectionalLight3D_Sun" type="DirectionalLight3D" parent="DayNightController" unique_id=904278444]
-transform = Transform3D(0.97588885, 0.18190728, -0.12062637, 0.12820515, -0.030452127, 0.99128, 0.17664772, -0.9828441, -0.053039335, 0, 0, 0)
-light_angular_distance = 0.5
-shadow_enabled = true
-shadow_bias = 2.0
-shadow_normal_bias = 4.0
-shadow_opacity = 0.75
-
-[node name="DirectionalLight3D_Moon" type="DirectionalLight3D" parent="DayNightController" unique_id=1180027086]
-transform = Transform3D(0.97588885, 0.18190728, -0.12062637, 0.12820515, -0.030452127, 0.99128, 0.17664772, -0.9828441, -0.053039335, 0, 0, 0)
-light_angular_distance = 0.5
-shadow_bias = 5.0
-
 [node name="charGeraldoSalvador" parent="." unique_id=1046664859 node_paths=PackedStringArray("cameraNode", "cameraPivotNode") instance=ExtResource("2_vgdj8")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36977458, 0.8375257, -1.6887856)
@@ -386,8 +369,9 @@ process_physics_priority = 300
 script = ExtResource("6_w30fg")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="CameraPivot" type="Node3D" parent="." unique_id=430484026]
+[node name="CameraPivot" type="Node3D" parent="." unique_id=430484026 node_paths=PackedStringArray("player")]
 script = ExtResource("9_v0jil")
+player = NodePath("../charGeraldoSalvador")
 
 [node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1167174207 node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
@@ -976,41 +960,32 @@ personagem = NodePath("../charGeraldoSalvador")
 
 [node name="garrafaAgua" parent="." unique_id=1197714594 instance=ExtResource("20_uipgk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5863266, 0.3047999, -10.195332)
-item = null
 
 [node name="lataFeijao" parent="." unique_id=110619584 instance=ExtResource("19_qeaow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.453418, 0.3047998, -9.287083)
-item = null
 
 [node name="garrafaAgua2" parent="." unique_id=991715990 instance=ExtResource("20_uipgk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.730157, 0.3047999, -10.195332)
-item = null
 
 [node name="lataFeijao2" parent="." unique_id=2076779181 instance=ExtResource("19_qeaow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.597248, 0.3047998, -9.287083)
-item = null
 
 [node name="galaoAgua" parent="." unique_id=953221070 instance=ExtResource("18_h3j6h")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 7.6561, 0.523178, -8.35817)
-item = null
 preco = 3.0
 compravel = true
 
 [node name="moedaPickup" parent="." unique_id=130964378 instance=ExtResource("22_an17c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2986574, 0.3047999, -5.8404202)
-tipoPickup = 0
 
 [node name="moedaPickup2" parent="." unique_id=1382103823 instance=ExtResource("22_an17c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3799143, 0.3047999, -5.3242073)
-tipoPickup = 0
 
 [node name="moedaPickup3" parent="." unique_id=1856332331 instance=ExtResource("22_an17c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.348313, 0.3047999, -4.876289)
-tipoPickup = 0
 
 [node name="moedaPickup4" parent="." unique_id=1049387694 instance=ExtResource("22_an17c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3848343, 0.3047999, -4.303458)
-tipoPickup = 0
 
 [node name="DialogueCameraController" type="Node" parent="." unique_id=1473392164 node_paths=PackedStringArray("GameplayCamera")]
 unique_name_in_owner = true

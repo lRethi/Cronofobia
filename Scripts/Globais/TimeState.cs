@@ -91,12 +91,18 @@ public partial class TimeState : Node
 	{
 		escalaTempo = 0f;
 		GameState.TempoCongelado = true;
+
+		GameState.Instance.SetCameraInputEnabled(false);
+        GameState.Instance.SetCameraMouseCaptured(false);
 	}
 
 	public void DescongelarTempo()
 	{
 		escalaTempo = 1f;
 		GameState.TempoCongelado = false;
+
+		GameState.Instance.SetCameraInputEnabled(true);
+        GameState.Instance.SetCameraMouseCaptured(true);
 	}
 	public void finalizarNoite()
 	{
@@ -111,9 +117,6 @@ public partial class TimeState : Node
 				escolhaEfeito tela = cena.Instantiate<escolhaEfeito>();
 
 				GetTree().Root.AddChild(tela);
-
-				GameState.Instance.SetCameraInputEnabled(true);
-        		GameState.Instance.SetCameraMouseCaptured(false);
 
 				tela.Abrir(EffectManager.Instance.GerarOpcoes());
 			}
@@ -140,10 +143,7 @@ public partial class TimeState : Node
 
 		NeedsState.Instance.SetFome(0f);
 		NeedsState.Instance.SetSede(0f);
-
-		GameState.Instance.SetCameraInputEnabled(false);
-        GameState.Instance.SetCameraMouseCaptured(true);
-
+		
 		ChangeDayState();
 		DescongelarTempo();
 	}
