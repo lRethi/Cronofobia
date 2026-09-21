@@ -71,7 +71,8 @@ public partial class inventarioFuncionamento : Control
         if (Visible)
         {
             TimeState.Instance.CongelarTempo();
-            Input.MouseMode = Input.MouseModeEnum.Visible;
+            GameState.Instance.SetCameraInputEnabled(true);
+            GameState.Instance.SetCameraMouseCaptured(false);
         }
         else
         {
@@ -81,7 +82,8 @@ public partial class inventarioFuncionamento : Control
             modoOferecer = false;
 
             TimeState.Instance.DescongelarTempo();
-            Input.MouseMode = Input.MouseModeEnum.Captured;
+            GameState.Instance.SetCameraInputEnabled(false);
+            GameState.Instance.SetCameraMouseCaptured(true);
         }
     }
 
@@ -95,7 +97,8 @@ public partial class inventarioFuncionamento : Control
 
         Show();
 
-        Input.MouseMode = Input.MouseModeEnum.Visible;
+        GameState.Instance.SetCameraInputEnabled(true);
+        GameState.Instance.SetCameraMouseCaptured(false);
     }
 
     private void SelecionarSlot(int index)

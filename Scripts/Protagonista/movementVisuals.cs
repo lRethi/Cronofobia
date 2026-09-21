@@ -11,6 +11,5 @@ public partial class movementVisuals : Sprite3D
 	[Export] private Texture2D[] normalMapCosta;
 	[Export] private Texture2D[] normalMapEsquerda;
 	[Export] private Texture2D[] normalMapDireita;
-
 	
 }
