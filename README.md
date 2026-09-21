@@ -1,1 +1,1 @@
-We need this shit done by THE END OF THE YEAR so GET YER ASSES TO WORK
+Anyone reading this PLEASE we need a better readme

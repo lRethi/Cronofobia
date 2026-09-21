@@ -112,6 +112,9 @@ public partial class TimeState : Node
 
 				GetTree().Root.AddChild(tela);
 
+				GameState.Instance.SetCameraInputEnabled(true);
+        		GameState.Instance.SetCameraMouseCaptured(false);
+
 				tela.Abrir(EffectManager.Instance.GerarOpcoes());
 			}
 			else
@@ -130,9 +133,17 @@ public partial class TimeState : Node
 		diaAtual += 1f;
 		if (diaAtual > maximoDias)
 			diaAtual = 1f;
+
 		minutoDoDia = minutoInicioDia;
 		EffectManager.Instance.InicioDoDia();
 		noiteFinalizada = false;
+
+		NeedsState.Instance.SetFome(0f);
+		NeedsState.Instance.SetSede(0f);
+
+		GameState.Instance.SetCameraInputEnabled(false);
+        GameState.Instance.SetCameraMouseCaptured(true);
+
 		ChangeDayState();
 		DescongelarTempo();
 	}

@@ -17,6 +17,7 @@ public partial class GameState : Node
 
     [Signal]
     public delegate void FlagChangedEventHandler(string key, bool value);
+    public static bool cameraInputEnabled { get; private set; } = true;
 
     public override void _EnterTree()
     {
@@ -53,6 +54,17 @@ public partial class GameState : Node
         dialogoAberto = false;
         TempoCongelado = false;
         Input.MouseMode = Input.MouseModeEnum.Captured;
+    }
+    public void SetCameraInputEnabled(bool enabled)
+    {
+        cameraInputEnabled = enabled;
+    }
+    
+    public void SetCameraMouseCaptured(bool captured)
+    {
+        Input.MouseMode = captured
+            ? Input.MouseModeEnum.Captured
+            : Input.MouseModeEnum.Visible;
     }
 
     public bool GetFlag(string key)

@@ -38,6 +38,8 @@ public partial class inimPerseguirProta : CharacterBody3D
 		alertArea = GetNode<Area3D>("AlertArea");
 		collisionArea = GetNode<Area3D>("CollisionArea");
 
+		player = GetNode<Node3D>("%charGeraldoSalvador");
+
 		agent.TargetDesiredDistance = 0.05f;
 		agent.PathDesiredDistance = 0.05f;
 

@@ -38,14 +38,16 @@ public partial class cenaCompra : Control
             NeedsState.Instance.varDinheiro < custo;
 
         TimeState.Instance.CongelarTempo();
-        Input.MouseMode = Input.MouseModeEnum.Visible;
+        GameState.Instance.SetCameraInputEnabled(true);
+        GameState.Instance.SetCameraMouseCaptured(false);
     }
 
     private void OnBotCompra()
     {
         EmitSignal(SignalName.Comprar, custo);
         TimeState.Instance.DescongelarTempo();
-        Input.MouseMode = Input.MouseModeEnum.Captured;
+        GameState.Instance.SetCameraInputEnabled(false);
+        GameState.Instance.SetCameraMouseCaptured(true);
         QueueFree();
     }
 
@@ -53,7 +55,8 @@ public partial class cenaCompra : Control
     {
         EmitSignal(SignalName.Roubar);
         TimeState.Instance.DescongelarTempo();
-        Input.MouseMode = Input.MouseModeEnum.Captured;
+        GameState.Instance.SetCameraInputEnabled(false);
+        GameState.Instance.SetCameraMouseCaptured(true);
         QueueFree();
     }
 
@@ -61,7 +64,8 @@ public partial class cenaCompra : Control
     {
         EmitSignal(SignalName.Fechar);
         TimeState.Instance.DescongelarTempo();
-        Input.MouseMode = Input.MouseModeEnum.Captured;
+        GameState.Instance.SetCameraInputEnabled(false);
+        GameState.Instance.SetCameraMouseCaptured(true);
         QueueFree();
     }
 }

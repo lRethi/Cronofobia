@@ -2,9 +2,16 @@
 
 [ext_resource type="Script" uid="uid://f36ircj7s7vj" path="res://Scripts/Geral/HudMain.cs" id="1_lsyh3"]
 [ext_resource type="FontFile" uid="uid://d0l83dbasooy7" path="res://Assets/Fontes/neuromax.regular.ttf" id="2_xr72i"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_8c2qd"]
-font_size = 24
+[ext_resource type="Texture2D" uid="uid://dumjexgtgei6u" path="res://Assets/Sprites/HUD/Needs/holderAgua.png" id="3_hfo0m"]
+[ext_resource type="Texture2D" uid="uid://bk2ejxiguk7h1" path="res://Assets/Sprites/HUD/Needs/barraAguaBottom.png" id="4_8538a"]
+[ext_resource type="Texture2D" uid="uid://cwh6hsd7saewr" path="res://Assets/Sprites/HUD/Needs/barraAguaMid1.png" id="5_hnuj0"]
+[ext_resource type="Texture2D" uid="uid://dtrvtyd7tu7so" path="res://Assets/Sprites/HUD/Needs/barraAguaMid2.png" id="6_t25ku"]
+[ext_resource type="Texture2D" uid="uid://bvrg3sycdubkp" path="res://Assets/Sprites/HUD/Needs/barraAguaTop.png" id="7_obpbx"]
+[ext_resource type="Texture2D" uid="uid://cmour0q453rf0" path="res://Assets/Sprites/HUD/Needs/holderFome.png" id="8_oyluj"]
+[ext_resource type="Texture2D" uid="uid://b4k2gy3vw2xr2" path="res://Assets/Sprites/HUD/Needs/barraFomeBottom.png" id="9_nqanx"]
+[ext_resource type="Texture2D" uid="uid://b27nu4l6bin7d" path="res://Assets/Sprites/HUD/Needs/barraFomeMid1.png" id="10_xo4i5"]
+[ext_resource type="Texture2D" uid="uid://dy1yp6gxsqrov" path="res://Assets/Sprites/HUD/Needs/barraFomeMid2.png" id="11_a53oc"]
+[ext_resource type="Texture2D" uid="uid://m5bii3sw6ba3" path="res://Assets/Sprites/HUD/Needs/barraFomeTop.png" id="12_mdu7y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8ctbi"]
 font_size = 24
@@ -21,42 +28,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lsyh3")
 
-[node name="objFomeFlavor" type="Label" parent="." unique_id=551525719]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -2.0
-offset_right = 175.0
-offset_bottom = 56.0
-text = "Fome:"
-label_settings = SubResource("LabelSettings_8c2qd")
-
-[node name="objSedeFlavor" type="Label" parent="." unique_id=2039055162]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 23.0
-offset_right = 184.0
-offset_bottom = 81.0
-text = "Sede:"
-label_settings = SubResource("LabelSettings_8c2qd")
-
-[node name="objFome" type="Label" parent="." unique_id=177126806]
-layout_mode = 0
-offset_left = 82.0
-offset_top = -1.0
-offset_right = 122.0
-offset_bottom = 33.0
-text = "0/3"
-label_settings = SubResource("LabelSettings_8c2qd")
-
-[node name="objSede" type="Label" parent="." unique_id=1714391281]
-layout_mode = 0
-offset_left = 82.0
-offset_top = 24.0
-offset_right = 122.0
-offset_bottom = 58.0
-text = "0/3"
-label_settings = SubResource("LabelSettings_8c2qd")
-
 [node name="objDinheiro" type="Label" parent="." unique_id=570230181]
 layout_mode = 0
 offset_left = 1046.0
@@ -66,3 +37,130 @@ offset_bottom = 36.0
 theme_override_fonts/font = ExtResource("2_xr72i")
 text = "R$100.00"
 label_settings = SubResource("LabelSettings_8ctbi")
+
+[node name="barraAgua" type="TextureRect" parent="." unique_id=601112101]
+layout_mode = 0
+offset_left = -88.0
+offset_top = 402.0
+offset_right = 168.0
+offset_bottom = 658.0
+texture = ExtResource("3_hfo0m")
+expand_mode = 1
+
+[node name="fundoVazio" type="ColorRect" parent="barraAgua" unique_id=1149467780]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 112.0
+offset_top = 88.0
+offset_right = 148.0
+offset_bottom = 216.0
+color = Color(3.6098065e-08, 0.05588703, 0.09114917, 1)
+
+[node name="aguaTier0" type="TextureRect" parent="barraAgua" unique_id=586051587]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 112.0
+offset_top = 184.0
+offset_right = 148.0
+offset_bottom = 220.0
+texture = ExtResource("4_8538a")
+expand_mode = 1
+
+[node name="aguaTier1" type="TextureRect" parent="barraAgua" unique_id=708591773]
+visible = false
+show_behind_parent = true
+layout_mode = 0
+offset_left = 112.0
+offset_top = 148.0
+offset_right = 148.0
+offset_bottom = 184.0
+texture = ExtResource("5_hnuj0")
+expand_mode = 1
+
+[node name="aguaTier2" type="TextureRect" parent="barraAgua" unique_id=1577494878]
+visible = false
+show_behind_parent = true
+layout_mode = 0
+offset_left = 112.0
+offset_top = 112.0
+offset_right = 148.0
+offset_bottom = 148.0
+texture = ExtResource("6_t25ku")
+expand_mode = 1
+
+[node name="aguaTier3" type="TextureRect" parent="barraAgua" unique_id=356780115]
+visible = false
+show_behind_parent = true
+layout_mode = 0
+offset_left = 112.0
+offset_top = 76.0
+offset_right = 148.0
+offset_bottom = 112.0
+texture = ExtResource("7_obpbx")
+expand_mode = 1
+
+[node name="barraFome" type="TextureRect" parent="." unique_id=939567779]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 402.0
+offset_right = 232.0
+offset_bottom = 658.0
+texture = ExtResource("8_oyluj")
+expand_mode = 1
+
+[node name="fundoVazio" type="ColorRect" parent="barraFome" unique_id=258951281]
+show_behind_parent = true
+z_index = -2
+layout_mode = 0
+offset_left = 112.0
+offset_top = 88.0
+offset_right = 148.0
+offset_bottom = 216.0
+color = Color(0.11579437, 0.026747989, 0.0006653685, 1)
+
+[node name="fomeTier0" type="TextureRect" parent="barraFome" unique_id=1493820224]
+show_behind_parent = true
+z_index = -1
+layout_mode = 0
+offset_left = 112.0
+offset_top = 184.0
+offset_right = 148.0
+offset_bottom = 220.0
+texture = ExtResource("9_nqanx")
+expand_mode = 1
+
+[node name="fomeTier1" type="TextureRect" parent="barraFome" unique_id=1275026512]
+visible = false
+show_behind_parent = true
+z_index = -1
+layout_mode = 0
+offset_left = 112.0
+offset_top = 148.0
+offset_right = 148.0
+offset_bottom = 184.0
+texture = ExtResource("10_xo4i5")
+expand_mode = 1
+
+[node name="fomeTier2" type="TextureRect" parent="barraFome" unique_id=1860617995]
+visible = false
+show_behind_parent = true
+z_index = -1
+layout_mode = 0
+offset_left = 112.0
+offset_top = 112.0
+offset_right = 148.0
+offset_bottom = 148.0
+texture = ExtResource("11_a53oc")
+expand_mode = 1
+
+[node name="fomeTier3" type="TextureRect" parent="barraFome" unique_id=1009772349]
+visible = false
+show_behind_parent = true
+z_index = -1
+layout_mode = 0
+offset_left = 112.0
+offset_top = 76.0
+offset_right = 148.0
+offset_bottom = 112.0
+texture = ExtResource("12_mdu7y")
+expand_mode = 1

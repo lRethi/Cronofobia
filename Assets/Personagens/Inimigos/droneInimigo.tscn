@@ -15,6 +15,7 @@ radius = 2.0
 
 [node name="droneInimigo" type="CharacterBody3D" unique_id=856536261]
 script = ExtResource("1_gcw2n")
+visionAngle = 180.0
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1272247020]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44912255, 0)

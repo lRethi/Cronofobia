@@ -16,22 +16,30 @@ public partial class DirectionalSprite : StaticBody3D
     private StandardMaterial3D material;
     private ShaderMaterial overlayMaterial;
 
-    public override void _Ready()
-	{
-		SetupMaterial();
-		SetupOverlay();
+    public override async void _Ready()
+    {
+        SetupMaterial();
+        SetupOverlay();
 
-		cameraScript = GetNode<cameraBonitaDoFred>("../CameraPivot");
-		cameraScript.CameraChanged += atualizarSprite;
+        cameraScript = GetNode<cameraBonitaDoFred>("../CameraPivot");
 
-		ApplyMaterialSettings();
-		ApplyOverlaySettings();
+        ApplyMaterialSettings();
+        ApplyOverlaySettings();
 
-		atualizarSprite(
-			cameraScript.GetYawState(),
-			cameraScript.GetPitchState()
-		);
-	}
+        cameraScript.CameraChanged += OnCameraChanged;
+
+        await ToSignal(
+            GetTree(),
+            SceneTree.SignalName.ProcessFrame
+        );
+
+        atualizarSprite(cameraScript.GetYawState());
+    }
+
+    private void OnCameraChanged(int yaw, int pitch)
+    {
+        atualizarSprite(yaw);
+    }
 
     private void SetupOverlay()
     {
@@ -50,16 +58,16 @@ public partial class DirectionalSprite : StaticBody3D
         }
     }
 
-	public void SetGlowEnabled(bool enabled)
-	{
-		if (overlayMaterial == null)
-			return;
+    public void SetGlowEnabled(bool enabled)
+    {
+        if (overlayMaterial == null)
+            return;
 
-		overlayMaterial.SetShaderParameter(
-			"glow_enabled",
-			enabled
-		);
-	}
+        overlayMaterial.SetShaderParameter(
+            "glow_enabled",
+            enabled
+        );
+    }
 
     private void SetupMaterial()
     {
@@ -71,14 +79,23 @@ public partial class DirectionalSprite : StaticBody3D
             sprite.MaterialOverride = material;
         }
 
-        material.Transparency = BaseMaterial3D.TransparencyEnum.AlphaScissor;
-        material.TextureFilter = BaseMaterial3D.TextureFilterEnum.Nearest;
-        material.CullMode = BaseMaterial3D.CullModeEnum.Disabled;
-        material.ShadingMode = BaseMaterial3D.ShadingModeEnum.PerPixel;
-        material.BillboardMode = BaseMaterial3D.BillboardModeEnum.FixedY;
+        material.Transparency =
+            BaseMaterial3D.TransparencyEnum.AlphaScissor;
+
+        material.TextureFilter =
+            BaseMaterial3D.TextureFilterEnum.Nearest;
+
+        material.CullMode =
+            BaseMaterial3D.CullModeEnum.Disabled;
+
+        material.ShadingMode =
+            BaseMaterial3D.ShadingModeEnum.PerPixel;
+
+        material.BillboardMode =
+            BaseMaterial3D.BillboardModeEnum.FixedY;
     }
 
-        private void ApplyOverlaySettings()
+    private void ApplyOverlaySettings()
     {
         overlayMaterial.SetShaderParameter(
             "glow_enabled",
@@ -101,7 +118,9 @@ public partial class DirectionalSprite : StaticBody3D
         );
     }
 
-    private DirectionalSpriteData GetSpriteData(SpriteDirection direction)
+    private DirectionalSpriteData GetSpriteData(
+        SpriteDirection direction
+    )
     {
         return direction switch
         {
@@ -113,12 +132,18 @@ public partial class DirectionalSprite : StaticBody3D
         };
     }
 
-    public void atualizarSprite(int cameraYaw, int cameraPitch)
+    public void atualizarSprite(int cameraYaw)
     {
-        int horizontal = (cameraYaw - (int)FacingDirection + 4) % 4;
-        SpriteDirection direction = (SpriteDirection)horizontal;
+        int horizontal = Mathf.PosMod(
+            cameraYaw - (int)FacingDirection,
+            4
+        );
 
-        DirectionalSpriteData data = GetSpriteData(direction);
+        SpriteDirection direction =
+            (SpriteDirection)horizontal;
+
+        DirectionalSpriteData data =
+            GetSpriteData(direction);
 
         if (data == null)
             return;
@@ -132,54 +157,56 @@ public partial class DirectionalSprite : StaticBody3D
         );
     }
 
-    public override void _ExitTree()
-    {
-        if (cameraScript != null)
-        {
-            cameraScript.CameraChanged -= atualizarSprite;
-        }
-    }
-
     private void ApplyMaterialSettings()
     {
         material.BacklightEnabled = true;
         material.Backlight = Color.FromHtml("#2f2f2f");
 
-        sprite.CastShadow = directionalTextures.CastShadow
-            ? GeometryInstance3D.ShadowCastingSetting.On
-            : GeometryInstance3D.ShadowCastingSetting.Off;
+        sprite.CastShadow =
+            directionalTextures.CastShadow
+                ? GeometryInstance3D.ShadowCastingSetting.On
+                : GeometryInstance3D.ShadowCastingSetting.Off;
     }
-    public void SetSpriteSet(DirectionalSpriteResource resource)
-	{
-		if (resource == null || resource == directionalTextures)
-			return;
 
-		directionalTextures = resource;
+    public void SetSpriteSet(
+        DirectionalSpriteResource resource
+    )
+    {
+        if (resource == null || resource == directionalTextures)
+            return;
 
-		if (material == null)
-			SetupMaterial();
+        directionalTextures = resource;
 
-		if (overlayMaterial == null)
-			SetupOverlay();
+        if (material == null)
+            SetupMaterial();
 
-		ApplyMaterialSettings();
-		ApplyOverlaySettings();
+        if (overlayMaterial == null)
+            SetupOverlay();
 
-		if (cameraScript != null)
-		{
-			atualizarSprite(
-				cameraScript.GetYawState(),
-				cameraScript.GetPitchState()
-			);
-		}
-	}
+        ApplyMaterialSettings();
+        ApplyOverlaySettings();
+
+        if (cameraScript != null)
+        {
+            atualizarSprite(
+                cameraScript.GetYawState()
+            );
+        }
+    }
+
+    public override void _ExitTree()
+    {
+        if (cameraScript != null)
+            cameraScript.CameraChanged -= OnCameraChanged;
+    }
 }
+
 public enum SpriteDirection
 {
     Back = 0,
     Right = 1,
     Front = 2,
-    Left = 3 
+    Left = 3
 }
 
 public enum SpritePitch
@@ -188,4 +215,3 @@ public enum SpritePitch
     Middle = 1,
     Down = 2
 }
-
