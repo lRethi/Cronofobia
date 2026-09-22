@@ -36,7 +36,6 @@ shape = SubResource("BoxShape3D_8mx3u")
 [node name="Sprite3D" type="Sprite3D" parent="StaticBody3D" unique_id=1766881007]
 material_overlay = SubResource("ShaderMaterial_ubrxv")
 pixel_size = 0.0025
-shaded = true
 alpha_cut = 2
 alpha_antialiasing_mode = 1
 alpha_antialiasing_edge = 1.0
@@ -60,7 +59,6 @@ shape = SubResource("BoxShape3D_8mx3u")
 material_overlay = SubResource("ShaderMaterial_ubrxv")
 modulate = Color(0.81960785, 0, 0, 1)
 pixel_size = 0.0025
-shaded = true
 alpha_cut = 2
 alpha_antialiasing_mode = 1
 alpha_antialiasing_edge = 1.0

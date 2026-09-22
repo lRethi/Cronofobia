@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="DirectionalSpriteResource" format=3 uid="uid://52b8qrxhiu0y"]
+
+[ext_resource type="Script" uid="uid://dxulphw667pgt" path="res://Scripts/Resources/DirectionalSpriteResource.cs" id="1_50vfd"]
+[ext_resource type="Script" uid="uid://b0fa1dne8hw5f" path="res://Scripts/Resources/DirectionalSpriteData.cs" id="2_6b5ve"]
+[ext_resource type="Texture2D" uid="uid://dpe323v0n3ojb" path="res://Assets/Sprites/Personagens/Protagonista/SobreLadoCinza.webp" id="3_2n6yl"]
+[ext_resource type="Texture2D" uid="uid://d5ut1x4tdibx" path="res://Assets/Sprites/Personagens/Protagonista/costas corrigido.png" id="3_tkcmj"]
+[ext_resource type="Texture2D" uid="uid://bqk83ow5333fm" path="res://Assets/Sprites/Personagens/Protagonista/SobreCostas.png" id="4_dcmx5"]
+[ext_resource type="Texture2D" uid="uid://cjyhv8coi8dai" path="res://Assets/Sprites/Personagens/Protagonista/SobreLadoAzul.webp" id="5_vqsva"]
+
+[sub_resource type="Resource" id="Resource_sgb70"]
+script = ExtResource("2_6b5ve")
+Texture = ExtResource("4_dcmx5")
+metadata/_custom_type_script = "uid://b0fa1dne8hw5f"
+
+[sub_resource type="Resource" id="Resource_3g6c2"]
+script = ExtResource("2_6b5ve")
+Texture = ExtResource("3_tkcmj")
+metadata/_custom_type_script = "uid://b0fa1dne8hw5f"
+
+[sub_resource type="Resource" id="Resource_7hrxk"]
+script = ExtResource("2_6b5ve")
+Texture = ExtResource("5_vqsva")
+metadata/_custom_type_script = "uid://b0fa1dne8hw5f"
+
+[sub_resource type="Resource" id="Resource_7lgx3"]
+script = ExtResource("2_6b5ve")
+Texture = ExtResource("3_2n6yl")
+metadata/_custom_type_script = "uid://b0fa1dne8hw5f"
+
+[resource]
+script = ExtResource("1_50vfd")
+Back = SubResource("Resource_sgb70")
+Right = SubResource("Resource_7lgx3")
+Front = SubResource("Resource_3g6c2")
+Left = SubResource("Resource_7hrxk")
+metadata/_custom_type_script = "uid://dxulphw667pgt"
