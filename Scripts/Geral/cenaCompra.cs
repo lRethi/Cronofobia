@@ -38,7 +38,7 @@ public partial class cenaCompra : Control
             NeedsState.Instance.varDinheiro < custo;
 
         TimeState.Instance.CongelarTempo();
-        GameState.Instance.SetCameraInputEnabled(true);
+        GameState.Instance.SetCameraInputEnabled(false);
         GameState.Instance.SetCameraMouseCaptured(false);
     }
 
@@ -46,7 +46,7 @@ public partial class cenaCompra : Control
     {
         EmitSignal(SignalName.Comprar, custo);
         TimeState.Instance.DescongelarTempo();
-        GameState.Instance.SetCameraInputEnabled(false);
+        GameState.Instance.SetCameraInputEnabled(true);
         GameState.Instance.SetCameraMouseCaptured(true);
         QueueFree();
     }
@@ -55,7 +55,7 @@ public partial class cenaCompra : Control
     {
         EmitSignal(SignalName.Roubar);
         TimeState.Instance.DescongelarTempo();
-        GameState.Instance.SetCameraInputEnabled(false);
+        GameState.Instance.SetCameraInputEnabled(true);
         GameState.Instance.SetCameraMouseCaptured(true);
         QueueFree();
     }
@@ -64,7 +64,7 @@ public partial class cenaCompra : Control
     {
         EmitSignal(SignalName.Fechar);
         TimeState.Instance.DescongelarTempo();
-        GameState.Instance.SetCameraInputEnabled(false);
+        GameState.Instance.SetCameraInputEnabled(true);
         GameState.Instance.SetCameraMouseCaptured(true);
         QueueFree();
     }

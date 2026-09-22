@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfaquwh153ato"
-path.s3tc="res://.godot/imported/chiquinho.png-8a0a3a7640522687d1e91f106a03e230.s3tc.ctex"
+uid="uid://wga731nqiap1"
+path.s3tc="res://.godot/imported/andando frente.webp-5865298644eca2348e98f98f9da1b95a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Sprites/Cenario/Parede/chiquinho.png"
-dest_files=["res://.godot/imported/chiquinho.png-8a0a3a7640522687d1e91f106a03e230.s3tc.ctex"]
+source_file="res://Assets/Sprites/Personagens/Protagonista/Anims/andando frente.webp"
+dest_files=["res://.godot/imported/andando frente.webp-5865298644eca2348e98f98f9da1b95a.s3tc.ctex"]
 
 [params]
 
