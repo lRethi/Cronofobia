@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://igcpdf34olb5"
-path="res://.godot/imported/esquerda1.webp-6d36548b7af93625c149f33d36271315.ctex"
+uid="uid://d5ut1x4tdibx"
+path="res://.godot/imported/costas corrigido.png-626288a86b35887462eb7ca9e674d96a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Personagens/Protagonista/Anims/esquerda1.webp"
-dest_files=["res://.godot/imported/esquerda1.webp-6d36548b7af93625c149f33d36271315.ctex"]
+source_file="res://Assets/Sprites/Personagens/Protagonista/costas corrigido.png"
+dest_files=["res://.godot/imported/costas corrigido.png-626288a86b35887462eb7ca9e674d96a.ctex"]
 
 [params]
 

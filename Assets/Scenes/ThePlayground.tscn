@@ -47,6 +47,7 @@
 [ext_resource type="PackedScene" uid="uid://ctandxc0poegn" path="res://Assets/Personagens/SirMinhoca.tscn" id="33_05ac5"]
 [ext_resource type="Resource" uid="uid://b47uhpkq62epd" path="res://Assets/Dialogos/Quests/01SemTetos/dialogoGenericoSemTeto.dialogue" id="36_ueqtk"]
 [ext_resource type="Script" uid="uid://cgm5ydwn0eb7u" path="res://Scripts/Camera/dialogueCameraController.cs" id="41_oqisv"]
+[ext_resource type="Script" uid="uid://23qigdj8fnin" path="res://Scripts/Geral/DayNightController.cs" id="48_3gqkw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t2v57"]
 shader = ExtResource("2_iamn6")
@@ -60,7 +61,6 @@ shader_parameter/city_day_color = Color(0.025, 0.024, 0.028, 1)
 shader_parameter/city_night_color = Color(0.006, 0.006, 0.012, 1)
 shader_parameter/window_color = Color(0.95, 0.2, 0.045, 1)
 shader_parameter/window_cold_color = Color(0.2, 0.35, 0.65, 1)
-shader_parameter/ultralink_color = Color(0.65, 0.025, 0.025, 1)
 shader_parameter/haze_day_color = Color(0.55, 0.45, 0.35, 1)
 shader_parameter/haze_night_color = Color(0.09, 0.012, 0.025, 1)
 shader_parameter/day_factor = 1.0
@@ -76,6 +76,8 @@ shader_parameter/window_brightness = 2.0
 shader_parameter/antenna_density = 0.1
 shader_parameter/star_density = 0.025
 shader_parameter/star_brightness = 0.25
+shader_parameter/city_night_visibility = 0.58
+shader_parameter/city_twilight_visibility = 0.82
 
 [sub_resource type="Sky" id="Sky_q4tad"]
 sky_material = SubResource("ShaderMaterial_t2v57")
@@ -85,14 +87,12 @@ radiance_size = 1
 background_mode = 2
 sky = SubResource("Sky_q4tad")
 glow_enabled = true
-fog_mode = 1
-fog_light_color = Color(0.8, 0.7019608, 0.5019608, 1)
+fog_enabled = true
+fog_light_color = Color(0.108274065, 0.108274065, 0.108274065, 1)
 fog_light_energy = 0.5
 fog_sun_scatter = 0.1
-fog_density = 1.0
-fog_sky_affect = 0.9
-fog_height = -0.1
-fog_height_density = -0.35
+fog_density = 0.05
+fog_sky_affect = 0.2
 fog_depth_end = 20.0
 adjustment_enabled = true
 
@@ -341,6 +341,7 @@ script = ExtResource("12_qeaow")
 tileset_texture = ExtResource("20_an17c")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(640, 0, 320, 320)
+tileset_zoom = 0.2633312543060797
 smart_select_mode = 1
 
 [sub_resource type="Resource" id="Resource_v0jil"]
@@ -348,6 +349,7 @@ script = ExtResource("12_qeaow")
 tileset_texture = ExtResource("17_ft4k3")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(640, 960, 320, 320)
+tileset_zoom = 0.1
 cursor_step_size = 0.5
 smart_operations_main_mode = 0
 mesh_mode = 2
@@ -392,6 +394,7 @@ script = ExtResource("6_w30fg")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=430484026 node_paths=PackedStringArray("player")]
+unique_name_in_owner = true
 script = ExtResource("9_v0jil")
 player = NodePath("../charGeraldoSalvador")
 
@@ -1067,3 +1070,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3848343, 0.3047999, -4.3034
 unique_name_in_owner = true
 script = ExtResource("41_oqisv")
 GameplayCamera = NodePath("../CameraPivot")
+
+[node name="DayNightController" type="Node3D" parent="." unique_id=175331039]
+script = ExtResource("48_3gqkw")
+
+[node name="DirectionalLight3D_Sun" type="DirectionalLight3D" parent="DayNightController" unique_id=1362963909]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 5, 0)

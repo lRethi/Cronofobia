@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://ll1ivuggxg3w" path="res://Scripts/Protagonista/movimentoPerson.cs" id="1_3hk36"]
 [ext_resource type="Texture2D" uid="uid://wga731nqiap1" path="res://Assets/Sprites/Personagens/Protagonista/Anims/andando frente.webp" id="2_r8oty"]
-[ext_resource type="Texture2D" uid="uid://bqk83ow5333fm" path="res://Assets/Sprites/Personagens/Protagonista/SobreCostas.png" id="2_t40vy"]
 [ext_resource type="Texture2D" uid="uid://dq4tmc3tu3hgp" path="res://Assets/Normal Maps/SobreCostas_n.png" id="3_0fhfn"]
-[ext_resource type="Script" uid="uid://c60fr053jegfr" path="res://Scripts/Protagonista/rotatePosOnCamera.cs" id="3_qgn2i"]
-[ext_resource type="Shader" uid="uid://do7x0wapd3lx8" path="res://Scripts/Shaders/objShine.gdshader" id="4_tnqx6"]
+[ext_resource type="Script" uid="uid://jdhhj58wp64a" path="res://Scripts/Camera/DirectionalSprite.cs" id="6_s2tn4"]
+[ext_resource type="Resource" uid="uid://52b8qrxhiu0y" path="res://Assets/Resources/Personagens/geraldoParado.tres" id="7_t3en6"]
+[ext_resource type="Resource" uid="uid://cyjjj306ry14f" path="res://Assets/Resources/Personagens/geraldoAndando.tres" id="8_3ue3c"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t40vy"]
 radius = 0.39697266
@@ -22,19 +22,11 @@ normal_scale = 0.5
 normal_texture = ExtResource("3_0fhfn")
 backlight_enabled = true
 backlight = Color(0.18431373, 0.18431373, 0.18431373, 1)
-backlight_texture = ExtResource("2_t40vy")
 uv2_world_triplanar = true
 texture_filter = 0
 disable_receive_shadows = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r8oty"]
-render_priority = 0
-shader = ExtResource("4_tnqx6")
-shader_parameter/albedo_texture = ExtResource("2_t40vy")
-shader_parameter/glow_base_color = Color(0.741, 0.729, 0.592, 1)
-shader_parameter/glow_tolerance = 0.15
-shader_parameter/glow_strength = 4.0
-shader_parameter/glow_enabled = false
 
 [node name="testeHominho" type="CharacterBody3D" unique_id=1046664859]
 collision_mask = 15
@@ -61,16 +53,13 @@ texture_filter = 0
 render_priority = 50
 texture = ExtResource("2_r8oty")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=428674060]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27726257, -0.4358036, -0.02332291)
-light_color = Color(0.32542843, 0.60190916, 0.53575104, 1)
-light_energy = 0.2
-light_indirect_energy = 0.4
-light_size = 1.0
-omni_range = 0.2
-omni_shadow_mode = 0
-script = ExtResource("3_qgn2i")
-
 [node name="DialogueCameraMarker3D" type="Marker3D" parent="." unique_id=1383471804]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.65, 0.145, 0.35)
+
+[node name="DirectionalSprite" type="Node3D" parent="." unique_id=578035060 node_paths=PackedStringArray("player", "sprite")]
+script = ExtResource("6_s2tn4")
+parado = ExtResource("7_t3en6")
+andando = ExtResource("8_3ue3c")
+player = NodePath("..")
+sprite = NodePath("../Sprite3D")
