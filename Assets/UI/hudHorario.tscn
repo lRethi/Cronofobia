@@ -2,6 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dirg55aihlh7o" path="res://Scripts/Geral/mostrarHorarioNaTela.cs" id="1_wvnxa"]
 [ext_resource type="FontFile" uid="uid://csxaaxokix70k" path="res://Assets/Fontes/phantomguardians.regular.ttf" id="2_awjqk"]
+[ext_resource type="Script" uid="uid://c0ifp5dnhwu42" path="res://Scripts/Geral/RelogioDia.cs" id="3_e0vmc"]
+[ext_resource type="Texture2D" uid="uid://cm6r5kl7owm0g" path="res://Assets/Sprites/HUD/Relogio/relogioManha.png" id="4_1gx03"]
+[ext_resource type="Texture2D" uid="uid://dyq24dhproa5f" path="res://Assets/Sprites/HUD/Relogio/relogioMeiaTarde.png" id="5_yhi3m"]
+[ext_resource type="Texture2D" uid="uid://dkcrkjivhjyvs" path="res://Assets/Sprites/HUD/Relogio/relogioPosTarde.png" id="6_mstrd"]
+[ext_resource type="Texture2D" uid="uid://cslou2hiootju" path="res://Assets/Sprites/HUD/Relogio/relogioNoite.png" id="7_vjqkd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rxsqe"]
 font_size = 18
@@ -18,10 +23,42 @@ script = ExtResource("1_wvnxa")
 
 [node name="Label" type="Label" parent="." unique_id=1459719339]
 layout_mode = 0
-offset_right = 1151.0
-offset_bottom = 648.0
+offset_left = -516.0
+offset_top = 122.0
+offset_right = 635.0
+offset_bottom = 770.0
 theme_override_fonts/font = ExtResource("2_awjqk")
 text = "11"
 label_settings = SubResource("LabelSettings_rxsqe")
 horizontal_alignment = 1
 autowrap_trim_flags = 64
+
+[node name="RelogioDia" type="Control" parent="." unique_id=1407642019]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_e0vmc")
+imagemMorning = ExtResource("4_1gx03")
+imagemAfternoon = ExtResource("5_yhi3m")
+imagemEvening = ExtResource("6_mstrd")
+imagemNight = ExtResource("7_vjqkd")
+
+[node name="ImagemAtual" type="TextureRect" parent="RelogioDia" unique_id=1903896041]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 14.000006
+offset_right = 256.0
+offset_bottom = 142.0
+rotation = 1.5707964
+texture = ExtResource("4_1gx03")
+expand_mode = 1
+
+[node name="ImagemProxima" type="TextureRect" parent="RelogioDia" unique_id=296482262]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 14.000006
+offset_right = 256.0
+offset_bottom = 142.0
+rotation = 1.5707964
+texture = ExtResource("4_1gx03")
+expand_mode = 1

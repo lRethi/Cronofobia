@@ -6,7 +6,7 @@ public partial class TimeState : Node
 	public static TimeState Instance { get; private set; }
 
 	[Export] public float duracaoDiaSegundos = 120f;
-	public float minutoDoDia {get; set;} = 1080f; // 0 -> 1440
+	public float minutoDoDia {get; set;} = 480f; // 0 -> 1440
 
 	public float minutoInicioDia {get; private set;} = 480f; // 08:00
 
@@ -75,10 +75,10 @@ public partial class TimeState : Node
 
 	public DayState GetDayState(float minuto)
 	{
-		if (minuto >= 1380 || minuto < 480)
+		if (minuto >= 1200)
 			return DayState.Night;
 
-		if (minuto >= 1020)
+		if (minuto >= 960)
 			return DayState.Evening;
 
 		if (minuto >= 720)
