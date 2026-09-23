@@ -1,4 +1,4 @@
-[gd_resource type="Resource" format=3 uid="uid://b3s1v41ypftn4"]
+[gd_resource type="Resource" script_class="DirectionalSpriteResource" format=3 uid="uid://b3s1v41ypftn4"]
 
 [ext_resource type="Texture2D" uid="uid://dlepfvrtxma5" path="res://Assets/Normal Maps/binB_n.webp" id="1_jktjp"]
 [ext_resource type="Texture2D" uid="uid://bogp3fo4t2owc" path="res://Assets/Sprites/Cenario/Props/binB.png" id="1_v05ye"]

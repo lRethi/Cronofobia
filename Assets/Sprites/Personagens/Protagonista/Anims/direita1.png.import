@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r8o7mlkxdqtg"
-path="res://.godot/imported/direita2.webp-af9aecf3a298d4e72487894a47e5a7cc.ctex"
+uid="uid://mc4w7t8dx17g"
+path="res://.godot/imported/direita1.png-8341aa1740aabda9df6bafa21d67112f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Personagens/Protagonista/Anims/direita2.webp"
-dest_files=["res://.godot/imported/direita2.webp-af9aecf3a298d4e72487894a47e5a7cc.ctex"]
+source_file="res://Assets/Sprites/Personagens/Protagonista/Anims/direita1.png"
+dest_files=["res://.godot/imported/direita1.png-8341aa1740aabda9df6bafa21d67112f.ctex"]
 
 [params]
 
