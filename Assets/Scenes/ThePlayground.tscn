@@ -25,7 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://bpcq1xcvt48jt" path="res://Assets/Sprites/Cenario/Parede/papelao.png" id="17_g8ggb"]
 [ext_resource type="Texture2D" uid="uid://btl7cmb1n7aj" path="res://Assets/Sprites/Cenario/Parede/fountain.png" id="17_h3j6h"]
 [ext_resource type="PackedScene" uid="uid://dvo2rfyvp1ns0" path="res://Assets/Itens/objGalaoAgua.tscn" id="18_h3j6h"]
-[ext_resource type="Texture2D" uid="uid://c4g0fq1ecoga2" path="res://Assets/Sprites/Cenario/Parede/Vivo.png" id="19_3gqkw"]
+[ext_resource type="Texture2D" uid="uid://c4g0fq1ecoga2" path="res://Assets/Sprites/Cenario/Parede/VIvo.png" id="19_3gqkw"]
 [ext_resource type="PackedScene" uid="uid://d1kp3yfxc7qii" path="res://Assets/Itens/objFeijao.tscn" id="19_qeaow"]
 [ext_resource type="Texture2D" uid="uid://rpyjvnlsc4dx" path="res://Assets/Sprites/Cenario/Parede/Blue.png" id="19_rdykn"]
 [ext_resource type="Texture2D" uid="uid://dodoub7q54qgm" path="res://Assets/Sprites/Cenario/Parede/coreto.png" id="20_11sfv"]
@@ -243,7 +243,6 @@ mesh_mode = 2
 script = ExtResource("12_qeaow")
 tileset_texture = ExtResource("19_3gqkw")
 tile_size = Vector2i(320, 320)
-tileset_zoom = 0.4240976183724846
 
 [sub_resource type="Resource" id="Resource_2mdy0"]
 script = ExtResource("12_qeaow")
