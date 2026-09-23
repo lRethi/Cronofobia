@@ -46,6 +46,8 @@ public partial class cameraBonitaDoFred : Node3D
 
     public override async void _Ready()
     {
+        AddToGroup("camera_principal");
+
         await ToSignal(
             GetTree(),
             SceneTree.SignalName.ProcessFrame

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://o7unwaeo88ib"
-path="res://.godot/imported/esquerda2.webp-20e32fad3b6c17aea70973df5059cb9a.ctex"
+uid="uid://2ml26bwf3lt4"
+path="res://.godot/imported/andando costas.png-c28a906904fa5bfb822c76dc45f44112.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Personagens/Protagonista/Anims/esquerda2.webp"
-dest_files=["res://.godot/imported/esquerda2.webp-20e32fad3b6c17aea70973df5059cb9a.ctex"]
+source_file="res://Assets/Sprites/Personagens/Protagonista/Anims/andando costas.png"
+dest_files=["res://.godot/imported/andando costas.png-c28a906904fa5bfb822c76dc45f44112.ctex"]
 
 [params]
 

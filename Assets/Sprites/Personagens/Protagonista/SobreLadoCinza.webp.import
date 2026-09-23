@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://h7if4ni3iopo"
-path.s3tc="res://.godot/imported/farmacia.png-009e6d1e62a0b9f72785aec100c9c1d4.s3tc.ctex"
+uid="uid://dpe323v0n3ojb"
+path="res://.godot/imported/SobreLadoCinza.webp-f8782c37cd39caf9be611aca45048d18.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Cenario/Parede/farmacia.png"
-dest_files=["res://.godot/imported/farmacia.png-009e6d1e62a0b9f72785aec100c9c1d4.s3tc.ctex"]
+source_file="res://Assets/Sprites/Personagens/Protagonista/SobreLadoCinza.webp"
+dest_files=["res://.godot/imported/SobreLadoCinza.webp-f8782c37cd39caf9be611aca45048d18.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -24,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -38,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
