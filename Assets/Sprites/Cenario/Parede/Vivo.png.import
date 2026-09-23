@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c4g0fq1ecoga2"
-path.s3tc="res://.godot/imported/VIvo.png-8e5d108fec92a1baf1d715a5a342c2fe.s3tc.ctex"
+path.s3tc="res://.godot/imported/Vivo.png-b665e334a6b5c5ad25f535fc87c02aab.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Sprites/Cenario/Parede/VIvo.png"
-dest_files=["res://.godot/imported/VIvo.png-8e5d108fec92a1baf1d715a5a342c2fe.s3tc.ctex"]
+source_file="res://Assets/Sprites/Cenario/Parede/Vivo.png"
+dest_files=["res://.godot/imported/Vivo.png-b665e334a6b5c5ad25f535fc87c02aab.s3tc.ctex"]
 
 [params]
 
