@@ -1,24 +1,37 @@
 shader_type sky;
 
-uniform vec3 sky_day_top : source_color = vec3(0.15, 0.18, 0.22);
-uniform vec3 sky_day_bottom : source_color = vec3(0.42, 0.40, 0.37);
+uniform vec3 sky_morning_top : source_color = vec3(0.18, 0.22, 0.30);
+uniform vec3 sky_morning_bottom : source_color = vec3(0.72, 0.58, 0.48);
 
-uniform vec3 sky_twilight_top : source_color = vec3(0.08, 0.025, 0.055);
-uniform vec3 sky_twilight_bottom : source_color = vec3(0.65, 0.16, 0.08);
+uniform vec3 sky_day_top : source_color = vec3(0.20, 0.27, 0.36);
+uniform vec3 sky_day_bottom : source_color = vec3(0.62, 0.61, 0.56);
 
-uniform vec3 sky_night_top : source_color = vec3(0.006, 0.004, 0.015);
-uniform vec3 sky_night_bottom : source_color = vec3(0.055, 0.008, 0.018);
+uniform vec3 sky_evening_top : source_color = vec3(0.15, 0.11, 0.18);
+uniform vec3 sky_evening_bottom : source_color = vec3(0.95, 0.38, 0.16);
 
-uniform vec3 city_day_color : source_color = vec3(0.030, 0.030, 0.034);
-uniform vec3 city_night_color : source_color = vec3(0.006, 0.006, 0.012);
+uniform vec3 sky_twilight_top : source_color = vec3(0.055, 0.035, 0.085);
+uniform vec3 sky_twilight_bottom : source_color = vec3(0.52, 0.11, 0.045);
 
-uniform vec3 window_color : source_color = vec3(0.95, 0.32, 0.10);
-uniform vec3 window_cold_color : source_color = vec3(0.25, 0.42, 0.72);
+uniform vec3 sky_night_top : source_color = vec3(0.004, 0.006, 0.018);
+uniform vec3 sky_night_bottom : source_color = vec3(0.025, 0.012, 0.028);
 
-uniform vec3 haze_day_color : source_color = vec3(0.30, 0.29, 0.28);
-uniform vec3 haze_night_color : source_color = vec3(0.09, 0.012, 0.025);
+uniform vec3 city_day_color : source_color = vec3(0.045, 0.044, 0.048);
+uniform vec3 city_evening_color : source_color = vec3(0.075, 0.030, 0.022);
+uniform vec3 city_night_color : source_color = vec3(0.008, 0.008, 0.015);
 
+uniform vec3 window_color : source_color = vec3(1.0, 0.34, 0.10);
+uniform vec3 window_cold_color : source_color = vec3(0.24, 0.42, 0.78);
+
+uniform vec3 haze_morning_color : source_color = vec3(0.56, 0.46, 0.39);
+uniform vec3 haze_day_color : source_color = vec3(0.36, 0.35, 0.33);
+uniform vec3 haze_evening_color : source_color = vec3(0.80, 0.22, 0.08);
+uniform vec3 haze_night_color : source_color = vec3(0.055, 0.012, 0.025);
+
+uniform vec3 sun_direction = vec3(0.0, 1.0, 0.0);
+
+uniform float morning_factor = 0.0;
 uniform float day_factor = 1.0;
+uniform float evening_factor = 0.0;
 uniform float twilight_factor = 0.0;
 uniform float night_factor = 0.0;
 uniform float artificial_light_factor = 0.0;
@@ -85,29 +98,19 @@ float get_building_width(float id)
 	float random_width = hash(id + 17.31);
 
 	if (type < 0.20)
-	{
 		return mix(0.62, 0.96, random_width);
-	}
 
 	if (type < 0.42)
-	{
 		return mix(0.38, 0.82, random_width);
-	}
 
 	if (type < 0.60)
-	{
 		return mix(0.68, 0.98, random_width);
-	}
 
 	if (type < 0.76)
-	{
 		return mix(0.42, 0.92, random_width);
-	}
 
 	if (type < 0.90)
-	{
 		return mix(0.34, 0.70, random_width);
-	}
 
 	return mix(0.22, 0.48, random_width);
 }
@@ -118,37 +121,24 @@ float get_building_height(float id)
 	float random_height = hash(id);
 
 	if (type < 0.20)
-	{
 		return mix(0.07, 0.18, random_height);
-	}
 
 	if (type < 0.42)
-	{
 		return mix(0.16, 0.32, random_height);
-	}
 
 	if (type < 0.60)
-	{
 		return mix(0.10, 0.24, random_height);
-	}
 
 	if (type < 0.76)
-	{
 		return mix(0.24, 0.46, random_height);
-	}
 
 	if (type < 0.90)
-	{
 		return mix(0.34, 0.68, random_height);
-	}
 
 	return mix(0.70, 1.00, random_height);
 }
 
-float get_building_profile(
-	float id,
-	float local_position
-)
+float get_building_profile(float id, float local_position)
 {
 	float type = get_building_type(id);
 
@@ -167,13 +157,12 @@ float get_building_profile(
 
 	if (type >= 0.42 && type < 0.60)
 	{
-		float roof =
-			noise(
-				vec2(
-					id * 0.17,
-					local_position * 3.0
-				)
-			);
+		float roof = noise(
+			vec2(
+				id * 0.17,
+				local_position * 3.0
+			)
+		);
 
 		return mix(
 			0.82,
@@ -218,7 +207,9 @@ float get_city_layer(
 		angle / 6.28318530718 + 0.5;
 
 	float position =
-		normalized_angle * scale + offset;
+		normalized_angle *
+		scale +
+		offset;
 
 	float id = floor(position);
 	float local_position = fract(position);
@@ -264,7 +255,9 @@ float get_industrial_layer(
 		angle / 6.28318530718 + 0.5;
 
 	float position =
-		normalized_angle * scale + offset;
+		normalized_angle *
+		scale +
+		offset;
 
 	float id = floor(position);
 	float local_position = fract(position);
@@ -354,7 +347,9 @@ float get_windows(
 		angle / 6.28318530718 + 0.5;
 
 	float position =
-		normalized_angle * scale + offset;
+		normalized_angle *
+		scale +
+		offset;
 
 	float id = floor(position);
 	float local_x = fract(position);
@@ -363,9 +358,7 @@ float get_windows(
 		get_building_width(id);
 
 	if (local_x > building_width)
-	{
 		return 0.0;
-	}
 
 	float building_height =
 		get_building_height(id) *
@@ -384,9 +377,7 @@ float get_windows(
 		profile;
 
 	if (direction.y > top)
-	{
 		return 0.0;
-	}
 
 	float normalized_height =
 		1.0 -
@@ -451,7 +442,8 @@ float get_windows(
 	}
 
 	float floor_position =
-		normalized_height * floors;
+		normalized_height *
+		floors;
 
 	float base_floor_id =
 		floor(floor_position);
@@ -460,7 +452,8 @@ float get_windows(
 		fract(floor_position);
 
 	float column_position =
-		local_x * columns;
+		local_x *
+		columns;
 
 	float base_column_id =
 		floor(column_position);
@@ -597,14 +590,10 @@ float get_windows(
 		);
 
 	if (type < 0.20)
-	{
 		final_cluster *= 0.72;
-	}
 
 	if (type >= 0.60 && type < 0.76)
-	{
 		final_cluster *= 0.48;
-	}
 
 	return enabled *
 		horizontal_gap *
@@ -636,7 +625,9 @@ float get_antennas(
 		angle / 6.28318530718 + 0.5;
 
 	float position =
-		normalized_angle * scale + offset;
+		normalized_angle *
+		scale +
+		offset;
 
 	float id = floor(position);
 	float local_position = fract(position);
@@ -651,11 +642,12 @@ float get_antennas(
 		);
 
 	float center =
-		1.0 -
-		abs(local_position - 0.5) * 25.0;
-
-	center =
-		max(center, 0.0);
+		max(
+			1.0 -
+			abs(local_position - 0.5) *
+			25.0,
+			0.0
+		);
 
 	float top =
 		smoothstep(
@@ -671,10 +663,8 @@ float get_antennas(
 
 float get_stars(vec3 direction)
 {
-	if (direction.y < 0.10)
-	{
+	if (direction.y < 0.08)
 		return 0.0;
-	}
 
 	vec2 coordinates =
 		normalize(
@@ -682,12 +672,14 @@ float get_stars(vec3 direction)
 				direction.x,
 				direction.z
 			)
-		) * 500.0;
+		) *
+		500.0;
 
 	float value =
 		noise(
 			coordinates +
-			direction.y * 37.0
+			direction.y *
+			37.0
 		);
 
 	return step(
@@ -701,6 +693,9 @@ void sky()
 	vec3 direction =
 		normalize(EYEDIR);
 
+	vec3 actual_sun_direction =
+		normalize(sun_direction);
+
 	float vertical =
 		clamp(
 			direction.y * 0.5 + 0.5,
@@ -708,39 +703,70 @@ void sky()
 			1.0
 		);
 
-	float day_vertical =
+	float sky_vertical =
 		smoothstep(
 			0.0,
-			0.78,
+			0.82,
 			vertical
+		);
+
+	vec3 morning_sky =
+		mix(
+			sky_morning_bottom,
+			sky_morning_top,
+			sky_vertical
 		);
 
 	vec3 day_sky =
 		mix(
 			sky_day_bottom,
 			sky_day_top,
-			day_vertical
+			sky_vertical
+		);
+
+	vec3 evening_sky =
+		mix(
+			sky_evening_bottom,
+			sky_evening_top,
+			sky_vertical
 		);
 
 	vec3 twilight_sky =
 		mix(
 			sky_twilight_bottom,
 			sky_twilight_top,
-			day_vertical
+			sky_vertical
 		);
 
 	vec3 night_sky =
 		mix(
 			sky_night_bottom,
 			sky_night_top,
-			day_vertical
+			sky_vertical
 		);
 
 	vec3 sky_color =
+		night_sky;
+
+	sky_color =
 		mix(
-			night_sky,
+			sky_color,
+			morning_sky,
+			morning_factor
+		);
+
+	sky_color =
+		mix(
+			sky_color,
 			day_sky,
 			day_factor
+		);
+
+	sky_color =
+		mix(
+			sky_color,
+			evening_sky,
+			evening_factor
 		);
 
 	sky_color =
@@ -759,8 +785,18 @@ void sky()
 		);
 
 	vec3 haze_color =
+		haze_night_color;
+
+	haze_color =
 		mix(
-			haze_night_color,
+			haze_color,
+			haze_morning_color,
+			morning_factor
+		);
+
+	haze_color =
+		mix(
+			haze_color,
 			haze_day_color,
 			day_factor
 		);
@@ -768,14 +804,133 @@ void sky()
 	haze_color =
 		mix(
 			haze_color,
-			vec3(0.48, 0.10, 0.055),
-			twilight_factor
+			haze_evening_color,
+			evening_factor
 		);
 
 	sky_color +=
 		haze_color *
 		horizon *
-		0.28;
+		(
+			0.18 +
+			horizon * 0.24
+		);
+
+	float horizon_glow =
+		pow(
+			max(
+				1.0 -
+				abs(direction.y),
+				0.0
+			),
+			3.5
+		);
+
+	vec3 warm_horizon =
+		vec3(
+			1.0,
+			0.18,
+			0.035
+		);
+
+	float sunset_glow =
+		evening_factor *
+		horizon_glow *
+		1.45;
+
+	sunset_glow +=
+		twilight_factor *
+		horizon_glow *
+		0.85;
+
+	sky_color +=
+		warm_horizon *
+		sunset_glow;
+
+	float sun_dot =
+		max(
+			dot(
+				direction,
+				actual_sun_direction
+			),
+			0.0
+		);
+
+	float sun_disc =
+		smoothstep(
+			0.99935,
+			0.99982,
+			sun_dot
+		);
+
+	float sun_halo =
+		pow(
+			sun_dot,
+			180.0
+		);
+
+	float sun_visibility =
+		max(
+			evening_factor,
+			day_factor
+		);
+
+	sun_visibility =
+		max(
+			sun_visibility,
+			morning_factor
+		);
+
+	sun_visibility *=
+		1.0 -
+		night_factor;
+
+	vec3 sun_color =
+		vec3(
+			1.0,
+			0.74,
+			0.42
+		);
+
+	sun_color =
+		mix(
+			sun_color,
+			vec3(
+				1.0,
+				0.30,
+				0.08
+			),
+			evening_factor
+		);
+
+	sky_color +=
+		sun_color *
+		sun_disc *
+		2.8 *
+		sun_visibility;
+
+	sky_color +=
+		sun_color *
+		sun_halo *
+		0.65 *
+		sun_visibility;
+
+	float atmospheric_red =
+		smoothstep(
+			0.0,
+			0.52,
+			1.0 - abs(direction.y)
+		);
+
+	sky_color +=
+		vec3(
+			0.16,
+			0.018,
+			0.008
+		) *
+		atmospheric_red *
+		evening_factor *
+		0.25;
 
 	vec2 horizontal_direction =
 		normalize(
@@ -854,6 +1009,13 @@ void sky()
 	city_visibility =
 		max(
 			city_visibility,
+			evening_factor *
+			0.78
+		);
+
+	city_visibility =
+		max(
+			city_visibility,
 			twilight_factor *
 			city_twilight_visibility
 		);
@@ -872,18 +1034,24 @@ void sky()
 			city_visibility
 		);
 
-	vec3 twilight_city_color =
-		vec3(
-			0.20,
-			0.055,
-			0.035
+	city_color =
+		mix(
+			city_color,
+			city_evening_color,
+			evening_factor *
+			0.72
 		);
 
 	city_color =
 		mix(
 			city_color,
-			twilight_city_color,
-			twilight_factor * 0.35
+			vec3(
+				0.16,
+				0.035,
+				0.025
+			),
+			twilight_factor *
+			0.30
 		);
 
 	sky_color =
@@ -922,14 +1090,20 @@ void sky()
 			windows_near,
 			max(
 				windows_mid * 0.65,
-				windows_far * 0.3
+				windows_far * 0.30
 			)
 		);
 
 	float window_factor =
 		max(
 			artificial_light_factor,
-			twilight_factor * 0.45
+			evening_factor * 0.42
+		);
+
+	window_factor =
+		max(
+			window_factor,
+			twilight_factor * 0.70
 		);
 
 	windows *=
@@ -943,7 +1117,8 @@ void sky()
 			step(
 				0.72,
 				noise(
-					horizontal_direction * 80.0
+					horizontal_direction *
+					80.0
 				)
 			)
 		);
@@ -980,7 +1155,8 @@ void sky()
 	float antennas =
 		max(
 			antennas_near,
-			antennas_mid * 0.5
+			antennas_mid *
+			0.5
 		);
 
 	sky_color +=
@@ -993,29 +1169,14 @@ void sky()
 		get_stars(direction);
 
 	stars *=
-		night_factor;
+		night_factor *
+		(1.0 - twilight_factor);
 
 	sky_color +=
 		vec3(
 			stars *
 			star_brightness
 		);
-
-	float atmosphere_red =
-		smoothstep(
-			0.0,
-			0.38,
-			1.0 - abs(direction.y)
-		);
-
-	sky_color +=
-		vec3(
-			0.045,
-			0.004,
-			0.003
-		) *
-		atmosphere_red *
-		night_factor;
 
 	COLOR = sky_color;
 }

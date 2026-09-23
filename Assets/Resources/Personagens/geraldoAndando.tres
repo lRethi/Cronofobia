@@ -1,14 +1,14 @@
-[gd_resource type="Resource" format=3 uid="uid://cyjjj306ry14f"]
+[gd_resource type="Resource" script_class="DirectionalSpriteAnimation" format=3 uid="uid://cyjjj306ry14f"]
 
 [ext_resource type="Script" uid="uid://b0fa1dne8hw5f" path="res://Scripts/Resources/DirectionalSpriteData.cs" id="2_irw6w"]
 [ext_resource type="Texture2D" uid="uid://2ml26bwf3lt4" path="res://Assets/Sprites/Personagens/Protagonista/Anims/andando costas.png" id="3_5afrc"]
 [ext_resource type="Texture2D" uid="uid://wga731nqiap1" path="res://Assets/Sprites/Personagens/Protagonista/Anims/andando frente.webp" id="3_r2m66"]
+[ext_resource type="Texture2D" uid="uid://mc4w7t8dx17g" path="res://Assets/Sprites/Personagens/Protagonista/Anims/direita1.png" id="4_5afrc"]
 [ext_resource type="Texture2D" uid="uid://bb2tunen8fjgk" path="res://Assets/Sprites/Personagens/Protagonista/Anims/esquerda1.png" id="5_5afrc"]
-[ext_resource type="Texture2D" uid="uid://c6aoq447wx405" path="res://Assets/Sprites/Personagens/Protagonista/Anims/direita1.webp" id="5_worrn"]
 [ext_resource type="Script" uid="uid://dxulphw667pgt" path="res://Scripts/Resources/DirectionalSpriteResource.cs" id="6_gixgs"]
 [ext_resource type="Texture2D" uid="uid://b4er8noys2oh8" path="res://Assets/Sprites/Personagens/Protagonista/Anims/andando frente2.webp" id="8_2lysf"]
 [ext_resource type="Texture2D" uid="uid://oa28j7jv4chp" path="res://Assets/Sprites/Personagens/Protagonista/Anims/andando costas 2.png" id="8_irw6w"]
-[ext_resource type="Texture2D" uid="uid://ccsqma5cw17os" path="res://Assets/Sprites/Personagens/Protagonista/Anims/andandoDireitaFrame3.png" id="9_5afrc"]
+[ext_resource type="Texture2D" uid="uid://e2k4qj6ye82j" path="res://Assets/Sprites/Personagens/Protagonista/Anims/direita2.png" id="9_irw6w"]
 [ext_resource type="Texture2D" uid="uid://c2tndqtfseim7" path="res://Assets/Sprites/Personagens/Protagonista/Anims/esquerda2.png" id="10_irw6w"]
 [ext_resource type="Script" uid="uid://btmo5man3pl78" path="res://Scripts/Resources/DirectionalSpriteAnimation.cs" id="11_778h8"]
 
@@ -24,7 +24,7 @@ metadata/_custom_type_script = "uid://b0fa1dne8hw5f"
 
 [sub_resource type="Resource" id="Resource_l7q5q"]
 script = ExtResource("2_irw6w")
-Texture = ExtResource("5_worrn")
+Texture = ExtResource("4_5afrc")
 metadata/_custom_type_script = "uid://b0fa1dne8hw5f"
 
 [sub_resource type="Resource" id="Resource_7y0jc"]
@@ -52,7 +52,7 @@ metadata/_custom_type_script = "uid://b0fa1dne8hw5f"
 
 [sub_resource type="Resource" id="Resource_u15xh"]
 script = ExtResource("2_irw6w")
-Texture = ExtResource("9_5afrc")
+Texture = ExtResource("9_irw6w")
 metadata/_custom_type_script = "uid://b0fa1dne8hw5f"
 
 [sub_resource type="Resource" id="Resource_sua7y"]
