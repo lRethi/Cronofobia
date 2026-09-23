@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4g0fq1ecoga2"
-path.s3tc="res://.godot/imported/VIvo.png-8e5d108fec92a1baf1d715a5a342c2fe.s3tc.ctex"
+uid="uid://dfbq2eafqnmdg"
+path.s3tc="res://.godot/imported/backrooms.png-48b4c2f0fb1969a4a689f51dd2c27b76.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Sprites/Cenario/Parede/VIvo.png"
-dest_files=["res://.godot/imported/VIvo.png-8e5d108fec92a1baf1d715a5a342c2fe.s3tc.ctex"]
+source_file="res://Assets/Sprites/Cenario/Parede/backrooms.png"
+dest_files=["res://.godot/imported/backrooms.png-48b4c2f0fb1969a4a689f51dd2c27b76.s3tc.ctex"]
 
 [params]
 
