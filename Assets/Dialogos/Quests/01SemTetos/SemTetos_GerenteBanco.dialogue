@@ -1,0 +1,31 @@
+~ start
+
+if GetFlag("semtetos_banco_ajudou")
+	=> banco_feito
+
+if not GetFlag("semtetos_desbloqueou_3_1")
+	=> banco_bloqueado
+
+Gerente do Banco: A Marta comentou que vocês estão tentando regularizar um abrigo.
+Gerente do Banco: Dependendo do que for necessário, podemos avaliar alguma forma de apoio.
+
+- Pedir ajuda para viabilizar o projeto.
+	$> GameState.SetFlag("semtetos_3_1_disponivel", true)
+	Gerente do Banco: Certo. Vamos registrar a solicitação e ver o que pode ser feito.
+	=> END
+
+- Pedir dinheiro sem explicar o projeto.
+	Gerente do Banco: Sem uma finalidade clara, não há muito o que analisar.
+	=> END
+
+
+~ banco_feito
+
+Gerente do Banco: A contribuição já foi encaminhada. Agora é responsabilidade de vocês cuidar do espaço.
+=> END
+
+
+~ banco_bloqueado
+
+Gerente do Banco: Não tenho nenhuma solicitação aberta para esse terreno.
+=> END

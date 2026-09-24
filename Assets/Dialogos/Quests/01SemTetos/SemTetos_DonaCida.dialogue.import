@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bvsxt07q67sem"
+path="res://.godot/imported/SemTetos_DonaCida.dialogue-6f26ae28ed45c6937ead9a4e27a76675.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/01SemTetos/SemTetos_DonaCida.dialogue"
+dest_files=["res://.godot/imported/SemTetos_DonaCida.dialogue-6f26ae28ed45c6937ead9a4e27a76675.tres"]
+
+[params]
+
+defaults=true

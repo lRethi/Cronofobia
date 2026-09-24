@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dnc3colkst0n0"
+path="res://.godot/imported/Igreja_Padre.dialogue-640f4d09d9a32b87ef8b7b0d7ca62aac.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/02Igreja/Igreja_Padre.dialogue"
+dest_files=["res://.godot/imported/Igreja_Padre.dialogue-640f4d09d9a32b87ef8b7b0d7ca62aac.tres"]
+
+[params]
+
+defaults=true

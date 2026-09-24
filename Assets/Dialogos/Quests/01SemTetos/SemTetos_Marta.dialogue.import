@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://sq75shpt2d2x"
+path="res://.godot/imported/SemTetos_Marta.dialogue-af99d449bbaae06fc5003bc6da246708.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/01SemTetos/SemTetos_Marta.dialogue"
+dest_files=["res://.godot/imported/SemTetos_Marta.dialogue-af99d449bbaae06fc5003bc6da246708.tres"]
+
+[params]
+
+defaults=true

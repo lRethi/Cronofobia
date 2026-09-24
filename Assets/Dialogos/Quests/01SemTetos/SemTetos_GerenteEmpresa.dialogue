@@ -1,0 +1,80 @@
+~ start
+
+if GetFlag("semtetos_autorizacao_concedida")
+	=> autorizado
+
+if GetFlag("semtetos_empresa_recusou")
+	=> recusado
+
+if GetFlag("semtetos_empresa_argumento_necessidade") and GetFlag("semtetos_empresa_argumento_organizacao")
+	=> termo
+
+if GetFlag("semtetos_empresa_argumento_necessidade") or GetFlag("semtetos_empresa_argumento_organizacao")
+	=> segundo_argumento
+
+Gerente: Esse terreno está em um cadastro patrimonial da empresa.
+Gerente: Eu não posso simplesmente deixar um grupo se instalar aqui porque apareceu.
+
+- Explicar a necessidade do abrigo.
+	$> GameState.SetFlag("semtetos_empresa_argumento_necessidade", true)
+	Gerente: Entendo a situação. Mas uma necessidade não resolve a questão de como o espaço será administrado.
+	=> END
+
+- Explicar como o espaço vai funcionar.
+	$> GameState.SetFlag("semtetos_empresa_argumento_organizacao", true)
+	Gerente: Certo. Ainda preciso entender por que a empresa deveria disponibilizar um terreno que está sob nossa responsabilidade.
+	=> END
+
+- Não quero negociar. Só quero ficar.
+	$> GameState.SetFlag("semtetos_empresa_recusou", true)
+	Gerente: Então não temos nada para discutir.
+	=> END
+
+
+~ segundo_argumento
+
+Gerente: Você já me apresentou uma parte da proposta. Falta responder à outra.
+
+if GetFlag("semtetos_empresa_argumento_necessidade")
+	- Explicar como o espaço será organizado.
+		$> GameState.SetFlag("semtetos_empresa_argumento_organizacao", true)
+		Gerente: Certo... Volte quando estiver disposto a aceitar as condições de uso temporário.
+		=> END
+
+if GetFlag("semtetos_empresa_argumento_organizacao")
+	- Explicar por que o abrigo é necessário.
+		$> GameState.SetFlag("semtetos_empresa_argumento_necessidade", true)
+		Gerente: Certo... Volte quando estiver disposto a aceitar as condições de uso temporário.
+		=> END
+
+
+~ termo
+
+Gerente: ... Vocês estão liberados à usarem o terreno temporariamente.
+Gerente: Não causem nenhuma mudança permanente, não alterem a estrutura de maneira irreversível.
+Gerente: O terreno só estará disponível para vocês enquanto não precisarmos usar o lote.
+Gerente: Entendido?
+
+- Aceitar as condições.
+	$> GameState.SetFlag("semtetos_autorizacao_concedida", true)
+	$> GameState.SetFlag("semtetos_empresa_recusou", false)
+	Gerente: Então está autorizado. Organizem a inauguração e não transformem isso em um problema para ninguém.
+	=> END
+
+- Recusar as condições.
+	$> GameState.SetFlag("semtetos_empresa_recusou", true)
+	$> GameState.SetFlag("semtetos_autorizacao_concedida", false)
+	Gerente: Nesse caso, não posso autorizar a permanência.
+	=> END
+
+
+~ autorizado
+
+Gerente: A autorização já foi registrada. Agora cabe a vocês cuidar do espaço.
+=> END
+
+
+~ recusado
+
+Gerente: A empresa não vai conceder a autorização.
+=> END

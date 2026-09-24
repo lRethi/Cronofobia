@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://cp6h05lvcksmy"
+path="res://.godot/imported/SemTetos_FuncionarioBanco.dialogue-f0de9b547e494c2ca2315562eefccca4.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/01SemTetos/SemTetos_FuncionarioBanco.dialogue"
+dest_files=["res://.godot/imported/SemTetos_FuncionarioBanco.dialogue-f0de9b547e494c2ca2315562eefccca4.tres"]
+
+[params]
+
+defaults=true

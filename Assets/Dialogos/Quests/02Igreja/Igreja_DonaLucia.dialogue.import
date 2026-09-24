@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://4i0o5uwnvy1"
+path="res://.godot/imported/Igreja_DonaLucia.dialogue-c04203ef2d0a996f7f977acf4041c31e.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/02Igreja/Igreja_DonaLucia.dialogue"
+dest_files=["res://.godot/imported/Igreja_DonaLucia.dialogue-c04203ef2d0a996f7f977acf4041c31e.tres"]
+
+[params]
+
+defaults=true

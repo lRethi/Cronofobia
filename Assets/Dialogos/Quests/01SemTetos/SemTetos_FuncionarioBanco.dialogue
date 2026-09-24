@@ -1,0 +1,6 @@
+~ start
+
+Funcionário do Banco: Trouxemos a doação que foi aprovada para o início do abrigo.
+Funcionário do Banco: Não resolve tudo, mas já é alguma estrutura para vocês começarem.
+$> GameState.SetFlag("semtetos_inauguracao_realizada", true)
+=> END

@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c01nk4oedpxfs"
-path.s3tc="res://.godot/imported/MinhaCasaLiteralmente.png-e5358331f30f8a13ab844e2d93b60163.s3tc.ctex"
+path="res://.godot/imported/MinhaCasaLiteralmente.png-e5358331f30f8a13ab844e2d93b60163.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Sprites/Cenario/Parede/MinhaCasaLiteralmente.png"
-dest_files=["res://.godot/imported/MinhaCasaLiteralmente.png-e5358331f30f8a13ab844e2d93b60163.s3tc.ctex"]
+dest_files=["res://.godot/imported/MinhaCasaLiteralmente.png-e5358331f30f8a13ab844e2d93b60163.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

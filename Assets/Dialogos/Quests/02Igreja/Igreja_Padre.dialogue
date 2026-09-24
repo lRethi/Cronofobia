@@ -1,0 +1,220 @@
+~ start
+
+if GetFlag("semtetos_caminho_igreja") and GetFlag("semtetos_resultado_13_sucesso") and not GetFlag("semtetos_inauguracao_realizada")
+    => inauguracao_abrigo
+
+if GetFlag("igreja_deus_maquina_causa_descoberta") and not GetFlag("igreja_deus_maquina_concluida")
+    => deus_maquina
+
+if GetFlag("igreja_frequencia_aceitou_interpretacao") and GetFlag("igreja_milagre_divino_concluida")
+    => milagre_divino
+
+if GetFlag("igreja_frequencia_investigar") and GetFlag("igreja_frequencia_concluida") and GetFlag("igreja_deus_maquina_causa_descoberta") and not GetFlag("igreja_deus_maquina_concluida")
+    => frequencia_tecnica
+
+if GetFlag("igreja_milagre_aceitou_tecnologia") and GetFlag("igreja_milagre_concluida") and not GetFlag("igreja_frequencia_concluida")
+    => frequencia
+
+if GetFlag("igreja_milagre_presenciou_ia") and not GetFlag("igreja_milagre_concluida")
+    => milagre
+
+if GetFlag("igreja_necessitados_concluida") and not GetFlag("igreja_milagre_presenciou_ia")
+    => depois_necessitados
+
+if GetFlag("igreja_palavra_tarefa_concluida") and not GetFlag("igreja_necessitados_concluida")
+    => necessitados
+
+if GetFlag("igreja_palavra_aceitou_ajuda") and not GetFlag("igreja_palavra_tarefa_concluida")
+    => tarefa_palavra
+
+if GetFlag("semtetos_desbloqueou_2_1") and not GetFlag("igreja_palavra_aceitou_ajuda")
+    => palavra
+
+if GetFlag("semtetos_desbloqueou_2_1")
+    => igreja
+
+=> END
+
+
+~ igreja
+
+if GetFlag("semtetos_igreja_ajudou")
+    => igreja_feita
+
+Padre: A Marta comentou sobre o terreno.
+Padre: Posso tentar ajudar, mas preciso entender exatamente o que vocês estão tentando construir.
+
+- Pedir ajuda para organizar o abrigo.
+    $> GameState.SetFlag("semtetos_2_1_disponivel", true)
+    Padre: Então vamos conversar com mais calma. Há uma maneira de a igreja entrar nessa história.
+    => END
+
+- Pedir que a igreja ignore o problema do terreno.
+    Padre: Não seria responsabilidade suficiente simplesmente fechar os olhos para ele.
+    => END
+
+
+~ igreja_feita
+
+Padre: A igreja já fez a parte dela.
+Padre: Espero que o espaço consiga continuar de pé.
+=> END
+
+
+~ inauguracao_abrigo
+
+Padre: Hoje não estamos inaugurando um prédio perfeito.
+Padre: Estamos inaugurando um lugar onde as pessoas possam pelo menos tentar permanecer juntas.
+Padre: Que esse espaço consiga dar algum descanso para quem não tinha nenhum.
+$> GameState.SetFlag("semtetos_inauguracao_realizada", true)
+=> END
+
+
+~ palavra
+
+Padre: A Marta falou comigo sobre o que vocês estão tentando fazer.
+Padre: Um abrigo não resolve a situação de ninguém sozinho, mas pode ser um começo.
+Padre: Se quiser, posso colocar você para ajudar em algumas tarefas da igreja.
+
+- Aceitar a ajuda.
+    $> GameState.SetFlag("igreja_palavra_aceitou_ajuda", true)
+    Padre: Então vamos começar com algo simples.
+    Padre: Há pessoas que chegam aqui precisando de comida, água e outras coisas básicas.
+    Padre: Ajude no que puder e depois volte para conversar comigo.
+    => END
+
+- Recusar a ajuda.
+    Padre: Tudo bem. A porta continua aberta caso mude de ideia.
+    => END
+
+
+~ tarefa_palavra
+
+Padre: Ainda há trabalho para fazer.
+Padre: Se quiser continuar ajudando, há pessoas esperando por auxílio.
+
+- Continuar ajudando.
+    $> GameState.SetFlag("igreja_palavra_tarefa_concluida", true)
+    Padre: Certo. Quando terminar, volte aqui.
+    => END
+
+- Parar por enquanto.
+    Padre: Tudo bem. Você sabe onde me encontrar.
+    => END
+
+
+~ necessitados
+
+Padre: Tenho algumas pessoas para quem precisamos levar ajuda.
+Padre: Não é um trabalho complicado, mas exige que alguém realmente faça as entregas.
+
+- Perguntar o que precisa ser levado.
+    Padre: Comida, água e alguns recursos básicos.
+    Padre: Não precisa resolver a vida de ninguém. Só faça com que aquilo que temos chegue a quem precisa.
+    => END
+
+- Perguntar por que a igreja faz isso.
+    Padre: Porque esperar que o problema desapareça sozinho nunca funcionou muito bem.
+    => END
+
+
+~ depois_necessitados
+
+Padre: Você já viu como a situação dessas pessoas é complicada.
+Padre: É por isso que tento manter essa rede funcionando.
+Padre: Mas ultimamente apareceu outra coisa que não consigo explicar.
+=> END
+
+
+~ milagre
+
+Padre: Você também viu o que aconteceu.
+Padre: Aquela máquina começou a responder às pessoas como se soubesse exatamente o que elas queriam ouvir.
+Padre: E algumas delas começaram a tratar aquilo como se fosse uma manifestação religiosa.
+
+- Dizer que a tecnologia deve ser rejeitada.
+    $> GameState.SetFlag("igreja_milagre_rejeitou_tecnologia", true)
+    $> GameState.SetFlag("igreja_milagre_aceitou_tecnologia", false)
+    $> GameState.SetFlag("igreja_milagre_concluida", true)
+    Padre: Talvez seja melhor manter essa coisa longe daqui.
+    Padre: Nem tudo que parece uma resposta precisa ser aceito como uma.
+    => END
+
+- Dizer que talvez a tecnologia possa ser usada.
+    $> GameState.SetFlag("igreja_milagre_aceitou_tecnologia", true)
+    $> GameState.SetFlag("igreja_milagre_rejeitou_tecnologia", false)
+    $> GameState.SetFlag("igreja_milagre_concluida", true)
+    Padre: Eu não gosto da ideia.
+    Padre: Mas talvez seja melhor entender o que está acontecendo antes de simplesmente afastar as pessoas.
+    => END
+
+
+~ frequencia
+
+Padre: Desde que começamos a observar aquilo com mais atenção, percebi outra coisa.
+Padre: Há momentos em que os equipamentos da igreja parecem interferir no comportamento do sistema em seu braço.
+Padre: E, quando isso acontece, alguns sintomas que você apresenta parecem diminuir.
+
+Padre: Não sei se isso é apenas coincidência.
+Padre: Também não sei se devemos procurar uma explicação técnica ou aceitar que há algo diferente acontecendo aqui.
+
+- Investigar a causa.
+    $> GameState.SetFlag("igreja_frequencia_investigar", true)
+    $> GameState.SetFlag("igreja_frequencia_aceitou_interpretacao", false)
+    Padre: Então vamos investigar.
+    Padre: Se existe uma causa concreta, precisamos descobrir qual é.
+    => END
+
+- Aceitar a interpretação religiosa.
+    $> GameState.SetFlag("igreja_frequencia_aceitou_interpretacao", true)
+    $> GameState.SetFlag("igreja_frequencia_investigar", false)
+    Padre: Talvez realmente exista algo aqui que não conseguimos compreender pela tecnologia.
+    => END
+
+
+~ frequencia_tecnica
+
+Padre: Então você descobriu o que estava acontecendo.
+Padre: O equipamento estava interferindo no sistema.
+
+Padre: Isso muda muita coisa.
+Padre: As pessoas já estavam interpretando as respostas da máquina como algo divino.
+Padre: Agora sabemos que existe uma explicação técnica para parte do que aconteceu.
+
+Padre: Ainda assim, elas continuam acreditando.
+Padre: A questão agora é o que vamos fazer com essa crença.
+=> END
+
+
+~ milagre_divino
+
+Padre: Quanto mais penso no que aconteceu, mais difícil fica tratar tudo isso apenas como coincidência.
+Padre: Talvez aquilo esteja tentando se comunicar conosco.
+Padre: Talvez a tecnologia tenha apenas criado uma forma para essa comunicação acontecer.
+
+Padre: Se as pessoas encontraram algo que interpretam como uma presença divina, não quero ser eu quem vai arrancar isso delas.
+=> END
+
+
+~ deus_maquina
+
+Padre: Então era isso.
+Padre: A máquina não estava falando com alguma entidade desconhecida.
+Padre: Ela estava interagindo com os equipamentos da igreja e produzindo aquelas respostas.
+
+Padre: Mesmo assim, as pessoas continuam chamando aquilo de milagre.
+Padre: E agora precisamos decidir se vamos impedir que isso continue ou aceitar o que está surgindo.
+
+- Incentivar as pessoas a seguirem essa nova figura religiosa.
+    $> GameState.SetFlag("igreja_deus_maquina_incentivou_culto", true)
+    $> GameState.SetFlag("igreja_deus_maquina_rejeitou_culto", false)
+    Padre: Então talvez devamos deixar que cada um decida o que aquela voz significa.
+    Padre: Se encontraram uma forma de fé nela, não cabe a mim dizer que não existe.
+    => END
+
+- Rejeitar o culto à máquina.
+    $> GameState.SetFlag("igreja_deus_maquina_rejeitou_culto", true)
+    $> GameState.SetFlag("igreja_deus_maquina_incentivou_culto", false)
+    Padre: Então precisamos deixar claro que aquilo é uma máquina.
+    Padre: As pessoas podem encontrar significado onde quiserem, mas não devemos transformar uma tecnologia em uma autoridade religiosa.
+    => END

@@ -26,7 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://btl7cmb1n7aj" path="res://Assets/Sprites/Cenario/Parede/fountain.png" id="17_h3j6h"]
 [ext_resource type="PackedScene" uid="uid://dvo2rfyvp1ns0" path="res://Assets/Itens/objGalaoAgua.tscn" id="18_h3j6h"]
 [ext_resource type="Shape3D" uid="uid://c5dtphy0t7rr7" path="res://Assets/Scenes/ThePlayground_CollisionData/ThePlayground_Predio_collision.res" id="18_tn8n4"]
-[ext_resource type="Texture2D" uid="uid://c4g0fq1ecoga2" path="res://Assets/Sprites/Cenario/Parede/VIvo.png" id="19_3gqkw"]
+[ext_resource type="Texture2D" uid="uid://c4g0fq1ecoga2" path="res://Assets/Sprites/Cenario/Parede/Vivo.png" id="19_3gqkw"]
+[ext_resource type="Texture2D" uid="uid://ch7o6gjg2g3si" path="res://Assets/Normal Maps/binD_n.webp" id="19_ixu64"]
 [ext_resource type="PackedScene" uid="uid://d1kp3yfxc7qii" path="res://Assets/Itens/objFeijao.tscn" id="19_qeaow"]
 [ext_resource type="Texture2D" uid="uid://rpyjvnlsc4dx" path="res://Assets/Sprites/Cenario/Parede/Blue.png" id="19_rdykn"]
 [ext_resource type="Texture2D" uid="uid://dodoub7q54qgm" path="res://Assets/Sprites/Cenario/Parede/coreto.png" id="20_11sfv"]
@@ -36,7 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://dc6gkmwxhfqh1" path="res://Assets/Sprites/Cenario/Parede/Alameda.png" id="20_oqisv"]
 [ext_resource type="Texture2D" uid="uid://cfaquwh153ato" path="res://Assets/Sprites/Cenario/Parede/chiquinho.png" id="20_st4sa"]
 [ext_resource type="PackedScene" uid="uid://b4mgjc55khc8n" path="res://Assets/Itens/objAgua.tscn" id="20_uipgk"]
-[ext_resource type="Texture2D" path="res://Assets/Sprites/Cenario/Parede/predio descionhecido.png" id="20_vs16v"]
+[ext_resource type="Texture2D" uid="uid://1bvhchhyq5w" path="res://Assets/Sprites/Cenario/Parede/predio desconhecido.png" id="20_vs16v"]
 [ext_resource type="Texture2D" uid="uid://by0yhmbggy3xm" path="res://Assets/Sprites/Cenario/Parede/miodapraca.png" id="21_0odk6"]
 [ext_resource type="PackedScene" uid="uid://b8kdadftm2bc7" path="res://Assets/UI/hudHorario.tscn" id="22_11sfv"]
 [ext_resource type="PackedScene" uid="uid://mrlhhnue7vnr" path="res://Assets/Itens/objMoeda.tscn" id="22_an17c"]
@@ -53,7 +54,7 @@
 [ext_resource type="Texture2D" uid="uid://b0454o4q2i5iv" path="res://Assets/Sprites/Cenario/Parede/predio verde.png" id="28_ixu64"]
 [ext_resource type="PackedScene" uid="uid://5q3xgalcvrw1" path="res://Assets/Props/objLampPost.tscn" id="30_cowwq"]
 [ext_resource type="PackedScene" uid="uid://ctandxc0poegn" path="res://Assets/Personagens/SirMinhoca.tscn" id="33_05ac5"]
-[ext_resource type="Resource" uid="uid://b47uhpkq62epd" path="res://Assets/Dialogos/Quests/01SemTetos/dialogoGenericoSemTeto.dialogue" id="36_ueqtk"]
+[ext_resource type="Resource" uid="uid://b47uhpkq62epd" path="res://Assets/dialogoGenericoSemTeto.dialogue" id="36_ueqtk"]
 [ext_resource type="Script" uid="uid://cgm5ydwn0eb7u" path="res://Scripts/Camera/dialogueCameraController.cs" id="41_oqisv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t2v57"]
@@ -148,6 +149,15 @@ smart_select_mode = 1
 main_app_mode = 2
 mesh_mode = 2
 current_depth_scale = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e5j0j"]
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("16_ghxoi")
+normal_texture = ExtResource("19_ixu64")
+texture_filter = 2
+distance_fade_min_distance = 75.0
+distance_fade_max_distance = 50.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhgkt"]
 transparency = 2
@@ -295,7 +305,7 @@ script = ExtResource("12_qeaow")
 tileset_texture = ExtResource("20_st4sa")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(640, 960, 320, 320)
-tileset_zoom = 0.23939204936916333
+tileset_zoom = 0.2393920493691633
 
 [sub_resource type="Resource" id="Resource_ltmpb"]
 script = ExtResource("12_qeaow")
@@ -316,7 +326,7 @@ script = ExtResource("12_qeaow")
 tileset_texture = ExtResource("28_ixu64")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(0, 320, 320, 320)
-tileset_zoom = 0.23939204936916333
+tileset_zoom = 0.2393920493691633
 mesh_mode = 2
 current_mesh_rotation = 1
 
@@ -564,6 +574,7 @@ script = ExtResource("14_ueqtk")
 shape = ExtResource("18_tn8n4")
 
 [node name="Predio_Baked" type="MeshInstance3D" parent="Prédios Abandonados" unique_id=558245528]
+material_override = SubResource("StandardMaterial3D_e5j0j")
 mesh = SubResource("ArrayMesh_w856b")
 
 [node name="WhatTheHell_" type="Node3D" parent="Prédios Abandonados" unique_id=801157789 node_paths=PackedStringArray("_quad_chunks")]
