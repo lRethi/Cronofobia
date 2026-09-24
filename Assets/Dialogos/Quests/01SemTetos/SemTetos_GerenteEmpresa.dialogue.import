@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://duqhet3jckds8"
+path="res://.godot/imported/SemTetos_GerenteEmpresa.dialogue-caed44e1a43f56344ad14e9274b79f6c.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/01SemTetos/SemTetos_GerenteEmpresa.dialogue"
+dest_files=["res://.godot/imported/SemTetos_GerenteEmpresa.dialogue-caed44e1a43f56344ad14e9274b79f6c.tres"]
+
+[params]
+
+defaults=true

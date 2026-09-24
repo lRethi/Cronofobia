@@ -1,0 +1,54 @@
+~ start
+
+if GetFlag("igreja_necessitados_entrega_agua")
+    João: A água que você trouxe já acabou.
+    João: Mas naquele momento foi o suficiente.
+    João: O pessoal da igreja realmente conhece gente que ninguém mais vê.
+    => END
+
+João: O Padre falou que talvez você pudesse trazer água.
+João: A distribuição pública... Se é que isso ainda existe, não chega aqui.
+
+- Tenho água.
+    $> InventoryState.OferecerItem()
+    => verificar_oferta
+
+
+~ verificar_oferta
+
+if InventoryState.ItemOferecidoId == ""
+    => nao_ofereceu
+
+if InventoryState.ItemOferecidoId == "garrafa_agua"
+    => ofereceu_agua
+
+if InventoryState.ItemOferecidoId == "galao_agua"
+    => ofereceu_galao
+
+=> ofereceu_errado
+
+~ ofereceu_galao
+
+$> InventoryState.ConsumirItemOferecido()
+$> GameState.SetFlag("igreja_necessitados_entrega_agua", true)
+João: ... Muito obrigado, de coração.
+=> END
+
+~ ofereceu_agua
+
+$> InventoryState.ConsumirItemOferecido()
+$> GameState.SetFlag("igreja_necessitados_entrega_agua", true)
+João: Obrigado... É difícil ter tanta gente aqui quando água é uma necessidade tão grande.
+=> END
+
+
+~ nao_ofereceu
+
+João: Tudo bem. Quando conseguir, traz.
+=> END
+
+
+~ ofereceu_errado
+
+João: Acho que isso não resolve o que eu preciso.
+=> END

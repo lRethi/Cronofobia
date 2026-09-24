@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bcbl82w7uhcov"
+path="res://.godot/imported/Igreja_Samuel.dialogue-8eb96f91f391a6525c46aef370d434fb.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/02Igreja/Igreja_Samuel.dialogue"
+dest_files=["res://.godot/imported/Igreja_Samuel.dialogue-8eb96f91f391a6525c46aef370d434fb.tres"]
+
+[params]
+
+defaults=true

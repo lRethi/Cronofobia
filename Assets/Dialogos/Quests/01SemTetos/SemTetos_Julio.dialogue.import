@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bl6n8ljbq5n6k"
+path="res://.godot/imported/SemTetos_Julio.dialogue-598ac12437cde924b9f61739ca4833f7.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/01SemTetos/SemTetos_Julio.dialogue"
+dest_files=["res://.godot/imported/SemTetos_Julio.dialogue-598ac12437cde924b9f61739ca4833f7.tres"]
+
+[params]
+
+defaults=true

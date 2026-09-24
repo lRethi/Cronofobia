@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bsig0yfdcjo8d"
+path="res://.godot/imported/SemTetos_FuncionariaEmpresa.dialogue-8e536dc11ebd59dfec51098d21283f23.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/01SemTetos/SemTetos_FuncionariaEmpresa.dialogue"
+dest_files=["res://.godot/imported/SemTetos_FuncionariaEmpresa.dialogue-8e536dc11ebd59dfec51098d21283f23.tres"]
+
+[params]
+
+defaults=true

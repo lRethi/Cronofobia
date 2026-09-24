@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dna7gu4lxyd2w"
+path="res://.godot/imported/SemTetos_Naldo.dialogue-60058f80272cd1b2b6dd0c4888a94095.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/01SemTetos/SemTetos_Naldo.dialogue"
+dest_files=["res://.godot/imported/SemTetos_Naldo.dialogue-60058f80272cd1b2b6dd0c4888a94095.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://sx74l3efdo2r"
+path="res://.godot/imported/SemTetos_Beto.dialogue-20cf2d5b1cb485e83c9a3c9f36b98c70.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/01SemTetos/SemTetos_Beto.dialogue"
+dest_files=["res://.godot/imported/SemTetos_Beto.dialogue-20cf2d5b1cb485e83c9a3c9f36b98c70.tres"]
+
+[params]
+
+defaults=true

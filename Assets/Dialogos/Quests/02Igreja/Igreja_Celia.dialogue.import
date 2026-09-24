@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://b0t21dl6ijjvc"
+path="res://.godot/imported/Igreja_Celia.dialogue-6f4b537c99e7a7a4b9ba902f75fc14f4.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/02Igreja/Igreja_Celia.dialogue"
+dest_files=["res://.godot/imported/Igreja_Celia.dialogue-6f4b537c99e7a7a4b9ba902f75fc14f4.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,46 @@
+~ start
+
+if GetFlag("semtetos_comida")
+	=> comida_feita
+
+Dona Cida: A Marta falou que vocês estão juntando comida.
+
+- Tenho alguma coisa para entregar.
+	$> InventoryState.OferecerItem()
+	=> verificar_comida
+
+- Ainda estou procurando.
+	Dona Cida: Então volta quando encontrar alguma coisa que dê para dividir.
+	=> END
+
+
+~ verificar_comida
+
+if InventoryState.ItemOferecidoId == "marmita"
+	=> comida_ok
+
+if InventoryState.ItemOferecidoId == "lata_feijao"
+	=> comida_ok
+
+=> comida_errada
+
+
+~ comida_ok
+
+Dona Cida: Isso já ajuda bastante.
+$> InventoryState.ConsumirItemOferecido()
+$> GameState.SetFlag("semtetos_comida", true)
+Dona Cida: Vou separar para o pessoal da noite.
+=> END
+
+
+~ comida_errada
+
+Dona Cida: Acho que isso não é comida para dividir.
+=> END
+
+
+~ comida_feita
+
+Dona Cida: A parte da comida já está resolvida. Procura o pessoal da madeira ou dos cobertores.
+=> END

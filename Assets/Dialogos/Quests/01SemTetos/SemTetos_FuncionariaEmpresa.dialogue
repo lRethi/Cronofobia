@@ -1,0 +1,7 @@
+~ start
+
+Funcionária da Empresa: É hoje que esse espaço começa oficialmente?
+Funcionária da Empresa: Viemos registrar a inauguração e documentar a ação.
+Funcionária da Empresa: A autorização está válida, então façam o uso do terreno conforme o combinado.
+$> GameState.SetFlag("semtetos_inauguracao_realizada", true)
+=> END
