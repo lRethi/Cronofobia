@@ -1,0 +1,106 @@
+~ start
+if GetFlag("semTetos_desbloqueou3.1") and not GetFlag("semTetos_bancoAjudou")
+	=> dialogo3_1
+
+if GetFlag("banco_cadastroFeito") and not GetFlag("banco_oportunidadeRecusada") and not GetFlag("banco_oportunidadeAceita")
+	=> dialogo_Oportunidade
+
+if GetFlag("bancoOportunidadeAceita") and not GetFlag("banco_oportunidadeFinalizada")
+	=> dialogo_OportunidadeResultado
+
+Gerente: Não temos nada a discutir.
+Gerente: ... Não me faça desperdiçar meu tempo.
+
+=> END
+
+~ dialogo3_1
+Gerente: A Luana me informou sobre a sua necessidade.
+Gerente: A criação de um abrigo para pessoas de rua, hm?
+=> primeiroSkillCheck
+
+~ primeiroSkillCheck
+Gerente: Por que deveriamos o ajudar nisso?
+- Explicar que é a coisa certa a fazer.
+	Gerente: ...
+- Explicar que traria boa publicidade.
+	Gerente: Hm.
+	$> GameState.SetFlag("banco_primeiroSkillCheck", true)
+=> END
+
+~ segundoSkillCheck
+Gerente: De onde vamos conseguir os fundos pra isso?
+- Falar que pode tirar da sua conta. [if GetFlag("banco_perfilDeCreditoMelhorado") /]
+	Gerente: Hm.
+	$> GameState.SetFlag("banco_segundoSkillCheck", true)
+- Falar para fazer uma petição pro governo.
+	Gerente: Hm.
+	$> GameState.SetFlag("banco_segundoSkillCheck", true)
+- Falar para usar os fundos do banco.
+	Gerente: ...
+=> terceiroSkillCheck
+
+~ terceiroSkillCheck
+Gerente: Por quanto tempo vamos ficar ajudando financeiramente o abrigo?
+- Pra sempre.
+	Gerente: ...
+- Até o abrigo começar a se sustentar por conta própria.
+	Gerente: Hm.
+	$> GameState.SetFlag("banco_terceiroSkillCheck", true)
+=> resultadoFinal
+
+~ resultadoFinal
+if GetFlag("banco_primeiroSkillCheck") and GetFlag("banco_segundoSkillCheck") and GetFlag("banco_terceiroSkillCheck")
+	Gerente: Certo, você me convenceu.
+	Gerente: Ofereceremos um financiamento temporário, e compraremos o direito do terreno.
+	Gerente: A cada 6 meses, iremos averiguar o estado do abrigo, e se o financiamento deve continuar.
+	Gerente: De acordo?
+	- Aceitar o contrato.
+		Gerente: Assine aqui.
+		$> GameState.SetFlag("semTetos_bancoAjudou", true)
+	- Recusar o contrato.
+		Gerente: Bom, uma pena.
+		$> GameState.SetFlag("semTetos_bancoRecusou", true)
+else
+	Gerente: Infelizmente, essa proposta não parece de nosso interesse.
+	$> GameState.SetFlag("semTetos_bancoRecusou", true)
+if not GetFlag("banco_cadastroFeito")
+	Gerente: Por sinal, monsenhor Salvador...
+	Gerente: Recomendo você conversar com a Luana novamente quando puder.
+	Gerente: Adorariamos oferecer nossos serviços à você.
+	if GetFlag("semTetos_bancoRecusou")
+		Gerente: Mesmo que a nossa cooperação não tenha funcionado.
+Gerente: Tenha um bom dia.
+=> END
+
+~ dialogo_Oportunidade
+Gerente: Notamos que o seu perfil combina bastante conosco, monsenhor Salvador.
+Gerente: Caso você tenha interesse, temos uma oportunidade de emprego.
+Gerente: Atendente auxiliar.
+- Interessado.
+	Gerente: Ótimo. Sua experiência inicia amanhã.
+	Gerente: Seu trabalho é atender os clientes, e guiar eles para o lugar correto.
+	Gerente: Compareça aqui, e dependendo de seus resultados...
+	Gerente: Você será contratado efetivamente, ou não.
+	$> GameState.SetFlag("banco_oportunidadeAceita", true)
+- Não interessado.
+	Gerente: Bom, uma pena.
+	$> GameState.SetFlag("banco_oportunidadeRecusada", true)
+Gerente: Tenha um bom dia.
+=> END
+
+~ dialogo_OportunidadeResultado
+if GetFlag("banco_cliente1") and GetFlag("banco_cliente2") and GetFlag("banco_cliente3") and GetFlag("banco_cliente4")
+	Gerente: A sua performance foi satisfatória.
+	Gerente: O emprego é seu, se você quiser.
+	- Aceitar emprego.
+		Gerente: Ótimo. Levaremos uma semana para organizar seu cadastro.
+		Gerente: Depois disso, você pode começar já.
+		$> GameState.SetFlag("empregoEstavel", true)
+	- Recusar emprego.
+		Gerente: Uma pena.
+else
+	Gerente: A sua performance não alcançou nossas expectativas.
+	Gerente: Uma pena, mas não iremos lhe contratar.
+Gerente: Tenha um bom dia, monsenhor Salvador.
+$> GameState.SetFlag("banco_oportunidadeFinalizada")
+=> END

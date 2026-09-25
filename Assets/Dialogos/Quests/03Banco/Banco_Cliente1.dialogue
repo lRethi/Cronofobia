@@ -1,0 +1,18 @@
+~ start
+
+if GetFlag("banco_atendido1")
+	=> atendidoDialogo
+
+Cliente: Vocês tem café aqui? Estou com bastante fome.
+- Mostrar onde a máquina fica.
+	Cliente: Muito obrigado!
+	$> GameState.SetFlag("banco_cliente1", true)
+	$> GameState.SetFlag("banco_atendido1", true)
+- Não.
+	Cliente: Uh... Ok?
+	$> GameState.SetFlag("banco_atendido1", true)
+=> END
+
+~ atendidoDialogo
+Cliente: (... espero que meu crédito não tenha estourado...)
+=> END

@@ -19,6 +19,8 @@ public partial class GameState : Node
     public delegate void FlagChangedEventHandler(string key, bool value);
     public static bool cameraInputEnabled { get; private set; } = true;
 
+    public int weirdRouteValue = 0;
+
     public override void _EnterTree()
     {
         if (Instance != null && Instance != this)

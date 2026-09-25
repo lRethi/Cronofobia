@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://b5yo3t4tmotn8"
+path="res://.godot/imported/Banco_AtendenteBanco.dialogue-7441a99cb7935b46ab6a808c80b2c800.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/03Banco/Banco_AtendenteBanco.dialogue"
+dest_files=["res://.godot/imported/Banco_AtendenteBanco.dialogue-7441a99cb7935b46ab6a808c80b2c800.tres"]
+
+[params]
+
+defaults=true

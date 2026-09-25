@@ -1,0 +1,18 @@
+~ start
+
+if GetFlag("banco_atendido3")
+	=> atendidoDialogo
+
+Cliente: Onde fica o banheiro?
+- Falar as direções.
+	Cliente: Muito obrigado!
+	$> GameState.SetFlag("banco_cliente3", true)
+	$> GameState.SetFlag("banco_atendido3", true)
+- Não temos banheiro.
+	Cliente: Uh... Ok?
+	$> GameState.SetFlag("banco_atendido3", true)
+=> END
+
+~ atendidoDialogo
+Cliente: (... o que esse cara quer? Eu preciso muito ir no banheiro meu Deus...)
+=> END

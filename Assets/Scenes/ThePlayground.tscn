@@ -54,7 +54,7 @@
 [ext_resource type="Texture2D" uid="uid://caejjoe12synt" path="res://Assets/Sprites/Cenario/Parede/Mercado.png" id="32_xhgkt"]
 [ext_resource type="PackedScene" uid="uid://ctandxc0poegn" path="res://Assets/Personagens/SirMinhoca.tscn" id="33_05ac5"]
 [ext_resource type="Texture2D" uid="uid://blqr5pmd8cvg6" path="res://Assets/Sprites/Cenario/Parede/casa1.png" id="34_w856b"]
-[ext_resource type="Resource" uid="uid://b47uhpkq62epd" path="res://Assets/Dialogos/Quests/01SemTetos/dialogoGenericoSemTeto.dialogue" id="36_ueqtk"]
+[ext_resource type="Resource" uid="uid://b47uhpkq62epd" path="res://Assets/dialogoGenericoSemTeto.dialogue" id="36_ueqtk"]
 [ext_resource type="Script" uid="uid://cgm5ydwn0eb7u" path="res://Scripts/Camera/dialogueCameraController.cs" id="41_oqisv"]
 [ext_resource type="Texture2D" uid="uid://cx67sqcsh4i8k" path="res://Assets/Sprites/Cenario/Parede/dataCenter.png" id="42_2mdy0"]
 
@@ -145,7 +145,6 @@ script = ExtResource("12_qeaow")
 tileset_texture = ExtResource("16_ghxoi")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(0, 0, 320, 320)
-tileset_zoom = 0.21762913579014848
 smart_select_mode = 1
 main_app_mode = 2
 mesh_mode = 2
@@ -380,7 +379,7 @@ script = ExtResource("12_qeaow")
 tileset_texture = ExtResource("32_xhgkt")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(960, 640, 320, 320)
-tileset_zoom = 0.23939204936916333
+tileset_zoom = 0.2393920493691633
 current_mesh_rotation = 1
 
 [sub_resource type="Resource" id="Resource_tkdki"]
@@ -393,7 +392,7 @@ script = ExtResource("12_qeaow")
 tileset_texture = ExtResource("20_ijs02")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(0, 320, 320, 320)
-tileset_zoom = 0.23939204936916333
+tileset_zoom = 0.2393920493691633
 
 [sub_resource type="Resource" id="Resource_vxjyr"]
 script = ExtResource("12_qeaow")

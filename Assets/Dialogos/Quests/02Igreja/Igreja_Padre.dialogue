@@ -210,6 +210,7 @@ Padre: E agora precisamos decidir se vamos impedir que isso continue ou aceitar 
     $> GameState.SetFlag("igreja_deus_maquina_rejeitou_culto", false)
     Padre: Então talvez devamos deixar que cada um decida o que aquela voz significa.
     Padre: Se encontraram uma forma de fé nela, não cabe a mim dizer que não existe.
+	$> GameState.weirdRouteValue += 1
     => END
 
 - Rejeitar o culto à máquina.
