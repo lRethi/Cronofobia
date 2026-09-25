@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7ge50tht72yb"
-path.s3tc="res://.godot/imported/Caixa banco.png-304d5dc0c06bb2f94eebad7e4e6d9d01.s3tc.ctex"
+uid="uid://c8ullp2gudbos"
+path.s3tc="res://.godot/imported/NexusPay2.png-845c53baeaf23ab5c0d01f88ea5fb4ac.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Sprites/Cenario/Parede/Caixa banco.png"
-dest_files=["res://.godot/imported/Caixa banco.png-304d5dc0c06bb2f94eebad7e4e6d9d01.s3tc.ctex"]
+source_file="res://Assets/Sprites/Cenario/Parede/NexusPay2.png"
+dest_files=["res://.godot/imported/NexusPay2.png-845c53baeaf23ab5c0d01f88ea5fb4ac.s3tc.ctex"]
 
 [params]
 
