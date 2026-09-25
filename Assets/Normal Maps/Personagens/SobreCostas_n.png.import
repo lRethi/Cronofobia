@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmr8hthum454l"
-path.s3tc="res://.godot/imported/lixo3_n.webp-dd181ee6f0665488edea676ce3e4471e.s3tc.ctex"
+uid="uid://dq4tmc3tu3hgp"
+path.s3tc="res://.godot/imported/SobreCostas_n.png-394d275e48b2afdc59610daa1f556127.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Normal Maps/lixo3_n.webp"
-dest_files=["res://.godot/imported/lixo3_n.webp-dd181ee6f0665488edea676ce3e4471e.s3tc.ctex"]
+source_file="res://Assets/Normal Maps/Personagens/SobreCostas_n.png"
+dest_files=["res://.godot/imported/SobreCostas_n.png-394d275e48b2afdc59610daa1f556127.s3tc.ctex"]
 
 [params]
 
@@ -26,8 +26,8 @@ compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://Assets/Normal Maps/lixo3_n.webp"
+roughness/mode=0
+roughness/src_normal=""
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

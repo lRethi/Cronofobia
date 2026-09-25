@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dubu4vby8fq77"
-path="res://.godot/imported/light0_n.webp-d3653df39d86b263af177f8854e90490.ctex"
+uid="uid://boipd47iaprn0"
+path="res://.godot/imported/Banco_n.png-cc68985b34221c44f672ebb327b21caf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Normal Maps/light0_n.webp"
-dest_files=["res://.godot/imported/light0_n.webp-d3653df39d86b263af177f8854e90490.ctex"]
+source_file="res://Assets/Normal Maps/Cenario/parede3d/Banco_n.png"
+dest_files=["res://.godot/imported/Banco_n.png-cc68985b34221c44f672ebb327b21caf.ctex"]
 
 [params]
 
