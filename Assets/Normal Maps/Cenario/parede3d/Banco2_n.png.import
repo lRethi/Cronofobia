@@ -2,32 +2,31 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by7h1f4xjgtxh"
-path.s3tc="res://.godot/imported/lixo2_n.webp-096e3cbd4e54db3cd9e1d3caf418c5ba.s3tc.ctex"
+uid="uid://b1ly7mtemge58"
+path="res://.godot/imported/Banco2_n.png-1636ac50afd9333ede53d51a1ea7120b.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Normal Maps/lixo2_n.webp"
-dest_files=["res://.godot/imported/lixo2_n.webp-096e3cbd4e54db3cd9e1d3caf418c5ba.s3tc.ctex"]
+source_file="res://Assets/Normal Maps/Cenario/parede3d/Banco2_n.png"
+dest_files=["res://.godot/imported/Banco2_n.png-1636ac50afd9333ede53d51a1ea7120b.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://Assets/Normal Maps/lixo2_n.webp"
+roughness/mode=0
+roughness/src_normal=""
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2
@@ -38,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
