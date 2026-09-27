@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bkwddef0jtus6"
+path="res://.godot/imported/Agua_Flavia.dialogue-88aeaff15f4d5b1eac7c5ba036286b40.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/07Agua/Agua_Flavia.dialogue"
+dest_files=["res://.godot/imported/Agua_Flavia.dialogue-88aeaff15f4d5b1eac7c5ba036286b40.tres"]
+
+[params]
+
+defaults=true

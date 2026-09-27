@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://ceoc7ap1qkj1r"
+path="res://.godot/imported/Investigacao_Jornalista.dialogue-80d13bd586c0db8580dd36c40fcd5dbc.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/05Investigacao/Investigacao_Jornalista.dialogue"
+dest_files=["res://.godot/imported/Investigacao_Jornalista.dialogue-80d13bd586c0db8580dd36c40fcd5dbc.tres"]
+
+[params]
+
+defaults=true

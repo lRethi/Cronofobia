@@ -40,7 +40,6 @@
 [ext_resource type="Texture2D" uid="uid://by0yhmbggy3xm" path="res://Assets/Sprites/Cenario/Parede/miodapraca.png" id="21_0odk6"]
 [ext_resource type="PackedScene" uid="uid://b8kdadftm2bc7" path="res://Assets/UI/hudHorario.tscn" id="22_11sfv"]
 [ext_resource type="PackedScene" uid="uid://mrlhhnue7vnr" path="res://Assets/Itens/objMoeda.tscn" id="22_an17c"]
-[ext_resource type="Texture2D" uid="uid://b7ge50tht72yb" path="res://Assets/Sprites/Cenario/Parede/Caixa banco.png" id="23_dtx25"]
 [ext_resource type="Texture2D" uid="uid://ixwtwa7d5c6t" path="res://Assets/Sprites/Cenario/Parede/Banco2.png" id="23_ijs02"]
 [ext_resource type="Texture2D" uid="uid://3yh7ovy1o25n" path="res://Assets/Sprites/Cenario/Parede/Cinema.png" id="24_6hv5a"]
 [ext_resource type="Texture2D" uid="uid://c5vgbg6s77acf" path="res://Assets/Sprites/Cenario/Parede/NexusPay.png" id="24_7pcv4"]
@@ -57,10 +56,12 @@
 [ext_resource type="Texture2D" uid="uid://cypxgvctms2dq" path="res://Assets/Sprites/Cenario/Parede/A construcao quebrada.png" id="30_e21sh"]
 [ext_resource type="Texture2D" uid="uid://caejjoe12synt" path="res://Assets/Sprites/Cenario/Parede/Mercado.png" id="32_xhgkt"]
 [ext_resource type="PackedScene" uid="uid://ctandxc0poegn" path="res://Assets/Personagens/SirMinhoca.tscn" id="33_05ac5"]
+[ext_resource type="Texture2D" uid="uid://c8ullp2gudbos" path="res://Assets/Sprites/Cenario/Parede/NexusPay2.png" id="34_4tbl8"]
 [ext_resource type="Texture2D" uid="uid://blqr5pmd8cvg6" path="res://Assets/Sprites/Cenario/Parede/casa1.png" id="34_w856b"]
 [ext_resource type="Script" uid="uid://cgm5ydwn0eb7u" path="res://Scripts/Camera/dialogueCameraController.cs" id="41_oqisv"]
 [ext_resource type="Texture2D" uid="uid://cx67sqcsh4i8k" path="res://Assets/Sprites/Cenario/Parede/dataCenter.png" id="42_2mdy0"]
 [ext_resource type="Shape3D" uid="uid://ctl32oiik2t2a" path="res://Assets/Scenes/ThePlayground_CollisionData/ThePlayground_PraçaTile2_collision.res" id="49_4tbl8"]
+[ext_resource type="Resource" uid="uid://b47uhpkq62epd" path="res://Assets/dialogoGenericoSemTeto.dialogue" id="57_e21sh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t2v57"]
 shader = ExtResource("2_iamn6")
@@ -380,9 +381,8 @@ selected_tile_uv = Rect2(640, 0, 320, 320)
 
 [sub_resource type="Resource" id="Resource_tn8n4"]
 script = ExtResource("12_qeaow")
-tileset_texture = ExtResource("23_dtx25")
+tileset_texture = ExtResource("34_4tbl8")
 tile_size = Vector2i(320, 320)
-selected_tile_uv = Rect2(0, 0, 320, 320)
 mesh_mode = 3
 current_mesh_rotation = 1
 
@@ -390,8 +390,6 @@ current_mesh_rotation = 1
 script = ExtResource("12_qeaow")
 tileset_texture = ExtResource("24_7pcv4")
 tile_size = Vector2i(320, 320)
-selected_tile_uv = Rect2(960, 0, 320, 320)
-tileset_zoom = 0.35049389948139215
 mesh_mode = 2
 current_mesh_rotation = 3
 
@@ -529,9 +527,6 @@ main_app_mode = 2
 mesh_mode = 2
 current_depth_scale = 0.5
 current_mesh_rotation = 3
-
-[sub_resource type="Resource" id="Resource_8gkpi"]
-metadata/__load_path__ = "res://Assets/Dialogos/Quests/01SemTetos/dialogoGenericoSemTeto.dialogue"
 
 [node name="Node3D" type="Node3D" unique_id=1702091423]
 
@@ -1409,7 +1404,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.551582, 1.6342652, 9.8174
 
 [node name="SirNhoca" parent="." unique_id=1088714365 node_paths=PackedStringArray("personagem") instance=ExtResource("33_05ac5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10464883, 0.3586347, -3.6715722)
-dialogue = SubResource("Resource_8gkpi")
+dialogue = ExtResource("57_e21sh")
 personagem = NodePath("../charGeraldoSalvador")
 
 [node name="garrafaAgua" parent="." unique_id=1197714594 instance=ExtResource("20_uipgk")]

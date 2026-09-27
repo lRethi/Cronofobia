@@ -1,0 +1,84 @@
+~ start
+if not GameState.GetFlag("ultralink_jaelsonPrimeiroDialogoVisto")
+	=> jaelsonPrimeiroDialogo
+if GameState.GetFlag("ultralinkDecisaoUpgrade") and not GameState.GetFlag("ultralink_buscaFinalizada")
+	=> escolhaUpgrade
+if GameState.GetFlag("ultralink_buscaIniciada") and not GameState.GetFlag("ultralink_buscaFinalizada")
+	=> verificarBusca
+
+Jaelson: Francamente, eu sinto falta da minha loja de mecânica.
+Jaelson: Um beco escuro não tem o mesmo ar requintado de uma oficina cheia de óleo.
+=> END
+
+~ jaelsonPrimeiroDialogo
+Jaelson: Ei... Ocê aí.
+Jaelson: Você não é o primeiro que eu vejo com essa coisa no braço.
+- Perguntar se ele sabe o que é.
+	Jaelson: Pelo o que eu fui capaz de descobri... Isso ai, se chama Ultralink.
+	| Ultralink: {:?} 
+	Jaelson: Engraçado, nome em inglês dos americano, né?
+	Jaelson: Pff. 
+- Ficar em silêncio.
+	Jaelson: Será que você também não sabe falar..?
+	Jaelson: Não seria o primeiro.
+Jaelson: Bom... Vamos pra o que importa.
+Jaelson: Eu vou te oferecer o mesmo que eu ofereci para o Ayub ali.
+Jaelson: Ninguém quer ter essa coisa no braço, especialmente quando ela começar a pifar.
+Jaelson: E acredite em mim, se ela já não começou, ela vai.
+Jaelson: Faz parte da programação delas, uma tentativa bizarra de se adaptar ao seu corpo.
+Jaelson: A sua já começou a fazer isso?
+- Dizer que sim.
+	Jaelson: Meus pêsames.
+- Dizer que não.
+	Jaelson: Você está com sorte.
+	Jaelson: Acredite em mim, não vai durar tanto assim.
+Jaelson: Se você conseguir juntar mais informações pra mim sobre essa coisa...
+Jaelson: Eu posso desligar ela.
+| Ultralink: {0_0} Eu recomendaria fortemente contra isso.
+Jaelson: Ou, sei lá, atualizar essa coisa se você quiser, deixar menos... Menos.
+Jaelson: O que me diz?
+- Aceitar a proposta.
+	Jaelson: Ótimo.
+	$> GameState.SetFlag("ultralink_buscaIniciada", true)
+	Jaelson: O Ayub vai saber te explicar mais.
+	Jaelson: Vá falar com ele.
+- Recusar a proposta.
+	Jaelson: Bom, se você mudar de ideia, sabe onde me encontrar.
+$> GameState.SetFlag("ultralink_jaelsonPrimeiroDialogoVisto", true)
+=> END
+
+~ verificarBusca
+Jaelson: Conseguiu todas as coisas?
+- Dizer que sim. [if GameState.GetFlag("ultralink_todasPistasDescobertas") /]
+	Jaelson: Ótimo.
+	Jaelson: Mãos à obra, então.
+	$> GameState.SetFlag("ultralink_decisaoUpgrade", true)
+	=> escolhaUpgrade
+- Dizer que não.
+	Jaelson: Bom... O que você está esperando então?
+=> END
+
+~ escolhaUpgrade
+Jaelson: É sua escolha agora... Você vai querer desligar essa coisa de você, ou quer que eu atualize ela?
+- Desligar a Ultralink.
+	Jaelson: Vendo aqui... Não é tão difícil de desligar quanto parece.
+	| Ultralink: {:|} Eu recomendo urgentemente você mudar sua decisão.
+	Jaelson: Cada uma dessas coisas tem um interruptor de desligamento dentro do visor... Deixa eu ver...
+	| Ultralink: {:(} Eu recomendo contra essa decisão.
+	Jaelson: Esse negócio não fica quieto não..?
+	| Ultralink: {0_0} Eu recomendo extremamente contra essa decis-
+	| Ultralink: {...} ...
+	Jaelson: Maravilhoso silêncio.
+	Jaelson: Pronto, isso vai parar qualquer uma das 'melhorias' que ela te fez, e vai impedir ela de continuar falando.
+	Jaelson: Boa sorte no futuro... E tente não ser pego por militares de novo.
+	$> GameState.SetFlag("ultralink_desligada", true)
+- Atualizar a Ultralink.
+	Jaelson: Bom... Eu não vou fingir ser tão bom quanto os zé cabeça militar que fez essa coisa...
+	Jaelson: Mas, com os planos aqui, e um pouco de gambiarra, o que um brasileiro não consegue, né?
+	Jaelson: Só pra avisar, isso vai doer. Muito.
+	$> GameState.SetFlag("ultralink_atualizada", true)
+- Dizer que nada.
+	Jaelson: ... Se você de mudar de ideia.
+	=> END
+$> GameState.SetFlag("ultralink_buscaFinalizada", true)
+=> END

@@ -1,0 +1,37 @@
+~ start
+if GameState.GetFlag("exposicaoIniciada") and not GameState.GetFlag("ultralink_buscaFinalizada")
+	=> exposicaoMid
+if GameState.GetFlag("exposicaoIniciada") and GameState.GetFlag("ultralink_buscaFinalizada")
+	=> exposicao
+
+Jornalista: Não consegue ver que estou bem ocupado?
+Jornalista: Não me faça perder meu tempo.
+if GameState.GetFlag("ultralink_buscaIniciada")
+	=> exposicaoInicio
+=> END
+
+~ exposicaoInicio
+Jornalista: ... O quê? Você está em busca de documentos comprometedores do governo?
+Jornalista: Ai mamãe... Ache eles, e me traga eles AGORA.
+Jornalista: ... Essa matéria vai alavancar a minha carreira!
+$> GameState.SetFlag("exposicao_Iniciada", true)
+=> END
+
+~ exposicaoMid
+% Jornalista: Conspirações militares e corporativas para tornar o Brasil competitivo no mercado de IA...
+% Jornalista: Um escândalo de sequestros relâmpagos!
+% Jornalista: Alguma ferramenta capaz de apagar memórias..?
+Jornalista: Isso é tão suculento...
+Jornalista: Me traga mais! Tudo, tudo, TUDO!
+=> END
+
+~ exposicao
+Jornalista: Hahah... Isso, é isso...
+Jornalista: Obrigado, meu caro homem.
+Jornalista: O mundo vai saber disso.
+Jornalista: O mundo vai saber o MEU nome.
+Jornalista: E toda essa farsa vai ser revelada para TODOS.
+
+$> GameState.SetFlag("exposicao", true)
+$> GameState.weirdRouteValue += 1
+=> END
