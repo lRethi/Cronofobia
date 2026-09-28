@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bthmir671fpdd"
+path="res://.godot/imported/Banco_Cliente4.dialogue-b60fca241a7b00aa1b2747afe9acde56.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/03Banco/Banco_Cliente4.dialogue"
+dest_files=["res://.godot/imported/Banco_Cliente4.dialogue-b60fca241a7b00aa1b2747afe9acde56.tres"]
+
+[params]
+
+defaults=true

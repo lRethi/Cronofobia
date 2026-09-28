@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bxp4j4vfhx57s"
+path="res://.godot/imported/ultralink_Jaelson.dialogue-70f4c9ae43fe323495795772b832da0c.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/04Ultralink/ultralink_Jaelson.dialogue"
+dest_files=["res://.godot/imported/ultralink_Jaelson.dialogue-70f4c9ae43fe323495795772b832da0c.tres"]
+
+[params]
+
+defaults=true

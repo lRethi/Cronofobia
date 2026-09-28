@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="DirectionalSpriteResource" format=3 uid="uid://b2ckc6xa3hjyr"]
 
 [ext_resource type="Texture2D" uid="uid://b6w7b2myqmh77" path="res://Assets/Sprites/Cenario/Props/light0.png" id="1_jpwfe"]
-[ext_resource type="Texture2D" uid="uid://dubu4vby8fq77" path="res://Assets/Normal Maps/light0_n.webp" id="1_pgn7h"]
+[ext_resource type="Texture2D" uid="uid://dubu4vby8fq77" path="res://Assets/Normal Maps/Props/light0_n.webp" id="1_pgn7h"]
 [ext_resource type="Script" uid="uid://b0fa1dne8hw5f" path="res://Scripts/Resources/DirectionalSpriteData.cs" id="2_aqft1"]
 [ext_resource type="Script" uid="uid://dxulphw667pgt" path="res://Scripts/Resources/DirectionalSpriteResource.cs" id="5_50acc"]
 

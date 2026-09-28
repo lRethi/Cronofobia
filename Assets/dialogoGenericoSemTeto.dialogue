@@ -1,21 +1,10 @@
-if GetFlag("aceitou_ajudar_semtetos")
-	=> segDialogo
-
 ~ start
-% Sir Minhoca: Testing.
-% Sir Minhoca: Hallo.
-% Sir Minhoca: Hiiii.
-=> decisaoDialogo
-
-~ decisaoDialogo
-Sir Minhoca: O dia está bem bonito hoje, não é?
-- Qual a raiz de pi? =>< segDialogo
-- Sim.
-Evil Nhoca: Dumbass.
+- Falar que pode tirar da sua conta. [if GetFlag("banco_perfilDeCreditoMelhorado") /]
+	Sir Nhoca: Hm.
+	$> GameState.SetFlag("banco_segundoSkillCheck", true)
+- Falar para fazer uma petição pro governo.
+	Sir Nhoca: Hm.
+	$> GameState.SetFlag("banco_segundoSkillCheck", true)
+- Falar para usar os fundos do banco.
+	Sir Nhoca: ...
 => END
-
-~ segDialogo
-Sir Minhoca: Não sei!
-| ULTRALINK: {°-°} Im here too!
-Evil Nhoca: Testing, testing, hallo!
-=> decisaoDialogo

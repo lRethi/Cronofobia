@@ -1,0 +1,203 @@
+~ start
+
+if GetFlag("semtetos_empresa_autorizacao_favor")
+	=> autorizadoFavor
+
+if GetFlag("semtetos_autorizacao_concedida")
+	=> autorizado
+
+if GetFlag("semtetos_empresa_recusou")
+	=> recusado
+
+Gerente: ... Um abrigo para moradores de rua?
+Gerente: Em uma de nossas propriedades?
+Gerente: ... Por quê eu deveria sequer cogitar aceitar isso?
+
+- Explicar a necessidade do abrigo.
+	$> GameState.SetFlag("semtetos_empresa_argumento_necessidade", true)
+	Gerente: Entendo.
+	Gerente: Mas necessidade não é responsabilidade.
+	Gerente: Se a Sutan cedesse cada propriedade para cada pessoa que precisa dela, não teríamos propriedades por muito tempo.
+	=> segundo_argumento
+
+- Explicar como o espaço vai funcionar.
+	$> GameState.SetFlag("semtetos_empresa_argumento_organizacao", true)
+	Gerente: Hm.
+	Gerente: Pelo menos existe um plano.
+	Gerente: Ainda não respondeu por que deveríamos disponibilizar um patrimônio que está sob nossa administração.
+	=> segundo_argumento
+
+- Não quero negociar. Só quero ficar.
+	$> GameState.SetFlag("semtetos_empresa_recusou", true)
+	Gerente: Então não temos nada para discutir.
+	Gerente: E recomendo que não transforme uma propriedade privada em uma discussão jurídica.
+	=> segundo_argumento
+
+if GameState.GetFlag("empresa_oFuncionarioEnd")
+	- Oferecer a informação sobre o funcionário.
+		=> favor
+
+~ segundo_argumento
+
+Gerente: Você já me apresentou uma parte da proposta.
+Gerente: Falta a outra.
+
+if GetFlag("semtetos_empresa_argumento_necessidade")
+	- Explicar como o espaço será organizado.
+		$> GameState.SetFlag("semtetos_empresa_argumento_organizacao", true)
+		Gerente: Certo.
+		Gerente: Isso torna a proposta menos irresponsável.
+		Gerente: Ainda precisamos discutir as condições.
+		if GameState.GetFlag("empresa_oFuncionarioEnd")
+			=> termo
+		else
+			=> END
+
+if GetFlag("semtetos_empresa_argumento_organizacao")
+	- Explicar por que o abrigo é necessário.
+		$> GameState.SetFlag("semtetos_empresa_argumento_necessidade", true)
+		Gerente: Entendo.
+		Gerente: É uma situação desagradável.
+		Gerente: Mas situações desagradáveis não desaparecem porque colocamos uma propriedade à disposição delas.
+		if GameState.GetFlag("empresa_oFuncionarioEnd")
+			=> termo
+		else
+			=> END
+
+
+~ terceiro_argumento
+
+Gerente: Então você quer que a Sutan ceda o terreno.
+Gerente: Temporariamente.
+Gerente: Sem receber nada em troca.
+
+- Falar que seria uma boa publicidade.
+	Gerente: Hm.
+	Gerente: Finalmente, alguma coisa que eu possa colocar em uma reunião.
+	Gerente: Uma empresa ajudando a população.
+	Gerente: É uma imagem bastante conveniente.
+	$> GameState.SetFlag("semtetos_empresa_argumento_publicidade", true)
+	=> END
+
+- Falar que é responsabilidade da empresa.
+	Gerente: Responsabilidade é uma palavra muito conveniente.
+	Gerente: Geralmente significa que outra pessoa deve pagar por alguma coisa.
+	Gerente: Mas prossiga.
+	$> GameState.SetFlag("semtetos_empresa_argumento_responsabilidade", true)
+	=> END
+
+- Não tenho nada a oferecer.
+	Gerente: Então estamos chegando ao fim.
+	Gerente: Não vejo motivo para a Sutan assumir esse custo.
+	$> GameState.SetFlag("semtetos_empresa_recusou", true)
+	=> END
+
+
+~ termo
+
+Gerente: Muito bem.
+Gerente: Necessidade, organização... e uma justificativa que pelo menos apresenta algum benefício para nós.
+Gerente: Não significa que eu esteja convencido.
+Gerente: Significa que posso autorizar.
+
+Gerente: Vocês poderão utilizar o terreno temporariamente.
+Gerente: Não façam alterações permanentes.
+Gerente: Não removam estruturas.
+Gerente: Não construam nada que não possa ser retirado posteriormente.
+
+Gerente: E entendam uma coisa.
+Gerente: O terreno continua pertencendo à Sutan.
+Gerente: Se precisarmos dele, vocês saem.
+Gerente: Sem discussão.
+
+Gerente: Entendido?
+
+- Aceitar as condições.
+	$> GameState.SetFlag("semtetos_autorizacao_concedida", true)
+	$> GameState.SetFlag("semtetos_empresa_recusou", false)
+	Gerente: Ótimo.
+	Gerente: Vou providenciar o registro da autorização.
+	Gerente: Organizem o abrigo e não transformem isso em um problema para ninguém.
+	Gerente: Principalmente para mim.
+	=> END
+
+- Recusar as condições.
+	$> GameState.SetFlag("semtetos_empresa_recusou", true)
+	$> GameState.SetFlag("semtetos_autorizacao_concedida", false)
+	Gerente: Nesse caso, não há mais nada que eu possa fazer.
+	Gerente: A propriedade permanece sob responsabilidade da Sutan.
+	=> END
+
+
+~ favor
+
+Gerente: ... O funcionário falou com você.
+
+- Dizer que ele contou sobre os contatos da empresa.
+	Gerente: Entendo.
+	Gerente: E ele achou que seria uma boa ideia contar isso para você.
+	Gerente: Interessante.
+	Gerente: Muito interessante.
+
+Gerente: Você tem alguma ideia do que acabou de me dizer?
+- Dizer que ele sabe sobre a Ultralink.
+	Gerente: ...
+	Gerente: Então ele realmente abriu a boca.
+
+	Gerente: Escute com atenção, monsenhor Salvador.
+	Gerente: Você vai esquecer essa conversa.
+	Gerente: Vai esquecer o que aquele funcionário disse.
+	Gerente: E não vai perguntar novamente sobre a Sutan, sobre os nossos contatos ou sobre qualquer outra coisa relacionada a isso.
+
+	Gerente: Em troca...
+	Gerente: O terreno será liberado.
+
+	Gerente: Não haverá condições.
+	Gerente: Não haverá negociação.
+	Gerente: Considere isso um favor pessoal.
+
+	$> GameState.SetFlag("semtetos_autorizacao_concedida", true)
+	$> GameState.SetFlag("semtetos_empresa_autorizacao_favor", true)
+	$> GameState.SetFlag("semtetos_empresa_recusou", false)
+	$> GameState.weirdRouteValue += 1
+
+	Gerente: Mas existe uma condição.
+	Gerente: Esta é a última vez que você entra neste prédio.
+	Gerente: Depois de hoje, não volte aqui.
+	Gerente: Não procure aquele funcionário.
+	Gerente: Não procure a mim.
+
+	Gerente: O abrigo pode ficar com o terreno.
+	Gerente: Você fica longe da Sutan.
+	Gerente: Acho que ambos podemos considerar isso um acordo.
+
+	=> END
+
+
+~ autorizadoFavor
+
+Gerente: O acordo já foi feito.
+Gerente: O terreno está à disposição de vocês.
+Gerente: E espero que você esteja cumprindo a sua parte.
+
+Gerente: Não volte aqui, monsenhor Salvador.
+=> END
+
+
+~ autorizado
+
+Gerente: A autorização já foi registrada.
+Gerente: Agora cabe a vocês cuidar do espaço.
+
+Gerente: E lembre-se.
+Gerente: O terreno ainda é da Sutan.
+=> END
+
+
+~ recusado
+
+Gerente: A empresa não vai conceder a autorização.
+Gerente: Não há mais nada para discutirmos.
+
+Gerente: Tenha um bom dia, monsenhor Salvador.
+=> END

@@ -1,0 +1,112 @@
+~ start
+
+if GetFlag("semTetos_desbloqueou3.1") and not GetFlag("semTetos_bancoAjudou")
+	=> dialogo3_1
+
+if GetFlag("perfil_incompativel")
+	=> perfil_incompativel
+
+if GetFlag("banco_cadastroFeito")
+	=> cadastro_feito
+
+Atendente: Bom dia, você precisa de alguma coisa?
+- Usar os serviços do banco.
+	Atendente: Certinho! Só vou precisar dos seus dados, tá bom?
+	- Passar dados.
+		Atendente: Hm... Temos um problema aqui, senhor.
+		Atendente: Os seus documentos não parecem estar regularizados.
+		Atendente: Podemos resolver isso agora mesmo se você quiser!
+		- Resolver documentação.
+			Atendente: Certo, vamos precisar de 3 coisas, a sua data de nascimento, seu CPF e seu RG.
+			=> documentos_start
+		- Não resolver documentação.
+			Atendente: Você tem certeza disso, senhor?
+			- Sim.
+				Atendente: ... Certo. Tenha um bom dia!
+				| ULTRALINK: {:?} Microexpressão detectada: Ela me olhou de maneira curiosa.
+				$> GameState.SetFlag("perfil_incompativel", true)
+				$> GameState.weirdRouteValue += 1
+			- Não.
+				Atendente: Ok... Vamos resolver seus documentos, então.
+				Atendente: Certo, vamos precisar de 3 coisas, a sua data de nascimento, seu CPF e seu RG.
+				=> documentos_start
+	- Não passar dados.
+		Atendente: Uh... Ok! Próximo!
+		ULTRALINK: {:?} De acordo com a minha avaliação, não tem próximo na fila.
+- Não.
+	Atendente: Uh... Ok! Próximo!
+	ULTRALINK: {:?} De acordo com a minha avaliação, não tem próximo na fila.
+
+=> END
+
+~ perfil_incompativel
+Atendente: Mil perdões senhor, mas não ofereceremos mais atendimento à você.
+Atendente: Por favor, se retire.
+=> END
+
+~ dialogo3_1
+Atendente: Bom dia, você precisa de alguma coisa?
+- Pedir ajuda com o terreno.
+	Atendente: Umm... Isso é um pouco acima do que eu posso ajudar.
+	Atendente: Vou chamar o Gerente, tá bom? Só pega o elevador à direita ali.
+	
+=> END
+
+~ documentos_start
+if GetFlag("banco_dataInformada") and GetFlag("banco_cpfInformado") and GetFlag("banco_rgInformado")
+	=> documentos_parte2
+
+- Falar data de nascimento.
+	if GetFlag("banco_data_informada") 
+		=> info_dada
+	Atendente: Mhmm... Certinho, sua data de nascimento foi confirmada.
+	$> GameState.SetFlag("banco_dataInformada", true)
+	=> documentos_start
+- Falar CPF.
+	Atendente: Um cinco seis... Mhmm... Certinho.
+	$> GameState.SetFlag("banco_cpfInformado", true)
+	=> documentos_start
+- Falar RG.
+	Atendente: Sim, sim, é a mesma coisa do CPF... Cinco sete... Certo.
+	$> GameState.SetFlag("banco_rgInformado", true)
+	=> documentos_start
+=> END
+
+~ documentos_parte2
+Atendente: Não pude deixar de notar isso no seu braço.
+Atendente: Não sei se você sabe, mas isso se chama ULTRALINK, ela coleta alguns dados importantes.
+Atendente: Poderia por favor compartilhar esses dados conosco? 
+- Compartilhar dados.
+	Atendente: Certo... Apenas conecte esse cabo aqui no plug em seu braço!
+	=> documentos_end
+- Não compartilhar dados.
+	Atendente: Você tem certeza? Ofereceremos um perfil de crédito melhor caso você o faça.
+	- Compartilhar.
+		Atendente: Certo... Apenas conecte esse cabo aqui no plug em seu braço!
+		$> GameState.SetFlag("banco_perfilDeCreditoMelhorado", true)
+		=> documentos_end
+	- Não compartilhar.
+		Atendente: ... Você tem certeza mesmo?
+		Atendente: Não poderemos completar seu cadastro caso você não compartilhe.
+		- Compartilhar.
+			Atendente: Certo... Apenas conecte esse cabo aqui no plug em seu braço!
+		- Não compartilhar.
+			Atendente: Bom... Foi um prazer.
+			$> GameState.SetFlag("perfil_incompativel", true)
+			$> GameState.weirdRouteValue += 1
+=> END
+
+~ documentos_end
+Atendente: Mmm... Notei algo de interessante. O seu perfil é extremamente compatível com a gente!
+Atendente: Se você tiver interesse, você pode pegar o elevador à sua direita para conversar com o gerente.
+Atendente: Sempre temos oportunidades de emprego!
+$> GameState.SetFlag("banco_cadastroFeito", true)
+=> END
+
+~ info_dada
+Atendente: Mmm... Você meio que já me disse isso antes.
+=> END
+
+~ cadastro_feito
+Atendente: Precisa de alguma coisa?
+=> END

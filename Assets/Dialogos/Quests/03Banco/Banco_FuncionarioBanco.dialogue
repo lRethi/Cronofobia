@@ -1,0 +1,18 @@
+~ start
+%2 Funcionário: Se você precisar de algo, converse com a Luana.
+%2 Funcionário: Temos atendimento 24 horas! Precisa resolver alguma coisa?
+% Funcionário: ... Eu quero ir pra casa...
+% Funcionário: Ouvi falar que o Banco do Xispa entrou em greve... Por quê a gente não faz isso também?
+% Funcionário: Ahem... Você devia pensar em tomar um banho, as vezes.
+% Funcionário: Aoba.
+% Funcionário: (... eu esqueci de tomar café...)
+% Funcionário: Me ajuda...
+% Funcionário: ME TIRA DAQUI!
+% Funcionário: (... eu odeio meu trabalho...)
+
+%
+Funcionário: Espero que eu não me lasque hoje.
+| ULTRALINK: {:D} Local detectado: Fábrica de se lascar o dia inteiro.
+%
+
+=> END

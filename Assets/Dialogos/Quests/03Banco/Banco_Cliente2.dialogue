@@ -1,0 +1,18 @@
+~ start
+
+if GetFlag("banco_atendido2")
+	=> atendidoDialogo
+
+Cliente: Onde posso fazer depósitos?
+- Guiar ele até a atendente.
+	Cliente: Muito obrigado!
+	$> GameState.SetFlag("banco_cliente2", true)
+	$> GameState.SetFlag("banco_atendido2", true)
+- Não fazemos depósitos aqui.
+	Cliente: Uh... Ok?
+	$> GameState.SetFlag("banco_atendido2", true)
+=> END
+
+~ atendidoDialogo
+Cliente: (... será que tem taxas pra depositar dinheiro aqui...?)
+=> END

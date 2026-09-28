@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://duqhet3jckds8"
+path="res://.godot/imported/Empresa_Gerente.dialogue-581688999745a7624ce1d7187bab34d4.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/06Empresa/Empresa_Gerente.dialogue"
+dest_files=["res://.godot/imported/Empresa_Gerente.dialogue-581688999745a7624ce1d7187bab34d4.tres"]
+
+[params]
+
+defaults=true

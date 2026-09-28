@@ -1,0 +1,21 @@
+~ start
+Flávia: Veio aqui para beber água e se abrigar, assim como nós?
+Flávia: Uma pena, senhor...
+Flávia: Você está alguns anos atrasado.
+Flávia: A fonte foi desligada, e a água parou de ser roteada para cá...
+Flávia: E, não importa o quanto imploremos pro fiscal, ele nunca muda de ideia.
+
+$> GameState.SetFlag("agua_iniciada")
+=> END
+
+~ flaviaSegundoDialogo
+Flávia: Eu me lembro de como a fonte era linda...
+Flávia: Nas noites de natal, brilhante e reluzente...
+Flávia: E com uma água tão doce e refrescante...
+=> END
+
+~ flaviaUltimoDialogo
+Flávia: O fiscal nos disse!
+Flávia: Você conseguiu! Você religou a água! Hahah!
+Flávia: Pode vir aqui todos os dias, nós vamos sempre deixar uma garrafa de água preparada pra você, tá bom?
+=> END

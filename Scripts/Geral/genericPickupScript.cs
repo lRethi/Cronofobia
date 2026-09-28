@@ -8,6 +8,10 @@ public partial class genericPickupScript : Area3D
     [Export] public float preco = 0f;
     [Export] public bool compravel = false;
     [Export] public PackedScene cenaCompra;
+    [Export] public bool canSetFlag = false;
+    [Export] public bool canSetFlagOnSteal = true;
+    [Export] public string flagToSetOnPickup;
+    [Export] public string flagToSetOnSteal;
 
     public enum TipoPickup
     {
@@ -126,6 +130,11 @@ public partial class genericPickupScript : Area3D
         }
 
         GD.Print("[Pickup] Item roubado com sucesso. Removendo pickup.");
+        if(canSetFlagOnSteal && !string.IsNullOrEmpty(flagToSetOnSteal))
+        {
+            GD.Print("[Pickup] Definindo flag: ", flagToSetOnSteal);
+            GameState.Instance.SetFlag(flagToSetOnSteal, true);
+        }
 
         QueueFree();
     }
@@ -175,6 +184,12 @@ public partial class genericPickupScript : Area3D
                     "[Pickup] Quantidade após tentativa: ",
                     InventoryState.Instance.QuantidadeItens
                 );
+
+                if (resultado && canSetFlag && !string.IsNullOrEmpty(flagToSetOnPickup))
+                {
+                    GD.Print("[Pickup] Definindo flag: ", flagToSetOnPickup);
+                    GameState.Instance.SetFlag(flagToSetOnPickup, true);
+                }
 
                 return resultado;
 

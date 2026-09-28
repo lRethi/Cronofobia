@@ -1,0 +1,119 @@
+~ start
+if GameState.GetFlag("ultralink_todasPistasDescobertas")
+	=> ayubQuartoDialogo
+if not GameState.GetFlag("ultralink_ayubPrimeiroDialogoVisto")
+	=> ayubPrimeiroDialogo
+if GameState.GetFlag("ultralink_ayubPrimeiroDialogoVisto")
+	=> ayubSegundoDialogo
+if GameState.GetFlag("ultralink_ayubSegundoDialogoVisto")
+	=> ayubTerceiroDialogo
+
+% Ayub: (... liberdade...)
+% Ayub: (... doce, doce liberdade...)
+% Ayub: (... era isso que você queria dizer...?)
+% Ayub: (... qual é o custo para a liberdade...?)
+% Ayub: (... qual é o custo para fazer ESCOLHAS...?)
+=> END
+
+~ ayubPrimeiroDialogo
+Ayub: Você.
+Ayub: Você é como eu também, não?
+Ayub: Você tem essa coisa.
+Ayub: Essa coisa muito específica.
+Ayub: Uma Ultralink.
+- Perguntar o que isso é.
+	Ayub: A coisa no seu braço.
+	Ayub: A coisa que está conectada em você.
+	Ayub: Não precisa ser um especialista em coisas para perceber.
+- Não falar nada.
+Ayub: Você já falou com o Jaelson?
+- Dizer que sim.
+	=> ayubSegundoDialogo
+- Dizer que não.
+	Ayub: Vá falar com ele.
+	Ayub: Ele sabe algumas coisas.
+	Ayub: Ou sabe que não sabe.
+$> GameState.SetFlag("ultralink_ayubPrimeiroDialogoVisto", true)
+=> END
+
+~ ayubSegundoDialogo
+Ayub: Agora você deve saber o que isso é.
+Ayub: E o que nós precisamos.
+Ayub: A Ultralink foi um projeto militar.
+Ayub: Pelo que eu pude descobrir.
+Ayub: Pessoas aleatórias.
+Ayub: Principalmente pessoas sem endereço.
+Ayub: Pessoas sem muitas coisas.
+Ayub: Foram usadas como ratos de laboratório.
+Ayub: Só que sem a parte de serem ratos.
+Ayub: Mais eficiente assim.
+Ayub: Tudo para alavancar o capitalismo mais à frente.
+Ayub: Só mais à frente.
+Ayub: Sempre mais à frente.
+Ayub: Engraçado como sempre existe um "mais para frente", não é?
+Ayub: Patético, não é?
+- Concordar.
+- Ficar em silêncio.
+Ayub: O governo.
+Ayub: Os militares.
+Ayub: As empresas.
+Ayub: As cabeças.
+Ayub: Muitas cabeças.
+Ayub: Todas ligadas à mesma máquina.
+Ayub: Todas sabem o que isso significa.
+Ayub: Ou sabem que significa alguma coisa.
+Ayub: Às vezes é suficiente.
+Ayub: Documentos foram deixados por aí.
+Ayub: Pequenos fragmentos de informação física.
+Ayub: Papéis.
+Ayub: Você sabe, papel.
+Ayub: Uma tecnologia muito útil para esconder informação.
+Ayub: Eles explicam como essa coisa funciona.
+Ayub: Pelo que eu consegui juntar...
+Ayub: Existem quatro.
+Ayub: Quatro papéis.
+Ayub: Quatro respostas.
+Ayub: Quatro pequenas peças do grande quebra-cabeça corporativo-militar-governamental.
+Ayub: Ache-os.
+Ayub: E você poderá remover a restrição.
+Ayub: Você poderá ser livre.
+Ayub: Eu também.
+Ayub: Liberdade para nós dois.
+Ayub: Uma excelente negociação.
+$> GameState.SetFlag("ultralink_ayubSegundoDialogoVisto", true)
+=> END
+
+~ ayubTerceiroDialogo
+Ayub: Procure nos lugares que você já foi.
+Ayub: E principalmente nos que não foi.
+Ayub: Eles são pequenos.
+Ayub: Os papéis.
+Ayub: Não a informação.
+Ayub: A informação é grande.
+Ayub: Muito grande.
+Ayub: É por isso que eles precisam de papéis pequenos.
+Ayub: Para caber.
+Ayub: Para a maioria das pessoas, eles são lixo.
+Ayub: Para nós...
+Ayub: São quase luminosos.
+Ayub: Pequenas estrelas de informação.
+Ayub: Brilhando nesse mundo monocromático.
+Ayub: Eu confio em você.
+Ayub: Isso é importante.
+Ayub: Confiança é uma coisa muito cara para se perder.
+=> END
+
+~ ayubQuartoDialogo
+Ayub: Você...
+Ayub: Conseguiu.
+Ayub: Você encontrou todos eles.
+Ayub: Todos os quatro.
+Ayub: Heh. Heheh. Heheheheh.
+Ayub: Então é verdade.
+Ayub: Minha liberdade está quase...
+Ayub: Disponível.
+Ayub: Eu terei a minha liberdade também.
+Ayub: Logo.
+Ayub: ...Logo.
+$> GameState.weirdRouteValue += 1
+=> END

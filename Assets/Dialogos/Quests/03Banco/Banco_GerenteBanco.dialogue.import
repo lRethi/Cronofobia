@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://br5m5m5ju8eb8"
+path="res://.godot/imported/Banco_GerenteBanco.dialogue-08c222210df9f1f48f1946c0d3602f14.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/03Banco/Banco_GerenteBanco.dialogue"
+dest_files=["res://.godot/imported/Banco_GerenteBanco.dialogue-08c222210df9f1f48f1946c0d3602f14.tres"]
+
+[params]
+
+defaults=true

@@ -19,6 +19,8 @@ public partial class GameState : Node
     public delegate void FlagChangedEventHandler(string key, bool value);
     public static bool cameraInputEnabled { get; private set; } = true;
 
+    public int weirdRouteValue = 0;
+
     public override void _EnterTree()
     {
         if (Instance != null && Instance != this)
@@ -72,11 +74,15 @@ public partial class GameState : Node
         return Flags.ContainsKey(key) && (bool)Flags[key];
     }
 
-    public async Task SetFlag(string key, bool value = true)
+    public void SetFlag(string key, bool value = true)
     {
+        bool oldValue = GetFlag(key);
+
+        if (oldValue == value)
+            return;
+
         Flags[key] = value;
         EmitSignal(SignalName.FlagChanged, key, value);
-        await Task.CompletedTask;
     }
 
     public void StartQuest(string questId)

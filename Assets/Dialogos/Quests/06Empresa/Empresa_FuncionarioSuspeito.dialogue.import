@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bmwo3frqr6lcr"
+path="res://.godot/imported/Empresa_FuncionarioSuspeito.dialogue-4c97b4b0a824f086c748ab527473f220.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/06Empresa/Empresa_FuncionarioSuspeito.dialogue"
+dest_files=["res://.godot/imported/Empresa_FuncionarioSuspeito.dialogue-4c97b4b0a824f086c748ab527473f220.tres"]
+
+[params]
+
+defaults=true

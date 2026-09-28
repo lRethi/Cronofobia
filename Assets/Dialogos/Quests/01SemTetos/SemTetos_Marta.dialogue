@@ -67,26 +67,27 @@ Marta: Ou, tentar conseguir ajuda da igreja ou do banco, talvez?
 Marta: A igreja sempre tenta ajudar gente como a gente, e o banco não iria recusar publicidade gratuita.
 
 - Vou falar diretamente com a empresa.
-	$> GameState.SetFlag("semtetos_buscar_empresa", true)
+	$> GameState.SetFlag("semTetos_buscarEmpresa", true)
 	Marta: Hah, boa sorte.
 	Marta: Tenta conseguir uma autorização antes que o prazo acabe.
 	=> END
 
 - Vou procurar ajuda da igreja.
-	$> GameState.SetFlag("semtetos_desbloqueou_2_1", true)
-	$> GameState.SetFlag("semtetos_buscar_igreja", true)
+	$> GameState.SetFlag("semTetos_desbloqueou2.1", true)
+	$> GameState.SetFlag("semTetos_buscarIgreja", true)
 	Marta: O padre talvez consiga abrir uma porta que a gente não consegue abrir sozinho.
 	=> END
 
 - Vou procurar ajuda do banco.
-	$> GameState.SetFlag("semtetos_desbloqueou_3_1", true)
-	$> GameState.SetFlag("semtetos_buscar_banco", true)
+	$> GameState.SetFlag("semTetos_desbloqueou3.1", true)
+	$> GameState.SetFlag("semTetos_buscarBanco", true)
 	Marta: Não sei como isso vai funcionar, mas pelo menos é uma possibilidade.
 	=> END
 
 - Não vou me envolver com isso.
-	$> GameState.SetFlag("semtetos_terreno_ignorado", true)
+	$> GameState.SetFlag("semTetos_terrenoIgnorado", true)
 	Marta: Tá... Vamos tentar por conta própria, então. Obrigada pela sua ajuda anterior, de qualquer forma.
+	$> GameState.weirdRouteValue += 1
 	=> END
 
 
@@ -105,6 +106,7 @@ Marta: Não dá para continuar aqui sem autorização.
 - Vou ajudar a retirar as coisas.
 	$> GameState.SetFlag("semtetos_expulsao_concluida", true)
 	Marta: Então vamos fazer isso antes que apareça alguém para mandar mais uma vez.
+	$> GameState.weirdRouteValue += 1
 	=> END
 
 - Vou ajudar a procurar outro lugar.
@@ -134,7 +136,6 @@ Marta: Encontrou algum espaço?
 	$> GameState.SetFlag("semtetos_novo_lugar_encontrado", true)
 	Marta: Então vamos montar o que der para montar.
 	=> END
-
 
 ~ encontrou
 

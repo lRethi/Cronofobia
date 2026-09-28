@@ -1,0 +1,21 @@
+~ start
+
+if GetFlag("banco_atendido4")
+	=> atendidoDialogo
+
+Cliente Suspeito: ... eu te pago 5 pila agora se você me falar as rondas dos guardas.
+- Falar as rondas dos guardas.
+	Cliente Suspeito: ... toma aí tua grana.
+	$> NeedsState.SetDinheiro(NeedsState.varDinheiro + 5)
+	Cliente Suspeito: ... agora some tua cara daqui, piá.
+	$> GameState.SetFlag("banco_atendido4", true)
+	$> GameState.weirdRouteValue += 1
+- Não falar as rondas.
+	Cliente Suspeito: ... então não desperdiça meu tempo.
+	$> GameState.SetFlag("banco_cliente4", true)
+	$> GameState.SetFlag("banco_atendido4", true)
+=> END
+
+~ atendidoDialogo
+Cliente Suspeito: (... quão grossa vai precisar ser a furadeira...?)
+=> END

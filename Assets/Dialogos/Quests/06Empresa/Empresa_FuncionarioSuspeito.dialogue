@@ -1,0 +1,27 @@
+~ start
+Funcionário Suspeito: O que você quer...?!
+- Perguntar o que ele tem.
+	if not GameState.GetFlag("empresa_oFuncionario") and not GameState.GetFlag("empresa_oFuncionarioEnd")
+		=> oFuncionarioStart
+	else
+		Funcionário Suspeito: ... você sabe bem o que é.
+- Ficar quieto.
+=> END
+
+~ oFuncionarioStart
+Funcionário Suspeito: ... que desgrama.
+Funcionário Suspeito: ... você tem essa coisa no braço, também.
+Funcionário Suspeito: Eu vou te falar... Só por causa disso.
+Funcionário Suspeito: Essa empresa... Teve contatos estranhos nos últimos dias.
+Funcionário Suspeito: ... é relacionado à essa coisa no seu braço.
+Funcionário Suspeito: ... esquece.
+- Pedir pra ele explicar melhor.
+	Funcionário Suspeito: Esquece.
+- Ficar em silêncio.
+Funcionário Suspeito: ... você veio aqui pedir ajuda em relação ao abrigo dos moradores de rua, certo?
+Funcionário Suspeito: Eu posso te ajudar com isso.
+Funcionário Suspeito: Eu vou falar com o Gerente.
+Funcionário Suspeito: Só fica calado, nem um piu sobre o que eu deixei escapar.
+Funcionário Suspeito: ... ou eu te mato.
+$> GameState.SetFlag("empresa_oFuncionarioEnd", true)
+=> END
