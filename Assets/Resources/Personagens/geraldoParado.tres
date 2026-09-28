@@ -1,4 +1,4 @@
-[gd_resource type="Resource" format=3 uid="uid://52b8qrxhiu0y"]
+[gd_resource type="Resource" script_class="DirectionalSpriteResource" format=3 uid="uid://52b8qrxhiu0y"]
 
 [ext_resource type="Script" uid="uid://dxulphw667pgt" path="res://Scripts/Resources/DirectionalSpriteResource.cs" id="1_50vfd"]
 [ext_resource type="Script" uid="uid://b0fa1dne8hw5f" path="res://Scripts/Resources/DirectionalSpriteData.cs" id="2_6b5ve"]
