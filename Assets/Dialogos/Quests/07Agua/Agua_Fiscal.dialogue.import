@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://c3rwtuqrlh4gc"
+path="res://.godot/imported/Agua_Fiscal.dialogue-76233b584b22cefa0e1e1d4753d8e651.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/07Agua/Agua_Fiscal.dialogue"
+dest_files=["res://.godot/imported/Agua_Fiscal.dialogue-76233b584b22cefa0e1e1d4753d8e651.tres"]
+
+[params]
+
+defaults=true

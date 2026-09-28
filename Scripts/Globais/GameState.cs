@@ -74,11 +74,15 @@ public partial class GameState : Node
         return Flags.ContainsKey(key) && (bool)Flags[key];
     }
 
-    public async Task SetFlag(string key, bool value = true)
+    public void SetFlag(string key, bool value = true)
     {
+        bool oldValue = GetFlag(key);
+
+        if (oldValue == value)
+            return;
+
         Flags[key] = value;
         EmitSignal(SignalName.FlagChanged, key, value);
-        await Task.CompletedTask;
     }
 
     public void StartQuest(string questId)

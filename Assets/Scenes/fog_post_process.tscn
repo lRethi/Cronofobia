@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://03vyq8qs01b1"]
+
+[ext_resource type="Shader" uid="uid://8i7pmgcwtoae" path="res://Scripts/Shaders/testingFogShader.gdshader" id="1_1ri5n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nspvk"]
+render_priority = 127
+shader = ExtResource("1_1ri5n")
+shader_parameter/fog_color = Color(0.42, 0.44, 0.45, 1)
+shader_parameter/density = 0.022000001045
+shader_parameter/fog_height = 0.5
+shader_parameter/height_falloff = 5.0
+shader_parameter/max_distance = 180.0
+shader_parameter/noise_scale = 0.025
+shader_parameter/noise_strength = 0.25
+shader_parameter/wind_direction = Vector3(0.8, 0, 0.25)
+shader_parameter/wind_speed = 0.015
+shader_parameter/sun_color = Color(1, 0.48, 0.18, 1)
+shader_parameter/sun_direction = Vector3(0, 0.4, -1)
+shader_parameter/sun_scattering = 0.5
+shader_parameter/scattering_anisotropy = 0.35
+
+[sub_resource type="QuadMesh" id="QuadMesh_8ctbi"]
+material = SubResource("ShaderMaterial_nspvk")
+custom_aabb = AABB(-10000, -10000, -10000, 20000, 20000, 20000)
+size = Vector2(2, 2)
+
+[node name="FogPostProcess" type="MeshInstance3D" unique_id=1951028512]
+mesh = SubResource("QuadMesh_8ctbi")

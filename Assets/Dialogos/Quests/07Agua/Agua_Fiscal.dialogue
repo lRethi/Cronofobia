@@ -1,0 +1,36 @@
+
+
+~ start
+if TimeState.minutoDoDia() > 600 and TimeState.minutoDoDia < 1020
+	=> amigo
+
+Fiscal: A-Ahem... Posso t-te ajudar com mais a-alguma coisa?
+=> END
+
+~ fiscalPrimeiroDialogo
+Fiscal: E-Erm? Oi? Posso te a-ajudar com algo?
+- Pedir para liberar a fonte.
+	Fiscal: Sinto muito, meu nobre, m-mas não posso fazer isso.
+	Fiscal: M-Meu chefe me deixou aqui pra fiscalizar o r-registro.
+	Fiscal: A á-aǵua foi roteada para o d-datacenter, e a prefeitura não quer pagar as contas daqui.
+	Fiscal: E-Então, vai ficar fechado até que eles resolvam isso.
+- Falar sobre os moradores de rua.
+	Fiscal: A-Ah? Sim, e-eu vi eles ao redor da fonte.
+	Fiscal: Não vi nada d-demais.
+	- Falar que estão atrapalhando a paz.
+		
+	- Ficar em silêncio.
+=> END
+
+~ 
+
+~ amigo
+Fiscal: A-Amigo.
+Fiscal: Veja o h-horário.
+Fiscal: Trabalho a-até as duas h-horas da tarde.
+Fiscal: Responsável não é e-escravo.
+Fiscal: U-Uma hora dessas sabe onde estou?
+Fiscal: *glub glub glub*
+| ULTRALINK: {:/} Aviso obrigatório: Menores de 18 anos, não bebam.
+Fiscal: E-Eu mereço!
+=> END
