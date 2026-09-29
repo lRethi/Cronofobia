@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://qp24i44cjcsn"
+path="res://.godot/imported/historieta_Crianca.dialogue-9e3026e88d6d39564a31496e38cd6304.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/09Historietas/historieta_Crianca.dialogue"
+dest_files=["res://.godot/imported/historieta_Crianca.dialogue-9e3026e88d6d39564a31496e38cd6304.tres"]
+
+[params]
+
+defaults=true

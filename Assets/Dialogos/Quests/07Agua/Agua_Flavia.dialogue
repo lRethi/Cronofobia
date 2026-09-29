@@ -3,7 +3,6 @@ Flávia: Veio aqui para beber água e se abrigar, assim como nós?
 Flávia: Uma pena, senhor...
 Flávia: Você está alguns anos atrasado.
 Flávia: A fonte foi desligada, e a água parou de ser roteada para cá...
-Flávia: E, não importa o quanto imploremos pro fiscal, ele nunca muda de ideia.
 
 $> GameState.SetFlag("agua_iniciada")
 => END

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://fe8t4myyexof"
+path="res://.godot/imported/historieta_Adulto3.dialogue-a82130d8ca5779461f5ebb863a35b86d.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/09Historietas/historieta_Adulto3.dialogue"
+dest_files=["res://.godot/imported/historieta_Adulto3.dialogue-a82130d8ca5779461f5ebb863a35b86d.tres"]
+
+[params]
+
+defaults=true
