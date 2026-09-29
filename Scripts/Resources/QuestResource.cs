@@ -6,6 +6,12 @@ public abstract partial class QuestResource : Resource
     public string Id { get; set; }
 
     [Export]
+    public string Nome { get; set; }
+
+    [Export]
+    public string Descricao { get; set; }
+
+    [Export]
     public bool Ativa { get; set; }
 
     [Export]
@@ -17,9 +23,15 @@ public abstract partial class QuestResource : Resource
 
     protected abstract void InicializarFlags();
 
+    public virtual string GetDescricao()
+    {
+        return Descricao;
+    }
+
     public virtual void Iniciar()
     {
         Ativa = true;
+        Concluida = false;
         InicializarFlags();
     }
 
