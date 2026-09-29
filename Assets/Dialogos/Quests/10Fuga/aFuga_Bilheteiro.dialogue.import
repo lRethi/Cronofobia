@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dekorcnxke5nd"
+path="res://.godot/imported/aFuga_Bilheteiro.dialogue-62b75350db56f13da20328062289da37.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/10Fuga/aFuga_Bilheteiro.dialogue"
+dest_files=["res://.godot/imported/aFuga_Bilheteiro.dialogue-62b75350db56f13da20328062289da37.tres"]
+
+[params]
+
+defaults=true

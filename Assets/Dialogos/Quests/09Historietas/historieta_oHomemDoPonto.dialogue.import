@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dbx3xyhmr1aoe"
+path="res://.godot/imported/historieta_oHomemDoPonto.dialogue-640bd381fcd1b46d34cd8ba41ed1b14b.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/09Historietas/historieta_oHomemDoPonto.dialogue"
+dest_files=["res://.godot/imported/historieta_oHomemDoPonto.dialogue-640bd381fcd1b46d34cd8ba41ed1b14b.tres"]
+
+[params]
+
+defaults=true

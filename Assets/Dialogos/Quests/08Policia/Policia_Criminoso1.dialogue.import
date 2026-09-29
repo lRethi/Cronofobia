@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bi1x35ivxvpwd"
+path="res://.godot/imported/Policia_Criminoso1.dialogue-1912716650dbbf8aa322ed14e90841a9.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/08Policia/Policia_Criminoso1.dialogue"
+dest_files=["res://.godot/imported/Policia_Criminoso1.dialogue-1912716650dbbf8aa322ed14e90841a9.tres"]
+
+[params]
+
+defaults=true

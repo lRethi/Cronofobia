@@ -57,6 +57,9 @@ public partial class TimeState : Node
 
 	public override void _Process(double delta)
 	{
+		if (GetTree().CurrentScene?.SceneFilePath != "res://Assets/Scenes/ThePlayground.tscn")
+        	return;
+
 		float deltaF = (float)delta * escalaTempo;
 
 		if (deltaF <= 0f)

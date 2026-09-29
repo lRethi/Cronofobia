@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dkm6nk27oj4de"
+path="res://.godot/imported/aFuga_Cobrador.dialogue-f43390ca3107b8364611292bbfcdeef8.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/10Fuga/aFuga_Cobrador.dialogue"
+dest_files=["res://.godot/imported/aFuga_Cobrador.dialogue-f43390ca3107b8364611292bbfcdeef8.tres"]
+
+[params]
+
+defaults=true
