@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpr70lj4y7gnt"
-path.s3tc="res://.godot/imported/RUA.png-e95da556089aaa7e16edebf07eae6e7c.s3tc.ctex"
+uid="uid://cvnp8ouga62bs"
+path.s3tc="res://.godot/imported/Beco.png-154bedad28c152dc78b1cd266be0c269.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Sprites/Cenario/Chao/RUA.png"
-dest_files=["res://.godot/imported/RUA.png-e95da556089aaa7e16edebf07eae6e7c.s3tc.ctex"]
+source_file="res://Assets/Sprites/Cenario/Parede/Beco.png"
+dest_files=["res://.godot/imported/Beco.png-154bedad28c152dc78b1cd266be0c269.s3tc.ctex"]
 
 [params]
 
