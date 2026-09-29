@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DirectionalSpriteAnimation" format=3 uid="uid://cyjjj306ry14f"]
+[gd_resource type="Resource" format=3 uid="uid://cyjjj306ry14f"]
 
 [ext_resource type="Script" uid="uid://b0fa1dne8hw5f" path="res://Scripts/Resources/DirectionalSpriteData.cs" id="2_irw6w"]
 [ext_resource type="Texture2D" uid="uid://2ml26bwf3lt4" path="res://Assets/Sprites/Personagens/Protagonista/Anims/andando costas.png" id="3_5afrc"]
