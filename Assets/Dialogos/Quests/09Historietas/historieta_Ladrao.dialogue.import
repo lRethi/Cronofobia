@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://baj3vechwhj7k"
+path="res://.godot/imported/historieta_Ladrao.dialogue-afcbc7e032071341d6c58a2bfbe761ed.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/09Historietas/historieta_Ladrao.dialogue"
+dest_files=["res://.godot/imported/historieta_Ladrao.dialogue-afcbc7e032071341d6c58a2bfbe761ed.tres"]
+
+[params]
+
+defaults=true

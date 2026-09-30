@@ -1,0 +1,383 @@
+[gd_scene format=3 uid="uid://djtkaiimd6e86"]
+
+[ext_resource type="Script" uid="uid://bn04t637kicw6" path="res://Scripts/Menu/cenaTitulo.cs" id="1_4hr1a"]
+[ext_resource type="Texture2D" uid="uid://vtmfuwwsxwmv" path="res://Assets/Sprites/Cenario/Skybox/skyboxDia.png" id="1_dq4n8"]
+[ext_resource type="Texture2D" uid="uid://q2qrmdtxsde0" path="res://Assets/Sprites/HUD/Menu/cronofobiaTitleBorderShadow.png" id="2_dig7c"]
+[ext_resource type="Texture2D" uid="uid://bo26mvc6y33ir" path="res://Assets/Sprites/Cenario/Skybox/skyboxNoite.png" id="3_drihn"]
+[ext_resource type="FontFile" uid="uid://csxaaxokix70k" path="res://Assets/Fontes/phantomguardians.regular.ttf" id="3_m5f8x"]
+[ext_resource type="Texture2D" uid="uid://bsjl4wr5fjgyl" path="res://Assets/Sprites/HUD/Botoes/botMenu.png" id="4_qwd2s"]
+[ext_resource type="Texture2D" uid="uid://coyjnlrn275bw" path="res://Assets/Sprites/HUD/Botoes/botMenuSel.png" id="5_tlkyv"]
+[ext_resource type="Script" uid="uid://72df7hnb8eem" path="res://Scripts/Menu/irParaJogo.cs" id="6_jhull"]
+[ext_resource type="Script" uid="uid://d7d2uwcxpjb6" path="res://Scripts/Menu/controlarTelaCreditos.cs" id="6_kdh6m"]
+[ext_resource type="FontFile" uid="uid://d0l83dbasooy7" path="res://Assets/Fontes/neuromax.regular.ttf" id="7_qwd2s"]
+[ext_resource type="Script" uid="uid://dr3iiq202pesx" path="res://Scripts/Menu/fecharJogo.cs" id="8_efwgm"]
+[ext_resource type="Texture2D" uid="uid://c8ytvgshfh1nl" path="res://Assets/Sprites/HUD/Botoes/opcaoFechar.png" id="8_tlkyv"]
+[ext_resource type="Texture2D" uid="uid://b0b1vba40vfa0" path="res://Assets/Sprites/HUD/Botoes/opcaoFecharSel.png" id="9_qwd2s"]
+[ext_resource type="Script" uid="uid://dc22gq51n41jr" path="res://Scripts/Menu/LoadingScreen.cs" id="12_ekfrg"]
+[ext_resource type="Texture2D" uid="uid://dudenvctrr8h1" path="res://Assets/Sprites/HUD/Menu/cronofobiaTitleScreen.png" id="12_u00fs"]
+[ext_resource type="Texture2D" uid="uid://bakejslx7adte" path="res://Assets/Sprites/HUD/Menu/menuLoadingScreenAlt.webp" id="13_ekfrg"]
+[ext_resource type="Texture2D" uid="uid://d3ov2h26ah1l1" path="res://Assets/Sprites/HUD/Menu/menuLoadingScreenAlt2.webp" id="14_fcu8q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_irs17"]
+texture = ExtResource("4_qwd2s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dputa"]
+texture = ExtResource("5_tlkyv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p6ubn"]
+texture = ExtResource("5_tlkyv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_786tl"]
+texture = ExtResource("5_tlkyv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sjuhh"]
+texture = ExtResource("5_tlkyv")
+
+[sub_resource type="LabelSettings" id="LabelSettings_jhull"]
+line_spacing = -5.0
+font = ExtResource("7_qwd2s")
+font_size = 28
+font_color = Color(0.67891955, 0.0019514131, 0.86791855, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oo03u"]
+content_margin_top = 3.0
+texture = ExtResource("8_tlkyv")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qwd2s"]
+texture = ExtResource("9_qwd2s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kdh6m"]
+texture = ExtResource("9_qwd2s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tlkyv"]
+texture = ExtResource("9_qwd2s")
+
+[sub_resource type="Animation" id="Animation_qwd2s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BaseScreen/telaCreditos:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BaseScreen/telaCreditos:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.9, 0.9)]
+}
+
+[sub_resource type="Animation" id="Animation_tlkyv"]
+resource_name = "creditosPop_In"
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BaseScreen/telaCreditos:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BaseScreen/telaCreditos:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.9, 0.9), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jhull"]
+resource_name = "creditosPop_out"
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BaseScreen/telaCreditos:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.9, 0.9)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BaseScreen/telaCreditos:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_efwgm"]
+_data = {
+&"RESET": SubResource("Animation_qwd2s"),
+&"creditosPop_In": SubResource("Animation_tlkyv"),
+&"creditosPop_out": SubResource("Animation_jhull")
+}
+
+[node name="titleScreen" type="Control" unique_id=400285233 node_paths=PackedStringArray("background", "backgroundTransicao")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_4hr1a")
+imagensBackground = Array[Texture2D]([ExtResource("1_dq4n8"), ExtResource("3_drihn")])
+background = NodePath("BaseScreen/backgroundDia")
+backgroundTransicao = NodePath("BaseScreen/backgroundNoite")
+
+[node name="BaseScreen" type="Control" parent="." unique_id=748473409]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="backgroundDia" type="TextureRect" parent="BaseScreen" unique_id=933413087]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+expand_mode = 1
+
+[node name="backgroundNoite" type="TextureRect" parent="BaseScreen" unique_id=1283596446]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="BaseScreen" unique_id=1920851880]
+layout_mode = 0
+offset_left = 75.0
+offset_top = -64.0
+offset_right = 1075.0
+offset_bottom = 436.0
+texture = ExtResource("2_dig7c")
+
+[node name="botPlay" type="Button" parent="BaseScreen" unique_id=1375819208 node_paths=PackedStringArray("imagensLoading", "loadingScreen")]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 360.0
+offset_right = 640.0
+offset_bottom = 424.0
+theme_override_colors/font_color = Color(0.109940745, 0.5075363, 0.39813477, 1)
+theme_override_colors/font_focus_color = Color(0.05882353, 0.32941177, 0.25882354, 1)
+theme_override_colors/font_pressed_color = Color(0.05882353, 0.32941177, 0.25882354, 1)
+theme_override_colors/font_hover_color = Color(0.05882353, 0.32941177, 0.25882354, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.05882353, 0.32941177, 0.25882354, 1)
+theme_override_fonts/font = ExtResource("3_m5f8x")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxTexture_irs17")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dputa")
+theme_override_styles/hover = SubResource("StyleBoxTexture_p6ubn")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_786tl")
+theme_override_styles/focus = SubResource("StyleBoxTexture_sjuhh")
+text = "Iniciar"
+script = ExtResource("6_jhull")
+caminhoCena = "res://Assets/Scenes/ThePlayground.tscn"
+imagensLoading = [NodePath("../../LoadingScreen/TextureRect"), NodePath("../../LoadingScreen/TextureRect2"), NodePath("../../LoadingScreen/TextureRect3")]
+loadingScreen = NodePath("../../LoadingScreen")
+
+[node name="botCreditos" type="Button" parent="BaseScreen" unique_id=2055555101 node_paths=PackedStringArray("telaCreditos")]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 440.0
+offset_right = 640.0
+offset_bottom = 504.0
+theme_override_colors/font_color = Color(0.109940745, 0.5075363, 0.39813477, 1)
+theme_override_colors/font_focus_color = Color(0.05882353, 0.32941177, 0.25882354, 1)
+theme_override_colors/font_pressed_color = Color(0.05882353, 0.32941177, 0.25882354, 1)
+theme_override_colors/font_hover_color = Color(0.05882353, 0.32941177, 0.25882354, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.05882353, 0.32941177, 0.25882354, 1)
+theme_override_fonts/font = ExtResource("3_m5f8x")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxTexture_irs17")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dputa")
+theme_override_styles/hover = SubResource("StyleBoxTexture_p6ubn")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_786tl")
+theme_override_styles/focus = SubResource("StyleBoxTexture_sjuhh")
+text = "Créditos"
+script = ExtResource("6_kdh6m")
+telaCreditos = NodePath("../telaCreditos")
+
+[node name="botSair" type="Button" parent="BaseScreen" unique_id=1386019073]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 520.0
+offset_right = 640.0
+offset_bottom = 584.0
+theme_override_colors/font_color = Color(0.109940745, 0.5075363, 0.39813477, 1)
+theme_override_colors/font_focus_color = Color(0.05882353, 0.32941177, 0.25882354, 1)
+theme_override_colors/font_pressed_color = Color(0.05882353, 0.32941177, 0.25882354, 1)
+theme_override_colors/font_hover_color = Color(0.05882353, 0.32941177, 0.25882354, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.05882353, 0.32941177, 0.25882354, 1)
+theme_override_fonts/font = ExtResource("3_m5f8x")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxTexture_irs17")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dputa")
+theme_override_styles/hover = SubResource("StyleBoxTexture_p6ubn")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_786tl")
+theme_override_styles/focus = SubResource("StyleBoxTexture_sjuhh")
+text = "Sair"
+script = ExtResource("8_efwgm")
+
+[node name="telaCreditos" type="TextureRect" parent="BaseScreen" unique_id=1705240956]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 440.0
+offset_top = 304.0
+offset_right = 724.0
+offset_bottom = 588.0
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("4_qwd2s")
+expand_mode = 1
+
+[node name="labelTitle" type="Label" parent="BaseScreen/telaCreditos" unique_id=730614619]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 17.0
+offset_right = 250.0
+offset_bottom = 82.0
+text = "≛ EQUIPE ≛
+RESISTORM"
+label_settings = SubResource("LabelSettings_jhull")
+horizontal_alignment = 1
+
+[node name="labelIkaro" type="RichTextLabel" parent="BaseScreen/telaCreditos" unique_id=1532620395]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 85.0
+offset_right = 268.0
+offset_bottom = 123.0
+theme_override_colors/default_color = Color(0, 0.22500613, 0.2715926, 1)
+theme_override_fonts/normal_font = ExtResource("7_qwd2s")
+theme_override_fonts/bold_font = ExtResource("3_m5f8x")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "[color=#000000][b]Ikaro[/b][/color] — Líder do projeto, coordenador da equipe e responsável pelo diário de bordo."
+autowrap_mode = 2
+
+[node name="labelJoão" type="RichTextLabel" parent="BaseScreen/telaCreditos" unique_id=196818300]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 190.0
+offset_right = 268.0
+offset_bottom = 212.0
+theme_override_colors/default_color = Color(0, 0.22500613, 0.2715926, 1)
+theme_override_fonts/normal_font = ExtResource("7_qwd2s")
+theme_override_fonts/bold_font = ExtResource("7_qwd2s")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "[color=#000000][b]João[/b][/color] — Artista, desenhista e diretor de arte."
+autowrap_mode = 2
+
+[node name="labelLivia" type="RichTextLabel" parent="BaseScreen/telaCreditos" unique_id=353173863]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 130.0
+offset_right = 268.0
+offset_bottom = 185.0
+theme_override_colors/default_color = Color(0, 0.22500613, 0.2715926, 1)
+theme_override_fonts/normal_font = ExtResource("7_qwd2s")
+theme_override_fonts/bold_font = ExtResource("7_qwd2s")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "[color=#000000][b]Livia[/b][/color] — Programadora, diretora criativa e roteirista, responsável pela escrita de diálogos e quests."
+autowrap_mode = 2
+
+[node name="labelFred" type="RichTextLabel" parent="BaseScreen/telaCreditos" unique_id=668875290]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 215.0
+offset_right = 268.0
+offset_bottom = 254.0
+theme_override_colors/default_color = Color(0, 0.22500613, 0.2715926, 1)
+theme_override_fonts/normal_font = ExtResource("7_qwd2s")
+theme_override_fonts/bold_font = ExtResource("7_qwd2s")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "[color=#000000][b]Fred[/b][/color] — Designer de mapas, revisor de sprites e diretor de arte."
+autowrap_mode = 2
+
+[node name="botFecha" type="Button" parent="BaseScreen/telaCreditos" unique_id=1410512604 node_paths=PackedStringArray("telaCreditos")]
+layout_mode = 0
+offset_left = 260.0
+offset_top = -4.0
+offset_right = 292.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(0.36226544, 0, 0.061251357, 1)
+theme_override_fonts/font = ExtResource("3_m5f8x")
+theme_override_styles/normal = SubResource("StyleBoxTexture_oo03u")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qwd2s")
+theme_override_styles/hover = SubResource("StyleBoxTexture_kdh6m")
+theme_override_styles/focus = SubResource("StyleBoxTexture_tlkyv")
+text = "✕"
+script = ExtResource("6_kdh6m")
+telaCreditos = NodePath("..")
+
+[node name="LoadingScreen" type="Control" parent="." unique_id=1442067947]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("12_ekfrg")
+
+[node name="TextureRect" type="TextureRect" parent="LoadingScreen" unique_id=1151661654]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("12_u00fs")
+
+[node name="TextureRect2" type="TextureRect" parent="LoadingScreen" unique_id=1839785943]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("13_ekfrg")
+
+[node name="TextureRect3" type="TextureRect" parent="LoadingScreen" unique_id=1289317073]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("14_fcu8q")
+
+[node name="Label" type="RichTextLabel" parent="LoadingScreen" unique_id=1977353837]
+layout_mode = 0
+offset_left = 826.0
+offset_top = 586.0
+offset_right = 1145.0
+offset_bottom = 643.0
+theme_override_fonts/normal_font = ExtResource("7_qwd2s")
+theme_override_font_sizes/normal_font_size = 48
+text = "Carregando Jogo"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=128486365]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_efwgm")

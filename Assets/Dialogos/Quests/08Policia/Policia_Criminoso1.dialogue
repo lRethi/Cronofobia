@@ -1,0 +1,38 @@
+~ start
+if GameState.GetFlag("policial_propostaRecebida") and not GameState.GetFlag("policial_criminosoRoubou") and not GameState.GetFlag("policial_ajudouCriminosos")
+	=> criminosoPrimeiroDialogo
+
+Homem Suspeito: ...
+=> END
+
+~ criminosoPrimeiroDialogo
+- Perguntar se ele tem ele-sabe-o-quê.
+	Homem Suspeito: ... que droga de pergunta é essa?
+	Homem Suspeito: Tu é um tira, é isso?
+	- Dizer que não.
+		Homem Suspeito: ... tá, não tô com saco pra isso.
+		Homem Suspeito: Vai querer um pacote, ou não?
+		Homem Suspeito: É quinze reais.
+		- Pagar. [if NeedsState.varDinheiro > 15 /]
+			$> NeedsState.SetDinheiro(varDinheiro - 15)
+			Homem Suspeito: Pfff... Isso foi grana fácil.
+			| ULTRALINK: {- OvO -} Você aparenta ter sido roubado.
+			Homem Suspeito: Agora some daqui, velhoca.
+			$> GameState.SetFlag("policial_criminosoRoubou", true)
+		- Não pagar.
+			Homem Suspeito: Então some daqui.
+	- Dizer que sim.
+		Homem Suspeito: ... acho que você só não bate bem mesmo.
+		Homem Suspeito: Some daqui.
+- Avisar sobre o policial.
+	Homem Suspeito: ... o quê?
+	Homem Suspeito: Tem um tira de olho na gente?
+	Homem Suspeito: ...
+	Homem Suspeito: Valeu.
+	Homem Suspeito: Aqui, 5 pila, para adocicar seus lábios.
+	$> NeedsState.SetDinheiro(varDinheiro + 5)
+	Homem Suspeito: Vamos resolver isso.
+	$> GameState.weirdRouteValue += 1
+	$> GameState.SetFlag("policial_ajudouCriminosos")
+- Ir embora.
+=> END

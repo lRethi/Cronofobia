@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://87tb0oj5qj45"
+path="res://.godot/imported/casoSucesso_Entrevistador.dialogue-cd24c8c877047e173cd5fddd48181af1.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/11CasoSucesso/casoSucesso_Entrevistador.dialogue"
+dest_files=["res://.godot/imported/casoSucesso_Entrevistador.dialogue-cd24c8c877047e173cd5fddd48181af1.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dj4kx6yofl4b4"
+path="res://.godot/imported/Policia_Policial.dialogue-51c4c8d6fe765ee5831e4d3112357d43.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/08Policia/Policia_Policial.dialogue"
+dest_files=["res://.godot/imported/Policia_Policial.dialogue-51c4c8d6fe765ee5831e4d3112357d43.tres"]
+
+[params]
+
+defaults=true
