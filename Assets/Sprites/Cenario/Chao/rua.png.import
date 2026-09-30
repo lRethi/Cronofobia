@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpr70lj4y7gnt"
-path.s3tc="res://.godot/imported/RUA.png-e95da556089aaa7e16edebf07eae6e7c.s3tc.ctex"
+path.s3tc="res://.godot/imported/rua.png-367e68191155656f33e835e1871a363b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Sprites/Cenario/Chao/RUA.png"
-dest_files=["res://.godot/imported/RUA.png-e95da556089aaa7e16edebf07eae6e7c.s3tc.ctex"]
+source_file="res://Assets/Sprites/Cenario/Chao/rua.png"
+dest_files=["res://.godot/imported/rua.png-367e68191155656f33e835e1871a363b.s3tc.ctex"]
 
 [params]
 

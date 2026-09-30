@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmvi1ljowug2h"
-path="res://.godot/imported/Garagem porta.png-bb7622cf6c67d6e45e2b130dda27f8bb.ctex"
+uid="uid://c1tlg51dipyjk"
+path="res://.godot/imported/untitled-pixel-art@10x.png-d04a424de33874b40316506c329c9657.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Cenario/Parede/Garagem porta.png"
-dest_files=["res://.godot/imported/Garagem porta.png-bb7622cf6c67d6e45e2b130dda27f8bb.ctex"]
+source_file="res://Assets/Sprites/Cenario/Props/untitled-pixel-art@10x.png"
+dest_files=["res://.godot/imported/untitled-pixel-art@10x.png-d04a424de33874b40316506c329c9657.ctex"]
 
 [params]
 
