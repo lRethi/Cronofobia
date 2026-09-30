@@ -1,14 +1,18 @@
 using Godot;
+
 using System.Collections.Generic;
 
 public partial class QuestState : Node
 {
     public static QuestState Instance { get; private set; }
 
-    public List<QuestResource> Quests { get; private set; } = new();
+    public Dictionary<string, QuestResource> Quests { get; private set; } = new();
 
     [Signal]
     public delegate void QuestCompletedEventHandler(QuestResource quest);
+
+    [Signal]
+    public delegate void QuestsChangedEventHandler();
 
     public override void _EnterTree()
     {
@@ -42,9 +46,7 @@ public partial class QuestState : Node
         if (string.IsNullOrEmpty(questId))
             return;
 
-        QuestResource questExistente = GetQuest(questId);
-
-        if (questExistente != null)
+        if (Quests.ContainsKey(questId))
             return;
 
         string caminho = $"res://Assets/Quests/{questId}.tres";
@@ -64,8 +66,12 @@ public partial class QuestState : Node
         }
 
         quest.Iniciar();
-        Quests.Add(quest);
+
+        Quests.Add(questId, quest);
+
         quest.Atualizar(GameState.Instance);
+
+        EmitSignal(SignalName.QuestsChanged);
     }
 
     public void RemoveQuest(QuestResource quest)
@@ -73,31 +79,46 @@ public partial class QuestState : Node
         if (quest == null)
             return;
 
-        Quests.Remove(quest);
+        if (Quests.Remove(quest.Id))
+            EmitSignal(SignalName.QuestsChanged);
     }
 
     public QuestResource GetQuest(string id)
     {
-        foreach (QuestResource quest in Quests)
-        {
-            if (quest.Id == id)
-                return quest;
-        }
+        if (string.IsNullOrEmpty(id))
+            return null;
 
-        return null;
+        return Quests.TryGetValue(id, out QuestResource quest)
+            ? quest
+            : null;
+    }
+
+    public IEnumerable<QuestResource> GetQuestsAtivas()
+    {
+        foreach (QuestResource quest in Quests.Values)
+        {
+            if (quest.Ativa && !quest.Concluida)
+                yield return quest;
+        }
     }
 
     private void UpdateQuest()
     {
-        foreach (QuestResource quest in Quests)
+        foreach (QuestResource quest in Quests.Values)
         {
             if (quest.Concluida)
                 continue;
 
+            bool estavaAtiva = quest.Ativa;
+            bool estavaConcluida = quest.Concluida;
+
             quest.Atualizar(GameState.Instance);
 
-            if (quest.Concluida)
+            if (!estavaConcluida && quest.Concluida)
                 EmitSignal(SignalName.QuestCompleted, quest);
+
+            if (estavaAtiva != quest.Ativa || estavaConcluida != quest.Concluida)
+                EmitSignal(SignalName.QuestsChanged);
         }
     }
 }

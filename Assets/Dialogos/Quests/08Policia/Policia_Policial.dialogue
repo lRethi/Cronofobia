@@ -1,11 +1,41 @@
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+if GameState.GetFlag("policial_criminosoRoubou")
+	=> policialSegundoDialogo
+
+if not GameState.GetFlag("policial_QuestFinalizada")
+	=> policialPrimeiroDialogo
+
+Policial: Por favor, não me atrapalhe.
+=> END
+
+~ policialPrimeiroDialogo
+Policial: Por favor, não me atrapalhe.
+Policial: Estou no meio de uma operação.
+- Perguntar qual operação.
+	Policial: Eu acabei de falar para não me atrapalhar.
+	Policial: ...
+	Policial: Que saco.
+	Policial: ...
+	Policial: Vai continuar aqui?
+	- Continuar ali.
+		Policial: ...
+		Policial: Que tal você fazer algo útil do seu tempo, e perguntar para aqueles dois se eles têm você-sabe-o-quê.
+		Policial: Volte aqui e me diga o que você descobriu.
+		$> GameState.SetFlag("policial_propostaRecebida", true)
+	- Ir embora.
+- Ficar em silêncio.
+=> END
+
+~ policialSegundoDialogo
+Policial: Hm? Você perguntou se eles tinham, e eles te roubaram?
+Policial: ...
+Policial: Típico.
+Policial: ...
+Policial: Aqui, pelos seus problemas.
+$> NeedsState.SetDinheiro(varDinheiro + 10)
+Policial: ...
+Policial: Eu tenho um motivo para prender eles agora, obrigado.
+Policial: ...
+Policial: Agora, pare de me fazer perder tempo.
+$> GameState.SetFlag("policial_QuestFinalizada", true)
 => END
