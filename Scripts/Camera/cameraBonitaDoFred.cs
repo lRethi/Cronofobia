@@ -1,5 +1,6 @@
 using Godot;
 using PhantomCamera;
+using DialogueManagerRuntime;
 
 public partial class cameraBonitaDoFred : Node3D
 {
@@ -14,6 +15,9 @@ public partial class cameraBonitaDoFred : Node3D
 
     [Export]
     private float mouseSensitivity = 0.15f;
+
+    [Export]
+    private float dialogueMaxPitch = 30f;
 
     private readonly float basePitch = 0f;
 
@@ -56,7 +60,9 @@ public partial class cameraBonitaDoFred : Node3D
         _pcam = GetNode<Node3D>("%PhantomCamera3D").AsPhantomCamera3D();
 
         if (player == null)
+        {
             player = GetNode<Node3D>("%charGeraldoSalvador");
+        }
 
         currentRotation = _pcam.GetThirdPersonRotationDegrees();
         currentOffset = _pcam.FollowOffset;
@@ -71,7 +77,9 @@ public partial class cameraBonitaDoFred : Node3D
     public override void _Input(InputEvent @event)
     {
         if (!GameState.cameraInputEnabled || dialogueMode)
+        {
             return;
+        }
 
         if (@event is InputEventMouseMotion mouseMotion)
         {
@@ -80,8 +88,16 @@ public partial class cameraBonitaDoFred : Node3D
         }
     }
 
-    public void StartDialogueCamera(Vector3 npcPosition, float duration)
+    public void StartDialogueCamera(
+        DialogueMarker3D npc,
+        float duration
+    )
     {
+        if (!IsInstanceValid(npc))
+        {
+            return;
+        }
+
         if (!dialogueMode)
         {
             savedRotation = currentRotation;
@@ -93,6 +109,8 @@ public partial class cameraBonitaDoFred : Node3D
         }
 
         cameraTween?.Kill();
+
+        Vector3 npcPosition = npc.GlobalPosition;
 
         Vector3 relativePosition =
             player.GlobalTransform.Basis.Inverse() *
@@ -109,8 +127,35 @@ public partial class cameraBonitaDoFred : Node3D
             depth
         );
 
+        Vector3 verticalDifference =
+            npcPosition - player.GlobalPosition;
+
+        float horizontalDistance =
+            new Vector2(
+                verticalDifference.X,
+                verticalDifference.Z
+            ).Length();
+
+        float pitch = 0f;
+
+        if (horizontalDistance > 0.001f)
+        {
+            pitch = -Mathf.RadToDeg(
+                Mathf.Atan2(
+                    verticalDifference.Y,
+                    horizontalDistance
+                )
+            );
+        }
+
+        pitch = Mathf.Clamp(
+            pitch,
+            -dialogueMaxPitch,
+            dialogueMaxPitch
+        );
+
         dialogueRotation = new Vector3(
-            2.5f,
+            pitch,
             currentRotation.Y - (5f * side),
             0f
         );
@@ -192,7 +237,9 @@ public partial class cameraBonitaDoFred : Node3D
         {
             currentRotation = savedRotation;
             currentOffset = savedOffset;
+
             yawRotation = savedRotation.Y;
+
             dialogueMode = false;
 
             GameState.Instance.SetCameraInputEnabled(true);
