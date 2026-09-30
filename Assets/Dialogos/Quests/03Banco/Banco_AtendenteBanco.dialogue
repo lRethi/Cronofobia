@@ -32,10 +32,10 @@ Atendente: Bom dia, você precisa de alguma coisa?
 				=> documentos_start
 	- Não passar dados.
 		Atendente: Uh... Ok! Próximo!
-		ULTRALINK: {:?} De acordo com a minha avaliação, não tem próximo na fila.
+		| ULTRALINK: {:?} De acordo com a minha avaliação, não tem próximo na fila.
 - Não.
 	Atendente: Uh... Ok! Próximo!
-	ULTRALINK: {:?} De acordo com a minha avaliação, não tem próximo na fila.
+	| ULTRALINK: {:?} De acordo com a minha avaliação, não tem próximo na fila.
 
 => END
 

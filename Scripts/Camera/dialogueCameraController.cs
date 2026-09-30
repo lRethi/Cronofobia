@@ -4,6 +4,7 @@ using DialogueManagerRuntime;
 public partial class dialogueCameraController : Node
 {
     [Export] public cameraBonitaDoFred GameplayCamera;
+
     private DialogueMarker3D currentNPC;
 
     public void StartDialogue(DialogueMarker3D npc)
@@ -26,7 +27,7 @@ public partial class dialogueCameraController : Node
         currentNPC = npc;
 
         GameplayCamera.StartDialogueCamera(
-            npc.GlobalPosition,
+            npc,
             0.5f
         );
     }
@@ -39,7 +40,6 @@ public partial class dialogueCameraController : Node
         }
 
         GameplayCamera.EndDialogueCamera(0.5f);
-
         currentNPC = null;
     }
 }

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="QuestBancoPrimeiroDia" format=3 uid="uid://blqeemrwdjmvw"]
+
+[ext_resource type="Script" uid="uid://3igfx84ykv7" path="res://Assets/Quests/Scripts/Banco/QuestBancoPrimeiroDia.cs" id="1_383fw"]
+
+[resource]
+script = ExtResource("1_383fw")
+metadata/_custom_type_script = "uid://3igfx84ykv7"
