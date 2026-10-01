@@ -1,3 +1,25 @@
 [gd_scene format=3 uid="uid://bm2l0cjr6sigw"]
 
+[ext_resource type="Script" uid="uid://4kv8f8ejgwqn" path="res://addons/TileMapLayer3D/nodes/tilemap_layer_3d.gd" id="1_f7omw"]
+[ext_resource type="Script" uid="uid://dk0ib5b4w24ll" path="res://addons/TileMapLayer3D/core/animated_tiles/animated_tile_data.gd" id="2_xwdyi"]
+[ext_resource type="Script" uid="uid://bli432i5uj51v" path="res://addons/TileMapLayer3D/core/tile_creation_placement/tilemap_layer_settings.gd" id="3_ian0u"]
+[ext_resource type="Texture2D" uid="uid://1bvhchhyq5w" path="res://Assets/Sprites/Cenario/Parede/predio desconhecido.png" id="4_rfjcr"]
+
+[sub_resource type="Resource" id="Resource_f45fq"]
+script = ExtResource("3_ian0u")
+tileset_texture = ExtResource("4_rfjcr")
+tile_size = Vector2i(320, 320)
+
 [node name="Empresa" type="Node3D" unique_id=306004646]
+
+[node name="Doofenshmirtz" type="Node3D" parent="." unique_id=132752327]
+script = ExtResource("1_f7omw")
+settings = SubResource("Resource_f45fq")
+_tile_positions = PackedVector3Array()
+_tile_uv_rects = PackedFloat32Array()
+_tile_flags = PackedInt32Array()
+_tile_transform_indices = PackedInt32Array()
+_tile_transform_data = PackedFloat32Array()
+_tile_anim_indices = PackedInt32Array()
+_tile_anim_data = PackedFloat32Array()
+metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
