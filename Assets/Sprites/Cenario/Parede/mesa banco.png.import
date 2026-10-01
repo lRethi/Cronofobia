@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doig7fb75stgj"
-path.s3tc="res://.godot/imported/tador.png-5e9d5e4db44f84a9568c389ebd8f5310.s3tc.ctex"
+uid="uid://c1c8ep251ki7u"
+path.s3tc="res://.godot/imported/mesa banco.png-59088ade6da99f22ad98994668eb6df5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Sprites/Objetos/tador.png"
-dest_files=["res://.godot/imported/tador.png-5e9d5e4db44f84a9568c389ebd8f5310.s3tc.ctex"]
+source_file="res://Assets/Sprites/Cenario/Parede/mesa banco.png"
+dest_files=["res://.godot/imported/mesa banco.png-59088ade6da99f22ad98994668eb6df5.s3tc.ctex"]
 
 [params]
 
