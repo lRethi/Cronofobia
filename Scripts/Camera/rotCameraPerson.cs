@@ -5,6 +5,8 @@ public partial class rotCameraPerson : Sprite3D
     ShaderMaterial mat;
     Camera3D camera;
 
+    [Export] public bool rotateToPerson = true;
+
     [Export] CharacterBody3D personagem;
 
     public override void _Ready()
@@ -48,6 +50,8 @@ public partial class rotCameraPerson : Sprite3D
 
     public void OlharParaAlvo(Vector3 alvoDir)
     {
+        if(!rotateToPerson) return;
+        
         alvoDir.Y = 0;
         alvoDir = -alvoDir;
 

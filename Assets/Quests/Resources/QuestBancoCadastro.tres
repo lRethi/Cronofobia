@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="QuestBancoCadastro" format=3 uid="uid://m1sfdnv1o8h0"]
+
+[ext_resource type="Script" uid="uid://wkyfuhd42mh1" path="res://Assets/Quests/Scripts/Banco/QuestBancoCadastro.cs" id="1_uop5i"]
+
+[resource]
+script = ExtResource("1_uop5i")
+metadata/_custom_type_script = "uid://wkyfuhd42mh1"

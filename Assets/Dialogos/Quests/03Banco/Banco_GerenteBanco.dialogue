@@ -77,9 +77,9 @@ Gerente: Notamos que o seu perfil combina bastante conosco, monsenhor Salvador.
 Gerente: Caso você tenha interesse, temos uma oportunidade de emprego.
 Gerente: Atendente auxiliar.
 - Interessado.
-	Gerente: Ótimo. Sua experiência inicia amanhã.
+	Gerente: Ótimo. Sua experiência inicia hoje.
 	Gerente: Seu trabalho é atender os clientes, e guiar eles para o lugar correto.
-	Gerente: Compareça aqui, e dependendo de seus resultados...
+	Gerente: Desça lá embaixo, e dependendo de seus resultados...
 	Gerente: Você será contratado efetivamente, ou não.
 	$> GameState.SetFlag("banco_oportunidadeAceita", true)
 - Não interessado.

@@ -36,6 +36,8 @@ public partial class DialogueBalloon : CanvasLayer
 
     private bool isWaitingForInput;
 
+    private bool applyingDialogueLine;
+
     public override void _Ready()
     {
         npcDialogueLayer = GetNode<Control>("%NPCDialogueLayer");
@@ -206,52 +208,61 @@ public partial class DialogueBalloon : CanvasLayer
 
     private async void ApplyDialogueLine()
     {
-        if (dialogueLine == null)
+        if (applyingDialogueLine)
         {
-            EndDialogue();
             return;
         }
 
-        currentDialogueMarker = null;
+        applyingDialogueLine = true;
 
-        if (!string.IsNullOrEmpty(dialogueLine.Character))
+        try
         {
-            currentDialogueMarker =
-                DialogueMarker3D.FindForCharacter(
-                    dialogueLine.Character
+            if (dialogueLine == null)
+            {
+                EndDialogue();
+                return;
+            }
+
+            currentDialogueMarker = null;
+
+            if (!string.IsNullOrEmpty(dialogueLine.Character))
+            {
+                currentDialogueMarker =
+                    DialogueMarker3D.FindForCharacter(
+                        dialogueLine.Character
+                    );
+            }
+
+            if (IsInstanceValid(currentDialogueMarker))
+            {
+                DialogueCameraController.StartDialogue(
+                    currentDialogueMarker
                 );
-        }
+            }
 
-        if (IsInstanceValid(currentDialogueMarker))
-        {
-            DialogueCameraController.StartDialogue(currentDialogueMarker);
-        }
+            isWaitingForInput = false;
 
-        isWaitingForInput = false;
+            npcDialogueLayer.Hide();
+            ultralinkDialogueLayer.Hide();
+            playerResponsesLayer.Hide();
 
-        npcDialogueLayer.Hide();
-        ultralinkDialogueLayer.Hide();
-        playerResponsesLayer.Hide();
+            dialogueLabel.Hide();
+            ultralinkLabel.Hide();
+            responsesMenu.Hide();
 
-        dialogueLabel.Hide();
-        ultralinkLabel.Hide();
-        responsesMenu.Hide();
+            if (!string.IsNullOrEmpty(dialogueLine.Character))
+            {
+                characterName.Text =
+                    Tr(dialogueLine.Character, "dialogue");
 
-        if (!string.IsNullOrEmpty(dialogueLine.Character))
-        {
-            characterName.Text =
-                Tr(dialogueLine.Character, "dialogue");
+                dialogueLabel.DialogueLine = dialogueLine;
 
-            dialogueLabel.DialogueLine = dialogueLine;
+                npcDialogueLayer.Show();
+                dialogueLabel.Show();
 
-            npcDialogueLayer.Show();
-            dialogueLabel.Show();
+                animationPlayer.Play("NPC_In");
+            }
 
-            animationPlayer.Play("NPC_In");
-        }
-
-        if (dialogueLine.ConcurrentLines.Count > 0)
-        {
             foreach (DialogueLine concurrentLine in dialogueLine.ConcurrentLines)
             {
                 if (concurrentLine.Character != "ULTRALINK")
@@ -267,49 +278,55 @@ public partial class DialogueBalloon : CanvasLayer
                 ultralinkLabel.Show();
 
                 animationPlayer.Play("ULTRALINK_In");
+
+                break;
             }
+
+            responsesMenu.Responses = dialogueLine.Responses;
+
+            if (dialogueLine.Responses.Count > 0)
+            {
+                playerResponsesLayer.Show();
+            }
+
+            if (!string.IsNullOrEmpty(dialogueLine.Text))
+            {
+                dialogueLabel.TypeOut();
+
+                await ToSignal(
+                    dialogueLabel,
+                    DialogueLabel.SignalName.FinishedTyping
+                );
+            }
+
+            if (
+                ultralinkDialogueLayer.Visible &&
+                !string.IsNullOrEmpty(
+                    ultralinkLabel.DialogueLine.Text
+                )
+            )
+            {
+                ultralinkLabel.TypeOut();
+
+                await ToSignal(
+                    ultralinkLabel,
+                    DialogueLabel.SignalName.FinishedTyping
+                );
+            }
+
+            if (dialogueLine.Responses.Count > 0)
+            {
+                responsesMenu.Show();
+                isWaitingForInput = false;
+                return;
+            }
+
+            isWaitingForInput = true;
         }
-
-        responsesMenu.Responses = dialogueLine.Responses;
-
-        if (dialogueLine.Responses.Count > 0)
+        finally
         {
-            playerResponsesLayer.Show();
+            applyingDialogueLine = false;
         }
-
-        if (!string.IsNullOrEmpty(dialogueLine.Text))
-        {
-            dialogueLabel.TypeOut();
-
-            await ToSignal(
-                dialogueLabel,
-                DialogueLabel.SignalName.FinishedTyping
-            );
-        }
-
-        if (
-            ultralinkDialogueLayer.Visible &&
-            !string.IsNullOrEmpty(ultralinkLabel.DialogueLine.Text)
-        )
-        {
-            ultralinkLabel.TypeOut();
-
-            await ToSignal(
-                ultralinkLabel,
-                DialogueLabel.SignalName.FinishedTyping
-            );
-        }
-
-        if (dialogueLine.Responses.Count > 0)
-        {
-            responsesMenu.Show();
-
-            isWaitingForInput = false;
-
-            return;
-        }
-
-        isWaitingForInput = true;
     }
 
     private async void EndDialogue()
