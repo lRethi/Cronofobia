@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btaeb3ye8tbmf"
-path="res://.godot/imported/chao novo.webp-458b9714b0a13eaec9b22c8a4de73a07.ctex"
+uid="uid://d3upu4ddesyvc"
+path="res://.godot/imported/JhonL.png-92efda77aa0fd9357c6eec59e8bfe5cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Cenario/Chao/chao novo.webp"
-dest_files=["res://.godot/imported/chao novo.webp-458b9714b0a13eaec9b22c8a4de73a07.ctex"]
+source_file="res://Assets/Sprites/Personagens/Extras/JhonL.png"
+dest_files=["res://.godot/imported/JhonL.png-92efda77aa0fd9357c6eec59e8bfe5cf.ctex"]
 
 [params]
 
