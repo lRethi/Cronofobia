@@ -14,7 +14,6 @@ public partial class mecanicaIniciarDialogo : Node3D
 	public override void _Ready()
 	{
 		var gs = GetNode("/root/GameState");
-GD.Print(gs);
 		DialogueManager.DialogueEnded += OnDialogueEnded;
 	}
 
@@ -25,11 +24,11 @@ GD.Print(gs);
 
 	public override void _Process(double delta)
 	{
-		if (personagem == null || dialogue == null)
+		if (personagem == null || dialogue == null || !Visible)
 			return;
 
 		float distancia = (personagem.GlobalPosition - GlobalPosition).Length();
-		playerPerto = distancia <= 1.25f;
+		playerPerto = distancia <= 2.5f;
 
 		if (playerPerto && Input.IsActionJustPressed("interact"))
 		{

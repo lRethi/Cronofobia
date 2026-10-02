@@ -66,7 +66,11 @@
 [ext_resource type="Shape3D" uid="uid://du1whrrbhdm" path="res://Assets/Scenes/ThePlayground_CollisionData/ThePlayground_█portal_collision.res" id="40_x2i27"]
 [ext_resource type="Texture2D" uid="uid://bri8xs0scgw2a" path="res://Assets/Sprites/Cenario/Parede/Gasolina.png" id="41_8gkpi"]
 [ext_resource type="Script" uid="uid://cgm5ydwn0eb7u" path="res://Scripts/Camera/dialogueCameraController.cs" id="41_oqisv"]
+[ext_resource type="Shape3D" uid="uid://o5pscpb5f0sh" path="res://Assets/Scenes/ThePlayground_CollisionData/ThePlayground_Banco2_collision.res" id="41_pm5jh"]
 [ext_resource type="Texture2D" uid="uid://cx67sqcsh4i8k" path="res://Assets/Sprites/Cenario/Parede/dataCenter.png" id="42_2mdy0"]
+[ext_resource type="PackedScene" uid="uid://cmdy1muvdfmyd" path="res://Assets/Props/Portas/portaBanco.tscn" id="43_rcl60"]
+[ext_resource type="Shape3D" uid="uid://3fbmxk70qn3o" path="res://Assets/Scenes/ThePlayground_CollisionData/ThePlayground_Banco22_collision.res" id="43_tlsh6"]
+[ext_resource type="Shape3D" uid="uid://dugbewubdp2pd" path="res://Assets/Scenes/ThePlayground_CollisionData/ThePlayground_Banco23_collision.res" id="44_114id"]
 [ext_resource type="Texture2D" uid="uid://bwmi14d5k8yw8" path="res://Assets/Sprites/Cenario/Parede/o predio do lado do alameda.png" id="47_8lbp7"]
 [ext_resource type="Shape3D" uid="uid://c6np78ahj8hoh" path="res://Assets/Scenes/ThePlayground_CollisionData/ThePlayground_PraçaTile2_collision.res" id="49_4tbl8"]
 [ext_resource type="Texture2D" uid="uid://cg8siqe0ud8bi" path="res://Assets/Sprites/Cenario/Misc/Garagem porta.png" id="53_mlcyd"]
@@ -463,7 +467,7 @@ mesh_mode = 2
 script = ExtResource("12_qeaow")
 tileset_texture = ExtResource("39_t52bt")
 tile_size = Vector2i(320, 320)
-tileset_zoom = 0.12284597357367223
+tileset_zoom = 0.12284597357367225
 
 [sub_resource type="Resource" id="Resource_2x265"]
 script = ExtResource("12_qeaow")
@@ -482,6 +486,8 @@ selected_tile_uv = Rect2(640, 0, 320, 320)
 script = ExtResource("12_qeaow")
 tileset_texture = ExtResource("34_4tbl8")
 tile_size = Vector2i(320, 320)
+smart_select_mode = 1
+main_app_mode = 2
 mesh_mode = 3
 current_mesh_rotation = 1
 
@@ -490,12 +496,17 @@ script = ExtResource("12_qeaow")
 tileset_texture = ExtResource("24_7pcv4")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(0, 0, 320, 320)
+smart_select_mode = 1
+main_app_mode = 2
 mesh_mode = 2
 
 [sub_resource type="Resource" id="Resource_ddefp"]
 script = ExtResource("12_qeaow")
 tileset_texture = ExtResource("20_oqisv")
 tile_size = Vector2i(320, 320)
+tileset_zoom = 0.2633312543060797
+smart_select_mode = 1
+main_app_mode = 2
 
 [sub_resource type="Resource" id="Resource_t52bt"]
 script = ExtResource("12_qeaow")
@@ -794,14 +805,14 @@ transform = Transform3D(1, 0, 0, 0, 0.5, 0.8660254, 0, -0.8660254, 0.5, 0, 4, 0)
 
 [node name="charGeraldoSalvador" parent="." unique_id=1046664859 node_paths=PackedStringArray("cameraNode", "cameraPivotNode") instance=ExtResource("2_vgdj8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36977458, 1.2550942, -2.7863984)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.684517, 1.2550942, -45.493595)
 safe_margin = 0.015
 cameraNode = NodePath("../PhantomCamera3D")
 cameraPivotNode = NodePath("../CameraPivot")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1005305001]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36977458, 1.2550942, -0.7863984)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.684517, 1.2550942, -43.493595)
 top_level = true
 near = 0.1
 
@@ -820,14 +831,14 @@ player = NodePath("../charGeraldoSalvador")
 
 [node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1167174207 node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36977458, 1.2550942, -0.7863984)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.684517, 1.2550942, -43.493595)
 script = ExtResource("8_11sfv")
 follow_mode = 6
 follow_target = NodePath("../charGeraldoSalvador")
 tween_resource = SubResource("Resource_5ge65")
 follow_distance = 2.0
 spring_length = 2.0
-collision_mask = 22
+collision_mask = 31
 align_transform_with_view = Callable()
 align_position_with_view = Callable()
 align_rotation_with_view = Callable()
@@ -1485,6 +1496,12 @@ _box_chunks = [NodePath("BoxChunk_R0_0_-2_C0"), NodePath("BoxChunk_R0_0_-3_C0"),
 _prism_chunks = [NodePath("PrismChunk_R0_0_-2_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
+[node name="@StaticBody3D@138768" type="StaticBody3D" parent="Casas Companias/Banco2" unique_id=523731659]
+script = ExtResource("14_ueqtk")
+
+[node name="@CollisionShape3D@138767" type="CollisionShape3D" parent="Casas Companias/Banco2/@StaticBody3D@138768" unique_id=1389374324]
+shape = ExtResource("41_pm5jh")
+
 [node name="Banco22" type="Node3D" parent="Casas Companias" unique_id=874798536 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
 script = ExtResource("10_yl0dh")
 settings = SubResource("Resource_vs16v")
@@ -1499,6 +1516,12 @@ _quad_chunks = [NodePath("SquareChunk_R0_0_-2_C0"), NodePath("SquareChunk_R0_0_-
 _box_chunks = [NodePath("BoxChunk_R0_0_-2_C0"), NodePath("BoxChunk_R0_0_-1_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
+[node name="@StaticBody3D@137076" type="StaticBody3D" parent="Casas Companias/Banco22" unique_id=430220486]
+script = ExtResource("14_ueqtk")
+
+[node name="@CollisionShape3D@137075" type="CollisionShape3D" parent="Casas Companias/Banco22/@StaticBody3D@137076" unique_id=1426923389]
+shape = ExtResource("43_tlsh6")
+
 [node name="Banco23" type="Node3D" parent="Casas Companias" unique_id=1181570270 node_paths=PackedStringArray("_quad_chunks")]
 script = ExtResource("10_yl0dh")
 settings = SubResource("Resource_ddefp")
@@ -1511,6 +1534,12 @@ _tile_anim_indices = PackedInt32Array(-1, -1, -1, -1)
 _tile_anim_data = PackedFloat32Array()
 _quad_chunks = [NodePath("SquareChunk_R0_0_-2_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
+
+[node name="@StaticBody3D@135639" type="StaticBody3D" parent="Casas Companias/Banco23" unique_id=1966210817]
+script = ExtResource("14_ueqtk")
+
+[node name="@CollisionShape3D@135638" type="CollisionShape3D" parent="Casas Companias/Banco23/@StaticBody3D@135639" unique_id=1525120496]
+shape = ExtResource("44_114id")
 
 [node name="Gas station" type="Node3D" parent="Casas Companias" unique_id=892878724 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
 script = ExtResource("10_yl0dh")
@@ -1525,6 +1554,10 @@ _tile_anim_data = PackedFloat32Array()
 _quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R-2_0_0_C0")]
 _box_chunks = [NodePath("BoxChunk_R-2_0_0_C0"), NodePath("BoxChunk_R-1_0_0_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
+
+[node name="portaBanco" parent="Casas Companias" unique_id=1353397638 node_paths=PackedStringArray("personagem") instance=ExtResource("43_rcl60")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17.994905, 3.0142314, -51.004463)
+personagem = NodePath("../../charGeraldoSalvador")
 
 [node name="Filler" type="Node3D" parent="." unique_id=320614220]
 
