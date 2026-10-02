@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr71mmirwfpnf"
-path.s3tc="res://.godot/imported/papeis.png-f4bfcfa77dd72133c1d4a77ccba845f1.s3tc.ctex"
+uid="uid://t0cro27f8f71"
+path.s3tc="res://.godot/imported/television.png-09035ea260f7d001d17b28c03f63f3f2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Sprites/Objetos/papeis.png"
-dest_files=["res://.godot/imported/papeis.png-f4bfcfa77dd72133c1d4a77ccba845f1.s3tc.ctex"]
+source_file="res://Assets/Sprites/Objetos/television.png"
+dest_files=["res://.godot/imported/television.png-09035ea260f7d001d17b28c03f63f3f2.s3tc.ctex"]
 
 [params]
 
