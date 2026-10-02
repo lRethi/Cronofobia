@@ -8,7 +8,7 @@ public partial class TimeState : Node
 	[Export]
 	public float duracaoDiaSegundos = 120f;
 
-	public float minutoDoDia { get; private set; } = 1080f;
+	public float minutoDoDia { get; private set; } = 480f;
 	public float minutoInicioDia { get; private set; } = 480f;
 	public float minutoFimNoite { get; private set; } = 1320f;
 
@@ -57,9 +57,23 @@ public partial class TimeState : Node
 
 	public override void _Process(double delta)
 	{
-		if (GetTree().CurrentScene?.SceneFilePath != "res://Assets/Scenes/ThePlayground.tscn")
-        	return;
+		string cenaAtual = GetTree().CurrentScene?.SceneFilePath;
 
+		if (cenaAtual == "res://Assets/Scenes/backrooms.tscn" || cenaAtual == "res>//Assets/Scenes/cenaTitulo.tscn")
+		{
+			return;
+		}
+
+		if (cenaAtual != "res://Assets/Scenes/ThePlayground.tscn")
+		{
+			if (duracaoDiaSegundos != 1440f)
+				duracaoDiaSegundos = 1440f;
+		}
+		else if (duracaoDiaSegundos != 120f)
+		{
+			duracaoDiaSegundos = 120f;
+		}
+	
 		float deltaF = (float)delta * escalaTempo;
 
 		if (deltaF <= 0f)

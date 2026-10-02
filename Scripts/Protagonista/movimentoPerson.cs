@@ -2,7 +2,9 @@ using Godot;
 
 public partial class movimentoPerson : CharacterBody3D
 {
-    public const float Speed = 3f;
+    public const float baseSpeed = 6f;
+    public float tempSpeed = 0f;
+    public float sceneSpeed = 0f;
     public const float JumpVelocity = 5f;
 
     [Export] public Node cameraNode;
@@ -26,6 +28,11 @@ public partial class movimentoPerson : CharacterBody3D
 
     public override void _PhysicsProcess(double delta)
     {
+        float Speed = baseSpeed + tempSpeed + sceneSpeed;
+        string cenaAtual = GetTree().CurrentScene?.SceneFilePath;
+        if (cenaAtual != "res://Assets/Scenes/ThePlayground.tscn") sceneSpeed = -3f;
+        else sceneSpeed = 0f;
+
         Vector3 velocity = Velocity;
 
         if (GameState.TempoCongelado)

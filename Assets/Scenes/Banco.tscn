@@ -36,6 +36,9 @@
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="27_e1806"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="28_esqvn"]
 [ext_resource type="Script" uid="uid://cgm5ydwn0eb7u" path="res://Scripts/Camera/dialogueCameraController.cs" id="37_25vta"]
+[ext_resource type="PackedScene" uid="uid://b8kdadftm2bc7" path="res://Assets/UI/hudHorario.tscn" id="37_winu8"]
+[ext_resource type="PackedScene" uid="uid://bt0y13avl08jo" path="res://Assets/UI/hud_main.tscn" id="38_ckvp4"]
+[ext_resource type="PackedScene" uid="uid://c3qp6nf2wgnsr" path="res://Assets/UI/telaInventario.tscn" id="39_ymq6f"]
 
 [sub_resource type="Resource" id="Resource_is5c8"]
 script = ExtResource("3_qvl2u")
@@ -204,7 +207,7 @@ _tile_transform_indices = PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
 _tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
 _tile_anim_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1)
 _tile_anim_data = PackedFloat32Array()
-_box_chunks = [NodePath("BoxChunk_R0_0_-1_C0"), NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R-1_0_-1_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R-1_0_-1_C0"), NodePath("BoxChunk_R0_0_-1_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
 [node name="Door2" type="Node3D" parent="." unique_id=1494509824 node_paths=PackedStringArray("_quad_chunks")]
@@ -259,7 +262,7 @@ script = ExtResource("5_jdseb")
 shape = ExtResource("19_wcprk")
 
 [node name="Atendente" parent="." unique_id=2040080851 node_paths=PackedStringArray("personagem") instance=ExtResource("12_fkkhy")]
-transform = Transform3D(0.006515166, 0, -1.9999894, 0, 2, 0, 1.9999894, 0, 0.006515166, 5.1915607, 1.7303358, -4.568953)
+transform = Transform3D(0.006515166, 0, -1.9999894, 0, 2, 0, 1.9999894, 0, 0.006515166, 6.0021906, 1.1073768, -4.568953)
 dialogue = ExtResource("13_yvlcl")
 personagem = NodePath("../charGeraldoSalvador")
 
@@ -313,14 +316,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9412184, 4.7166305, 7.77582
 
 [node name="charGeraldoSalvador" parent="." unique_id=1046664859 node_paths=PackedStringArray("cameraNode", "cameraPivotNode") instance=ExtResource("24_up2km")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7411766, 0.69920886, -4.588205)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4.7411766, 0.69920886, -5.6218166)
 safe_margin = 0.015
 cameraNode = NodePath("../Camera3D")
 cameraPivotNode = NodePath("../CameraPivot")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1331474384]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7411766, 0.69920886, -2.5882049)
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -4.7411766, 0.69920886, -7.6218166)
 top_level = true
 near = 0.1
 
@@ -337,14 +340,14 @@ player = NodePath("../charGeraldoSalvador")
 
 [node name="PhantomCamera3D" type="Node3D" parent="." unique_id=468541075 node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7411766, 0.69920886, -2.5882049)
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -4.7411766, 0.69920886, -7.6218166)
 script = ExtResource("27_e1806")
 follow_mode = 6
 follow_target = NodePath("../charGeraldoSalvador")
 tween_resource = SubResource("Resource_nvseo")
 follow_distance = 2.0
 spring_length = 2.0
-collision_mask = 22
+collision_mask = 31
 align_transform_with_view = Callable()
 align_position_with_view = Callable()
 align_rotation_with_view = Callable()
@@ -366,3 +369,12 @@ light_energy = 0.5
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1780972217]
 environment = SubResource("Environment_irs17")
+
+[node name="HUD_TimeOfDay" parent="." unique_id=1654327781 instance=ExtResource("37_winu8")]
+
+[node name="hudMain" parent="." unique_id=1394536996 instance=ExtResource("38_ckvp4")]
+
+[node name="Inventory" parent="." unique_id=1651639305 node_paths=PackedStringArray("slotsInventario", "texturasSlots") instance=ExtResource("39_ymq6f")]
+visible = false
+slotsInventario = []
+texturasSlots = []
