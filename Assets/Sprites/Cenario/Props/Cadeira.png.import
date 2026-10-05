@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh5366x43hkkp"
-path.s3tc="res://.godot/imported/Samambaia morta.png-b17bfb43224710d353771af073b3e82f.s3tc.ctex"
+uid="uid://dynrgl0t2h7vg"
+path.s3tc="res://.godot/imported/Cadeira.png-561583c520ed97d8c0d8c347b2cf09ed.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Sprites/Objetos/Samambaia morta.png"
-dest_files=["res://.godot/imported/Samambaia morta.png-b17bfb43224710d353771af073b3e82f.s3tc.ctex"]
+source_file="res://Assets/Sprites/Cenario/Props/Cadeira.png"
+dest_files=["res://.godot/imported/Cadeira.png-561583c520ed97d8c0d8c347b2cf09ed.s3tc.ctex"]
 
 [params]
 

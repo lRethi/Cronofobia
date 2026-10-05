@@ -20,6 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://cn2nhdycv38o0" path="res://Assets/Sprites/Objetos/icenso.png" id="18_e6g2i"]
 [ext_resource type="Texture2D" uid="uid://t0cro27f8f71" path="res://Assets/Sprites/Objetos/television.png" id="19_o6km6"]
 [ext_resource type="Texture2D" uid="uid://bnwwa86imei7t" path="res://Assets/Sprites/Objetos/Flor morta.png" id="20_swm72"]
+[ext_resource type="Texture2D" uid="uid://q8i5jelfiqjw" path="res://Assets/Sprites/Cenario/Props/Cadera.png" id="21_7sag8"]
+[ext_resource type="Texture2D" uid="uid://dynrgl0t2h7vg" path="res://Assets/Sprites/Cenario/Props/Cadeira.png" id="22_6drd6"]
 
 [sub_resource type="Resource" id="Resource_w4k4e"]
 script = ExtResource("3_ian0u")
@@ -83,8 +85,7 @@ script = ExtResource("3_ian0u")
 tileset_texture = ExtResource("7_7ic7j")
 tile_size = Vector2i(222, 222)
 selected_tile_uv = Rect2(1110, 222, 222, 222)
-selected_tiles = Array[Rect2]([Rect2(1110, 222, 222, 222)])
-tileset_zoom = 0.31863081771035645
+tileset_zoom = 0.5131581182307065
 
 [sub_resource type="Resource" id="Resource_i6ajr"]
 script = ExtResource("3_ian0u")
@@ -167,6 +168,19 @@ grid_snap_size = 0.5
 cursor_step_size = 0.5
 smart_select_mode = 1
 main_app_mode = 2
+
+[sub_resource type="Resource" id="Resource_e6g2i"]
+script = ExtResource("3_ian0u")
+tileset_texture = ExtResource("21_7sag8")
+tile_size = Vector2i(320, 320)
+selected_tile_uv = Rect2(0, 0, 320, 320)
+selected_tiles = Array[Rect2]([Rect2(0, 0, 320, 320)])
+
+[sub_resource type="Resource" id="Resource_o6km6"]
+script = ExtResource("3_ian0u")
+tileset_texture = ExtResource("22_6drd6")
+tile_size = Vector2i(320, 320)
+selected_tile_uv = Rect2(0, 0, 320, 320)
 
 [sub_resource type="Environment" id="Environment_avaps"]
 ambient_light_source = 2
@@ -408,6 +422,32 @@ _tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1)
 _tile_anim_indices = PackedInt32Array(-1)
 _tile_anim_data = PackedFloat32Array()
 _quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C0")]
+metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
+
+[node name="TileMapLayer3D9" type="Node3D" parent="computaria" unique_id=388483913 node_paths=PackedStringArray("_quad_chunks")]
+script = ExtResource("1_f7omw")
+settings = SubResource("Resource_e6g2i")
+_tile_positions = PackedVector3Array(5, 0, -10.5, 5, 0, -9.5, 5, 0, -8.5, 5, 0, -6.5, 5, 0, -7.5, 5, 0, -5.5, 5, 0, -4.5, -4, 0, -10.5, -4, 0, -9.5, -4, 0, -8.5, -4, 0, -7.5, -4, 0, -6.5, -4, 0, -5.5, -4, 0, -4.5)
+_tile_uv_rects = PackedFloat32Array(0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320)
+_tile_flags = PackedInt32Array(130050, 130050, 130050, 130050, 130050, 130050, 130050, 130050, 130050, 130050, 130050, 130050, 130050, 130050)
+_tile_transform_indices = PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13)
+_tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
+_tile_anim_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1)
+_tile_anim_data = PackedFloat32Array()
+_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R-1_0_-1_C0")]
+metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
+
+[node name="TileMapLayer3D10" type="Node3D" parent="." unique_id=1345375246 node_paths=PackedStringArray("_quad_chunks")]
+script = ExtResource("1_f7omw")
+settings = SubResource("Resource_o6km6")
+_tile_positions = PackedVector3Array(2, 0, -10.5, 2, 0, -9.5, 2, 0, -8.5, 2, 0, -7.5, 2, 0, -6.5, 2, 0, -5.5, 2, 0, -4.5, -6, 0, -4.5, -6, 0, -5.5, -6, 0, -6.5, -6, 0, -7.5, -6, 0, -8.5, -6, 0, -10.5, -6, 0, -9.5)
+_tile_uv_rects = PackedFloat32Array(0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320)
+_tile_flags = PackedInt32Array(130050, 130050, 130050, 130050, 130050, 130050, 130050, 130050, 130050, 130050, 130050, 130050, 130050, 130050)
+_tile_transform_indices = PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13)
+_tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
+_tile_anim_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1)
+_tile_anim_data = PackedFloat32Array()
+_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R-1_0_-1_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1634929488]

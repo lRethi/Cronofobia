@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh5366x43hkkp"
-path.s3tc="res://.godot/imported/Samambaia morta.png-b17bfb43224710d353771af073b3e82f.s3tc.ctex"
+uid="uid://d1mrq7asj83j"
+path.s3tc="res://.godot/imported/cardoard.png-e9123b041dabfbe5848c71eea004b1f3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Sprites/Objetos/Samambaia morta.png"
-dest_files=["res://.godot/imported/Samambaia morta.png-b17bfb43224710d353771af073b3e82f.s3tc.ctex"]
+source_file="res://Assets/Sprites/Cenario/Misc/cardoard.png"
+dest_files=["res://.godot/imported/cardoard.png-e9123b041dabfbe5848c71eea004b1f3.s3tc.ctex"]
 
 [params]
 
