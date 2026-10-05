@@ -29,9 +29,6 @@ public partial class movimentoPerson : CharacterBody3D
     public override void _PhysicsProcess(double delta)
     {
         float Speed = baseSpeed + tempSpeed + sceneSpeed;
-        string cenaAtual = GetTree().CurrentScene?.SceneFilePath;
-        if (cenaAtual != "res://Assets/Scenes/ThePlayground.tscn") sceneSpeed = -3f;
-        else sceneSpeed = 0f;
 
         Vector3 velocity = Velocity;
 
@@ -47,7 +44,6 @@ public partial class movimentoPerson : CharacterBody3D
 
             Velocity = velocity;
             MoveAndSlide();
-
             return;
         }
 
@@ -64,10 +60,8 @@ public partial class movimentoPerson : CharacterBody3D
         if (cameraNode == null || cameraScript == null)
         {
             SetMovingState(false);
-
             Velocity = velocity;
             MoveAndSlide();
-
             return;
         }
 

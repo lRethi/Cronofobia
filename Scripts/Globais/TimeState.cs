@@ -57,29 +57,24 @@ public partial class TimeState : Node
 
 	public override void _Process(double delta)
 	{
-		string cenaAtual = GetTree().CurrentScene?.SceneFilePath;
+		WorldArea areaAtual = WorldManager.Instance?.AreaAtual;
 
-		if (cenaAtual == "res://Assets/Scenes/backrooms.tscn" || cenaAtual == "res>//Assets/Scenes/cenaTitulo.tscn")
-		{
+		if (areaAtual == null)
 			return;
-		}
 
-		if (cenaAtual != "res://Assets/Scenes/ThePlayground.tscn")
-		{
-			if (duracaoDiaSegundos != 1440f)
-				duracaoDiaSegundos = 1440f;
-		}
-		else if (duracaoDiaSegundos != 120f)
-		{
-			duracaoDiaSegundos = 120f;
-		}
-	
+		if (areaAtual.tempoParado)
+			return;
+
+		float duracaoDia = areaAtual.tempoAcelerado
+			? 120f
+			: 1440f;
+
 		float deltaF = (float)delta * escalaTempo;
 
 		if (deltaF <= 0f)
 			return;
 
-		minutoDoDia += deltaF * (1440f / duracaoDiaSegundos);
+		minutoDoDia += deltaF * (1440f / duracaoDia);
 
 		if (minutoDoDia >= 1440f)
 			minutoDoDia %= 1440f;

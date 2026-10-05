@@ -6,13 +6,11 @@ public partial class rotCameraPerson : Sprite3D
     Camera3D camera;
 
     [Export] public bool rotateToPerson = true;
-
     [Export] CharacterBody3D personagem;
 
     public override void _Ready()
     {
-        personagem = GetNode<CharacterBody3D>("../../../%charGeraldoSalvador");
-
+        personagem = GetTree().CurrentScene.FindChild("charGeraldoSalvador", true, false) as CharacterBody3D;
         camera = GetViewport().GetCamera3D();
 
         if (MaterialOverlay != null)
@@ -26,6 +24,17 @@ public partial class rotCameraPerson : Sprite3D
     {
         if (personagem == null || camera == null || mat == null || !GetParentNode3D().Visible)
             return;
+
+        Node atual = GetParent();
+
+        while (atual != null && atual is not OPENTHEGATES)
+            atual = atual.GetParent();
+
+        if (atual is OPENTHEGATES openGate && openGate.timeLimit)
+        {
+            if (TimeState.Instance.minutoDoDia < openGate.openingTime || TimeState.Instance.minutoDoDia > openGate.closingTime)
+                return;
+        }
 
         Vector3 direcaoCamera =
             camera.GlobalPosition - GlobalPosition;
@@ -50,8 +59,9 @@ public partial class rotCameraPerson : Sprite3D
 
     public void OlharParaAlvo(Vector3 alvoDir)
     {
-        if(!rotateToPerson) return;
-        
+        if (!rotateToPerson)
+            return;
+
         alvoDir.Y = 0;
         alvoDir = -alvoDir;
 

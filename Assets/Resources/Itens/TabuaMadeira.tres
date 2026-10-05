@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://vy4o8fpci1re"]
+
+[ext_resource type="Script" uid="uid://c34nkk713lbx5" path="res://Scripts/Resources/ItemDefinition.cs" id="1_a0dol"]
+[ext_resource type="Texture2D" uid="uid://xhgcwsc3dypq" path="res://Assets/Sprites/Objetos/itemTabua.webp" id="1_aghom"]
+
+[resource]
+script = ExtResource("1_a0dol")
+Id = "madeira"
+Nome = "Pedaço de Madeira"
+Descricao = "Um pedaço de madeira, meio quebrado. Pode ser útil pra construir alguma coisa, ou seja, pra outra pessoa."
+Textura = ExtResource("1_aghom")
+PodeSerUsado = false
+metadata/_custom_type_script = "uid://c34nkk713lbx5"

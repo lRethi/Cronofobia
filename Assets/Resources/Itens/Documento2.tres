@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://cwee43ps4tidi"]
+
+[ext_resource type="Script" uid="uid://c34nkk713lbx5" path="res://Scripts/Resources/ItemDefinition.cs" id="1_b2ngc"]
+[ext_resource type="Texture2D" uid="uid://c8vjtg6vbv6x0" path="res://Assets/Sprites/Objetos/itemDocsx.webp" id="1_i3p3d"]
+
+[resource]
+script = ExtResource("1_b2ngc")
+Id = "documento2"
+Nome = "Documentos: Parte II"
+Descricao = "Um grupo de papéis. Parece um monte de jargão complicado, mas menciona as palavras: MILITAR, BASE e MORADORES DE RUA."
+Textura = ExtResource("1_i3p3d")
+PodeSerUsado = false
+PodeSerDescartado = false
+metadata/_custom_type_script = "uid://c34nkk713lbx5"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://c0s8n2ob2qtje"]
+
+[ext_resource type="Texture2D" uid="uid://ddxgdwutgm88r" path="res://Assets/Sprites/Objetos/itemSapato.webp" id="1_8q4rb"]
+[ext_resource type="Script" uid="uid://c34nkk713lbx5" path="res://Scripts/Resources/ItemDefinition.cs" id="1_20udx"]
+
+[resource]
+script = ExtResource("1_20udx")
+Id = "sapatosCorrida"
+Nome = "Sapatos de Corrida"
+Descricao = "Sapatos de corrida, meio desgastados. Ainda ajudam o chão à machucar menos seus pés, útil se quiser andar mais rápido."
+Textura = ExtResource("1_8q4rb")
+PodeSerUsado = false
+metadata/_custom_type_script = "uid://c34nkk713lbx5"

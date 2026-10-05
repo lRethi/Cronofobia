@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bys0mhxwtdsi0"]
+
+[ext_resource type="Script" uid="uid://cdj11gs6dxbd3" path="res://Scripts/Geral/genericPickupScript.cs" id="1_eqrj5"]
+[ext_resource type="Resource" uid="uid://b5sdb2wx6m6xb" path="res://Assets/Resources/Itens/Ferramentas.tres" id="2_eqrj5"]
+[ext_resource type="PackedScene" uid="uid://cklvtrqrtdppf" path="res://Assets/UI/hudCompra.tscn" id="3_7mq00"]
+[ext_resource type="Texture2D" uid="uid://cwkicp01cwfg5" path="res://Assets/Sprites/Objetos/itemFerramentas.webp" id="4_eqrj5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8c2qd"]
+radius = 0.19335938
+height = 0.38671875
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3pntp"]
+load_path = "res://.godot/imported/itemFerramentas.webp-a8fae295d8d670974561b3d44e3faf18.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mq00"]
+transparency = 4
+albedo_texture = SubResource("CompressedTexture2D_3pntp")
+backlight_enabled = true
+backlight = Color(0.10980392, 0.10980392, 0.10980392, 1)
+texture_filter = 0
+disable_receive_shadows = true
+billboard_mode = 2
+
+[node name="ferramentasPickup" type="Area3D" unique_id=1197714594]
+script = ExtResource("1_eqrj5")
+item = ExtResource("2_eqrj5")
+valorRecurso = 0.0
+cenaCompra = ExtResource("3_7mq00")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=337365301]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.013336182, 0)
+shape = SubResource("CapsuleShape3D_8c2qd")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1119932678]
+material_override = SubResource("StandardMaterial3D_7mq00")
+pixel_size = 0.0008
+billboard = 2
+shaded = true
+texture_filter = 0
+texture = ExtResource("4_eqrj5")
