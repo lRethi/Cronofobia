@@ -3,39 +3,71 @@ using Godot;
 public partial class movimentoPerson : CharacterBody3D
 {
     public const float baseSpeed = 6f;
+
     public float tempSpeed = 0f;
     public float sceneSpeed = 0f;
+
     public const float JumpVelocity = 5f;
 
-    [Export] public Node cameraNode;
-    [Export] public Node3D cameraPivotNode;
+    [Export]
+    public Node cameraNode;
+
+    [Export]
+    public Node3D cameraPivotNode;
 
     private cameraBonitaDoFred cameraScript;
 
-    public movementDirection LastMovedDirection { get; private set; } = movementDirection.Front;
-    public bool IsMoving { get; private set; }
+    public movementDirection LastMovedDirection
+    {
+        get;
+        private set;
+    } = movementDirection.Front;
+
+    public bool IsMoving
+    {
+        get;
+        private set;
+    }
 
     [Signal]
-    public delegate void MovementDirectionChangedEventHandler(int direction);
+    public delegate void MovementDirectionChangedEventHandler(
+        int direction
+    );
 
     [Signal]
-    public delegate void MovementStateChangedEventHandler(bool moving);
+    public delegate void MovementStateChangedEventHandler(
+        bool moving
+    );
 
     public override void _Ready()
     {
-        cameraScript = cameraPivotNode as cameraBonitaDoFred;
+        cameraScript =
+            cameraPivotNode as cameraBonitaDoFred;
     }
 
     public override void _PhysicsProcess(double delta)
     {
-        float Speed = baseSpeed + tempSpeed + sceneSpeed;
+        float speed =
+            baseSpeed +
+            tempSpeed +
+            sceneSpeed;
+
+        if (EffectManager.Instance != null)
+        {
+            speed =
+                EffectManager.Instance.AplicarVelocidade(
+                    speed
+                );
+        }
 
         Vector3 velocity = Velocity;
 
         if (GameState.TempoCongelado)
         {
             if (!IsOnFloor())
-                velocity += GetGravity() * (float)delta;
+                velocity +=
+                    GetGravity() *
+                    (float)delta;
 
             velocity.X = 0;
             velocity.Z = 0;
@@ -43,29 +75,40 @@ public partial class movimentoPerson : CharacterBody3D
             SetMovingState(false);
 
             Velocity = velocity;
+
             MoveAndSlide();
+
             return;
         }
 
         if (!IsOnFloor())
-            velocity += GetGravity() * (float)delta;
+            velocity +=
+                GetGravity() *
+                (float)delta;
 
-        Vector2 inputDir = Input.GetVector(
-            "move_left",
-            "move_right",
-            "move_forward",
-            "move_back"
-        );
+        Vector2 inputDir =
+            Input.GetVector(
+                "move_left",
+                "move_right",
+                "move_forward",
+                "move_back"
+            );
 
-        if (cameraNode == null || cameraScript == null)
+        if (cameraScript == null)
         {
             SetMovingState(false);
+
             Velocity = velocity;
+
             MoveAndSlide();
+
             return;
         }
 
-        float yaw = Mathf.DegToRad(cameraScript.GetCameraYaw());
+        float yaw =
+            Mathf.DegToRad(
+                cameraScript.GetCameraYaw()
+            );
 
         Vector3 forward = new Vector3(
             Mathf.Sin(yaw),
@@ -80,40 +123,59 @@ public partial class movimentoPerson : CharacterBody3D
         );
 
         Vector3 direction =
-            (forward * inputDir.Y + right * inputDir.X).Normalized();
+            (
+                forward * inputDir.Y +
+                right * inputDir.X
+            ).Normalized();
 
         if (direction != Vector3.Zero)
         {
-            velocity.X = direction.X * Speed;
-            velocity.Z = direction.Z * Speed;
+            velocity.X =
+                direction.X *
+                speed;
+
+            velocity.Z =
+                direction.Z *
+                speed;
 
             SetMovingState(true);
-            SetMovementDirection(GetMovementDirection(direction));
+
+            SetMovementDirection(
+                GetMovementDirection(
+                    direction
+                )
+            );
         }
         else
         {
-            velocity.X = Mathf.MoveToward(
-                velocity.X,
-                0,
-                Speed
-            );
+            velocity.X =
+                Mathf.MoveToward(
+                    velocity.X,
+                    0,
+                    speed
+                );
 
-            velocity.Z = Mathf.MoveToward(
-                velocity.Z,
-                0,
-                Speed
-            );
+            velocity.Z =
+                Mathf.MoveToward(
+                    velocity.Z,
+                    0,
+                    speed
+                );
 
             SetMovingState(false);
         }
 
         Velocity = velocity;
+
         MoveAndSlide();
     }
 
-    private movementDirection GetMovementDirection(Vector3 direction)
+    private movementDirection GetMovementDirection(
+        Vector3 direction
+    )
     {
-        if (Mathf.Abs(direction.Z) > Mathf.Abs(direction.X))
+        if (Mathf.Abs(direction.Z) >
+            Mathf.Abs(direction.X))
         {
             return direction.Z < 0
                 ? movementDirection.Front
@@ -125,7 +187,9 @@ public partial class movimentoPerson : CharacterBody3D
             : movementDirection.Left;
     }
 
-    private void SetMovementDirection(movementDirection direction)
+    private void SetMovementDirection(
+        movementDirection direction
+    )
     {
         if (LastMovedDirection == direction)
             return;

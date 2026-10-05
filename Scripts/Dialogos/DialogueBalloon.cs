@@ -62,6 +62,7 @@ public partial class DialogueBalloon : CanvasLayer
 
         responsesMenu.ResponseSelected += response =>
         {
+            EffectManager.Instance?.AoEscolherOpcaoDialogo();
             Next(response.NextId);
         };
 
