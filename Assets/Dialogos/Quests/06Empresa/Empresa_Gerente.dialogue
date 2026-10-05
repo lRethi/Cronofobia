@@ -159,7 +159,7 @@ Gerente: Você tem alguma ideia do que acabou de me dizer?
 	$> GameState.SetFlag("semtetos_autorizacao_concedida", true)
 	$> GameState.SetFlag("semtetos_empresa_autorizacao_favor", true)
 	$> GameState.SetFlag("semtetos_empresa_recusou", false)
-	$> GameState.weirdRouteValue += 1
+	$> GameState.Instance.AdicionarWeirdRouteValue(1)
 
 	Gerente: Mas existe uma condição.
 	Gerente: Esta é a última vez que você entra neste prédio.

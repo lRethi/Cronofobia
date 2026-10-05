@@ -33,5 +33,5 @@ Jornalista: O mundo vai saber o MEU nome.
 Jornalista: E toda essa farsa vai ser revelada para TODOS.
 
 $> GameState.SetFlag("exposicao", true)
-$> GameState.weirdRouteValue += 1
+$> GameState.Instance.AdicionarWeirdRouteValue(1)
 => END

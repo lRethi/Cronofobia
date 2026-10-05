@@ -49,7 +49,7 @@ Fiscal: O-O quê?! E-Eles estão ######## ####### ## ###### nas pessoas..?
 Fiscal: I-Isso é a-absurdo! E-Eu vou falar com o meu chefe!
 Fiscal: O-Obrigado por me avisar disso, senhor!
 $> GameState.SetFlag("agua_badEnding", true)
-$> GameState.weirdRouteValue += 1
+$> GameState.Instance.AdicionarWeirdRouteValue(1)
 => END
 
 

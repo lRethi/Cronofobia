@@ -15,7 +15,7 @@ public partial class DirectionalSprite : Node3D
     private movimentoPerson player;
 
     [Export]
-    private cameraBonitaDoFred cameraScript;
+    public cameraBonitaDoFred cameraScript;
 
     [Export]
     private Sprite3D sprite;
@@ -34,7 +34,7 @@ public partial class DirectionalSprite : Node3D
 
     private bool usesMovementAnimation;
 
-    public override async void _Ready()
+   public override async void _Ready()
     {
         SetupMaterial();
         SetupOverlay();
@@ -59,8 +59,6 @@ public partial class DirectionalSprite : Node3D
             GetTree(),
             SceneTree.SignalName.ProcessFrame
         );
-
-        EncontrarCamera();
 
         if (cameraScript != null)
             cameraScript.CameraChanged += OnCameraChanged;

@@ -262,7 +262,7 @@ Padre: Talvez seja apenas mais uma forma de idolatria.
 	Padre: Se encontraram uma forma de fé nela, não cabe a mim arrancá-la de suas mãos.
 	Padre: A fé não é algo que um homem pode impor a outro.
 	Padre: E, o Pai trabalha sob caminhos misteriosos.
-	$> GameState.weirdRouteValue += 1
+	$> GameState.Instance.AdicionarWeirdRouteValue(1)
 	=> END
 
 - Rejeitar o culto à máquina.

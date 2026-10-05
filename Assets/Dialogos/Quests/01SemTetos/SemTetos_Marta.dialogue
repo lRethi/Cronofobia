@@ -87,7 +87,7 @@ Marta: A igreja sempre tenta ajudar gente como a gente, e o banco não iria recu
 - Não vou me envolver com isso.
 	$> GameState.SetFlag("semTetos_terrenoIgnorado", true)
 	Marta: Tá... Vamos tentar por conta própria, então. Obrigada pela sua ajuda anterior, de qualquer forma.
-	$> GameState.weirdRouteValue += 1
+	$> GameState.Instance.AdicionarWeirdRouteValue(1)
 	=> END
 
 
@@ -106,7 +106,7 @@ Marta: Não dá para continuar aqui sem autorização.
 - Vou ajudar a retirar as coisas.
 	$> GameState.SetFlag("semtetos_expulsao_concluida", true)
 	Marta: Então vamos fazer isso antes que apareça alguém para mandar mais uma vez.
-	$> GameState.weirdRouteValue += 1
+	$> GameState.Instance.AdicionarWeirdRouteValue(1)
 	=> END
 
 - Vou ajudar a procurar outro lugar.

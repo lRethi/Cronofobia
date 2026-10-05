@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://domsv65yjgreo"]
+
+[ext_resource type="Script" uid="uid://cdj11gs6dxbd3" path="res://Scripts/Geral/genericPickupScript.cs" id="1_4b2tr"]
+[ext_resource type="Resource" uid="uid://cwvxfv8ivhodg" path="res://Assets/Resources/Itens/Cobertor.tres" id="2_0f5ly"]
+[ext_resource type="PackedScene" uid="uid://cklvtrqrtdppf" path="res://Assets/UI/hudCompra.tscn" id="3_k02g1"]
+[ext_resource type="Texture2D" uid="uid://bh6h5lcru1wgv" path="res://Assets/Sprites/Objetos/itemCobertor.webp" id="4_4b2tr"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8c2qd"]
+radius = 0.19335938
+height = 0.38671875
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rutpx"]
+load_path = "res://.godot/imported/itemCobertor.webp-7e1bcfe7ad0af26b1972ca2167edce3f.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k02g1"]
+transparency = 4
+albedo_texture = SubResource("CompressedTexture2D_rutpx")
+backlight_enabled = true
+backlight = Color(0.10980392, 0.10980392, 0.10980392, 1)
+texture_filter = 0
+disable_receive_shadows = true
+billboard_mode = 2
+
+[node name="cobertorPickup" type="Area3D" unique_id=1197714594]
+script = ExtResource("1_4b2tr")
+item = ExtResource("2_0f5ly")
+cenaCompra = ExtResource("3_k02g1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=337365301]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.013336182, 0)
+shape = SubResource("CapsuleShape3D_8c2qd")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1119932678]
+material_override = SubResource("StandardMaterial3D_k02g1")
+pixel_size = 0.0008
+billboard = 2
+shaded = true
+texture_filter = 0
+texture = ExtResource("4_4b2tr")

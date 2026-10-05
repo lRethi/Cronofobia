@@ -25,7 +25,7 @@ Atendente: Bom dia, você precisa de alguma coisa?
 				Atendente: ... Certo. Tenha um bom dia!
 				| ULTRALINK: {:?} Microexpressão detectada: Ela me olhou de maneira curiosa.
 				$> GameState.SetFlag("perfil_incompativel", true)
-				$> GameState.weirdRouteValue += 1
+				$> GameState.Instance.AdicionarWeirdRouteValue(1)
 			- Não.
 				Atendente: Ok... Vamos resolver seus documentos, então.
 				Atendente: Certo, vamos precisar de 3 coisas, a sua data de nascimento, seu CPF e seu RG.
@@ -93,7 +93,7 @@ Atendente: Poderia por favor compartilhar esses dados conosco?
 		- Não compartilhar.
 			Atendente: Bom... Foi um prazer.
 			$> GameState.SetFlag("perfil_incompativel", true)
-			$> GameState.weirdRouteValue += 1
+			$> GameState.Instance.AdicionarWeirdRouteValue(1)
 => END
 
 ~ documentos_end

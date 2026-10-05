@@ -2,200 +2,358 @@ using Godot;
 using System;
 
 public partial class TimeState : Node
-	{
-	public static TimeState Instance { get; private set; }
+{
+    public static TimeState Instance { get; private set; }
 
-	[Export]
-	public float duracaoDiaSegundos = 120f;
+    [Export]
+    public float duracaoDiaSegundos = 120f;
 
-	public float minutoDoDia { get; private set; } = 1080f;
-	public float minutoInicioDia { get; private set; } = 480f;
-	public float minutoFimNoite { get; private set; } = 1320f;
+    public float minutoDoDia { get; private set; } = 480f;
+    public float minutoInicioDia { get; private set; } = 480f;
+    public float minutoFimNoite { get; private set; } = 1320f;
 
-	public float horaDecimal => minutoDoDia / 60f;
-	public float tempoNormalizado => minutoDoDia / 1440f;
-	public int tempoHoras => (int)(minutoDoDia / 60f);
-	public int tempoMinutos => (int)(minutoDoDia % 60f);
-	public string horarioFormatado => $"{tempoHoras:D2}:{tempoMinutos:D2}";
+    public float horaDecimal =>
+        minutoDoDia / 60f;
 
-	public float escalaTempo = 1f;
+    public float tempoNormalizado =>
+        minutoDoDia / 1440f;
 
-	public int diaAtual { get; private set; } = 1;
-	public int maximoDias { get; private set; } = 7;
+    public int tempoHoras =>
+        (int)(minutoDoDia / 60f);
 
-	public static bool lugarParaDormir = true;
-	public static bool comidaSuficiente = true;
-	public static bool aguaSuficiente = true;
+    public int tempoMinutos =>
+        (int)(minutoDoDia % 60f);
 
-	public bool noiteFinalizada { get; private set; } = false;
+    public string horarioFormatado =>
+        $"{tempoHoras:D2}:{tempoMinutos:D2}";
 
-	public event Action<float> TimeChanged;
-	public event Action<int> DayChanged;
-	public event Action<DayState> DayStateChanged;
+    public float escalaTempo = 1f;
 
-	private DayState currentDayState = DayState.Morning;
-	private int ultimoMinuto = -1;
+    public int diaAtual { get; private set; } = 1;
+    public int maximoDias { get; private set; } = 7;
 
-	public DayState CurrentDayState => currentDayState;
+    [Export]
+    public int maximoDiasSemComer { get; private set; } = 2;
 
-	public override void _EnterTree()
-	{
-		if (Instance != null && Instance != this)
-		{
-			QueueFree();
-			return;
-		}
+    [Export]
+    public int maximoDiasSemBeber { get; private set; } = 2;
 
-		Instance = this;
-	}
+    [Export]
+    public int maximoDiasSemAbrigo { get; private set; } = 2;
 
-	public override void _Ready()
-	{
-		currentDayState = GetDayState(minutoDoDia);
-		ultimoMinuto = Mathf.FloorToInt(minutoDoDia);
-	}
+    public int diasSemComer { get; private set; }
+    public int diasSemBeber { get; private set; }
+    public int diasSemAbrigo { get; private set; }
 
-	public override void _Process(double delta)
-	{
-		if (GetTree().CurrentScene?.SceneFilePath != "res://Assets/Scenes/ThePlayground.tscn")
-        	return;
+    public static bool lugarParaDormir = true;
+    public static bool comidaSuficiente = true;
+    public static bool aguaSuficiente = true;
 
-		float deltaF = (float)delta * escalaTempo;
+    public bool noiteFinalizada { get; private set; }
 
-		if (deltaF <= 0f)
-			return;
+    public event Action<float> TimeChanged;
+    public event Action<int> DayChanged;
+    public event Action<DayState> DayStateChanged;
 
-		minutoDoDia += deltaF * (1440f / duracaoDiaSegundos);
+    private DayState currentDayState = DayState.Morning;
+    private int ultimoMinuto = -1;
 
-		if (minutoDoDia >= 1440f)
-			minutoDoDia %= 1440f;
+    public DayState CurrentDayState =>
+        currentDayState;
 
-		int minutoAtual = Mathf.FloorToInt(minutoDoDia);
+    public override void _EnterTree()
+    {
+        if (Instance != null && Instance != this)
+        {
+            QueueFree();
+            return;
+        }
 
-		if (minutoAtual != ultimoMinuto)
-		{
-			ultimoMinuto = minutoAtual;
-			TimeChanged?.Invoke(minutoDoDia);
-		}
+        Instance = this;
+    }
 
-		if (!noiteFinalizada && minutoDoDia >= minutoFimNoite)
-		{
-			noiteFinalizada = true;
-			finalizarNoite();
-		}
+    public override void _ExitTree()
+    {
+        if (Instance == this)
+            Instance = null;
+    }
 
-		ChangeDayState();
-	}
+    public override void _Ready()
+    {
+        currentDayState =
+            GetDayState(minutoDoDia);
 
-	private void ChangeDayState()
-	{
-		DayState novoEstado = GetDayState(minutoDoDia);
+        ultimoMinuto =
+            Mathf.FloorToInt(minutoDoDia);
+    }
 
-		if (novoEstado == currentDayState)
-			return;
+    public override void _Process(double delta)
+    {
+        WorldArea areaAtual =
+            WorldManager.Instance?.AreaAtual;
 
-		currentDayState = novoEstado;
-		DayStateChanged?.Invoke(currentDayState);
-	}
+        if (areaAtual == null)
+            return;
 
-	public DayState GetDayState(float minuto)
-	{
-		if (minuto >= 1200f)
-			return DayState.Night;
+        if (areaAtual.tempoParado)
+            return;
 
-		if (minuto >= 960f)
-			return DayState.Evening;
+        float duracaoDia =
+            areaAtual.tempoAcelerado
+                ? 120f
+                : 1440f;
 
-		if (minuto >= 720f)
-			return DayState.Afternoon;
+        float deltaF =
+            (float)delta * escalaTempo;
 
-		return DayState.Morning;
-	}
+        if (deltaF <= 0f)
+            return;
 
-	public void CongelarTempo()
-	{
-		escalaTempo = 0f;
-		GameState.TempoCongelado = true;
-		GameState.Instance.SetCameraInputEnabled(false);
-		GameState.Instance.SetCameraMouseCaptured(false);
-	}
+        minutoDoDia +=
+            deltaF * (1440f / duracaoDia);
 
-	public void DescongelarTempo()
-	{
-		escalaTempo = 1f;
-		GameState.TempoCongelado = false;
-		GameState.Instance.SetCameraInputEnabled(true);
-		GameState.Instance.SetCameraMouseCaptured(true);
-	}
+        if (!noiteFinalizada &&
+            minutoDoDia >= minutoFimNoite)
+        {
+            minutoDoDia = minutoFimNoite;
+            noiteFinalizada = true;
+            finalizarNoite();
+            return;
+        }
 
-	public void finalizarNoite()
-	{
-		EffectManager.Instance.FimDoDia();
+        if (minutoDoDia >= 1440f)
+            minutoDoDia %= 1440f;
 
-		CongelarTempo();
+        int minutoAtual =
+            Mathf.FloorToInt(minutoDoDia);
 
-		if (lugarParaDormir)
-		{
-			if (comidaSuficiente && aguaSuficiente)
-			{
-				PackedScene cena = GD.Load<PackedScene>("res://Assets/UI/escolhaEfeito.tscn");
-				escolhaEfeito tela = cena.Instantiate<escolhaEfeito>();
+        if (minutoAtual != ultimoMinuto)
+        {
+            ultimoMinuto = minutoAtual;
+            TimeChanged?.Invoke(
+                minutoDoDia
+            );
+        }
 
-				GetTree().Root.AddChild(tela);
+        ChangeDayState();
+    }
 
-				tela.Abrir(EffectManager.Instance.GerarOpcoes());
-			}
-			else
-			{
-				GameState.Instance.endGame("semComidaOuAgua");
-			}
-		}
-		else
-		{
-			GameState.Instance.endGame("semLugarParaDormir");
-		}
-	}
+    private void ChangeDayState()
+    {
+        DayState novoEstado =
+            GetDayState(minutoDoDia);
 
-	public void proximoDia()
-	{
-		diaAtual += 1;
+        if (novoEstado == currentDayState)
+            return;
 
-		if (diaAtual > maximoDias)
-			diaAtual = 1;
+        currentDayState = novoEstado;
 
-		minutoDoDia = minutoInicioDia;
-		ultimoMinuto = Mathf.FloorToInt(minutoDoDia);
+        DayStateChanged?.Invoke(
+            currentDayState
+        );
+    }
 
-		EffectManager.Instance.InicioDoDia();
+    public DayState GetDayState(float minuto)
+    {
+        if (minuto >= 1200f)
+            return DayState.Night;
 
-		noiteFinalizada = false;
+        if (minuto >= 960f)
+            return DayState.Evening;
 
-		NeedsState.Instance.SetFome(0f);
-		NeedsState.Instance.SetSede(0f);
+        if (minuto >= 720f)
+            return DayState.Afternoon;
 
-		DayChanged?.Invoke(diaAtual);
-		TimeChanged?.Invoke(minutoDoDia);
+        return DayState.Morning;
+    }
 
-		ChangeDayState();
-		DescongelarTempo();
-	}
+    public void CongelarTempo()
+    {
+        escalaTempo = 0f;
+        GameState.TempoCongelado = true;
 
-	public void alterarInicioDia(float novoInicio)
-	{
-		minutoInicioDia = Mathf.Clamp(novoInicio, 0f, 1440f);
-	}
+        GameState.Instance.SetCameraInputEnabled(false);
+        GameState.Instance.SetCameraMouseCaptured(false);
+    }
 
-	public void alterarFimNoite(float novoFim)
-	{
-		minutoFimNoite = Mathf.Clamp(novoFim, 0f, 1440f);
-	}
+    public void DescongelarTempo()
+    {
+        escalaTempo = 1f;
+        GameState.TempoCongelado = false;
 
-	}
+        GameState.Instance.SetCameraInputEnabled(true);
+        GameState.Instance.SetCameraMouseCaptured(true);
+    }
 
-	public enum DayState
-	{
-		Morning,
-		Afternoon,
-		Evening,
-		Night
-	}
+    public void finalizarNoite()
+    {
+        if (noiteFinalizada == false)
+            noiteFinalizada = true;
+
+        bool teveComida =
+            NeedsState.Instance.varFome > 0f;
+
+        bool teveAgua =
+            NeedsState.Instance.varSede > 0f;
+
+        comidaSuficiente = teveComida;
+        aguaSuficiente = teveAgua;
+
+        if (teveComida)
+            diasSemComer = 0;
+        else
+            diasSemComer++;
+
+        if (teveAgua)
+            diasSemBeber = 0;
+        else
+            diasSemBeber++;
+
+        bool temAbrigo =
+            lugarParaDormir ||
+            EffectManager.Instance.PermiteDormirSemLugar();
+
+        if (temAbrigo)
+            diasSemAbrigo = 0;
+        else
+            diasSemAbrigo++;
+
+        EffectManager.Instance.FimDoDia();
+
+        if (diasSemComer >= maximoDiasSemComer)
+        {
+            GameState.Instance.endGame(
+                "semComida"
+            );
+
+            return;
+        }
+
+        if (diasSemBeber >= maximoDiasSemBeber)
+        {
+            GameState.Instance.endGame(
+                "semAgua"
+            );
+
+            return;
+        }
+
+        if (diasSemAbrigo >= maximoDiasSemAbrigo)
+        {
+            GameState.Instance.endGame(
+                "semLugarParaDormir"
+            );
+
+            return;
+        }
+
+        CongelarTempo();
+
+        if (EffectManager.Instance.BloqueouNovasManutencoes)
+            return;
+
+        PackedScene cena =
+            GD.Load<PackedScene>(
+                "res://Assets/UI/escolhaEfeito.tscn"
+            );
+
+        escolhaEfeito tela =
+            cena.Instantiate<escolhaEfeito>();
+
+        GetTree().Root.AddChild(tela);
+
+        tela.Abrir(
+            EffectManager.Instance.GerarOpcoes()
+        );
+    }
+
+    public void proximoDia()
+    {
+        diaAtual++;
+
+        if (diaAtual > maximoDias)
+            diaAtual = 1;
+
+        minutoDoDia =
+            minutoInicioDia;
+
+        ultimoMinuto =
+            Mathf.FloorToInt(
+                minutoDoDia
+            );
+
+        noiteFinalizada = false;
+
+        NeedsState.Instance.SetFome(0f);
+        NeedsState.Instance.SetSede(0f);
+
+        EffectManager.Instance.InicioDoDia();
+
+        DayChanged?.Invoke(
+            diaAtual
+        );
+
+        TimeChanged?.Invoke(
+            minutoDoDia
+        );
+
+        ChangeDayState();
+
+        DescongelarTempo();
+    }
+
+    public void alterarInicioDia(float novoInicio)
+    {
+        minutoInicioDia =
+            Mathf.Clamp(
+                novoInicio,
+                0f,
+                1440f
+            );
+    }
+
+    public void alterarFimNoite(float novoFim)
+    {
+        minutoFimNoite =
+            Mathf.Clamp(
+                novoFim,
+                0f,
+                1440f
+            );
+    }
+
+    public void AlterarMaximoDiasSemComer(int novoMaximo)
+    {
+        maximoDiasSemComer =
+            Mathf.Max(
+                0,
+                novoMaximo
+            );
+    }
+
+    public void AlterarMaximoDiasSemBeber(int novoMaximo)
+    {
+        maximoDiasSemBeber =
+            Mathf.Max(
+                0,
+                novoMaximo
+            );
+    }
+
+    public void AlterarMaximoDiasSemAbrigo(int novoMaximo)
+    {
+        maximoDiasSemAbrigo =
+            Mathf.Max(
+                0,
+                novoMaximo
+            );
+    }
+}
+
+public enum DayState
+{
+    Morning,
+    Afternoon,
+    Evening,
+    Night
+}

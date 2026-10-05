@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://i17tgswhh6u7"]
+
+[ext_resource type="Script" uid="uid://doubmjiqg75hc" path="res://Scripts/Globais/WorldManager.cs" id="1_nitqa"]
+[ext_resource type="PackedScene" uid="uid://dd3yf0c5d5nvl" path="res://Assets/Scenes/ThePlayground.tscn" id="2_wlvpb"]
+[ext_resource type="Script" uid="uid://vdfyt3tix0ik" path="res://Scripts/Globais/WorldArea.cs" id="3_cg2gm"]
+[ext_resource type="PackedScene" uid="uid://ucboa6rkx6uk" path="res://Assets/Scenes/backrooms.tscn" id="4_plie7"]
+[ext_resource type="PackedScene" uid="uid://dwda84e1ln7l6" path="res://Assets/Scenes/Banco.tscn" id="5_wj32e"]
+[ext_resource type="PackedScene" uid="uid://d4knvl7scsv7n" path="res://Assets/Scenes/DataCenter.tscn" id="6_mgpwa"]
+[ext_resource type="PackedScene" uid="uid://bm2l0cjr6sigw" path="res://Assets/Scenes/Empresa.tscn" id="7_52kks"]
+[ext_resource type="PackedScene" uid="uid://bysb6emldqi7k" path="res://Assets/Scenes/Igreja.tscn" id="8_xv5rl"]
+[ext_resource type="PackedScene" uid="uid://d163b0qeuvsoe" path="res://Assets/Scenes/Loja1.tscn" id="9_cd7ii"]
+[ext_resource type="PackedScene" uid="uid://5a6qtoub36jc" path="res://Assets/Scenes/Loja2.tscn" id="10_xcnau"]
+[ext_resource type="PackedScene" uid="uid://7ytht27jms5d" path="res://Assets/Scenes/Loja3.tscn" id="11_vtf5x"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="12_mgpwa"]
+[ext_resource type="PackedScene" uid="uid://03vyq8qs01b1" path="res://Assets/Scenes/fog_post_process.tscn" id="13_52kks"]
+[ext_resource type="PackedScene" uid="uid://b8kdadftm2bc7" path="res://Assets/UI/hudHorario.tscn" id="14_xv5rl"]
+[ext_resource type="PackedScene" uid="uid://bt0y13avl08jo" path="res://Assets/UI/hud_main.tscn" id="15_cd7ii"]
+[ext_resource type="PackedScene" uid="uid://c3qp6nf2wgnsr" path="res://Assets/UI/telaInventario.tscn" id="16_xcnau"]
+
+[node name="World" type="Node3D" unique_id=298841364]
+
+[node name="WorldManager" type="Node" parent="." unique_id=1412212980 node_paths=PackedStringArray("areaInicial", "areas")]
+script = ExtResource("1_nitqa")
+areaInicial = NodePath("../ThePlayground")
+areas = [NodePath("../ThePlayground"), NodePath("../Backrooms"), NodePath("../Banco"), NodePath("../DataCenter"), NodePath("../Empresa"), NodePath("../Igreja"), NodePath("../Loja1"), NodePath("../Loja2"), NodePath("../Loja3")]
+
+[node name="ThePlayground" parent="." unique_id=1702091423 node_paths=PackedStringArray("personagem", "camera") instance=ExtResource("2_wlvpb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17783904, -1.1920929e-07, -0.16951585)
+script = ExtResource("3_cg2gm")
+tempoAcelerado = true
+personagem = NodePath("charGeraldoSalvador")
+camera = NodePath("CameraPivot")
+
+[node name="DirectionalSprite" parent="ThePlayground/charGeraldoSalvador" parent_id_path=PackedInt32Array(1702091423, 1046664859) index="3" unique_id=578035060 node_paths=PackedStringArray("cameraScript")]
+cameraScript = NodePath("../../CameraPivot")
+
+[node name="portaBanco" parent="ThePlayground/Casas Companias" parent_id_path=PackedInt32Array(1702091423, 1103274911) index="6" unique_id=1353397638 node_paths=PackedStringArray("targetArea")]
+targetArea = NodePath("../../../Banco")
+
+[node name="Backrooms" parent="." unique_id=1088645663 instance=ExtResource("4_plie7")]
+script = ExtResource("3_cg2gm")
+tempoParado = true
+
+[node name="Banco" parent="." unique_id=2073018133 node_paths=PackedStringArray("personagem", "camera") instance=ExtResource("5_wj32e")]
+script = ExtResource("3_cg2gm")
+personagem = NodePath("charGeraldoSalvador")
+camera = NodePath("CameraPivot")
+
+[node name="DirectionalSprite" parent="Banco/charGeraldoSalvador" parent_id_path=PackedInt32Array(2073018133, 1046664859) index="3" unique_id=578035060 node_paths=PackedStringArray("cameraScript")]
+cameraScript = NodePath("../../CameraPivot")
+
+[node name="portaBanco" parent="Banco" index="26" unique_id=1353397638 node_paths=PackedStringArray("targetArea")]
+targetArea = NodePath("../../ThePlayground")
+timeLimit = true
+isInterior = true
+
+[node name="DataCenter" parent="." unique_id=658518187 instance=ExtResource("6_mgpwa")]
+script = ExtResource("3_cg2gm")
+
+[node name="Empresa" parent="." unique_id=306004646 instance=ExtResource("7_52kks")]
+script = ExtResource("3_cg2gm")
+
+[node name="Igreja" parent="." unique_id=378817196 instance=ExtResource("8_xv5rl")]
+script = ExtResource("3_cg2gm")
+
+[node name="Loja1" parent="." unique_id=1428285256 instance=ExtResource("9_cd7ii")]
+script = ExtResource("3_cg2gm")
+
+[node name="Loja2" parent="." unique_id=814047897 instance=ExtResource("10_xcnau")]
+script = ExtResource("3_cg2gm")
+
+[node name="Loja3" parent="." unique_id=1601253988 instance=ExtResource("11_vtf5x")]
+script = ExtResource("3_cg2gm")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=530915317]
+physics_interpolation_mode = 1
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -4.7411766, 0.69920886, -7.6218166)
+top_level = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=1784526613]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("12_mgpwa")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="FogPostProcess" parent="Camera3D" unique_id=1951028512 instance=ExtResource("13_52kks")]
+visible = false
+
+[node name="HUD_TimeOfDay" parent="." unique_id=1654327781 instance=ExtResource("14_xv5rl")]
+
+[node name="hudMain" parent="." unique_id=1394536996 instance=ExtResource("15_cd7ii")]
+
+[node name="Inventory" parent="." unique_id=1651639305 node_paths=PackedStringArray("slotsInventario", "texturasSlots") instance=ExtResource("16_xcnau")]
+visible = false
+slotsInventario = []
+texturasSlots = []
+
+[editable path="ThePlayground"]
+[editable path="ThePlayground/charGeraldoSalvador"]
+[editable path="Banco"]
+[editable path="Banco/charGeraldoSalvador"]

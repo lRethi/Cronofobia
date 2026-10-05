@@ -2,16 +2,47 @@ using Godot;
 
 public partial class genericPickupScript : Area3D
 {
-    [Export] public TipoPickup tipoPickup;
-    [Export] public ItemDefinition item;
-    [Export] public float valorRecurso = 1f;
-    [Export] public float preco = 0f;
-    [Export] public bool compravel = false;
-    [Export] public PackedScene cenaCompra;
-    [Export] public bool canSetFlag = false;
-    [Export] public bool canSetFlagOnSteal = true;
-    [Export] public string flagToSetOnPickup;
-    [Export] public string flagToSetOnSteal;
+    [Export]
+    public TipoPickup tipoPickup;
+
+    [Export]
+    public ItemDefinition item;
+
+    [Export]
+    public float valorRecurso = 1f;
+
+    [Export]
+    public float preco = 0f;
+
+    [Export]
+    public bool compravel = false;
+
+    [Export]
+    public PackedScene cenaCompra;
+
+    [Export]
+    public bool canSetFlag = false;
+
+    [Export]
+    public bool canSetFlagOnSteal = true;
+
+    [Export]
+    public string flagToSetOnPickup;
+
+    [Export]
+    public string flagToSetOnSteal;
+
+    [Export]
+    public float alcanceInteracao = 1.25f;
+
+    [Export]
+    public float alcanceIma = 3f;
+
+    [Export]
+    public float velocidadeIma = 8f;
+
+    private CharacterBody3D personagem;
+    private bool podeInteragir = true;
 
     public enum TipoPickup
     {
@@ -21,119 +52,169 @@ public partial class genericPickupScript : Area3D
 
     public override void _Ready()
     {
-        GD.Print("[Pickup] _Ready: ", Name);
-        GD.Print("[Pickup] Tipo: ", tipoPickup);
-        GD.Print("[Pickup] Item: ", item != null ? item.Nome : "NULL");
-        GD.Print("[Pickup] Comprável: ", compravel);
+        if (personagem != null)
+            return;
 
-        BodyEntered += OnBodyEntered;
+        Node area = GetParent();
+
+        while (area != null)
+        {
+            CharacterBody3D encontrado =
+                area.FindChild(
+                    "charGeraldoSalvador",
+                    true,
+                    false
+                ) as CharacterBody3D;
+
+            if (encontrado != null)
+            {
+                personagem = encontrado;
+                break;
+            }
+
+            area = area.GetParent();
+        }
     }
 
-    private void OnBodyEntered(Node3D body)
+    public override void _Process(double delta)
     {
-        GD.Print("[Pickup] BodyEntered: ", body.Name);
-
-        if (body is not movimentoPerson)
-        {
-            GD.Print("[Pickup] Corpo não é movimentoPerson. Ignorando.");
+        if (personagem == null)
             return;
-        }
 
-        GD.Print("[Pickup] Jogador detectado.");
-
-        if (!compravel)
+        if (EffectManager.Instance != null &&
+            EffectManager.Instance.TemEfeito<Ima>() &&
+            !compravel)
         {
-            GD.Print("[Pickup] Pickup não comprável. Tentando pegar item.");
-
-            if (PegarItem())
-            {
-                GD.Print("[Pickup] PegarItem retornou TRUE. Removendo pickup.");
-                QueueFree();
-            }
-            else
-            {
-                GD.PrintErr("[Pickup] PegarItem retornou FALSE. Pickup permanece.");
-            }
+            ProcessarIma(
+                (float)delta
+            );
 
             return;
         }
 
-        GD.Print("[Pickup] Pickup comprável. Abrindo tela de compra.");
+        if (!Input.IsActionPressed("interact"))
+            podeInteragir = true;
 
-        MostrarCenaCompra();
+        float alcance =
+            EffectManager.Instance != null
+                ? EffectManager.Instance.GetInteractionRange(
+                    alcanceInteracao
+                )
+                : alcanceInteracao;
+
+        float distancia =
+            (
+                personagem.GlobalPosition -
+                GlobalPosition
+            ).Length();
+
+        if (distancia > alcance)
+            return;
+
+        if (!Input.IsActionJustPressed("interact"))
+            return;
+
+        if (!podeInteragir)
+            return;
+
+        podeInteragir = false;
+
+        if (compravel)
+        {
+            MostrarCenaCompra();
+            return;
+        }
+
+        if (PegarItem(true))
+            QueueFree();
+    }
+
+    private void ProcessarIma(float delta)
+    {
+        float distancia =
+            (
+                personagem.GlobalPosition -
+                GlobalPosition
+            ).Length();
+
+        if (distancia > alcanceIma)
+            return;
+
+        GlobalPosition =
+            GlobalPosition.MoveToward(
+                personagem.GlobalPosition,
+                velocidadeIma * delta
+            );
+
+        if (distancia > 0.2f)
+            return;
+
+        if (PegarItem(true))
+            QueueFree();
     }
 
     private void MostrarCenaCompra()
     {
-        GD.Print("[Pickup] MostrarCenaCompra chamado.");
-
         if (cenaCompra == null)
-        {
-            GD.PrintErr("[Pickup] cenaCompra está NULL.");
             return;
-        }
 
-        var cena = cenaCompra.Instantiate<cenaCompra>();
+        var cena =
+            cenaCompra.Instantiate<cenaCompra>();
 
         GetTree().CurrentScene.AddChild(cena);
 
-        cena.SetupScene(preco);
+        float precoFinal =
+            EffectManager.Instance != null
+                ? EffectManager.Instance.AplicarPreco(
+                    item?.Id,
+                    preco
+                )
+                : preco;
+
+        cena.SetupScene(precoFinal);
 
         cena.Comprar += ComprarItem;
         cena.Roubar += RoubarItem;
         cena.Fechar += FecharCompra;
 
         TimeState.Instance.CongelarTempo();
-
-        GD.Print("[Pickup] Tela de compra criada.");
     }
 
     private void ComprarItem(int precoCompra)
     {
-        GD.Print("[Pickup] ComprarItem chamado.");
-        GD.Print("[Pickup] Preço: ", precoCompra);
-        GD.Print("[Pickup] Dinheiro atual: ", NeedsState.Instance.varDinheiro);
-
-        if (NeedsState.Instance.varDinheiro < precoCompra)
+        if (NeedsState.Instance.varDinheiro <
+            precoCompra)
         {
-            GD.Print("[Pickup] Dinheiro insuficiente.");
             return;
         }
 
-        GD.Print("[Pickup] Tentando adicionar item ao inventário.");
-
-        if (!PegarItem())
-        {
-            GD.PrintErr("[Pickup] PegarItem falhou. Compra cancelada.");
+        if (!PegarItem(false))
             return;
-        }
-
-        GD.Print("[Pickup] Item adicionado. Descontando dinheiro.");
 
         NeedsState.Instance.SetDinheiro(
-            NeedsState.Instance.varDinheiro - precoCompra
+            NeedsState.Instance.varDinheiro -
+            precoCompra
         );
 
-        GD.Print("[Pickup] Compra concluída. Removendo pickup.");
+        EffectManager.Instance?.CompraConcluida(
+            item?.Id
+        );
 
         QueueFree();
     }
 
     private void RoubarItem()
     {
-        GD.Print("[Pickup] RoubarItem chamado.");
-
-        if (!PegarItem())
-        {
-            GD.PrintErr("[Pickup] Não foi possível roubar o item.");
+        if (!PegarItem(true))
             return;
-        }
 
-        GD.Print("[Pickup] Item roubado com sucesso. Removendo pickup.");
-        if(canSetFlagOnSteal && !string.IsNullOrEmpty(flagToSetOnSteal))
+        if (canSetFlagOnSteal &&
+            !string.IsNullOrEmpty(flagToSetOnSteal))
         {
-            GD.Print("[Pickup] Definindo flag: ", flagToSetOnSteal);
-            GameState.Instance.SetFlag(flagToSetOnSteal, true);
+            GameState.Instance.SetFlag(
+                flagToSetOnSteal,
+                true
+            );
         }
 
         QueueFree();
@@ -141,75 +222,56 @@ public partial class genericPickupScript : Area3D
 
     private void FecharCompra()
     {
-        GD.Print("[Pickup] FecharCompra chamado.");
     }
 
-    private bool PegarItem()
+    private bool PegarItem(bool veioDoChao)
     {
-        GD.Print("[Pickup] PegarItem chamado.");
-        GD.Print("[Pickup] Tipo do pickup: ", tipoPickup);
-
         switch (tipoPickup)
         {
             case TipoPickup.Item:
 
                 if (item == null)
-                {
-                    GD.PrintErr("[Pickup] ItemDefinition está NULL.");
                     return false;
-                }
 
-                GD.Print("[Pickup] Item a adicionar: ", item.Nome);
-                GD.Print("[Pickup] ID: ", item.Id);
+                if (veioDoChao &&
+                    EffectManager.Instance != null &&
+                    EffectManager.Instance.DeveDescartarFeijaoAoPegar(
+                        item.Id
+                    ))
+                {
+                    return true;
+                }
 
                 if (InventoryState.Instance == null)
-                {
-                    GD.PrintErr("[Pickup] InventoryState.Instance está NULL.");
                     return false;
-                }
 
-                GD.Print(
-                    "[Pickup] Quantidade atual no inventário: ",
-                    InventoryState.Instance.QuantidadeItens
-                );
+                bool resultado =
+                    InventoryState.Instance.AdicionarItem(
+                        item
+                    );
 
-                bool resultado = InventoryState.Instance.AdicionarItem(item);
-
-                GD.Print(
-                    "[Pickup] AdicionarItem retornou: ",
-                    resultado
-                );
-
-                GD.Print(
-                    "[Pickup] Quantidade após tentativa: ",
-                    InventoryState.Instance.QuantidadeItens
-                );
-
-                if (resultado && canSetFlag && !string.IsNullOrEmpty(flagToSetOnPickup))
+                if (resultado &&
+                    canSetFlag &&
+                    !string.IsNullOrEmpty(
+                        flagToSetOnPickup))
                 {
-                    GD.Print("[Pickup] Definindo flag: ", flagToSetOnPickup);
-                    GameState.Instance.SetFlag(flagToSetOnPickup, true);
+                    GameState.Instance.SetFlag(
+                        flagToSetOnPickup,
+                        true
+                    );
                 }
 
                 return resultado;
 
             case TipoPickup.Dinheiro:
 
-                GD.Print("[Pickup] Adicionando dinheiro: ", valorRecurso);
-
                 NeedsState.Instance.SetDinheiro(
-                    NeedsState.Instance.varDinheiro + valorRecurso
-                );
-
-                GD.Print(
-                    "[Pickup] Dinheiro após adicionar: ",
-                    NeedsState.Instance.varDinheiro
+                    NeedsState.Instance.varDinheiro +
+                    valorRecurso
                 );
 
                 return true;
         }
-
-        GD.PrintErr("[Pickup] TipoPickup desconhecido.");
 
         return false;
     }

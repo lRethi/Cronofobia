@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://dbdcec3m6j4us"]
+
+[ext_resource type="Script" uid="uid://c34nkk713lbx5" path="res://Scripts/Resources/ItemDefinition.cs" id="1_i83wr"]
+[ext_resource type="Texture2D" uid="uid://cu8636eydb3nn" path="res://Assets/Sprites/Objetos/itemMarmita.webp" id="1_iq037"]
+
+[resource]
+script = ExtResource("1_i83wr")
+Id = "marmita"
+Nome = "Marmita de Feijoada"
+Descricao = "Ainda quente. Parece bem saborosa de se comer, pode te encher para um dia todo."
+Textura = ExtResource("1_iq037")
+FomeAoUsar = 3.0
+metadata/_custom_type_script = "uid://c34nkk713lbx5"

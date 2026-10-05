@@ -4,6 +4,7 @@ using DialogueManagerRuntime;
 
 public partial class cameraBonitaDoFred : Node3D
 {
+    private Node3D _pcamNode;
     private PhantomCamera3D _pcam;
     private Tween cameraTween;
 
@@ -16,22 +17,16 @@ public partial class cameraBonitaDoFred : Node3D
     [Export]
     private float mouseSensitivity = 0.15f;
 
-    [Export]
-    private float dialogueMaxPitch = 30f;
-
     private readonly float basePitch = 0f;
-
     private float yawRotation = 0f;
     private int lastYawState;
-
     private Vector3 currentRotation;
     private Vector3 currentOffset;
-
     private bool dialogueMode = false;
-
+    private bool cameraInicializada = false;
+    private bool cameraAtiva = false;
     private Vector3 dialogueRotation;
     private Vector3 dialogueOffset;
-
     private Vector3 savedRotation;
     private Vector3 savedOffset;
 
@@ -52,34 +47,40 @@ public partial class cameraBonitaDoFred : Node3D
     {
         AddToGroup("camera_principal");
 
+        _pcamNode = GetNode<Node3D>("%PhantomCamera3D");
+        _pcam = _pcamNode.AsPhantomCamera3D();
+
+        if (player == null)
+            player = GetNode<Node3D>("%charGeraldoSalvador");
+
+        _pcam.Priority = 0;
+
         await ToSignal(
             GetTree(),
             SceneTree.SignalName.ProcessFrame
         );
 
-        _pcam = GetNode<Node3D>("%PhantomCamera3D").AsPhantomCamera3D();
-
-        if (player == null)
-        {
-            player = GetNode<Node3D>("%charGeraldoSalvador");
-        }
+        if (_pcam == null)
+            return;
 
         currentRotation = _pcam.GetThirdPersonRotationDegrees();
         currentOffset = _pcam.FollowOffset;
-
         yawRotation = currentRotation.Y;
         lastYawState = GetYawState();
 
         GameState.Instance.SetCameraInputEnabled(true);
         GameState.Instance.SetCameraMouseCaptured(true);
+
+        cameraInicializada = true;
+
+        if (cameraAtiva)
+            AtivarCamera();
     }
 
     public override void _Input(InputEvent @event)
     {
-        if (!GameState.cameraInputEnabled || dialogueMode)
-        {
+        if (!cameraAtiva || !GameState.cameraInputEnabled || dialogueMode)
             return;
-        }
 
         if (@event is InputEventMouseMotion mouseMotion)
         {
@@ -88,38 +89,72 @@ public partial class cameraBonitaDoFred : Node3D
         }
     }
 
-    public void StartDialogueCamera(
-        DialogueMarker3D npc,
-        float duration
-    )
+    public void AtivarCamera()
     {
-        if (!IsInstanceValid(npc))
-        {
+        cameraAtiva = true;
+
+        if (!cameraInicializada || _pcam == null)
             return;
-        }
+
+        ProcessMode = Node.ProcessModeEnum.Pausable;
+        SetProcessInput(true);
+
+        _pcam.Priority = 100;
+
+        GD.Print(
+            "ATIVANDO PCAM | ",
+            _pcamNode.GetPath(),
+            " | Priority: ",
+            _pcam.Priority,
+            " | IsActive: ",
+            _pcam.IsActive
+        );
+
+        GameState.Instance.SetCameraInputEnabled(true);
+        GameState.Instance.SetCameraMouseCaptured(true);
+    }
+
+    public void DesativarCamera()
+    {
+        cameraAtiva = false;
+        SetProcessInput(false);
+
+        if (_pcam == null)
+            return;
+
+        _pcam.Priority = 0;
+
+        GD.Print(
+            "DESATIVANDO PCAM | ",
+            _pcamNode.GetPath(),
+            " | Priority: ",
+            _pcam.Priority,
+            " | IsActive: ",
+            _pcam.IsActive
+        );
+    }
+
+    public void StartDialogueCamera(DialogueMarker3D npc, float duration)
+    {
+        if (!IsInstanceValid(npc) || _pcam == null)
+            return;
 
         if (!dialogueMode)
         {
             savedRotation = currentRotation;
             savedOffset = currentOffset;
-
             dialogueMode = true;
-
             GameState.Instance.SetCameraInputEnabled(false);
         }
 
         cameraTween?.Kill();
 
-        Vector3 npcPosition = npc.GlobalPosition;
-
         Vector3 relativePosition =
             player.GlobalTransform.Basis.Inverse() *
-            (npcPosition - player.GlobalPosition);
+            (npc.GlobalPosition - player.GlobalPosition);
 
         float side = relativePosition.X >= 0f ? 1f : -1f;
-
-        float depth =
-            relativePosition.Z >= 0f ? 0.9f : -0.9f;
+        float depth = relativePosition.Z >= 0f ? 0.9f : -0.9f;
 
         dialogueOffset = new Vector3(
             0.65f * side,
@@ -127,36 +162,9 @@ public partial class cameraBonitaDoFred : Node3D
             depth
         );
 
-        Vector3 verticalDifference =
-            npcPosition - player.GlobalPosition;
-
-        float horizontalDistance =
-            new Vector2(
-                verticalDifference.X,
-                verticalDifference.Z
-            ).Length();
-
-        float pitch = 0f;
-
-        if (horizontalDistance > 0.001f)
-        {
-            pitch = -Mathf.RadToDeg(
-                Mathf.Atan2(
-                    verticalDifference.Y,
-                    horizontalDistance
-                )
-            );
-        }
-
-        pitch = Mathf.Clamp(
-            pitch,
-            -dialogueMaxPitch,
-            dialogueMaxPitch
-        );
-
         dialogueRotation = new Vector3(
-            pitch,
-            currentRotation.Y - (5f * side),
+            2.5f,
+            currentRotation.Y + (5f * side),
             0f
         );
 
@@ -200,6 +208,9 @@ public partial class cameraBonitaDoFred : Node3D
 
     public void EndDialogueCamera(float duration)
     {
+        if (_pcam == null)
+            return;
+
         cameraTween?.Kill();
 
         Vector3 startRotation = currentRotation;
@@ -237,9 +248,7 @@ public partial class cameraBonitaDoFred : Node3D
         {
             currentRotation = savedRotation;
             currentOffset = savedOffset;
-
             yawRotation = savedRotation.Y;
-
             dialogueMode = false;
 
             GameState.Instance.SetCameraInputEnabled(true);
@@ -254,6 +263,9 @@ public partial class cameraBonitaDoFred : Node3D
             yawRotation,
             0f
         );
+
+        if (_pcam == null)
+            return;
 
         _pcam.SetThirdPersonRotationDegrees(currentRotation);
 

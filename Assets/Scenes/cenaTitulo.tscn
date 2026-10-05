@@ -87,7 +87,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_tlkyv"]
 resource_name = "creditosPop_In"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -115,7 +115,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_jhull"]
 resource_name = "creditosPop_out"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -201,7 +201,7 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_786tl")
 theme_override_styles/focus = SubResource("StyleBoxTexture_sjuhh")
 text = "Iniciar"
 script = ExtResource("6_jhull")
-caminhoCena = "res://Assets/Scenes/ThePlayground.tscn"
+caminhoCena = "res://Assets/Scenes/World.tscn"
 imagensLoading = [NodePath("../../LoadingScreen/TextureRect"), NodePath("../../LoadingScreen/TextureRect2"), NodePath("../../LoadingScreen/TextureRect3")]
 loadingScreen = NodePath("../../LoadingScreen")
 

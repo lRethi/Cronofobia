@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://cwvxfv8ivhodg"]
+
+[ext_resource type="Script" uid="uid://c34nkk713lbx5" path="res://Scripts/Resources/ItemDefinition.cs" id="1_qcm6h"]
+[ext_resource type="Texture2D" uid="uid://bh6h5lcru1wgv" path="res://Assets/Sprites/Objetos/itemCobertor.webp" id="1_staem"]
+
+[resource]
+script = ExtResource("1_qcm6h")
+Id = "cobertor"
+Nome = "Cobertor"
+Descricao = "Um cobertor quentinho. Pode te proteger do frio da noite, mas provavelmente vai ser roído por insetos."
+Textura = ExtResource("1_staem")
+PodeSerUsado = false
+metadata/_custom_type_script = "uid://c34nkk713lbx5"
