@@ -8,46 +8,19 @@ public partial class WorldArea : Node3D
     [Export] public cameraBonitaDoFred camera;
 
     public void Ativar()
-{
-    Visible = true;
-    ProcessMode = Node.ProcessModeEnum.Pausable;
-
-    GD.Print("BANCO ROOT: ", GetPath(), " | Visible: ", Visible);
-
-    foreach (Node filho in GetChildren())
     {
-        if (filho is Node3D node3D)
-        {
-            GD.Print(
-                "BANCO FILHO: ",
-                node3D.GetPath(),
-                " | Visible: ",
-                node3D.Visible
-            );
-        }
-    }
+        Visible = true;
+        ProcessMode = Node.ProcessModeEnum.Pausable;
 
-    if (personagem != null)
-        personagem.ProcessMode = Node.ProcessModeEnum.Pausable;
+        if (personagem != null)
+            personagem.ProcessMode = Node.ProcessModeEnum.Pausable;
 
-    if (camera != null)
-    {
-        camera.ProcessMode = Node.ProcessModeEnum.Pausable;
-        camera.AtivarCamera();
+        if (camera != null)
+            camera.ProcessMode = Node.ProcessModeEnum.Pausable;
     }
-}
 
     public void Desativar()
     {
-        GD.Print(
-            "AREA DESATIVAR | ",
-            GetPath(),
-            " | ANTES Visible: ",
-            Visible,
-            " | ProcessMode: ",
-            ProcessMode
-        );
-
         if (camera != null)
             camera.DesativarCamera();
 
@@ -56,14 +29,5 @@ public partial class WorldArea : Node3D
 
         ProcessMode = Node.ProcessModeEnum.Disabled;
         Visible = false;
-
-        GD.Print(
-            "AREA DESATIVAR | ",
-            GetPath(),
-            " | DEPOIS Visible: ",
-            Visible,
-            " | ProcessMode: ",
-            ProcessMode
-        );
     }
 }

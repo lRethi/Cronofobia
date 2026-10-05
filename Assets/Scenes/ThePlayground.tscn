@@ -2,11 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dwbafmkhb60pp" path="res://Scripts/Globais/GameState.cs" id="1_x8k4i"]
 [ext_resource type="Shader" uid="uid://cihlkpwta3awt" path="res://Scripts/Shaders/citySkybox.gdshader" id="2_iamn6"]
-[ext_resource type="PackedScene" uid="uid://c3qp6nf2wgnsr" path="res://Assets/UI/telaInventario.tscn" id="2_ueqtk"]
 [ext_resource type="PackedScene" uid="uid://4cvw5u3glyoy" path="res://Assets/Personagens/Protagonista.tscn" id="2_vgdj8"]
 [ext_resource type="Script" uid="uid://23qigdj8fnin" path="res://Scripts/Geral/DayNightController.cs" id="3_7bnv2"]
-[ext_resource type="PackedScene" uid="uid://03vyq8qs01b1" path="res://Assets/Scenes/fog_post_process.tscn" id="5_nspvk"]
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_w30fg"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="8_11sfv"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_an17c"]
 [ext_resource type="Script" uid="uid://bt56plut0kdvx" path="res://Scripts/Camera/cameraBonitaDoFred.cs" id="9_v0jil"]
@@ -37,7 +34,6 @@
 [ext_resource type="PackedScene" uid="uid://b4mgjc55khc8n" path="res://Assets/Itens/objAgua.tscn" id="20_uipgk"]
 [ext_resource type="Texture2D" uid="uid://1bvhchhyq5w" path="res://Assets/Sprites/Cenario/Parede/predio desconhecido.png" id="20_vs16v"]
 [ext_resource type="Texture2D" uid="uid://by0yhmbggy3xm" path="res://Assets/Sprites/Cenario/Parede/miodapraca.png" id="21_0odk6"]
-[ext_resource type="PackedScene" uid="uid://b8kdadftm2bc7" path="res://Assets/UI/hudHorario.tscn" id="22_11sfv"]
 [ext_resource type="PackedScene" uid="uid://mrlhhnue7vnr" path="res://Assets/Itens/objMoeda.tscn" id="22_an17c"]
 [ext_resource type="Texture2D" uid="uid://ixwtwa7d5c6t" path="res://Assets/Sprites/Cenario/Parede/Banco2.png" id="23_ijs02"]
 [ext_resource type="Texture2D" uid="uid://d27sfvxajivyr" path="res://Assets/Sprites/Cenario/Parede/Hotel.png" id="23_nsnqg"]
@@ -48,7 +44,6 @@
 [ext_resource type="Texture2D" uid="uid://leidaeoer022" path="res://Assets/Sprites/Cenario/Parede/Dr predio.png" id="25_ltmpb"]
 [ext_resource type="Texture2D" uid="uid://bhr4slcwvo2ut" path="res://Assets/Sprites/Cenario/Parede/Garagem.png" id="26_4tbl8"]
 [ext_resource type="PackedScene" uid="uid://do2x0pe173kn1" path="res://Assets/Props/objBin.tscn" id="26_654w1"]
-[ext_resource type="PackedScene" uid="uid://bt0y13avl08jo" path="res://Assets/UI/hud_main.tscn" id="26_qeaow"]
 [ext_resource type="Texture2D" uid="uid://dfwpqd3v4a4aw" path="res://Assets/Sprites/Cenario/Parede/Data Center.png" id="27_tn8n4"]
 [ext_resource type="Shape3D" uid="uid://pdkwnouxtnus" path="res://Assets/Scenes/ThePlayground_CollisionData/ThePlayground_Coreto_collision.res" id="28_0p0o7"]
 [ext_resource type="Texture2D" uid="uid://cahg3vqju3c7r" path="res://Assets/Sprites/Cenario/Parede/Fonte grande da praça.png" id="28_7mstw"]
@@ -145,6 +140,7 @@ adjustment_enabled = true
 
 [sub_resource type="Resource" id="Resource_5ge65"]
 script = ExtResource("9_an17c")
+duration = 0.0
 
 [sub_resource type="Resource" id="Resource_7pcv4"]
 script = ExtResource("12_qeaow")
@@ -862,21 +858,6 @@ safe_margin = 0.015
 cameraNode = NodePath("../PhantomCamera3D")
 cameraPivotNode = NodePath("../CameraPivot")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1005305001]
-physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.684517, 1.2550942, -43.493595)
-top_level = true
-near = 0.1
-
-[node name="FogPostProcess" parent="Camera3D" unique_id=1951028512 instance=ExtResource("5_nspvk")]
-visible = false
-
-[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=1356699522]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("6_w30fg")
-metadata/_custom_type_script = "uid://bd046eokvcnu2"
-
 [node name="CameraPivot" type="Node3D" parent="." unique_id=430484026 node_paths=PackedStringArray("player")]
 script = ExtResource("9_v0jil")
 player = NodePath("../charGeraldoSalvador")
@@ -888,6 +869,7 @@ script = ExtResource("8_11sfv")
 follow_mode = 6
 follow_target = NodePath("../charGeraldoSalvador")
 tween_resource = SubResource("Resource_5ge65")
+tween_on_load = false
 follow_distance = 2.0
 spring_length = 2.0
 collision_mask = 31
@@ -1650,7 +1632,6 @@ metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
 [node name="portaBanco" parent="Casas Companias" unique_id=1353397638 node_paths=PackedStringArray("personagem") instance=ExtResource("43_rcl60")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17.994905, 3.0142314, -51.004463)
-targetScenePath = "res://Assets/Scenes/Banco.tscn"
 personagem = NodePath("../../charGeraldoSalvador")
 
 [node name="Filler" type="Node3D" parent="." unique_id=320614220]
@@ -2328,15 +2309,6 @@ script = ExtResource("14_ueqtk")
 
 [node name="@CollisionShape3D@88364" type="CollisionShape3D" parent="Mapa/PraçaTile4/@StaticBody3D@88365" unique_id=892252707]
 shape = ExtResource("63_t52bt")
-
-[node name="HUD_TimeOfDay" parent="." unique_id=1654327781 instance=ExtResource("22_11sfv")]
-
-[node name="hudMain" parent="." unique_id=1394536996 instance=ExtResource("26_qeaow")]
-
-[node name="Inventory" parent="." unique_id=1651639305 node_paths=PackedStringArray("slotsInventario", "texturasSlots") instance=ExtResource("2_ueqtk")]
-visible = false
-slotsInventario = []
-texturasSlots = []
 
 [node name="objBin" parent="." unique_id=1657193161 instance=ExtResource("26_654w1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.40570354, -16)
