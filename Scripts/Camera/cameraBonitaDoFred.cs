@@ -4,6 +4,7 @@ using DialogueManagerRuntime;
 
 public partial class cameraBonitaDoFred : Node3D
 {
+    private Node3D _pcamNode;
     private PhantomCamera3D _pcam;
     private Tween cameraTween;
 
@@ -19,14 +20,11 @@ public partial class cameraBonitaDoFred : Node3D
     private readonly float basePitch = 0f;
     private float yawRotation = 0f;
     private int lastYawState;
-
     private Vector3 currentRotation;
     private Vector3 currentOffset;
-
     private bool dialogueMode = false;
     private bool cameraInicializada = false;
     private bool cameraAtiva = false;
-
     private Vector3 dialogueRotation;
     private Vector3 dialogueOffset;
     private Vector3 savedRotation;
@@ -49,7 +47,8 @@ public partial class cameraBonitaDoFred : Node3D
     {
         AddToGroup("camera_principal");
 
-        _pcam = GetNode<Node3D>("%PhantomCamera3D").AsPhantomCamera3D();
+        _pcamNode = GetNode<Node3D>("%PhantomCamera3D");
+        _pcam = _pcamNode.AsPhantomCamera3D();
 
         if (player == null)
             player = GetNode<Node3D>("%charGeraldoSalvador");
@@ -80,7 +79,7 @@ public partial class cameraBonitaDoFred : Node3D
 
     public override void _Input(InputEvent @event)
     {
-        if (!GameState.cameraInputEnabled || dialogueMode)
+        if (!cameraAtiva || !GameState.cameraInputEnabled || dialogueMode)
             return;
 
         if (@event is InputEventMouseMotion mouseMotion)
@@ -102,6 +101,15 @@ public partial class cameraBonitaDoFred : Node3D
 
         _pcam.Priority = 100;
 
+        GD.Print(
+            "ATIVANDO PCAM | ",
+            _pcamNode.GetPath(),
+            " | Priority: ",
+            _pcam.Priority,
+            " | IsActive: ",
+            _pcam.IsActive
+        );
+
         GameState.Instance.SetCameraInputEnabled(true);
         GameState.Instance.SetCameraMouseCaptured(true);
     }
@@ -109,13 +117,21 @@ public partial class cameraBonitaDoFred : Node3D
     public void DesativarCamera()
     {
         cameraAtiva = false;
-
         SetProcessInput(false);
 
         if (_pcam == null)
             return;
 
         _pcam.Priority = 0;
+
+        GD.Print(
+            "DESATIVANDO PCAM | ",
+            _pcamNode.GetPath(),
+            " | Priority: ",
+            _pcam.Priority,
+            " | IsActive: ",
+            _pcam.IsActive
+        );
     }
 
     public void StartDialogueCamera(DialogueMarker3D npc, float duration)
@@ -128,7 +144,6 @@ public partial class cameraBonitaDoFred : Node3D
             savedRotation = currentRotation;
             savedOffset = currentOffset;
             dialogueMode = true;
-
             GameState.Instance.SetCameraInputEnabled(false);
         }
 

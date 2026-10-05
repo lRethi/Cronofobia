@@ -31,10 +31,7 @@ public partial class WorldManager : Node
     {
         foreach (WorldArea area in areas)
         {
-            if (area == null)
-                continue;
-
-            if (area == areaInicial)
+            if (area == null || area == areaInicial)
                 continue;
 
             area.Desativar();
@@ -42,22 +39,6 @@ public partial class WorldManager : Node
 
         if (areaInicial != null)
             AtivarArea(areaInicial);
-    }
-
-    public override void _Process(double delta)
-    {
-        if (AreaAtual == null)
-            return;
-
-        if (!AreaAtual.Visible)
-        {
-            GD.Print(
-                "AREA SUMIU | ",
-                AreaAtual.GetPath(),
-                " | ProcessMode: ",
-                AreaAtual.ProcessMode
-            );
-        }
     }
 
     public void AtivarArea(WorldArea novaArea)
@@ -68,34 +49,15 @@ public partial class WorldManager : Node
         if (AreaAtual == novaArea)
             return;
 
-        if (AreaAtual != null)
-            AreaAtual.Desativar();
+        WorldArea areaAnterior = AreaAtual;
 
         AreaAtual = novaArea;
         AreaAtual.Ativar();
 
-        GD.Print(
-            "AREA APOS ATIVAR | ",
-            AreaAtual.GetPath(),
-            " | Visible: ",
-            AreaAtual.Visible
-        );
+        if (AreaAtual.camera != null)
+            AreaAtual.camera.AtivarCamera();
 
-        CallDeferred(nameof(VerificarAreaAtiva));
-    }
-
-    private void VerificarAreaAtiva()
-    {
-        if (AreaAtual == null)
-            return;
-
-        GD.Print(
-            "AREA NO FRAME SEGUINTE | ",
-            AreaAtual.GetPath(),
-            " | Visible: ",
-            AreaAtual.Visible,
-            " | ProcessMode: ",
-            AreaAtual.ProcessMode
-        );
+        if (areaAnterior != null)
+            areaAnterior.Desativar();
     }
 }

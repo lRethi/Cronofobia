@@ -115,5 +115,5 @@ Ayub: Disponível.
 Ayub: Eu terei a minha liberdade também.
 Ayub: Logo.
 Ayub: ...Logo.
-$> GameState.weirdRouteValue += 1
+$> GameState.Instance.AdicionarWeirdRouteValue(1)
 => END

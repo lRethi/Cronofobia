@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class NeedsState : Node
 {
@@ -35,51 +34,88 @@ public partial class NeedsState : Node
 
     public void SetFome(float value)
     {
-        varFome = Mathf.Clamp(value, 0f, maximoFome);
-		    GD.Print($"SetFome chamado: {varFome}");
-        EmitSignal(SignalName.HungerChanged, varFome);
+        varFome = Mathf.Clamp(
+            value,
+            0f,
+            maximoFome
+        );
+
+        EmitSignal(
+            SignalName.HungerChanged,
+            varFome
+        );
     }
 
     public void SetSede(float value)
     {
-        varSede = Mathf.Clamp(value, 0f, maximoSede);
-        EmitSignal(SignalName.ThirstChanged, varSede);
+        varSede = Mathf.Clamp(
+            value,
+            0f,
+            maximoSede
+        );
+
+        EmitSignal(
+            SignalName.ThirstChanged,
+            varSede
+        );
     }
 
     public void SetDinheiro(float value)
     {
-        varDinheiro = Mathf.Clamp(value, 0f, maximoDinheiro);
-        EmitSignal(SignalName.MoneyChanged, varDinheiro);
+        varDinheiro = Mathf.Clamp(
+            value,
+            0f,
+            maximoDinheiro
+        );
+
+        EmitSignal(
+            SignalName.MoneyChanged,
+            varDinheiro
+        );
     }
 
     public void AlterarMaximoFome(float novoMaximo)
     {
-        maximoFome = novoMaximo;
+        maximoFome = Mathf.Max(
+            1f,
+            novoMaximo
+        );
+
         SetFome(varFome);
     }
 
     public void AlterarMaximoSede(float novoMaximo)
     {
-        maximoSede = novoMaximo;
+        maximoSede = Mathf.Max(
+            1f,
+            novoMaximo
+        );
+
         SetSede(varSede);
     }
 
     public void AlterarMaximoDinheiro(float novoMaximo)
     {
-        maximoDinheiro = novoMaximo;
+        maximoDinheiro = Mathf.Max(
+            0f,
+            novoMaximo
+        );
+
         SetDinheiro(varDinheiro);
     }
 
-	public int GetMaximoFome()
-	{
-		return Mathf.RoundToInt(maximoFome);
-	}
-	public int GetMaximoSede()
-	{
-		return Mathf.RoundToInt(maximoSede);
-	}
-	public int GetMaximoDinheiro()
-	{
-		return Mathf.RoundToInt(maximoDinheiro);
-	}
+    public int GetMaximoFome()
+    {
+        return Mathf.RoundToInt(maximoFome);
+    }
+
+    public int GetMaximoSede()
+    {
+        return Mathf.RoundToInt(maximoSede);
+    }
+
+    public int GetMaximoDinheiro()
+    {
+        return Mathf.RoundToInt(maximoDinheiro);
+    }
 }

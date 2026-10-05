@@ -9,7 +9,7 @@ Cliente Suspeito: ... eu te pago 5 pila agora se você me falar as rondas dos gu
 	$> NeedsState.SetDinheiro(NeedsState.varDinheiro + 5)
 	Cliente Suspeito: ... agora some tua cara daqui, piá.
 	$> GameState.SetFlag("banco_atendido4", true)
-	$> GameState.weirdRouteValue += 1
+	$> GameState.Instance.AdicionarWeirdRouteValue(1)
 - Não falar as rondas.
 	Cliente Suspeito: ... então não desperdiça meu tempo.
 	$> GameState.SetFlag("banco_cliente4", true)

@@ -1,4 +1,5 @@
 using Godot;
+using System;
 using DialogueManagerRuntime;
 using Godot.Collections;
 using System.Threading.Tasks;
@@ -6,6 +7,7 @@ using System.Threading.Tasks;
 public partial class GameState : Node
 {
     public static GameState Instance { get; private set; }
+    public event Action<int, int> WeirdRouteValueChanged;
 
     public static bool TempoCongelado = false;
 
@@ -94,4 +96,26 @@ public partial class GameState : Node
     {
         GetTree().ChangeSceneToFile($"res://Assets/Endings/{endingName}.tscn");
     }
+
+    public void AlterarWeirdRouteValue(int novoValor)
+    {
+        int anterior = weirdRouteValue;
+
+        weirdRouteValue = novoValor;
+
+        if (anterior != novoValor)
+        {
+            WeirdRouteValueChanged?.Invoke(
+                anterior,
+                novoValor
+            );
+        }
+    }
+
+    public void AdicionarWeirdRouteValue(int quantidade)
+    {
+        AlterarWeirdRouteValue(
+            weirdRouteValue + quantidade
+        );
+}
 }
