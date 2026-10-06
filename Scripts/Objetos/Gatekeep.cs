@@ -1,203 +1,277 @@
 using Godot;
-using System;
 using System.Collections.Generic;
 
 public partial class Gatekeep : Node
 {
-	[Export]
-	public string removalOnFlag;
+    [Export]
+    public string removalOnFlag;
 
-	[Export]
-	public string showWhenFlag;
+    [Export]
+    public string showWhenFlag;
 
-	[Export]
-	public string hideWhenFlag;
+    [Export]
+    public string hideWhenFlag;
 
-	[Export]
-	public bool usarHorario;
+    [Export]
+    public bool usarHorario;
 
-	[Export]
-	public float horarioInicio = 480f;
+    [Export]
+    public float horarioInicio = 480f;
 
-	[Export]
-	public float horarioFim = 1320f;
+    [Export]
+    public float horarioFim = 1320f;
 
-	[Export]
-	public bool usarDia;
+    [Export]
+    public bool usarDia;
 
-	[Export]
-	public int diaMinimo = 1;
+    [Export]
+    public int diaMinimo = 1;
 
-	[Export]
-	public int diaMaximo = 7;
+    [Export]
+    public int diaMaximo = 7;
 
-	[Export]
-	public bool usarDayState;
+    [Export]
+    public bool usarDayState;
 
-	[Export]
-	public DayState dayState;
+    [Export]
+    public DayState dayState;
 
-	private Node3D target;
+    private Node target;
 
-	private readonly List<CollisionObject3D> collisionObjects = new();
-	private readonly Dictionary<CollisionObject3D, uint> originalCollisionLayers = new();
+    private readonly List<CollisionObject3D> collisionObjects = new();
+    private readonly Dictionary<CollisionObject3D, uint> originalCollisionLayers = new();
 
-	public override void _Ready()
-	{
-		target = GetParent<Node3D>();
+    public override void _Ready()
+    {
+        target = EncontrarTarget();
 
-		CacheCollisionObjects(target);
+        if (target == null)
+            return;
 
-		if (GameState.Instance != null)
-			GameState.Instance.FlagChanged += OnFlagChanged;
+        CacheCollisionObjects(target);
 
-		if (TimeState.Instance != null)
-		{
-			TimeState.Instance.TimeChanged += OnTimeChanged;
-			TimeState.Instance.DayChanged += OnDayChanged;
-			TimeState.Instance.DayStateChanged += OnDayStateChanged;
-		}
+        if (GameState.Instance != null)
+            GameState.Instance.FlagChanged += OnFlagChanged;
 
-		UpdateGatekeep();
-	}
+        if (TimeState.Instance != null)
+        {
+            TimeState.Instance.TimeChanged += OnTimeChanged;
+            TimeState.Instance.DayChanged += OnDayChanged;
+            TimeState.Instance.DayStateChanged += OnDayStateChanged;
+        }
 
-	public override void _ExitTree()
-	{
-		if (GameState.Instance != null)
-			GameState.Instance.FlagChanged -= OnFlagChanged;
+        UpdateGatekeep();
+    }
 
-		if (TimeState.Instance != null)
-		{
-			TimeState.Instance.TimeChanged -= OnTimeChanged;
-			TimeState.Instance.DayChanged -= OnDayChanged;
-			TimeState.Instance.DayStateChanged -= OnDayStateChanged;
-		}
-	}
+    public override void _ExitTree()
+    {
+        if (GameState.Instance != null)
+            GameState.Instance.FlagChanged -= OnFlagChanged;
 
-	private void CacheCollisionObjects(Node node)
-	{
-		if (node is CollisionObject3D collisionObject)
-		{
-			collisionObjects.Add(collisionObject);
-			originalCollisionLayers[collisionObject] = collisionObject.CollisionLayer;
-		}
+        if (TimeState.Instance != null)
+        {
+            TimeState.Instance.TimeChanged -= OnTimeChanged;
+            TimeState.Instance.DayChanged -= OnDayChanged;
+            TimeState.Instance.DayStateChanged -= OnDayStateChanged;
+        }
+    }
 
-		foreach (Node child in node.GetChildren())
-			CacheCollisionObjects(child);
-	}
+    private Node EncontrarTarget()
+    {
+        if (ContemPickup(this))
+            return this;
 
-	private void OnFlagChanged(string key, bool value)
-	{
-		if (key == removalOnFlag ||
-			key == showWhenFlag ||
-			key == hideWhenFlag)
-		{
-			UpdateGatekeep();
-		}
-	}
+        Node pai = GetParent();
 
-	private void OnTimeChanged(float minuto)
-	{
-		if (usarHorario)
-			UpdateGatekeep();
-	}
+        if (pai is Node3D)
+            return pai;
 
-	private void OnDayChanged(int dia)
-	{
-		if (usarDia)
-			UpdateGatekeep();
-	}
+        if (pai != null)
+        {
+            foreach (Node child in pai.GetChildren())
+            {
+                if (child == this)
+                    continue;
 
-	private void OnDayStateChanged(DayState state)
-	{
-		if (usarDayState)
-			UpdateGatekeep();
-	}
+                if (child is Node3D node3D && ContemCharacterBody3D(node3D))
+                    return node3D;
+            }
 
-	private void UpdateGatekeep()
-	{
-		if (GameState.Instance.GetFlag(removalOnFlag))
-		{
-			target.QueueFree();
-			return;
-		}
+            foreach (Node child in pai.GetChildren())
+            {
+                if (child == this)
+                    continue;
 
-		if (!ConditionsAllowPresence())
-		{
-			SetVisible(false);
-			return;
-		}
+                if (child is Node3D node3D)
+                    return node3D;
+            }
+        }
 
-		SetVisible(true);
-	}
+        return pai;
+    }
 
-	private bool ConditionsAllowPresence()
-	{
-		if (!CheckFlagConditions())
-			return false;
+    private bool ContemPickup(Node node)
+    {
+        if (node is genericPickupScript)
+            return true;
 
-		if (usarHorario && !CheckHorario())
-			return false;
+        foreach (Node child in node.GetChildren())
+        {
+            if (ContemPickup(child))
+                return true;
+        }
 
-		if (usarDia && !CheckDia())
-			return false;
+        return false;
+    }
 
-		if (usarDayState && TimeState.Instance.CurrentDayState != dayState)
-			return false;
+    private bool ContemCharacterBody3D(Node node)
+    {
+        if (node is CharacterBody3D)
+            return true;
 
-		return true;
-	}
+        foreach (Node child in node.GetChildren())
+        {
+            if (ContemCharacterBody3D(child))
+                return true;
+        }
 
-	private bool CheckFlagConditions()
-	{
-		if (!string.IsNullOrEmpty(hideWhenFlag) &&
-			GameState.Instance.GetFlag(hideWhenFlag))
-		{
-			return false;
-		}
+        return false;
+    }
 
-		if (!string.IsNullOrEmpty(showWhenFlag) &&
-			!GameState.Instance.GetFlag(showWhenFlag))
-		{
-			return false;
-		}
+    private void CacheCollisionObjects(Node node)
+    {
+        if (node is CollisionObject3D collisionObject)
+        {
+            collisionObjects.Add(collisionObject);
+            originalCollisionLayers[collisionObject] = collisionObject.CollisionLayer;
+        }
 
-		return true;
-	}
+        foreach (Node child in node.GetChildren())
+            CacheCollisionObjects(child);
+    }
 
-	private bool CheckHorario()
-	{
-		float minuto = TimeState.Instance.minutoDoDia;
+    private void OnFlagChanged(string key, bool value)
+    {
+        if (key == removalOnFlag ||
+            key == showWhenFlag ||
+            key == hideWhenFlag)
+        {
+            UpdateGatekeep();
+        }
+    }
 
-		if (horarioInicio <= horarioFim)
-			return minuto >= horarioInicio && minuto <= horarioFim;
+    private void OnTimeChanged(float minuto)
+    {
+        if (usarHorario)
+            UpdateGatekeep();
+    }
 
-		return minuto >= horarioInicio || minuto <= horarioFim;
-	}
+    private void OnDayChanged(int dia)
+    {
+        if (usarDia)
+            UpdateGatekeep();
+    }
 
-	private bool CheckDia()
-	{
-		int dia = TimeState.Instance.diaAtual;
+    private void OnDayStateChanged(DayState state)
+    {
+        if (usarDayState)
+            UpdateGatekeep();
+    }
 
-		return dia >= diaMinimo && dia <= diaMaximo;
-	}
+    private void UpdateGatekeep()
+    {
+        if (GameState.Instance.GetFlag(removalOnFlag))
+        {
+            target?.QueueFree();
+            return;
+        }
 
-	private void SetVisible(bool visible)
-	{
-		if (target == null)
-			return;
+        if (!ConditionsAllowPresence())
+        {
+            SetVisible(false);
+            return;
+        }
 
-		target.Visible = visible;
+        SetVisible(true);
+    }
 
-		foreach (CollisionObject3D collisionObject in collisionObjects)
-		{
-			if (!IsInstanceValid(collisionObject))
-				continue;
+    private bool ConditionsAllowPresence()
+    {
+        if (!CheckFlagConditions())
+            return false;
 
-			if (visible)
-				collisionObject.CollisionLayer = originalCollisionLayers[collisionObject];
-			else
-				collisionObject.CollisionLayer = 0;
-		}
-	}
+        if (usarHorario && !CheckHorario())
+            return false;
+
+        if (usarDia && !CheckDia())
+            return false;
+
+        if (usarDayState &&
+            TimeState.Instance.CurrentDayState != dayState)
+            return false;
+
+        return true;
+    }
+
+    private bool CheckFlagConditions()
+    {
+        if (!string.IsNullOrEmpty(hideWhenFlag) &&
+            GameState.Instance.GetFlag(hideWhenFlag))
+        {
+            return false;
+        }
+
+        if (!string.IsNullOrEmpty(showWhenFlag) &&
+            !GameState.Instance.GetFlag(showWhenFlag))
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    private bool CheckHorario()
+    {
+        float minuto = TimeState.Instance.minutoDoDia;
+
+        if (horarioInicio <= horarioFim)
+            return minuto >= horarioInicio && minuto <= horarioFim;
+
+        return minuto >= horarioInicio || minuto <= horarioFim;
+    }
+
+    private bool CheckDia()
+    {
+        int dia = TimeState.Instance.diaAtual;
+
+        return dia >= diaMinimo && dia <= diaMaximo;
+    }
+
+    private void SetVisible(bool visible)
+    {
+        if (target == null)
+            return;
+
+        SetNodeVisible(target, visible);
+
+        foreach (CollisionObject3D collisionObject in collisionObjects)
+        {
+            if (!IsInstanceValid(collisionObject))
+                continue;
+
+            if (visible)
+                collisionObject.CollisionLayer = originalCollisionLayers[collisionObject];
+            else
+                collisionObject.CollisionLayer = 0;
+        }
+    }
+
+    private void SetNodeVisible(Node node, bool visible)
+    {
+        if (node is Node3D node3D)
+            node3D.Visible = visible;
+
+        foreach (Node child in node.GetChildren())
+            SetNodeVisible(child, visible);
+    }
 }

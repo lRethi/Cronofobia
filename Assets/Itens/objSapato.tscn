@@ -1,40 +1,9 @@
 [gd_scene format=3 uid="uid://sqbmx2y4d55r"]
 
-[ext_resource type="Script" uid="uid://cdj11gs6dxbd3" path="res://Scripts/Geral/genericPickupScript.cs" id="1_l5a8a"]
-[ext_resource type="Resource" uid="uid://c0s8n2ob2qtje" path="res://Assets/Resources/Itens/SapatosCorrida.tres" id="2_l5a8a"]
-[ext_resource type="PackedScene" uid="uid://cklvtrqrtdppf" path="res://Assets/UI/hudCompra.tscn" id="3_ixsx5"]
-[ext_resource type="Texture2D" uid="uid://ddxgdwutgm88r" path="res://Assets/Sprites/Objetos/itemSapato.webp" id="4_ocpg7"]
+[ext_resource type="Script" uid="uid://di1arvpjf0c22" path="res://Scripts/Objetos/Gatekeep.cs" id="1_ocpg7"]
+[ext_resource type="PackedScene" uid="uid://cl56sa24ywbbx" path="res://Assets/Itens/Resources/sapato_pickup.tscn" id="2_kh8n4"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8c2qd"]
-radius = 0.19335938
-height = 0.38671875
+[node name="objSapato" type="Node3D" unique_id=1075211071]
+script = ExtResource("1_ocpg7")
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ixsx5"]
-load_path = "res://.godot/imported/itemSapato.webp-3cd5eb8b85b1927131820d1ca20c8630.s3tc.ctex"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1htsi"]
-transparency = 4
-albedo_texture = SubResource("CompressedTexture2D_ixsx5")
-backlight_enabled = true
-backlight = Color(0.10980392, 0.10980392, 0.10980392, 1)
-texture_filter = 0
-disable_receive_shadows = true
-billboard_mode = 2
-
-[node name="sapatoPickup" type="Area3D" unique_id=1197714594]
-script = ExtResource("1_l5a8a")
-item = ExtResource("2_l5a8a")
-valorRecurso = 0.0
-cenaCompra = ExtResource("3_ixsx5")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=337365301]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.013336182, 0)
-shape = SubResource("CapsuleShape3D_8c2qd")
-
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1119932678]
-material_override = SubResource("StandardMaterial3D_1htsi")
-pixel_size = 0.0008
-billboard = 2
-shaded = true
-texture_filter = 0
-texture = ExtResource("4_ocpg7")
+[node name="sapatoPickup" parent="." unique_id=1546309086 instance=ExtResource("2_kh8n4")]
