@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bli432i5uj51v" path="res://addons/TileMapLayer3D/core/tile_creation_placement/tilemap_layer_settings.gd" id="3_1icfx"]
 [ext_resource type="Texture2D" uid="uid://d27sfvxajivyr" path="res://Assets/Sprites/Cenario/Parede/Hotel.png" id="4_d3eyx"]
 [ext_resource type="Texture2D" uid="uid://b0qkl8g3lw4gx" path="res://Assets/Sprites/Cenario/Parede/igreja.png" id="5_05kcg"]
-[ext_resource type="Texture2D" path="res://Assets/Sprites/Cenario/Parede/pixil-frame-0.png" id="6_125th"]
+[ext_resource type="Texture2D" uid="uid://csdtq8ric3yba" path="res://Assets/Sprites/Cenario/Parede/igrejafora.png" id="6_125th"]
 
 [sub_resource type="Resource" id="Resource_3ym52"]
 script = ExtResource("3_1icfx")

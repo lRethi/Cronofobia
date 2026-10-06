@@ -63,7 +63,7 @@
 [ext_resource type="Texture2D" uid="uid://b0qkl8g3lw4gx" path="res://Assets/Sprites/Cenario/Parede/igreja.png" id="40_elhx7"]
 [ext_resource type="Shape3D" uid="uid://du1whrrbhdm" path="res://Assets/Scenes/ThePlayground_CollisionData/ThePlayground_█portal_collision.res" id="40_x2i27"]
 [ext_resource type="Texture2D" uid="uid://bri8xs0scgw2a" path="res://Assets/Sprites/Cenario/Parede/Gasolina.png" id="41_8gkpi"]
-[ext_resource type="Texture2D" path="res://Assets/Sprites/Cenario/Parede/pixil-frame-0.png" id="41_olx8x"]
+[ext_resource type="Texture2D" uid="uid://csdtq8ric3yba" path="res://Assets/Sprites/Cenario/Parede/igrejafora.png" id="41_olx8x"]
 [ext_resource type="Script" uid="uid://cgm5ydwn0eb7u" path="res://Scripts/Camera/dialogueCameraController.cs" id="41_oqisv"]
 [ext_resource type="Texture2D" uid="uid://cx67sqcsh4i8k" path="res://Assets/Sprites/Cenario/Parede/dataCenter.png" id="42_2mdy0"]
 [ext_resource type="PackedScene" uid="uid://cmdy1muvdfmyd" path="res://Assets/Props/Portas/portaBanco.tscn" id="43_rcl60"]
