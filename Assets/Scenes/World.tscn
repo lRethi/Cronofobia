@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b8kdadftm2bc7" path="res://Assets/UI/hudHorario.tscn" id="14_xv5rl"]
 [ext_resource type="PackedScene" uid="uid://bt0y13avl08jo" path="res://Assets/UI/hud_main.tscn" id="15_cd7ii"]
 [ext_resource type="PackedScene" uid="uid://c3qp6nf2wgnsr" path="res://Assets/UI/telaInventario.tscn" id="16_xcnau"]
+[ext_resource type="Script" uid="uid://cgm5ydwn0eb7u" path="res://Scripts/Camera/dialogueCameraController.cs" id="17_52kks"]
 
 [node name="World" type="Node3D" unique_id=298841364]
 
@@ -34,14 +35,16 @@ camera = NodePath("CameraPivot")
 [node name="DirectionalSprite" parent="ThePlayground/charGeraldoSalvador" parent_id_path=PackedInt32Array(1702091423, 1046664859) index="3" unique_id=578035060 node_paths=PackedStringArray("cameraScript")]
 cameraScript = NodePath("../../CameraPivot")
 
-[node name="portaBanco" parent="ThePlayground/Casas Companias" parent_id_path=PackedInt32Array(1702091423, 1103274911) index="6" unique_id=1353397638 node_paths=PackedStringArray("targetArea")]
-targetArea = NodePath("../../../Banco")
+[node name="portaBanco" parent="ThePlayground/Buildings/Casas Companias" parent_id_path=PackedInt32Array(1702091423, 1577077153) index="9" unique_id=1353397638 node_paths=PackedStringArray("targetArea")]
+targetArea = NodePath("../../../../Banco")
 
 [node name="Backrooms" parent="." unique_id=1088645663 instance=ExtResource("4_plie7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -105.56489, 0)
 script = ExtResource("3_cg2gm")
 tempoParado = true
 
 [node name="Banco" parent="." unique_id=2073018133 node_paths=PackedStringArray("personagem", "camera") instance=ExtResource("5_wj32e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.51916, 55.092804, 0)
 script = ExtResource("3_cg2gm")
 personagem = NodePath("charGeraldoSalvador")
 camera = NodePath("CameraPivot")
@@ -49,32 +52,40 @@ camera = NodePath("CameraPivot")
 [node name="DirectionalSprite" parent="Banco/charGeraldoSalvador" parent_id_path=PackedInt32Array(2073018133, 1046664859) index="3" unique_id=578035060 node_paths=PackedStringArray("cameraScript")]
 cameraScript = NodePath("../../CameraPivot")
 
-[node name="portaBanco" parent="Banco" index="26" unique_id=1353397638 node_paths=PackedStringArray("targetArea")]
+[node name="PhantomCamera3D" parent="Banco" index="22" unique_id=468541075]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -4.7411766, 0.6992073, -7.6218166)
+
+[node name="portaBanco" parent="Banco" index="25" unique_id=1353397638 node_paths=PackedStringArray("targetArea")]
 targetArea = NodePath("../../ThePlayground")
 timeLimit = true
-isInterior = true
 
 [node name="DataCenter" parent="." unique_id=658518187 instance=ExtResource("6_mgpwa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.908936, 41.06846, 0)
 script = ExtResource("3_cg2gm")
 
 [node name="Empresa" parent="." unique_id=306004646 instance=ExtResource("7_52kks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 37.209892, 195.17984)
 script = ExtResource("3_cg2gm")
 
 [node name="Igreja" parent="." unique_id=378817196 instance=ExtResource("8_xv5rl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 42.41569, -113.45841)
 script = ExtResource("3_cg2gm")
 
 [node name="Loja1" parent="." unique_id=1428285256 instance=ExtResource("9_cd7ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97.39919, 54.067184, 0)
 script = ExtResource("3_cg2gm")
 
 [node name="Loja2" parent="." unique_id=814047897 instance=ExtResource("10_xcnau")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.856117, 49.233067, 0)
 script = ExtResource("3_cg2gm")
 
 [node name="Loja3" parent="." unique_id=1601253988 instance=ExtResource("11_vtf5x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.8428, 42.639626, -48.28467)
 script = ExtResource("3_cg2gm")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=530915317]
 physics_interpolation_mode = 1
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -4.7411766, 0.69920886, -7.6218166)
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 63.77798, 55.79201, -7.6218166)
 top_level = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=1784526613]
@@ -95,7 +106,17 @@ visible = false
 slotsInventario = []
 texturasSlots = []
 
+[node name="DialogueCameraController" type="Node" parent="." unique_id=1670105002]
+unique_name_in_owner = true
+script = ExtResource("17_52kks")
+
 [editable path="ThePlayground"]
 [editable path="ThePlayground/charGeraldoSalvador"]
 [editable path="Banco"]
+[editable path="Banco/Atendente"]
+[editable path="Banco/NPC1"]
+[editable path="Banco/NPC2"]
+[editable path="Banco/NPC3"]
+[editable path="Banco/NPC4"]
+[editable path="Banco/Gerente"]
 [editable path="Banco/charGeraldoSalvador"]

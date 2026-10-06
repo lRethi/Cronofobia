@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://4s5tu1dc6mw"]
+
+[ext_resource type="Texture2D" uid="uid://c8vjtg6vbv6x0" path="res://Assets/Sprites/Objetos/itemDocsx.webp" id="1_smxgn"]
+
+[resource]
+transparency = 4
+albedo_texture = ExtResource("1_smxgn")
+backlight_enabled = true
+backlight = Color(0.10980392, 0.10980392, 0.10980392, 1)
+texture_filter = 0
+disable_receive_shadows = true

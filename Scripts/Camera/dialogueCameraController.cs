@@ -3,30 +3,32 @@ using DialogueManagerRuntime;
 
 public partial class dialogueCameraController : Node
 {
-    [Export] public cameraBonitaDoFred GameplayCamera;
-
     private DialogueMarker3D currentNPC;
+    private cameraBonitaDoFred gameplayCamera;
 
     public void StartDialogue(DialogueMarker3D npc)
     {
         if (!IsInstanceValid(npc))
-        {
             return;
-        }
 
-        if (!IsInstanceValid(GameplayCamera))
-        {
+        if (WorldManager.Instance == null)
             return;
-        }
+
+        WorldArea areaAtual = WorldManager.Instance.AreaAtual;
+
+        if (!IsInstanceValid(areaAtual))
+            return;
+
+        if (!IsInstanceValid(areaAtual.camera))
+            return;
 
         if (currentNPC == npc)
-        {
             return;
-        }
 
+        gameplayCamera = areaAtual.camera;
         currentNPC = npc;
 
-        GameplayCamera.StartDialogueCamera(
+        gameplayCamera.StartDialogueCamera(
             npc,
             0.5f
         );
@@ -34,12 +36,15 @@ public partial class dialogueCameraController : Node
 
     public void EndDialogue()
     {
-        if (!IsInstanceValid(GameplayCamera))
+        if (!IsInstanceValid(gameplayCamera))
         {
+            currentNPC = null;
             return;
         }
 
-        GameplayCamera.EndDialogueCamera(0.5f);
+        gameplayCamera.EndDialogueCamera(0.5f);
+
+        gameplayCamera = null;
         currentNPC = null;
     }
 }

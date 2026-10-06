@@ -11,6 +11,9 @@ public partial class mecanicaIniciarDialogo : Node3D
 	private bool dialogoAtivo = false;
 	private bool playerPerto = false;
 
+	[Export]
+    public float alcanceInteracao = 1.25f;
+
 	public override void _Ready()
 	{
 		var gs = GetNode("/root/GameState");
@@ -28,7 +31,15 @@ public partial class mecanicaIniciarDialogo : Node3D
 			return;
 
 		float distancia = (personagem.GlobalPosition - GlobalPosition).Length();
-		playerPerto = distancia <= 2.5f;
+
+		float alcance =
+            EffectManager.Instance != null
+                ? EffectManager.Instance.GetInteractionRange(
+                    alcanceInteracao
+                )
+                : alcanceInteracao;
+		
+		playerPerto = distancia <= alcance;
 
 		if (playerPerto && Input.IsActionJustPressed("interact"))
 		{
