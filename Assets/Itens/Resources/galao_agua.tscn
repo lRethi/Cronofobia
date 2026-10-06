@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://ckvdw0nkq24mg"]
+
+[ext_resource type="Script" uid="uid://cdj11gs6dxbd3" path="res://Scripts/Geral/genericPickupScript.cs" id="1_xx53x"]
+[ext_resource type="Resource" uid="uid://b68f7c0h123n" path="res://Assets/Resources/Itens/GalaoAgua.tres" id="2_0tq2m"]
+[ext_resource type="PackedScene" uid="uid://cklvtrqrtdppf" path="res://Assets/UI/hudCompra.tscn" id="3_66uoc"]
+[ext_resource type="Texture2D" uid="uid://bxkmdd3nkapgu" path="res://Assets/Sprites/Objetos/galaoAgua.png" id="4_qbwfo"]
+[ext_resource type="Shader" uid="uid://ba2yn3rm04xny" path="res://Assets/Shaders/HighlightNPC.gdshader" id="5_4cbkk"]
+[ext_resource type="Script" uid="uid://cbeumlxm2r5cw" path="res://Scripts/Camera/rotCameraPerson.cs" id="6_xif8k"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8c2qd"]
+radius = 0.19335938
+height = 0.38671875
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uyn1v"]
+transparency = 4
+albedo_texture = ExtResource("4_qbwfo")
+backlight_enabled = true
+backlight = Color(0.10980392, 0.10980392, 0.10980392, 1)
+texture_filter = 0
+disable_receive_shadows = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_57i47"]
+render_priority = -1
+shader = ExtResource("5_4cbkk")
+shader_parameter/sprite_texture = ExtResource("4_qbwfo")
+shader_parameter/enable_outline = false
+shader_parameter/outline_color = Color(0.34, 0.246, 0.672, 1)
+shader_parameter/outline_thickness = 5.0
+shader_parameter/glow_speed = 4.5
+shader_parameter/glow_intensity = 0.75
+
+[node name="galaoAgua" type="Area3D" unique_id=1963751312]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+script = ExtResource("1_xx53x")
+item = ExtResource("2_0tq2m")
+cenaCompra = ExtResource("3_66uoc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=962770560]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.013336182, 0)
+shape = SubResource("CapsuleShape3D_8c2qd")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1056284462]
+material_override = SubResource("StandardMaterial3D_uyn1v")
+material_overlay = SubResource("ShaderMaterial_57i47")
+pixel_size = 0.0008
+shaded = true
+texture_filter = 0
+texture = ExtResource("4_qbwfo")
+script = ExtResource("6_xif8k")
