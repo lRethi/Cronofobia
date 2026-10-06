@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0qkl8g3lw4gx"
-path.s3tc="res://.godot/imported/igreja.png-81d2ffba017719478f04f5a5dc0c8a93.s3tc.ctex"
+uid="uid://do0n36ie16xu1"
+path.s3tc="res://.godot/imported/igrejadentro.png-582e39f8a240bf669a689b05743d142e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Sprites/Cenario/Parede/igreja.png"
-dest_files=["res://.godot/imported/igreja.png-81d2ffba017719478f04f5a5dc0c8a93.s3tc.ctex"]
+source_file="res://Assets/Sprites/Cenario/Parede/igrejadentro.png"
+dest_files=["res://.godot/imported/igrejadentro.png-582e39f8a240bf669a689b05743d142e.s3tc.ctex"]
 
 [params]
 

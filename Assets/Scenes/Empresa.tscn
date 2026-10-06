@@ -174,7 +174,6 @@ script = ExtResource("3_ian0u")
 tileset_texture = ExtResource("21_7sag8")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(0, 0, 320, 320)
-selected_tiles = Array[Rect2]([Rect2(0, 0, 320, 320)])
 
 [sub_resource type="Resource" id="Resource_o6km6"]
 script = ExtResource("3_ian0u")
@@ -427,7 +426,7 @@ metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 [node name="TileMapLayer3D9" type="Node3D" parent="computaria" unique_id=388483913 node_paths=PackedStringArray("_quad_chunks")]
 script = ExtResource("1_f7omw")
 settings = SubResource("Resource_e6g2i")
-_tile_positions = PackedVector3Array(5, 0, -10.5, 5, 0, -9.5, 5, 0, -8.5, 5, 0, -6.5, 5, 0, -7.5, 5, 0, -5.5, 5, 0, -4.5, -4, 0, -10.5, -4, 0, -9.5, -4, 0, -8.5, -4, 0, -7.5, -4, 0, -6.5, -4, 0, -5.5, -4, 0, -4.5)
+_tile_positions = PackedVector3Array(5, 0, -10.5, 5, 0, -9.5, 5, 0, -8.5, 5, 0, -6.5, 5, 0, -7.5, 5, 0, -5.5, 5, 0, -4.5, -3, 0, -10.5, -3, 0, -9.5, -3, 0, -8.5, -3, 0, -7.5, -3, 0, -6.5, -3, 0, -5.5, -3, 0, -4.5)
 _tile_uv_rects = PackedFloat32Array(0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320)
 _tile_flags = PackedInt32Array(130050, 130050, 130050, 130050, 130050, 130050, 130050, 130050, 130050, 130050, 130050, 130050, 130050, 130050)
 _tile_transform_indices = PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13)
