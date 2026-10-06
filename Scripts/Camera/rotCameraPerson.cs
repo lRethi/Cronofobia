@@ -13,6 +13,7 @@ public partial class rotCameraPerson : Sprite3D
 
     public override void _Ready()
     {
+        if (personagem == null) personagem = GetTree().CurrentScene.FindChild("charGeraldoSalvador", true, false) as CharacterBody3D;
         camera = GetViewport().GetCamera3D();
 
         if (MaterialOverlay != null)
