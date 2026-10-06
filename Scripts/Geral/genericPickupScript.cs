@@ -43,6 +43,7 @@ public partial class genericPickupScript : Area3D
 
     private CharacterBody3D personagem;
     private bool podeInteragir = true;
+    private static bool pickupEmAndamento;
 
     public enum TipoPickup
     {
@@ -117,6 +118,12 @@ public partial class genericPickupScript : Area3D
         if (!podeInteragir)
             return;
 
+        if (pickupEmAndamento)
+            return;
+
+        pickupEmAndamento = true;
+        CallDeferred(nameof(LiberarPickup));
+
         podeInteragir = false;
 
         if (compravel)
@@ -127,6 +134,12 @@ public partial class genericPickupScript : Area3D
 
         if (PegarItem(true))
             QueueFree();
+    }
+
+    
+    private void LiberarPickup()
+    {
+        pickupEmAndamento = false;
     }
 
     private void ProcessarIma(float delta)

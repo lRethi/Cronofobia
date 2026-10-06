@@ -4,11 +4,11 @@ render_mode unshaded, blend_mix, depth_prepass_alpha, cull_disabled, specular_di
 uniform sampler2D sprite_texture : source_color, filter_nearest;
 
 uniform bool enable_outline = false;
-uniform vec4 outline_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
-uniform float outline_thickness : hint_range(0.0, 10.0) = 1.0;
+uniform vec4 outline_color : source_color = vec4(0.34, 0.246, 0.672, 1.0);
+uniform float outline_thickness : hint_range(0.0, 10.0) = 5.0;
 
-uniform float glow_speed : hint_range(0.1, 10.0) = 3.0;
-uniform float glow_intensity : hint_range(0.0, 2.0) = 0.5;
+uniform float glow_speed : hint_range(0.1, 10.0) = 4.5;
+uniform float glow_intensity : hint_range(0.0, 2.0) = 0.75;
 
 void fragment() {
     vec4 col = texture(sprite_texture, UV);

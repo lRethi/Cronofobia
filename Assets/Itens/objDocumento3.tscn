@@ -3,21 +3,24 @@
 [ext_resource type="Script" uid="uid://cdj11gs6dxbd3" path="res://Scripts/Geral/genericPickupScript.cs" id="1_076b6"]
 [ext_resource type="Resource" uid="uid://dqenb0hhq5muy" path="res://Assets/Resources/Itens/Documento3.tres" id="2_076b6"]
 [ext_resource type="PackedScene" uid="uid://cklvtrqrtdppf" path="res://Assets/UI/hudCompra.tscn" id="3_63wlw"]
+[ext_resource type="Material" uid="uid://4s5tu1dc6mw" path="res://Assets/Materials/documentMaterial.tres" id="4_63wlw"]
 [ext_resource type="Texture2D" uid="uid://c8vjtg6vbv6x0" path="res://Assets/Sprites/Objetos/itemDocsx.webp" id="4_lbmeh"]
-[ext_resource type="Texture2D" uid="uid://xhgcwsc3dypq" path="res://Assets/Sprites/Objetos/itemTabua.webp" id="5_jbutu"]
+[ext_resource type="Shader" uid="uid://ba2yn3rm04xny" path="res://Assets/Shaders/HighlightNPC.gdshader" id="5_da6bg"]
+[ext_resource type="Script" uid="uid://cbeumlxm2r5cw" path="res://Scripts/Camera/rotCameraPerson.cs" id="6_da6bg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8c2qd"]
 radius = 0.19335938
 height = 0.38671875
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uyn1v"]
-transparency = 4
-albedo_texture = ExtResource("4_lbmeh")
-backlight_enabled = true
-backlight = Color(0.10980392, 0.10980392, 0.10980392, 1)
-texture_filter = 0
-disable_receive_shadows = true
-billboard_mode = 2
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2k5xr"]
+render_priority = -1
+shader = ExtResource("5_da6bg")
+shader_parameter/sprite_texture = ExtResource("4_lbmeh")
+shader_parameter/enable_outline = false
+shader_parameter/outline_color = Color(0.34, 0.246, 0.672, 1)
+shader_parameter/outline_thickness = 5.0
+shader_parameter/glow_speed = 4.5
+shader_parameter/glow_intensity = 0.75
 
 [node name="documentosPickup" type="Area3D" unique_id=1197714594]
 script = ExtResource("1_076b6")
@@ -33,9 +36,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.013336182, 0)
 shape = SubResource("CapsuleShape3D_8c2qd")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1119932678]
-material_override = SubResource("StandardMaterial3D_uyn1v")
+material_override = ExtResource("4_63wlw")
+material_overlay = SubResource("ShaderMaterial_2k5xr")
 pixel_size = 0.0008
-billboard = 2
 shaded = true
 texture_filter = 0
-texture = ExtResource("5_jbutu")
+texture = ExtResource("4_lbmeh")
+script = ExtResource("6_da6bg")

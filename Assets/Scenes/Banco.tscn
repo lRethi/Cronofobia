@@ -43,7 +43,6 @@
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="27_e1806"]
 [ext_resource type="Texture2D" uid="uid://dss82htt1j2ng" path="res://Assets/Sprites/Objetos/pixil-frame-0.png" id="27_eqtpd"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="28_esqvn"]
-[ext_resource type="Script" uid="uid://cgm5ydwn0eb7u" path="res://Scripts/Camera/dialogueCameraController.cs" id="37_25vta"]
 [ext_resource type="Script" uid="uid://bvcqape7wy6m1" path="res://Scripts/Objetos/OPENTHEGATES.cs" id="40_wcprk"]
 [ext_resource type="Shader" uid="uid://ba2yn3rm04xny" path="res://Assets/Shaders/HighlightNPC.gdshader" id="42_wdgxu"]
 [ext_resource type="Script" uid="uid://cbeumlxm2r5cw" path="res://Scripts/Camera/rotCameraPerson.cs" id="43_r5gpw"]
@@ -496,29 +495,47 @@ transform = Transform3D(0.006515166, 0, -1.9999894, 0, 2, 0, 1.9999894, 0, 0.006
 dialogue = ExtResource("13_yvlcl")
 personagem = NodePath("../charGeraldoSalvador")
 
+[node name="Sprite3D" parent="Atendente/StaticBody3D" parent_id_path=PackedInt32Array(2040080851, 408448575) index="2" unique_id=1766881007 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../../charGeraldoSalvador")
+
 [node name="NPC1" parent="." unique_id=1233537819 node_paths=PackedStringArray("personagem") instance=ExtResource("14_1ybn6")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 2.4840605, 0.8202074, -4.728946)
 dialogue = ExtResource("15_n4guv")
 personagem = NodePath("../charGeraldoSalvador")
+
+[node name="Sprite3D" parent="NPC1/StaticBody3D" parent_id_path=PackedInt32Array(1233537819, 408448575) index="2" unique_id=1766881007 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../../charGeraldoSalvador")
 
 [node name="NPC2" parent="." unique_id=902328230 node_paths=PackedStringArray("personagem") instance=ExtResource("15_rns8u")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 4.8415203, 0.8374211, -0.8035271)
 dialogue = ExtResource("17_nykpw")
 personagem = NodePath("../charGeraldoSalvador")
 
+[node name="Sprite3D" parent="NPC2/StaticBody3D" parent_id_path=PackedInt32Array(902328230, 408448575) index="2" unique_id=1766881007 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../../charGeraldoSalvador")
+
 [node name="NPC3" parent="." unique_id=832442520 node_paths=PackedStringArray("personagem") instance=ExtResource("16_l4kuq")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -3.4924712, 0.85447586, -3.8050115)
 dialogue = ExtResource("19_3a61m")
 personagem = NodePath("../charGeraldoSalvador")
+
+[node name="Sprite3D" parent="NPC3/StaticBody3D" parent_id_path=PackedInt32Array(832442520, 408448575) index="2" unique_id=1766881007 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../../charGeraldoSalvador")
 
 [node name="NPC4" parent="." unique_id=1819400502 node_paths=PackedStringArray("personagem") instance=ExtResource("17_21xjw")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -3.6436787, 0.86935854, -0.3864084)
 dialogue = ExtResource("21_yhm0s")
 personagem = NodePath("../charGeraldoSalvador")
 
+[node name="Sprite3D" parent="NPC4/StaticBody3D" parent_id_path=PackedInt32Array(1819400502, 408448575) index="2" unique_id=1766881007 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../../charGeraldoSalvador")
+
 [node name="Gerente" parent="." unique_id=1539255446 node_paths=PackedStringArray("personagem") instance=ExtResource("22_nykpw")]
 transform = Transform3D(0.021802561, 0, 0.9997623, 0, 1, 0, -0.9997623, 0, 0.021802561, -4.559514, 5.807818, 4.9886627)
 personagem = NodePath("../charGeraldoSalvador")
+
+[node name="Sprite3D" parent="Gerente/StaticBody3D" parent_id_path=PackedInt32Array(1539255446, 408448575) index="2" unique_id=1766881007 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../../charGeraldoSalvador")
 
 [node name="teleporter1" type="Area3D" parent="." unique_id=674621357 node_paths=PackedStringArray("referenciaTeleport")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.539252, 0.4842825, 0.7002151)
@@ -572,11 +589,6 @@ align_position_with_view = Callable()
 align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="DialogueCameraController" type="Node" parent="." unique_id=1824190896 node_paths=PackedStringArray("GameplayCamera")]
-unique_name_in_owner = true
-script = ExtResource("37_25vta")
-GameplayCamera = NodePath("../CameraPivot")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1628660367]
 transform = Transform3D(1, 0, 0, 0, 0.02074017, 0.9997849, 0, -0.9997849, 0.02074017, 0, 3.6024494, -2.3283598)
 light_energy = 0.5
@@ -593,7 +605,7 @@ personagem = NodePath("../charGeraldoSalvador")
 openingTime = 600.0
 closingTime = 900.0
 
-[node name="Sprite3D" type="Sprite3D" parent="portaBanco" unique_id=131051309]
+[node name="Sprite3D" type="Sprite3D" parent="portaBanco" unique_id=131051309 node_paths=PackedStringArray("personagem")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.061852455)
 material_overlay = SubResource("ShaderMaterial_8h5sc")
 pixel_size = 0.003
@@ -603,7 +615,15 @@ texture_filter = 0
 texture = SubResource("CompressedTexture2D_xrlfe")
 script = ExtResource("43_r5gpw")
 rotateToPerson = false
+personagem = NodePath("../../charGeraldoSalvador")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="portaBanco" unique_id=1503902458]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011962891, 0.02279663, 0.016052246)
 shape = SubResource("BoxShape3D_kh1e2")
+
+[editable path="Atendente"]
+[editable path="NPC1"]
+[editable path="NPC2"]
+[editable path="NPC3"]
+[editable path="NPC4"]
+[editable path="Gerente"]

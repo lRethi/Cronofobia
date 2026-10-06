@@ -8,9 +8,11 @@ public partial class rotCameraPerson : Sprite3D
     [Export] public bool rotateToPerson = true;
     [Export] CharacterBody3D personagem;
 
+    [Export]
+    public float alcanceInteracao = 1.25f;
+
     public override void _Ready()
     {
-        personagem = GetTree().CurrentScene.FindChild("charGeraldoSalvador", true, false) as CharacterBody3D;
         camera = GetViewport().GetCamera3D();
 
         if (MaterialOverlay != null)
@@ -44,8 +46,15 @@ public partial class rotCameraPerson : Sprite3D
         Vector3 distanciaPersonNPC =
             personagem.GlobalPosition - GlobalPosition;
 
+        float alcance =
+            EffectManager.Instance != null
+                ? EffectManager.Instance.GetInteractionRange(
+                    alcanceInteracao
+                )
+                : alcanceInteracao;
+
         bool podeInteragir =
-            distanciaPersonNPC.Length() <= 2.5f;
+            distanciaPersonNPC.Length() <= alcance;
 
         bool mostrarOutline =
             podeInteragir &&
