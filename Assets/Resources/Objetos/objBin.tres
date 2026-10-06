@@ -1,38 +1,30 @@
 [gd_resource type="Resource" script_class="DirectionalSpriteResource" format=3 uid="uid://b3s1v41ypftn4"]
 
-[ext_resource type="Texture2D" uid="uid://dlepfvrtxma5" path="res://Assets/Normal Maps/Props/binB_n.webp" id="1_jktjp"]
-[ext_resource type="Texture2D" uid="uid://bogp3fo4t2owc" path="res://Assets/Sprites/Cenario/Props/binB.png" id="1_v05ye"]
-[ext_resource type="Texture2D" uid="uid://bhy02e6ewon1g" path="res://Assets/Sprites/Cenario/Props/binF.png" id="2_k7cek"]
-[ext_resource type="Texture2D" uid="uid://b75ofuvhd1l47" path="res://Assets/Sprites/Cenario/Props/binL.png" id="3_m1t0m"]
+[ext_resource type="Texture2D" uid="uid://dni20oobe5mt8" path="res://Assets/Sprites/Cenario/Props/bancoB.png" id="1_he242"]
+[ext_resource type="Texture2D" uid="uid://cwj247t0ou8kh" path="res://Assets/Sprites/Cenario/Props/banco.png" id="3_cxrix"]
 [ext_resource type="Script" uid="uid://b0fa1dne8hw5f" path="res://Scripts/Resources/DirectionalSpriteData.cs" id="3_qt8s2"]
-[ext_resource type="Texture2D" uid="uid://44wcf18fkk4c" path="res://Assets/Sprites/Cenario/Props/binR.png" id="4_fskew"]
-[ext_resource type="Texture2D" uid="uid://c2qcj276lyeln" path="res://Assets/Normal Maps/Props/binF_n.webp" id="4_gb87r"]
+[ext_resource type="Texture2D" uid="uid://d3dqmh8b780ib" path="res://Assets/Sprites/Cenario/Props/bancoL.png" id="4_dimo7"]
+[ext_resource type="Texture2D" uid="uid://chuhdrka63rbi" path="res://Assets/Sprites/Cenario/Props/bancoR.png" id="5_17047"]
 [ext_resource type="Script" uid="uid://dxulphw667pgt" path="res://Scripts/Resources/DirectionalSpriteResource.cs" id="5_ln2n7"]
-[ext_resource type="Texture2D" uid="uid://ch7o6gjg2g3si" path="res://Assets/Normal Maps/Props/binD_n.webp" id="6_cl7rj"]
-[ext_resource type="Texture2D" uid="uid://d0ouefnrxybdq" path="res://Assets/Normal Maps/Props/binE_n.webp" id="8_mdvm8"]
 
 [sub_resource type="Resource" id="Resource_4lxxw"]
 script = ExtResource("3_qt8s2")
-Texture = ExtResource("1_v05ye")
-NormalMap = ExtResource("1_jktjp")
+Texture = ExtResource("1_he242")
 metadata/_custom_type_script = "uid://b0fa1dne8hw5f"
 
 [sub_resource type="Resource" id="Resource_ypbf6"]
 script = ExtResource("3_qt8s2")
-Texture = ExtResource("2_k7cek")
-NormalMap = ExtResource("4_gb87r")
+Texture = ExtResource("3_cxrix")
 metadata/_custom_type_script = "uid://b0fa1dne8hw5f"
 
 [sub_resource type="Resource" id="Resource_57com"]
 script = ExtResource("3_qt8s2")
-Texture = ExtResource("3_m1t0m")
-NormalMap = ExtResource("6_cl7rj")
+Texture = ExtResource("4_dimo7")
 metadata/_custom_type_script = "uid://b0fa1dne8hw5f"
 
 [sub_resource type="Resource" id="Resource_51x2w"]
 script = ExtResource("3_qt8s2")
-Texture = ExtResource("4_fskew")
-NormalMap = ExtResource("8_mdvm8")
+Texture = ExtResource("5_17047")
 metadata/_custom_type_script = "uid://b0fa1dne8hw5f"
 
 [resource]

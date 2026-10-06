@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b2pjo56itq431"]
+
+[ext_resource type="Script" uid="uid://jdhhj58wp64a" path="res://Scripts/Camera/DirectionalSprite.cs" id="1_g05qw"]
+[ext_resource type="Resource" uid="uid://b3s1v41ypftn4" path="res://Assets/Resources/Objetos/objBin.tres" id="2_livtv"]
+[ext_resource type="Texture2D" uid="uid://cwj247t0ou8kh" path="res://Assets/Sprites/Cenario/Props/banco.png" id="3_g05qw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jktjp"]
+size = Vector3(1.107996, 0.48870468, 0.24035645)
+
+[node name="objBanco" type="StaticBody3D" unique_id=426340957 node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_g05qw")
+directionalTextures = ExtResource("2_livtv")
+sprite = NodePath("Sprite3D")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=654709719]
+visibility_range_end = 50.0
+pixel_size = 0.0016
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("3_g05qw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=337798619]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011208534, 0.0045223236, 0.014953613)
+shape = SubResource("BoxShape3D_jktjp")
