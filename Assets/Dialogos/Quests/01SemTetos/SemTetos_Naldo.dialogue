@@ -3,16 +3,15 @@
 if GetFlag("semtetos_madeira")
 	=> madeira_feita
 
-Naldo: Para levantar qualquer estrutura, a gente precisa de madeira.
+Naldo: A gente vai precisar de madeira pra levantar isso.
 
 - Tenho madeira para entregar.
 	$> InventoryState.OferecerItem()
 	=> verificar_madeira
-
 - Ainda não tenho.
-	Naldo: Então procura antes que a chuva apareça de novo.
+	Naldo: Então procura.
+	Naldo: Se chover de novo, a gente perde metade do que já fez.
 	=> END
-
 
 ~ verificar_madeira
 
@@ -21,22 +20,23 @@ if InventoryState.ItemOferecidoId == "madeira"
 
 => madeira_errada
 
-
 ~ madeira_ok
 
-Naldo: Agora sim. Isso dá para usar.
+Naldo: Aí.
+Naldo: Isso aqui serve.
 $> InventoryState.ConsumirItemOferecido()
 $> GameState.SetFlag("semtetos_madeira", true)
 => END
 
-
 ~ madeira_errada
 
-Naldo: Isso aí não é madeira.
+Naldo: Isso não é madeira.
+Naldo: Quer dizer... até pode ser útil.
+Naldo: Mas não pra fazer parede.
 => END
-
 
 ~ madeira_feita
 
-Naldo: A madeira já está separada. Veja com o resto do pessoal se eles já tem o que precisam.
+Naldo: A madeira já tá separada.
+Naldo: Vê se o resto do pessoal resolveu as outras coisas.
 => END

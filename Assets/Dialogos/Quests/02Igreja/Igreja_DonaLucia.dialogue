@@ -1,54 +1,60 @@
 ~ start
 
 if GetFlag("igreja_necessitados_entrega_comida")
-    Dona Lúcia: A comida que você trouxe ajudou bastante.
-    Dona Lúcia: A gente quase nunca consegue ajuda das instituições daqui.
-    Dona Lúcia: A igreja é uma das poucas que ainda chega até as pessoas.
-    => END
+	Dona Lúcia: A comida que você trouxe ajudou bastante.
+	Dona Lúcia: Por aqui, a gente quase nunca recebe ajuda de lugar nenhum.
+	Dona Lúcia: A igreja é uma das poucas que ainda se lembra da gente.
+	=> END
 
 Dona Lúcia: O Padre disse que você estava fazendo algumas entregas.
-Dona Lúcia: Aqui não precisa ser muita coisa. Qualquer comida já ajuda.
+Dona Lúcia: Não precisa ser muita coisa.
+Dona Lúcia: Qualquer comida já ajuda bastante por aqui.
 
 - Tenho comida.
-    $> InventoryState.OferecerItem()
-    => verificar_oferta
+	$> InventoryState.OferecerItem()
+	=> verificar_oferta
 
 
 ~ verificar_oferta
 
 if InventoryState.ItemOferecidoId == ""
-    => nao_ofereceu
+	=> nao_ofereceu
 
 if InventoryState.ItemOferecidoId == "marmita"
-    => ofereceu_marmita
+	=> ofereceu_marmita
 
 if InventoryState.ItemOferecidoId == "lata_feijao"
-    => ofereceu_comida
+	=> ofereceu_comida
 
 => ofereceu_errado
+
 
 ~ ofereceu_marmita
 
 $> InventoryState.ConsumirItemOferecido()
 $> GameState.SetFlag("igreja_necessitados_entrega_comida", true)
-Dona Lúcia: M-Muito obrigada! Que Deus te abençoe...
+Dona Lúcia: M-Muito obrigada...
+Dona Lúcia: Que Deus te abençoe.
 => END
+
 
 ~ ofereceu_comida
 
 $> InventoryState.ConsumirItemOferecido()
 $> GameState.SetFlag("igreja_necessitados_entrega_comida", true)
-Dona Lúcia: Obrigada. Faz tempo que eu não recebia comida sem precisar pedir três vezes.
+Dona Lúcia: Obrigada.
+Dona Lúcia: Faz tempo que eu não recebia comida sem precisar pedir mais de uma vez.
 => END
 
 
 ~ nao_ofereceu
 
-Dona Lúcia: Não tem problema. Quando tiver alguma coisa, você volta.
+Dona Lúcia: Não tem problema.
+Dona Lúcia: Quando tiver alguma coisa, você volta.
 => END
 
 
 ~ ofereceu_errado
 
-Dona Lúcia: Acho que isso não vai me ajudar agora.
+Dona Lúcia: Acho que isso não vai ajudar muito agora.
 => END

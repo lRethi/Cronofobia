@@ -8,3 +8,4 @@ script = ExtResource("1_xtf1e")
 showWhenFlag = "ultralink_buscaIniciada"
 
 [node name="documentosPickup" parent="." unique_id=738666002 instance=ExtResource("2_eosdp")]
+flagToSetOnPickup = ""

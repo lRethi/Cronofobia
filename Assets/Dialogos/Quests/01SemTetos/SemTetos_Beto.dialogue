@@ -3,16 +3,17 @@
 if GetFlag("semtetos_ferramentas")
 	=> ferramentas_feitas
 
-Beto: Sem ferramenta a madeira não vira abrigo.
+Beto: Sem ferramenta, a madeira não serve pra muita coisa.
+Beto: Dá pra tentar fazer na mão, mas aí a gente passa o dia inteiro numa parede.
 
 - Tenho algumas ferramentas para entregar.
-	$> InventoryState.OferecerItem()
-	=> verificar_ferramenta
+  $> InventoryState.OferecerItem()
+  => verificar_ferramenta
 
 - Ainda não consegui.
-	Beto: Então não perde tempo procurando coisa que não existe. Vai atrás de alguma.
-	=> END
-
+  Beto: Então procura.
+  Beto: Quanto mais demora, menos tempo a gente tem pra montar isso.
+  => END
 
 ~ verificar_ferramenta
 
@@ -21,22 +22,24 @@ if InventoryState.ItemOferecidoId == "ferramenta"
 
 => ferramenta_errada
 
-
 ~ ferramenta_ok
 
-Beto: É disso que a gente precisava.
+Beto: Ah.
+Beto: Agora sim.
+Beto: Isso aqui dá pra trabalhar.
 $> InventoryState.ConsumirItemOferecido()
 $> GameState.SetFlag("semtetos_ferramentas", true)
 => END
 
-
 ~ ferramenta_errada
 
-Beto: Isso não ajuda muito na montagem.
+Beto: Não.
+Beto: Isso aí não vai ajudar a montar nada.
 => END
-
 
 ~ ferramentas_feitas
 
-Beto: Com as ferramentas resolvidas, já dá para começar a montar de verdade.
+Beto: As ferramentas já estão resolvidas.
+Beto: Agora dá pra começar a montar de verdade.
+Beto: Só falta o resto do pessoal fazer a parte deles.
 => END
