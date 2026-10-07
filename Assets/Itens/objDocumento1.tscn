@@ -7,3 +7,4 @@
 script = ExtResource("1_jh37f")
 
 [node name="documentosPickup" parent="." unique_id=919406334 instance=ExtResource("2_vdqp0")]
+flagToSetOnPickup = ""

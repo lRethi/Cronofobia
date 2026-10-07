@@ -48,14 +48,51 @@ $> GameState.SetFlag("ultralink_jaelsonPrimeiroDialogoVisto", true)
 => END
 
 ~ verificarBusca
-Jaelson: Conseguiu todas as coisas?
-- Dizer que sim. [if GameState.GetFlag("ultralink_todasPistasDescobertas") /]
-	Jaelson: Ótimo.
-	Jaelson: Mãos à obra, então.
+if GameState.GetFlag("documento1Encontrado") and GameState.GetFlag("documento2Encontrado") and GameState.GetFlag("documento3Encontrado") and GameState.GetFlag("documento4Encontrado")
 	$> GameState.SetFlag("ultralink_decisaoUpgrade", true)
 	=> escolhaUpgrade
+
+Jaelson: Conseguiu algum dos documentos?
+- Dizer que sim. [if GameState.GetFlag("ultralink_todasPistasDescobertas") /]
+	Jaelson: Ótimo.
+	Jaelson: Tcho ver aqui então...
+	$> InventoryState.OferecerItem()
+	=> verificarEntrega
 - Dizer que não.
 	Jaelson: Bom... O que você está esperando então?
+=> END
+
+~ verificarEntrega
+
+if InventoryState.ItemOferecidoId == ""
+	=> naoOfereceuNada
+if InventoryState.ItemOferecidoId == "documento1"
+	$> GameState.SetFlag("documento1Encontrado")
+	=> entregouDocumento
+if InventoryState.ItemOferecidoId == "documento2"
+	$> GameState.SetFlag("documento2Encontrado")
+	=> entregouDocumento
+if InventoryState.ItemOferecidoId == "documento3"
+	$> GameState.SetFlag("documento3Encontrado")
+	=> entregouDocumento
+if InventoryState.ItemOferecidoId == "documento4"
+	$> GameState.SetFlag("documento4Encontrado")
+	=> entregouDocumento
+=> entregaErrada
+
+~ naoOfereceuNada
+Jaelson: ... Por que cê disse que tinha achado e ai não me deu nada?
+Jaelson: (... maluco.)
+=> END
+
+~ entregaErrada
+Jaelson: Geraldo. Meu querido.
+Jaelson: Documentos são feitos de papel, e tem escritos importantes.
+Jaelson: Isso... Não é um documento.
+=> END
+
+~ entregouDocumento
+Jaelson: Mmm... Interessante. Volte depois com mais.
 => END
 
 ~ escolhaUpgrade

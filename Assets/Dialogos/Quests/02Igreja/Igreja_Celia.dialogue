@@ -1,25 +1,26 @@
 ~ start
 
 if GetFlag("igreja_necessitados_entrega_cobertor")
-    Célia: O cobertor ainda está comigo.
-    Célia: Parece pouca coisa, mas muda bastante quando você precisa dormir do lado de fora.
-    => END
+	Célia: O cobertor ainda está comigo.
+	Célia: Parece pouca coisa, eu sei...
+	Célia: Mas quando você dorme do lado de fora, qualquer coisa já faz diferença.
+	=> END
 
-Célia: Disseram que você está fazendo entregas da igreja.
-Célia: Eu só preciso de alguma coisa para me proteger do frio.
+Célia: Disseram que você está fazendo algumas entregas pela igreja.
+Célia: Eu só estou precisando de alguma coisa pra me proteger do frio.
 
 - Tenho um cobertor.
-    $> InventoryState.OferecerItem()
-    => verificar_oferta
+	$> InventoryState.OferecerItem()
+	=> verificar_oferta
 
 
 ~ verificar_oferta
 
 if InventoryState.ItemOferecidoId == ""
-    => nao_ofereceu
+	=> nao_ofereceu
 
 if InventoryState.ItemOferecidoId == "cobertor"
-    => ofereceu_cobertor
+	=> ofereceu_cobertor
 
 => ofereceu_errado
 
@@ -28,17 +29,19 @@ if InventoryState.ItemOferecidoId == "cobertor"
 
 $> InventoryState.ConsumirItemOferecido()
 $> GameState.SetFlag("igreja_necessitados_entrega_cobertor", true)
-Célia: Obrigada. Você pode dizer ao Padre que chegou onde precisava.
+Célia: Obrigada.
+Célia: Quando encontrar o Padre, fala pra ele que chegou até mim.
 => END
 
 
 ~ nao_ofereceu
 
-Célia: Tudo bem. Eu espero.
+Célia: Tudo bem.
+Célia: Eu espero.
 => END
 
 
 ~ ofereceu_errado
 
-Célia: Isso não vai resolver meu problema agora.
+Célia: Acho que isso não vai me ajudar muito agora.
 => END

@@ -1,20 +1,23 @@
 ~ start
 
 if GetFlag("igreja_milagre_presenciou_ia")
-    Samuel: Ela sempre responde quando eu pergunto sobre fé.
-    Samuel: Às vezes eu tenho a impressão de que ela entende coisas que eu nem expliquei direito ainda...
-    => END
+	Samuel: Ela sempre responde quando eu pergunto sobre fé.
+	Samuel: Às vezes eu tenho a impressão de que ela entende o que eu quero dizer antes mesmo de eu terminar...
+	=> END
 
-Samuel: A sua também faz isso? Sempre que eu pergunto para a minha sobre fé...
-Samuel: Ele consegue responder quase imediatamente!
+Samuel: A sua também faz isso?
+Samuel: Sempre que eu pergunto pra minha sobre fé...
+Samuel: Ela responde quase na mesma hora.
 
 - O que você perguntou?
-    Samuel: Perguntei por que algumas pessoas continuam acreditando mesmo quando tudo ao redor parece dizer o contrário.
-    Samuel: A resposta foi melhor do que muita coisa que já ouvi na igreja...
-    $> GameState.SetFlag("igreja_milagre_presenciou_ia", true)
-    => END
+	Samuel: Perguntei por que algumas pessoas continuam acreditando, mesmo quando tudo ao redor parece dizer o contrário.
+	Samuel: A resposta foi melhor do que muita coisa que eu já ouvi na igreja...
+	$> GameState.SetFlag("igreja_milagre_presenciou_ia", true)
+	=> END
 
 - Isso é só uma máquina.
-    Samuel: Pode ser... Ainda assim, é estranho ouvir uma resposta dessas de um sistema.
-    $> GameState.SetFlag("igreja_milagre_presenciou_ia", true)
-    => END
+	Samuel: Eu sei.
+	Samuel: Ou... acho que sei.
+	Samuel: Mesmo assim, é estranho ouvir uma coisa dessas de uma máquina.
+	$> GameState.SetFlag("igreja_milagre_presenciou_ia", true)
+	=> END

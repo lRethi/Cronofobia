@@ -3,16 +3,17 @@
 if GetFlag("semtetos_cobertores")
 	=> cobertores_feitos
 
-Júlio: A gente está precisando de cobertores... Imagino que cê saiba como a noite é complicada.
+Júlio: Tá faltando cobertor.
+Júlio: E quando o sol vai embora, faz uma diferença danada.
 
 - Tenho um cobertor para entregar.
 	$> InventoryState.OferecerItem()
-	=> verificar_cobertor
-
+=> verificar_cobertor
 - Ainda não encontrei.
-	Júlio: Tudo bem. Quando conseguir, traz para cá.
+	Júlio: Tranquilo.
+	Júlio: Achou um, traz pra cá.
+	Júlio: A gente dá um jeito de fazer chegar em quem precisa.
 	=> END
-
 
 ~ verificar_cobertor
 
@@ -21,22 +22,22 @@ if InventoryState.ItemOferecidoId == "cobertor"
 
 => cobertor_errado
 
-
 ~ cobertor_ok
 
-Júlio: Perfeito. Já dá para deixar alguém dormir com mais conforto.
+Júlio: Ótimo.
+Júlio: Isso aqui já tira alguém do frio.
 $> InventoryState.ConsumirItemOferecido()
 $> GameState.SetFlag("semtetos_cobertores", true)
 => END
 
-
 ~ cobertor_errado
 
-Júlio: Isso não vai servir para o que estamos montando.
+Júlio: Acho que isso não vai servir muito pra esquentar ninguém.
 => END
-
 
 ~ cobertores_feitos
 
-Júlio: Os cobertores já chegaram. Vê com o restante do pessoal.
+Júlio: Os cobertores já chegaram.
+Júlio: Menos uma coisa pra gente se preocupar.
+Júlio: Dá uma olhada com o resto do pessoal.
 => END
