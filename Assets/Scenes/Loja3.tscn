@@ -4,10 +4,18 @@
 [ext_resource type="Script" uid="uid://dk0ib5b4w24ll" path="res://addons/TileMapLayer3D/core/animated_tiles/animated_tile_data.gd" id="2_xf2uq"]
 [ext_resource type="Script" uid="uid://bli432i5uj51v" path="res://addons/TileMapLayer3D/core/tile_creation_placement/tilemap_layer_settings.gd" id="3_k702s"]
 [ext_resource type="Texture2D" uid="uid://c32wknkcg1mr6" path="res://Assets/Sprites/Cenario/Parede/cartorio.png" id="4_b2k2r"]
-[ext_resource type="Texture2D" uid="uid://b0qkl8g3lw4gx" path="res://Assets/Sprites/Cenario/Parede/igreja.png" id="5_l7pnp"]
+[ext_resource type="Texture2D" uid="uid://csdtq8ric3yba" path="res://Assets/Sprites/Cenario/Parede/igrejafora.png" id="5_l7pnp"]
 [ext_resource type="Texture2D" uid="uid://c1c8ep251ki7u" path="res://Assets/Sprites/Cenario/Parede/mesa banco.png" id="6_5gfeg"]
 [ext_resource type="Texture2D" uid="uid://dc6gkmwxhfqh1" path="res://Assets/Sprites/Cenario/Parede/Alameda.png" id="7_s2w77"]
 [ext_resource type="Texture2D" uid="uid://by0yhmbggy3xm" path="res://Assets/Sprites/Cenario/Parede/miodapraca.png" id="8_fwolc"]
+[ext_resource type="PackedScene" uid="uid://dvo2rfyvp1ns0" path="res://Assets/Itens/objGalaoAgua.tscn" id="9_l7pnp"]
+[ext_resource type="PackedScene" uid="uid://dx8se0mn8qcfv" path="res://Assets/Itens/objMarmita.tscn" id="10_5gfeg"]
+[ext_resource type="PackedScene" uid="uid://d1kp3yfxc7qii" path="res://Assets/Itens/objFeijao.tscn" id="11_s2w77"]
+[ext_resource type="PackedScene" uid="uid://b4mgjc55khc8n" path="res://Assets/Itens/objAgua.tscn" id="12_fwolc"]
+[ext_resource type="PackedScene" uid="uid://4cvw5u3glyoy" path="res://Assets/Personagens/Protagonista.tscn" id="13_p7ig8"]
+[ext_resource type="Script" uid="uid://bt56plut0kdvx" path="res://Scripts/Camera/cameraBonitaDoFred.cs" id="14_lfygk"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="15_ftpn1"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="16_tiipt"]
 
 [sub_resource type="Resource" id="Resource_p7ig8"]
 script = ExtResource("3_k702s")
@@ -55,6 +63,10 @@ tileset_texture = ExtResource("4_b2k2r")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(320, 0, 320, 320)
 
+[sub_resource type="Resource" id="Resource_56lyv"]
+script = ExtResource("16_tiipt")
+duration = 0.0
+
 [node name="Loja3" type="Node3D" unique_id=1601253988]
 
 [node name="porta" type="Node3D" parent="." unique_id=427781348 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks")]
@@ -98,7 +110,7 @@ _tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0
 _tile_anim_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1)
 _tile_anim_data = PackedFloat32Array()
 _quad_chunks = [NodePath("SquareChunk_R-1_-1_-1_C0"), NodePath("SquareChunk_R-1_0_-1_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0"), NodePath("BoxChunk_R0_0_-1_C1"), NodePath("BoxChunk_R-1_0_0_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0"), NodePath("BoxChunk_R0_0_-1_C0"), NodePath("BoxChunk_R-1_0_0_C0")]
 _prism_chunks = [NodePath("PrismChunk_R-1_0_-1_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
@@ -138,5 +150,1098 @@ _tile_transform_indices = PackedInt32Array(0, 1, 2, 3)
 _tile_transform_data = PackedFloat32Array(1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
 _tile_anim_indices = PackedInt32Array(-1, -1, -1, -1)
 _tile_anim_data = PackedFloat32Array()
-_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C1"), NodePath("SquareChunk_R0_0_-1_C1")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R0_0_-1_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
+
+[node name="Buyables" type="Node" parent="." unique_id=1385038893]
+
+[node name="Day1" type="Node" parent="Buyables" unique_id=856256494]
+
+[node name="objGalaoAgua" parent="Buyables/Day1" unique_id=279675217 instance=ExtResource("9_l7pnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.298976, 0.9309467, -3.0691466)
+usarDia = true
+diaMaximo = 1
+
+[node name="galaoAgua" parent="Buyables/Day1/objGalaoAgua" index="0" unique_id=1963751312]
+preco = 20.0
+compravel = true
+
+[node name="objGalaoAgua2" parent="Buyables/Day1" unique_id=1225094206 instance=ExtResource("9_l7pnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5076194, 0.9309467, -3.0691466)
+usarDia = true
+diaMaximo = 1
+
+[node name="galaoAgua" parent="Buyables/Day1/objGalaoAgua2" index="0" unique_id=1963751312]
+preco = 20.0
+compravel = true
+
+[node name="objAgua" parent="Buyables/Day1" unique_id=1479640235 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.739444, 0.7979553, -3.0719194)
+usarDia = true
+diaMaximo = 1
+
+[node name="garrafaAgua" parent="Buyables/Day1/objAgua" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objAgua2" parent="Buyables/Day1" unique_id=21630527 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0687623, 0.7979553, -3.0719194)
+usarDia = true
+diaMaximo = 1
+
+[node name="garrafaAgua" parent="Buyables/Day1/objAgua2" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objAgua3" parent="Buyables/Day1" unique_id=1058123009 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3892717, 0.7979553, -3.0719194)
+usarDia = true
+diaMaximo = 1
+
+[node name="garrafaAgua" parent="Buyables/Day1/objAgua3" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objAgua4" parent="Buyables/Day1" unique_id=1098243139 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7432547, 0.7979553, -3.0719194)
+usarDia = true
+diaMaximo = 1
+
+[node name="garrafaAgua" parent="Buyables/Day1/objAgua4" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objAgua5" parent="Buyables/Day1" unique_id=775291925 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.119441, 0.7979553, -3.0719194)
+usarDia = true
+diaMaximo = 1
+
+[node name="garrafaAgua" parent="Buyables/Day1/objAgua5" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objMarmita" parent="Buyables/Day1" unique_id=610517771 instance=ExtResource("10_5gfeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3555584, 0.8386617, -1.2075212)
+usarDia = true
+diaMaximo = 1
+
+[node name="marmitaPickup" parent="Buyables/Day1/objMarmita" index="0" unique_id=645683784]
+preco = 20.0
+compravel = true
+
+[node name="objMarmita2" parent="Buyables/Day1" unique_id=1636693981 instance=ExtResource("10_5gfeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6286926, 0.8386617, -1.2075212)
+usarDia = true
+diaMaximo = 1
+
+[node name="marmitaPickup" parent="Buyables/Day1/objMarmita2" index="0" unique_id=645683784]
+preco = 20.0
+compravel = true
+
+[node name="objFeijao" parent="Buyables/Day1" unique_id=134085674 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8347516, 0.74828535, -1.1822729)
+usarDia = true
+diaMaximo = 1
+
+[node name="lataFeijao" parent="Buyables/Day1/objFeijao" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="objFeijao2" parent="Buyables/Day1" unique_id=1972750741 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1770606, 0.74828535, -1.1822729)
+usarDia = true
+diaMaximo = 1
+
+[node name="lataFeijao" parent="Buyables/Day1/objFeijao2" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="objFeijao3" parent="Buyables/Day1" unique_id=776623145 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5295663, 0.74828535, -1.1822729)
+usarDia = true
+diaMaximo = 1
+
+[node name="lataFeijao" parent="Buyables/Day1/objFeijao3" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="objFeijao4" parent="Buyables/Day1" unique_id=1182759111 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8654156, 0.74828535, -1.1822729)
+usarDia = true
+diaMaximo = 1
+
+[node name="lataFeijao" parent="Buyables/Day1/objFeijao4" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="objFeijao5" parent="Buyables/Day1" unique_id=910106643 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1760387, 0.74828535, -1.1822729)
+usarDia = true
+diaMaximo = 1
+
+[node name="lataFeijao" parent="Buyables/Day1/objFeijao5" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="Day2" type="Node" parent="Buyables" unique_id=1890544314]
+
+[node name="objGalaoAgua" parent="Buyables/Day2" unique_id=397133963 instance=ExtResource("9_l7pnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.298976, 0.9309467, -3.0691466)
+usarDia = true
+diaMinimo = 2
+diaMaximo = 2
+
+[node name="galaoAgua" parent="Buyables/Day2/objGalaoAgua" index="0" unique_id=1963751312]
+preco = 20.0
+compravel = true
+
+[node name="objGalaoAgua2" parent="Buyables/Day2" unique_id=1516767030 instance=ExtResource("9_l7pnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5076194, 0.9309467, -3.0691466)
+usarDia = true
+diaMinimo = 2
+diaMaximo = 2
+
+[node name="galaoAgua" parent="Buyables/Day2/objGalaoAgua2" index="0" unique_id=1963751312]
+preco = 20.0
+compravel = true
+
+[node name="objAgua" parent="Buyables/Day2" unique_id=306885300 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.739444, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 2
+diaMaximo = 2
+
+[node name="garrafaAgua" parent="Buyables/Day2/objAgua" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objAgua2" parent="Buyables/Day2" unique_id=509729342 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0687623, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 2
+diaMaximo = 2
+
+[node name="garrafaAgua" parent="Buyables/Day2/objAgua2" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objAgua3" parent="Buyables/Day2" unique_id=26649298 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3892717, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 2
+diaMaximo = 2
+
+[node name="garrafaAgua" parent="Buyables/Day2/objAgua3" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objAgua4" parent="Buyables/Day2" unique_id=1826493838 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7432547, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 2
+diaMaximo = 2
+
+[node name="garrafaAgua" parent="Buyables/Day2/objAgua4" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objAgua5" parent="Buyables/Day2" unique_id=1613801755 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.119441, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 2
+diaMaximo = 2
+
+[node name="garrafaAgua" parent="Buyables/Day2/objAgua5" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objMarmita" parent="Buyables/Day2" unique_id=907965318 instance=ExtResource("10_5gfeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3555584, 0.8386617, -1.2075212)
+usarDia = true
+diaMinimo = 2
+diaMaximo = 2
+
+[node name="marmitaPickup" parent="Buyables/Day2/objMarmita" index="0" unique_id=645683784]
+preco = 20.0
+compravel = true
+
+[node name="objMarmita2" parent="Buyables/Day2" unique_id=1836982259 instance=ExtResource("10_5gfeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6286926, 0.8386617, -1.2075212)
+usarDia = true
+diaMinimo = 2
+diaMaximo = 2
+
+[node name="marmitaPickup" parent="Buyables/Day2/objMarmita2" index="0" unique_id=645683784]
+preco = 20.0
+compravel = true
+
+[node name="objFeijao" parent="Buyables/Day2" unique_id=1505142353 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8347516, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 2
+diaMaximo = 2
+
+[node name="lataFeijao" parent="Buyables/Day2/objFeijao" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="objFeijao2" parent="Buyables/Day2" unique_id=1614560868 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1770606, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 2
+diaMaximo = 2
+
+[node name="lataFeijao" parent="Buyables/Day2/objFeijao2" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="objFeijao3" parent="Buyables/Day2" unique_id=1236980068 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5295663, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 2
+diaMaximo = 2
+
+[node name="lataFeijao" parent="Buyables/Day2/objFeijao3" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="objFeijao4" parent="Buyables/Day2" unique_id=877152504 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8654156, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 2
+diaMaximo = 2
+
+[node name="lataFeijao" parent="Buyables/Day2/objFeijao4" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="objFeijao5" parent="Buyables/Day2" unique_id=467037616 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1760387, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 2
+diaMaximo = 2
+
+[node name="lataFeijao" parent="Buyables/Day2/objFeijao5" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="Day3" type="Node" parent="Buyables" unique_id=588793089]
+
+[node name="objGalaoAgua" parent="Buyables/Day3" unique_id=858305943 instance=ExtResource("9_l7pnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.298976, 0.9309467, -3.0691466)
+usarDia = true
+diaMinimo = 3
+diaMaximo = 3
+
+[node name="galaoAgua" parent="Buyables/Day3/objGalaoAgua" index="0" unique_id=1963751312]
+preco = 20.0
+compravel = true
+
+[node name="objGalaoAgua2" parent="Buyables/Day3" unique_id=904764090 instance=ExtResource("9_l7pnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5076194, 0.9309467, -3.0691466)
+usarDia = true
+diaMinimo = 3
+diaMaximo = 3
+
+[node name="galaoAgua" parent="Buyables/Day3/objGalaoAgua2" index="0" unique_id=1963751312]
+preco = 20.0
+compravel = true
+
+[node name="objAgua" parent="Buyables/Day3" unique_id=1766584643 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.739444, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 3
+diaMaximo = 3
+
+[node name="garrafaAgua" parent="Buyables/Day3/objAgua" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objAgua2" parent="Buyables/Day3" unique_id=446407832 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0687623, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 3
+diaMaximo = 3
+
+[node name="garrafaAgua" parent="Buyables/Day3/objAgua2" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objAgua3" parent="Buyables/Day3" unique_id=614813463 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3892717, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 3
+diaMaximo = 3
+
+[node name="garrafaAgua" parent="Buyables/Day3/objAgua3" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objAgua4" parent="Buyables/Day3" unique_id=519812933 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7432547, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 3
+diaMaximo = 3
+
+[node name="garrafaAgua" parent="Buyables/Day3/objAgua4" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objAgua5" parent="Buyables/Day3" unique_id=316367397 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.119441, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 3
+diaMaximo = 3
+
+[node name="garrafaAgua" parent="Buyables/Day3/objAgua5" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objMarmita" parent="Buyables/Day3" unique_id=45372242 instance=ExtResource("10_5gfeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3555584, 0.8386617, -1.2075212)
+usarDia = true
+diaMinimo = 3
+diaMaximo = 3
+
+[node name="marmitaPickup" parent="Buyables/Day3/objMarmita" index="0" unique_id=645683784]
+preco = 20.0
+compravel = true
+
+[node name="objMarmita2" parent="Buyables/Day3" unique_id=432656734 instance=ExtResource("10_5gfeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6286926, 0.8386617, -1.2075212)
+usarDia = true
+diaMinimo = 3
+diaMaximo = 3
+
+[node name="marmitaPickup" parent="Buyables/Day3/objMarmita2" index="0" unique_id=645683784]
+preco = 20.0
+compravel = true
+
+[node name="objFeijao" parent="Buyables/Day3" unique_id=2083539159 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8347516, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 3
+diaMaximo = 3
+
+[node name="lataFeijao" parent="Buyables/Day3/objFeijao" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="objFeijao2" parent="Buyables/Day3" unique_id=147143435 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1770606, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 3
+diaMaximo = 3
+
+[node name="lataFeijao" parent="Buyables/Day3/objFeijao2" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="objFeijao3" parent="Buyables/Day3" unique_id=792782740 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5295663, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 3
+diaMaximo = 3
+
+[node name="lataFeijao" parent="Buyables/Day3/objFeijao3" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="objFeijao4" parent="Buyables/Day3" unique_id=1501114667 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8654156, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 3
+diaMaximo = 3
+
+[node name="lataFeijao" parent="Buyables/Day3/objFeijao4" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="objFeijao5" parent="Buyables/Day3" unique_id=209484315 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1760387, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 3
+diaMaximo = 3
+
+[node name="lataFeijao" parent="Buyables/Day3/objFeijao5" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="Day4" type="Node" parent="Buyables" unique_id=1538696145]
+
+[node name="objGalaoAgua" parent="Buyables/Day4" unique_id=908037770 instance=ExtResource("9_l7pnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.298976, 0.9309467, -3.0691466)
+usarDia = true
+diaMinimo = 4
+diaMaximo = 4
+
+[node name="galaoAgua" parent="Buyables/Day4/objGalaoAgua" index="0" unique_id=1963751312]
+preco = 20.0
+compravel = true
+
+[node name="objGalaoAgua2" parent="Buyables/Day4" unique_id=1148996139 instance=ExtResource("9_l7pnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5076194, 0.9309467, -3.0691466)
+usarDia = true
+diaMinimo = 4
+diaMaximo = 4
+
+[node name="galaoAgua" parent="Buyables/Day4/objGalaoAgua2" index="0" unique_id=1963751312]
+preco = 20.0
+compravel = true
+
+[node name="objAgua" parent="Buyables/Day4" unique_id=412967371 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.739444, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 4
+diaMaximo = 4
+
+[node name="garrafaAgua" parent="Buyables/Day4/objAgua" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objAgua2" parent="Buyables/Day4" unique_id=1156113627 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0687623, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 4
+diaMaximo = 4
+
+[node name="garrafaAgua" parent="Buyables/Day4/objAgua2" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objAgua3" parent="Buyables/Day4" unique_id=1658834781 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3892717, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 4
+diaMaximo = 4
+
+[node name="garrafaAgua" parent="Buyables/Day4/objAgua3" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objAgua4" parent="Buyables/Day4" unique_id=177368328 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7432547, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 4
+diaMaximo = 4
+
+[node name="garrafaAgua" parent="Buyables/Day4/objAgua4" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objAgua5" parent="Buyables/Day4" unique_id=620508094 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.119441, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 4
+diaMaximo = 4
+
+[node name="garrafaAgua" parent="Buyables/Day4/objAgua5" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objMarmita" parent="Buyables/Day4" unique_id=1717127911 instance=ExtResource("10_5gfeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3555584, 0.8386617, -1.2075212)
+usarDia = true
+diaMinimo = 4
+diaMaximo = 4
+
+[node name="marmitaPickup" parent="Buyables/Day4/objMarmita" index="0" unique_id=645683784]
+preco = 20.0
+compravel = true
+
+[node name="objMarmita2" parent="Buyables/Day4" unique_id=395145635 instance=ExtResource("10_5gfeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6286926, 0.8386617, -1.2075212)
+usarDia = true
+diaMinimo = 4
+diaMaximo = 4
+
+[node name="marmitaPickup" parent="Buyables/Day4/objMarmita2" index="0" unique_id=645683784]
+preco = 20.0
+compravel = true
+
+[node name="objFeijao" parent="Buyables/Day4" unique_id=608009675 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8347516, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 4
+diaMaximo = 4
+
+[node name="lataFeijao" parent="Buyables/Day4/objFeijao" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="objFeijao2" parent="Buyables/Day4" unique_id=1614414589 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1770606, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 4
+diaMaximo = 4
+
+[node name="lataFeijao" parent="Buyables/Day4/objFeijao2" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="objFeijao3" parent="Buyables/Day4" unique_id=1350714983 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5295663, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 4
+diaMaximo = 4
+
+[node name="lataFeijao" parent="Buyables/Day4/objFeijao3" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="objFeijao4" parent="Buyables/Day4" unique_id=1912160657 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8654156, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 4
+diaMaximo = 4
+
+[node name="lataFeijao" parent="Buyables/Day4/objFeijao4" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="objFeijao5" parent="Buyables/Day4" unique_id=1292757234 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1760387, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 4
+diaMaximo = 4
+
+[node name="lataFeijao" parent="Buyables/Day4/objFeijao5" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="Day5" type="Node" parent="Buyables" unique_id=1226390076]
+
+[node name="objGalaoAgua" parent="Buyables/Day5" unique_id=1635954055 instance=ExtResource("9_l7pnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.298976, 0.9309467, -3.0691466)
+usarDia = true
+diaMinimo = 5
+diaMaximo = 5
+
+[node name="galaoAgua" parent="Buyables/Day5/objGalaoAgua" index="0" unique_id=1963751312]
+preco = 20.0
+compravel = true
+
+[node name="objGalaoAgua2" parent="Buyables/Day5" unique_id=330210893 instance=ExtResource("9_l7pnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5076194, 0.9309467, -3.0691466)
+usarDia = true
+diaMinimo = 5
+diaMaximo = 5
+
+[node name="galaoAgua" parent="Buyables/Day5/objGalaoAgua2" index="0" unique_id=1963751312]
+preco = 20.0
+compravel = true
+
+[node name="objAgua" parent="Buyables/Day5" unique_id=814520155 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.739444, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 5
+diaMaximo = 5
+
+[node name="garrafaAgua" parent="Buyables/Day5/objAgua" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objAgua2" parent="Buyables/Day5" unique_id=1308215551 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0687623, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 5
+diaMaximo = 5
+
+[node name="garrafaAgua" parent="Buyables/Day5/objAgua2" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objAgua3" parent="Buyables/Day5" unique_id=1474751549 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3892717, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 5
+diaMaximo = 5
+
+[node name="garrafaAgua" parent="Buyables/Day5/objAgua3" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objAgua4" parent="Buyables/Day5" unique_id=574890978 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7432547, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 5
+diaMaximo = 5
+
+[node name="garrafaAgua" parent="Buyables/Day5/objAgua4" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objAgua5" parent="Buyables/Day5" unique_id=851591475 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.119441, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 5
+diaMaximo = 5
+
+[node name="garrafaAgua" parent="Buyables/Day5/objAgua5" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objMarmita" parent="Buyables/Day5" unique_id=1444270071 instance=ExtResource("10_5gfeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3555584, 0.8386617, -1.2075212)
+usarDia = true
+diaMinimo = 5
+diaMaximo = 5
+
+[node name="marmitaPickup" parent="Buyables/Day5/objMarmita" index="0" unique_id=645683784]
+preco = 20.0
+compravel = true
+
+[node name="objMarmita2" parent="Buyables/Day5" unique_id=2099773265 instance=ExtResource("10_5gfeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6286926, 0.8386617, -1.2075212)
+usarDia = true
+diaMinimo = 5
+diaMaximo = 5
+
+[node name="marmitaPickup" parent="Buyables/Day5/objMarmita2" index="0" unique_id=645683784]
+preco = 20.0
+compravel = true
+
+[node name="objFeijao" parent="Buyables/Day5" unique_id=577022425 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8347516, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 5
+diaMaximo = 5
+
+[node name="lataFeijao" parent="Buyables/Day5/objFeijao" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="objFeijao2" parent="Buyables/Day5" unique_id=961242239 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1770606, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 5
+diaMaximo = 5
+
+[node name="lataFeijao" parent="Buyables/Day5/objFeijao2" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="objFeijao3" parent="Buyables/Day5" unique_id=1295777214 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5295663, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 5
+diaMaximo = 5
+
+[node name="lataFeijao" parent="Buyables/Day5/objFeijao3" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="objFeijao4" parent="Buyables/Day5" unique_id=291805404 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8654156, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 5
+diaMaximo = 5
+
+[node name="lataFeijao" parent="Buyables/Day5/objFeijao4" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="objFeijao5" parent="Buyables/Day5" unique_id=2036582638 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1760387, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 5
+diaMaximo = 5
+
+[node name="lataFeijao" parent="Buyables/Day5/objFeijao5" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="Day6" type="Node" parent="Buyables" unique_id=1988092492]
+
+[node name="objGalaoAgua" parent="Buyables/Day6" unique_id=392009211 instance=ExtResource("9_l7pnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.298976, 0.9309467, -3.0691466)
+usarDia = true
+diaMinimo = 6
+diaMaximo = 6
+
+[node name="galaoAgua" parent="Buyables/Day6/objGalaoAgua" index="0" unique_id=1963751312]
+preco = 20.0
+compravel = true
+
+[node name="objGalaoAgua2" parent="Buyables/Day6" unique_id=1558156974 instance=ExtResource("9_l7pnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5076194, 0.9309467, -3.0691466)
+usarDia = true
+diaMinimo = 6
+diaMaximo = 6
+
+[node name="galaoAgua" parent="Buyables/Day6/objGalaoAgua2" index="0" unique_id=1963751312]
+preco = 20.0
+compravel = true
+
+[node name="objAgua" parent="Buyables/Day6" unique_id=146295329 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.739444, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 6
+diaMaximo = 6
+
+[node name="garrafaAgua" parent="Buyables/Day6/objAgua" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objAgua2" parent="Buyables/Day6" unique_id=2147476808 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0687623, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 6
+diaMaximo = 6
+
+[node name="garrafaAgua" parent="Buyables/Day6/objAgua2" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objAgua3" parent="Buyables/Day6" unique_id=191400591 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3892717, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 6
+diaMaximo = 6
+
+[node name="garrafaAgua" parent="Buyables/Day6/objAgua3" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objAgua4" parent="Buyables/Day6" unique_id=341149828 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7432547, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 6
+diaMaximo = 6
+
+[node name="garrafaAgua" parent="Buyables/Day6/objAgua4" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objAgua5" parent="Buyables/Day6" unique_id=1599102573 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.119441, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 6
+diaMaximo = 6
+
+[node name="garrafaAgua" parent="Buyables/Day6/objAgua5" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objMarmita" parent="Buyables/Day6" unique_id=1759041799 instance=ExtResource("10_5gfeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3555584, 0.8386617, -1.2075212)
+usarDia = true
+diaMinimo = 6
+diaMaximo = 6
+
+[node name="marmitaPickup" parent="Buyables/Day6/objMarmita" index="0" unique_id=645683784]
+preco = 20.0
+compravel = true
+
+[node name="objMarmita2" parent="Buyables/Day6" unique_id=978860511 instance=ExtResource("10_5gfeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6286926, 0.8386617, -1.2075212)
+usarDia = true
+diaMinimo = 6
+diaMaximo = 6
+
+[node name="marmitaPickup" parent="Buyables/Day6/objMarmita2" index="0" unique_id=645683784]
+preco = 20.0
+compravel = true
+
+[node name="objFeijao" parent="Buyables/Day6" unique_id=308189079 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8347516, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 6
+diaMaximo = 6
+
+[node name="lataFeijao" parent="Buyables/Day6/objFeijao" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="objFeijao2" parent="Buyables/Day6" unique_id=727921970 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1770606, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 6
+diaMaximo = 6
+
+[node name="lataFeijao" parent="Buyables/Day6/objFeijao2" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="objFeijao3" parent="Buyables/Day6" unique_id=107526297 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5295663, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 6
+diaMaximo = 6
+
+[node name="lataFeijao" parent="Buyables/Day6/objFeijao3" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="objFeijao4" parent="Buyables/Day6" unique_id=936955194 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8654156, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 6
+diaMaximo = 6
+
+[node name="lataFeijao" parent="Buyables/Day6/objFeijao4" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="objFeijao5" parent="Buyables/Day6" unique_id=1491427656 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1760387, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 6
+diaMaximo = 6
+
+[node name="lataFeijao" parent="Buyables/Day6/objFeijao5" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="Day7" type="Node" parent="Buyables" unique_id=882258681]
+
+[node name="objGalaoAgua" parent="Buyables/Day7" unique_id=2099225428 instance=ExtResource("9_l7pnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.298976, 0.9309467, -3.0691466)
+usarDia = true
+diaMinimo = 7
+
+[node name="galaoAgua" parent="Buyables/Day7/objGalaoAgua" index="0" unique_id=1963751312]
+preco = 20.0
+compravel = true
+
+[node name="objGalaoAgua2" parent="Buyables/Day7" unique_id=131806428 instance=ExtResource("9_l7pnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5076194, 0.9309467, -3.0691466)
+usarDia = true
+diaMinimo = 7
+
+[node name="galaoAgua" parent="Buyables/Day7/objGalaoAgua2" index="0" unique_id=1963751312]
+preco = 20.0
+compravel = true
+
+[node name="objAgua" parent="Buyables/Day7" unique_id=446996935 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.739444, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 7
+
+[node name="garrafaAgua" parent="Buyables/Day7/objAgua" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objAgua2" parent="Buyables/Day7" unique_id=414288085 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0687623, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 7
+
+[node name="garrafaAgua" parent="Buyables/Day7/objAgua2" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objAgua3" parent="Buyables/Day7" unique_id=529550671 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3892717, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 7
+
+[node name="garrafaAgua" parent="Buyables/Day7/objAgua3" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objAgua4" parent="Buyables/Day7" unique_id=526472700 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7432547, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 7
+
+[node name="garrafaAgua" parent="Buyables/Day7/objAgua4" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objAgua5" parent="Buyables/Day7" unique_id=608003635 instance=ExtResource("12_fwolc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.119441, 0.7979553, -3.0719194)
+usarDia = true
+diaMinimo = 7
+
+[node name="garrafaAgua" parent="Buyables/Day7/objAgua5" index="0" unique_id=1482991818]
+preco = 8.0
+compravel = true
+
+[node name="objMarmita" parent="Buyables/Day7" unique_id=29011888 instance=ExtResource("10_5gfeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3555584, 0.8386617, -1.2075212)
+usarDia = true
+diaMinimo = 7
+
+[node name="marmitaPickup" parent="Buyables/Day7/objMarmita" index="0" unique_id=645683784]
+preco = 20.0
+compravel = true
+
+[node name="objMarmita2" parent="Buyables/Day7" unique_id=48742891 instance=ExtResource("10_5gfeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6286926, 0.8386617, -1.2075212)
+usarDia = true
+diaMinimo = 7
+
+[node name="marmitaPickup" parent="Buyables/Day7/objMarmita2" index="0" unique_id=645683784]
+preco = 20.0
+compravel = true
+
+[node name="objFeijao" parent="Buyables/Day7" unique_id=164953240 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8347516, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 7
+
+[node name="lataFeijao" parent="Buyables/Day7/objFeijao" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="objFeijao2" parent="Buyables/Day7" unique_id=100041177 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1770606, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 7
+
+[node name="lataFeijao" parent="Buyables/Day7/objFeijao2" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="objFeijao3" parent="Buyables/Day7" unique_id=54684004 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5295663, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 7
+
+[node name="lataFeijao" parent="Buyables/Day7/objFeijao3" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="objFeijao4" parent="Buyables/Day7" unique_id=583927408 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8654156, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 7
+
+[node name="lataFeijao" parent="Buyables/Day7/objFeijao4" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="objFeijao5" parent="Buyables/Day7" unique_id=724312332 instance=ExtResource("11_s2w77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1760387, 0.74828535, -1.1822729)
+usarDia = true
+diaMinimo = 7
+
+[node name="lataFeijao" parent="Buyables/Day7/objFeijao5" index="0" unique_id=1762641796]
+preco = 7.0
+compravel = true
+
+[node name="charGeraldoSalvador" parent="." unique_id=1046664859 instance=ExtResource("13_p7ig8")]
+unique_name_in_owner = true
+transform = Transform3D(0.58688486, 0, 0.8096704, 0, 1, 0, -0.8096704, 0, 0.58688486, -1.3219385, 0.9204049, -1.7280135)
+safe_margin = 0.015
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=1864590295 node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.964635, 0, -4.950857)
+script = ExtResource("14_lfygk")
+player = NodePath("../charGeraldoSalvador")
+
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=2119924188 node_paths=PackedStringArray("follow_target")]
+unique_name_in_owner = true
+transform = Transform3D(0.5868849, 0, 0.8096703, 0, 1, 0, -0.8096703, 0, 0.5868849, 0.29740226, 0.9204049, -0.5542438)
+script = ExtResource("15_ftpn1")
+follow_mode = 6
+follow_target = NodePath("../charGeraldoSalvador")
+tween_resource = SubResource("Resource_56lyv")
+tween_on_load = false
+follow_distance = 2.0
+spring_length = 2.0
+collision_mask = 31
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+align_rotation_with_view = Callable()
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[editable path="Buyables/Day1/objGalaoAgua"]
+[editable path="Buyables/Day1/objGalaoAgua2"]
+[editable path="Buyables/Day1/objAgua"]
+[editable path="Buyables/Day1/objAgua2"]
+[editable path="Buyables/Day1/objAgua3"]
+[editable path="Buyables/Day1/objAgua4"]
+[editable path="Buyables/Day1/objAgua5"]
+[editable path="Buyables/Day1/objMarmita"]
+[editable path="Buyables/Day1/objMarmita2"]
+[editable path="Buyables/Day1/objFeijao"]
+[editable path="Buyables/Day1/objFeijao2"]
+[editable path="Buyables/Day1/objFeijao3"]
+[editable path="Buyables/Day1/objFeijao4"]
+[editable path="Buyables/Day1/objFeijao5"]
+[editable path="Buyables/Day2/objGalaoAgua"]
+[editable path="Buyables/Day2/objGalaoAgua2"]
+[editable path="Buyables/Day2/objAgua"]
+[editable path="Buyables/Day2/objAgua2"]
+[editable path="Buyables/Day2/objAgua3"]
+[editable path="Buyables/Day2/objAgua4"]
+[editable path="Buyables/Day2/objAgua5"]
+[editable path="Buyables/Day2/objMarmita"]
+[editable path="Buyables/Day2/objMarmita2"]
+[editable path="Buyables/Day2/objFeijao"]
+[editable path="Buyables/Day2/objFeijao2"]
+[editable path="Buyables/Day2/objFeijao3"]
+[editable path="Buyables/Day2/objFeijao4"]
+[editable path="Buyables/Day2/objFeijao5"]
+[editable path="Buyables/Day3/objGalaoAgua"]
+[editable path="Buyables/Day3/objGalaoAgua2"]
+[editable path="Buyables/Day3/objAgua"]
+[editable path="Buyables/Day3/objAgua2"]
+[editable path="Buyables/Day3/objAgua3"]
+[editable path="Buyables/Day3/objAgua4"]
+[editable path="Buyables/Day3/objAgua5"]
+[editable path="Buyables/Day3/objMarmita"]
+[editable path="Buyables/Day3/objMarmita2"]
+[editable path="Buyables/Day3/objFeijao"]
+[editable path="Buyables/Day3/objFeijao2"]
+[editable path="Buyables/Day3/objFeijao3"]
+[editable path="Buyables/Day3/objFeijao4"]
+[editable path="Buyables/Day3/objFeijao5"]
+[editable path="Buyables/Day4/objGalaoAgua"]
+[editable path="Buyables/Day4/objGalaoAgua2"]
+[editable path="Buyables/Day4/objAgua"]
+[editable path="Buyables/Day4/objAgua2"]
+[editable path="Buyables/Day4/objAgua3"]
+[editable path="Buyables/Day4/objAgua4"]
+[editable path="Buyables/Day4/objAgua5"]
+[editable path="Buyables/Day4/objMarmita"]
+[editable path="Buyables/Day4/objMarmita2"]
+[editable path="Buyables/Day4/objFeijao"]
+[editable path="Buyables/Day4/objFeijao2"]
+[editable path="Buyables/Day4/objFeijao3"]
+[editable path="Buyables/Day4/objFeijao4"]
+[editable path="Buyables/Day4/objFeijao5"]
+[editable path="Buyables/Day5/objGalaoAgua"]
+[editable path="Buyables/Day5/objGalaoAgua2"]
+[editable path="Buyables/Day5/objAgua"]
+[editable path="Buyables/Day5/objAgua2"]
+[editable path="Buyables/Day5/objAgua3"]
+[editable path="Buyables/Day5/objAgua4"]
+[editable path="Buyables/Day5/objAgua5"]
+[editable path="Buyables/Day5/objMarmita"]
+[editable path="Buyables/Day5/objMarmita2"]
+[editable path="Buyables/Day5/objFeijao"]
+[editable path="Buyables/Day5/objFeijao2"]
+[editable path="Buyables/Day5/objFeijao3"]
+[editable path="Buyables/Day5/objFeijao4"]
+[editable path="Buyables/Day5/objFeijao5"]
+[editable path="Buyables/Day6/objGalaoAgua"]
+[editable path="Buyables/Day6/objGalaoAgua2"]
+[editable path="Buyables/Day6/objAgua"]
+[editable path="Buyables/Day6/objAgua2"]
+[editable path="Buyables/Day6/objAgua3"]
+[editable path="Buyables/Day6/objAgua4"]
+[editable path="Buyables/Day6/objAgua5"]
+[editable path="Buyables/Day6/objMarmita"]
+[editable path="Buyables/Day6/objMarmita2"]
+[editable path="Buyables/Day6/objFeijao"]
+[editable path="Buyables/Day6/objFeijao2"]
+[editable path="Buyables/Day6/objFeijao3"]
+[editable path="Buyables/Day6/objFeijao4"]
+[editable path="Buyables/Day6/objFeijao5"]
+[editable path="Buyables/Day7/objGalaoAgua"]
+[editable path="Buyables/Day7/objGalaoAgua2"]
+[editable path="Buyables/Day7/objAgua"]
+[editable path="Buyables/Day7/objAgua2"]
+[editable path="Buyables/Day7/objAgua3"]
+[editable path="Buyables/Day7/objAgua4"]
+[editable path="Buyables/Day7/objAgua5"]
+[editable path="Buyables/Day7/objMarmita"]
+[editable path="Buyables/Day7/objMarmita2"]
+[editable path="Buyables/Day7/objFeijao"]
+[editable path="Buyables/Day7/objFeijao2"]
+[editable path="Buyables/Day7/objFeijao3"]
+[editable path="Buyables/Day7/objFeijao4"]
+[editable path="Buyables/Day7/objFeijao5"]

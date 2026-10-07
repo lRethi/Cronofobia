@@ -50,7 +50,7 @@ public partial class genericPickupScript : Area3D
 
             area = area.GetParent();
         }
-        
+        /*
         if (item?.Id == "lata_feijao")
         {
             float sorteio = GD.Randf();
@@ -82,6 +82,7 @@ public partial class genericPickupScript : Area3D
                 return;
             }
         }
+        */ // o fred pediu pra eu fazer isso e logo dps falou pra eu desfazer :3
     }
 
     private void SubstituirPickup(string caminhoCena)

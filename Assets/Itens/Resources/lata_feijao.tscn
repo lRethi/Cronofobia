@@ -41,7 +41,7 @@ shape = SubResource("CapsuleShape3D_8c2qd")
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=759702489]
 material_override = SubResource("StandardMaterial3D_uyn1v")
 material_overlay = SubResource("ShaderMaterial_v2p2u")
-pixel_size = 0.0008
+pixel_size = 0.0006
 shaded = true
 texture_filter = 0
 texture = ExtResource("4_6fjfs")

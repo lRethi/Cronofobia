@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://c3qp6nf2wgnsr"]
 
 [ext_resource type="Script" uid="uid://bskkegyi70235" path="res://Scripts/Protagonista/inventarioFuncionamento.cs" id="1_6ypas"]
-[ext_resource type="Texture2D" uid="uid://bq6cquua3pk6v" path="res://Assets/Sprites/HUD/invSlots.png" id="2_kptbr"]
-[ext_resource type="Texture2D" uid="uid://0ch6fppaxyen" path="res://Assets/Sprites/HUD/caixaDialogo.png" id="3_78ui5"]
+[ext_resource type="Texture2D" uid="uid://bq6cquua3pk6v" path="res://Assets/Sprites/HUD/Botoes/invSlots.png" id="2_kptbr"]
+[ext_resource type="Texture2D" uid="uid://0ch6fppaxyen" path="res://Assets/Sprites/HUD/Botoes/caixaDialogo.png" id="3_78ui5"]
+[ext_resource type="Script" uid="uid://dkk4nv60uya8n" path="res://Scripts/Geral/inventoryExtraSlotsVisual.cs" id="3_y2c86"]
 [ext_resource type="FontFile" uid="uid://csxaaxokix70k" path="res://Assets/Fontes/phantomguardians.regular.ttf" id="4_0vaky"]
-[ext_resource type="Texture2D" uid="uid://bsjl4wr5fjgyl" path="res://Assets/Sprites/HUD/botMenu.png" id="4_78ui5"]
+[ext_resource type="Texture2D" uid="uid://bsjl4wr5fjgyl" path="res://Assets/Sprites/HUD/Botoes/botMenu.png" id="4_78ui5"]
 [ext_resource type="FontFile" uid="uid://d0l83dbasooy7" path="res://Assets/Fontes/neuromax.regular.ttf" id="5_gq3fx"]
-[ext_resource type="Texture2D" uid="uid://coyjnlrn275bw" path="res://Assets/Sprites/HUD/botMenuSel.png" id="5_pmyiq"]
-[ext_resource type="Texture2D" uid="uid://d120r3cjxo3cx" path="res://Assets/Sprites/HUD/opcaoDialogoDisabled.png" id="6_gq3fx"]
+[ext_resource type="Texture2D" uid="uid://coyjnlrn275bw" path="res://Assets/Sprites/HUD/Botoes/botMenuSel.png" id="5_pmyiq"]
+[ext_resource type="Texture2D" uid="uid://d120r3cjxo3cx" path="res://Assets/Sprites/HUD/Botoes/opcaoDialogoDisabled.png" id="6_gq3fx"]
+[ext_resource type="Script" uid="uid://cjtk2w8f7ngvp" path="res://Scripts/Geral/telaFazerFeijoada.cs" id="10_jvro6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_irs17"]
 
@@ -64,8 +66,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_6ypas")
-slotsInventario = [NodePath("Base/Slot1"), NodePath("Base/Slot2"), NodePath("Base/Slot3"), NodePath("Base/Slot4")]
-texturasSlots = [NodePath("Base/Slot1/TextureRect"), NodePath("Base/Slot2/TextureRect2"), NodePath("Base/Slot3/TextureRect3"), NodePath("Base/Slot4/TextureRect4")]
+slotsInventario = [NodePath("Base/Slot1"), NodePath("Base/Slot2"), NodePath("Base/Slot3"), NodePath("Base/Slot4"), NodePath("Base/Base2/Slot1"), NodePath("Base/Base2/Slot2")]
+texturasSlots = [NodePath("Base/Slot1/TextureRect"), NodePath("Base/Slot2/TextureRect2"), NodePath("Base/Slot3/TextureRect3"), NodePath("Base/Slot4/TextureRect4"), NodePath("Base/Base2/Slot1/TextureRect"), NodePath("Base/Base2/Slot2/TextureRect2")]
 telaUso = NodePath("telaUso")
 lblNomeItem = NodePath("telaUso/nomeItem")
 lblDescricaoItem = NodePath("telaUso/descItem")
@@ -85,6 +87,58 @@ offset_bottom = 573.0
 mouse_filter = 2
 texture = ExtResource("2_kptbr")
 expand_mode = 3
+
+[node name="Base2" type="TextureRect" parent="Base" unique_id=2033024503]
+layout_mode = 0
+offset_left = -250.0
+offset_right = 250.0
+offset_bottom = 500.0
+mouse_filter = 2
+texture = ExtResource("2_kptbr")
+expand_mode = 3
+script = ExtResource("3_y2c86")
+
+[node name="Slot1" type="Button" parent="Base/Base2" unique_id=1834875451]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 47.0
+offset_right = 201.0
+offset_bottom = 197.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_irs17")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dputa")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p6ubn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_786tl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sjuhh")
+
+[node name="TextureRect" type="TextureRect" parent="Base/Base2/Slot1" unique_id=412773530]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 125.0
+offset_bottom = 125.0
+mouse_filter = 2
+expand_mode = 4
+
+[node name="Slot2" type="Button" parent="Base/Base2" unique_id=616634271]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 305.0
+offset_right = 199.0
+offset_bottom = 455.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_irs17")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dputa")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p6ubn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_786tl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sjuhh")
+
+[node name="TextureRect2" type="TextureRect" parent="Base/Base2/Slot2" unique_id=530593691]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 125.0
+offset_bottom = 125.0
+mouse_filter = 2
+expand_mode = 4
 
 [node name="Slot1" type="Button" parent="Base" unique_id=501694953]
 layout_mode = 0
@@ -171,7 +225,6 @@ mouse_filter = 2
 expand_mode = 4
 
 [node name="telaUso" type="Panel" parent="." unique_id=1005301396]
-visible = false
 layout_mode = 0
 offset_left = 857.0
 offset_top = 74.0
@@ -250,12 +303,11 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_gq3fx")
 text = "Sair"
 
 [node name="telaOferecer" type="Panel" parent="." unique_id=1883475400]
-visible = false
 layout_mode = 0
-offset_left = 859.0
-offset_top = 311.0
-offset_right = 1044.0
-offset_bottom = 375.0
+offset_left = 857.0
+offset_top = 501.0
+offset_right = 1042.0
+offset_bottom = 565.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_73xor")
 
 [node name="Label" type="Label" parent="telaOferecer" unique_id=1601349411]
@@ -296,3 +348,36 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_pmyiq")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_0vaky")
 theme_override_styles/focus = SubResource("StyleBoxTexture_gq3fx")
 text = "Não"
+
+[node name="telaFazerFeijoada" type="Panel" parent="." unique_id=663261305]
+layout_mode = 0
+offset_left = 858.0
+offset_top = 307.0
+offset_right = 1043.0
+offset_bottom = 371.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_73xor")
+script = ExtResource("10_jvro6")
+
+[node name="Label" type="Label" parent="telaFazerFeijoada" unique_id=1255004069]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 3.0
+offset_right = 134.0
+offset_bottom = 26.0
+text = "Fazer feijoada?"
+label_settings = SubResource("LabelSettings_irs17")
+
+[node name="botSim" type="Button" parent="telaFazerFeijoada" unique_id=807033706]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 29.0
+offset_right = 108.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0.16565618, 0.16565657, 0.16565624, 1)
+theme_override_fonts/font = ExtResource("5_gq3fx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_4bw8n")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_78ui5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_pmyiq")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_0vaky")
+theme_override_styles/focus = SubResource("StyleBoxTexture_gq3fx")
+text = "Fazer"

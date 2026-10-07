@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://domsv65yjgreo"]
 
+[ext_resource type="Script" uid="uid://di1arvpjf0c22" path="res://Scripts/Objetos/Gatekeep.cs" id="1_ji8eo"]
 [ext_resource type="PackedScene" uid="uid://dsqs7klu3nnwy" path="res://Assets/Itens/Resources/cobertor_pickup.tscn" id="1_twpwb"]
 
 [node name="objCobertor" type="Node3D" unique_id=1861986911]
+script = ExtResource("1_ji8eo")
 
 [node name="cobertorPickup" parent="." unique_id=47070940 instance=ExtResource("1_twpwb")]

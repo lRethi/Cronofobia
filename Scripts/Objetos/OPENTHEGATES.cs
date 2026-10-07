@@ -8,7 +8,7 @@ public partial class OPENTHEGATES : StaticBody3D
     [Export] public float openingTime = 0f;
     [Export] public float closingTime = 0f;
     [Export] public bool isInterior = false;
-
+    [Export] public string cantInteractFlag = "";
     private bool podeInteragir = true;
     private bool playerPerto = false;
 
@@ -39,6 +39,11 @@ public partial class OPENTHEGATES : StaticBody3D
     {
         if (personagem == null || TimeState.Instance == null)
             return;
+
+        if (GameState.Instance.GetFlag(cantInteractFlag))
+        {
+            if (isInterior) TrocarArea();
+        } else return;
 
         float minutoAtual = TimeState.Instance.minutoDoDia;
 

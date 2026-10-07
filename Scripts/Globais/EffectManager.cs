@@ -49,11 +49,8 @@ public partial class EffectManager : Node
 
     public override void _Ready()
     {
-        efeitosDisponiveis.Add(new MaisFomeMenosSede());
-        efeitosDisponiveis.Add(new MaisSedeMenosFome());
-        efeitosDisponiveis.Add(new DinheiroEmComida());
         efeitosDisponiveis.Add(new Ima());
-        efeitosDisponiveis.Add(new TransformadorBionico());
+        efeitosDisponiveis.Add(new NeurochipDeCozinha());
         efeitosDisponiveis.Add(new DetectorMetais());
         efeitosDisponiveis.Add(new ValeAlimentacaoVirtual());
         efeitosDisponiveis.Add(new TransacaoAutomatica());
@@ -64,7 +61,7 @@ public partial class EffectManager : Node
         efeitosDisponiveis.Add(new VelocidadePelaSede());
         efeitosDisponiveis.Add(new NovosImpostos());
         efeitosDisponiveis.Add(new ExtensorFragil());
-        efeitosDisponiveis.Add(new NeurochipDeCozinha());
+        efeitosDisponiveis.Add(new ExtratorDeNutrientes());
         efeitosDisponiveis.Add(new ErroNoSistema());
 
         if (GameState.Instance != null)
@@ -356,6 +353,26 @@ public partial class EffectManager : Node
             return;
 
         erroNoSistemaPendente = true;
+    }
+
+    public float ModificarFomeAoUsar(string itemId, float valor)
+    {
+        float resultado = valor;
+
+        foreach (EffectBase efeito in efeitosAtivos)
+            resultado = efeito.ModificarFomeAoUsar(itemId, resultado);
+
+        return resultado;
+    }
+
+    public float ModificarSedeAoUsar(string itemId, float valor)
+    {
+        float resultado = valor;
+
+        foreach (EffectBase efeito in efeitosAtivos)
+            resultado = efeito.ModificarSedeAoUsar(itemId, resultado);
+
+        return resultado;
     }
 }
 

@@ -13,11 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://doig7fb75stgj" path="res://Assets/Sprites/Objetos/tador.png" id="11_7m0vu"]
 [ext_resource type="Texture2D" uid="uid://t0cro27f8f71" path="res://Assets/Sprites/Objetos/television.png" id="12_humgb"]
 [ext_resource type="Texture2D" uid="uid://dr71mmirwfpnf" path="res://Assets/Sprites/Objetos/papeis.png" id="13_n74kk"]
-
-[sub_resource type="Environment" id="Environment_w17no"]
-ambient_light_source = 2
-ambient_light_color = Color(1, 1, 1, 1)
-ambient_light_energy = 0.54
+[ext_resource type="PackedScene" uid="uid://dr3u2kaj3fy8a" path="res://Assets/Itens/objDocumento1.tscn" id="14_4yfn2"]
 
 [sub_resource type="Resource" id="Resource_qosdd"]
 script = ExtResource("3_xnvr0")
@@ -62,7 +58,7 @@ script = ExtResource("3_xnvr0")
 tileset_texture = ExtResource("8_4yfn2")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(0, 0, 320, 320)
-tileset_zoom = 0.9090909090909091
+tileset_zoom = 0.9090909090909092
 
 [sub_resource type="Resource" id="Resource_og0io"]
 script = ExtResource("3_xnvr0")
@@ -110,9 +106,6 @@ smart_select_mode = 1
 
 [node name="DataCenter" type="Node3D" unique_id=658518187]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=964647081]
-environment = SubResource("Environment_w17no")
-
 [node name="DataCenter" type="Node3D" parent="." unique_id=618439086 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
 script = ExtResource("1_y33fn")
 settings = SubResource("Resource_qosdd")
@@ -152,7 +145,7 @@ _tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0
 _tile_anim_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1)
 _tile_anim_data = PackedFloat32Array()
 _box_chunks = [NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R0_0_0_C0"), NodePath("BoxChunk_R-1_0_1_C0"), NodePath("BoxChunk_R0_0_1_C0")]
-_prism_chunks = [NodePath("PrismChunk_R0_0_0_C0"), NodePath("PrismChunk_R-1_0_0_C0")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_0_C0"), NodePath("PrismChunk_R0_0_0_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
 [node name="computaria" type="Node3D" parent="." unique_id=1741076000]
@@ -262,3 +255,7 @@ _tile_anim_indices = PackedInt32Array(-1, -1)
 _tile_anim_data = PackedFloat32Array()
 _quad_chunks = [NodePath("SquareChunk_R0_0_0_C0"), NodePath("SquareChunk_R-1_0_0_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
+
+[node name="objDocumento1" parent="." unique_id=1986320915 instance=ExtResource("14_4yfn2")]
+transform = Transform3D(0.4185596, 0, 1.9557116, 0, 2, 0, -1.9557116, 0, 0.4185596, 3.4426546, 0.3538928, 1.5019919)
+showWhenFlag = "ultralink_buscaIniciada"

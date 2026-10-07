@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://ceus3uomrhiuc"
+path="res://.godot/imported/WEIRDROUTE.dialogue-76104858b9264153cc68e777cc32d174.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogos/Quests/XXWEIRDROUTE/WEIRDROUTE.dialogue"
+dest_files=["res://.godot/imported/WEIRDROUTE.dialogue-76104858b9264153cc68e777cc32d174.tres"]
+
+[params]
+
+defaults=true

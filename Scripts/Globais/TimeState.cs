@@ -61,6 +61,10 @@ public partial class TimeState : Node
     public DayState CurrentDayState =>
         currentDayState;
 
+    private int capturasRestantes = 2;
+
+    public int CapturasRestantes => capturasRestantes;
+
     public override void _EnterTree()
     {
         if (Instance != null && Instance != this)
@@ -85,6 +89,11 @@ public partial class TimeState : Node
 
         ultimoMinuto =
             Mathf.FloorToInt(minutoDoDia);
+    }
+
+    public void LugarSeguroParaDormir(bool valor)
+    {
+        lugarParaDormir = valor;
     }
 
     public override void _Process(double delta)
@@ -185,67 +194,61 @@ public partial class TimeState : Node
         GameState.Instance.SetCameraMouseCaptured(true);
     }
 
-    public void finalizarNoite()
+    public void finalizarNoite(bool ignorarNecessidades = false)
     {
-        if (noiteFinalizada == false)
+        if (!noiteFinalizada)
             noiteFinalizada = true;
 
-        bool teveComida =
-            NeedsState.Instance.varFome > 0f;
+        if (!ignorarNecessidades)
+        {
+            bool teveComida =
+                NeedsState.Instance.varFome == 3f;
 
-        bool teveAgua =
-            NeedsState.Instance.varSede > 0f;
+            bool teveAgua =
+                NeedsState.Instance.varSede == 3f;
 
-        comidaSuficiente = teveComida;
-        aguaSuficiente = teveAgua;
+            comidaSuficiente = teveComida;
+            aguaSuficiente = teveAgua;
 
-        if (teveComida)
-            diasSemComer = 0;
-        else
-            diasSemComer++;
+            if (teveComida)
+                diasSemComer = 0;
+            else
+                diasSemComer++;
 
-        if (teveAgua)
-            diasSemBeber = 0;
-        else
-            diasSemBeber++;
+            if (teveAgua)
+                diasSemBeber = 0;
+            else
+                diasSemBeber++;
 
-        bool temAbrigo =
-            lugarParaDormir ||
-            EffectManager.Instance.PermiteDormirSemLugar();
+            bool temAbrigo =
+                lugarParaDormir ||
+                EffectManager.Instance.PermiteDormirSemLugar();
 
-        if (temAbrigo)
-            diasSemAbrigo = 0;
-        else
-            diasSemAbrigo++;
+            if (temAbrigo)
+                diasSemAbrigo = 0;
+            else
+                diasSemAbrigo++;
+
+            if (diasSemComer >= maximoDiasSemComer)
+            {
+                GameState.Instance.endGame("semComida");
+                return;
+            }
+
+            if (diasSemBeber >= maximoDiasSemBeber)
+            {
+                GameState.Instance.endGame("semAgua");
+                return;
+            }
+
+            if (diasSemAbrigo >= maximoDiasSemAbrigo)
+            {
+                GameState.Instance.endGame("semLugarParaDormir");
+                return;
+            }
+        }
 
         EffectManager.Instance.FimDoDia();
-
-        if (diasSemComer >= maximoDiasSemComer)
-        {
-            GameState.Instance.endGame(
-                "semComida"
-            );
-
-            return;
-        }
-
-        if (diasSemBeber >= maximoDiasSemBeber)
-        {
-            GameState.Instance.endGame(
-                "semAgua"
-            );
-
-            return;
-        }
-
-        if (diasSemAbrigo >= maximoDiasSemAbrigo)
-        {
-            GameState.Instance.endGame(
-                "semLugarParaDormir"
-            );
-
-            return;
-        }
 
         CongelarTempo();
 
@@ -265,6 +268,17 @@ public partial class TimeState : Node
         tela.Abrir(
             EffectManager.Instance.GerarOpcoes()
         );
+    }
+
+    public int RegistrarCaptura()
+    {
+        capturasRestantes = Mathf.Max(0, capturasRestantes - 1);
+        return capturasRestantes;
+    }
+
+    public void ReiniciarCapturas()
+    {
+        capturasRestantes = 2;
     }
 
     public void proximoDia()
@@ -296,6 +310,10 @@ public partial class TimeState : Node
         TimeChanged?.Invoke(
             minutoDoDia
         );
+
+        if(GameState.Instance.GetFlag("roubouLoja1")) GameState.Instance.SetFlag("roubouLoja1", false);
+        if(GameState.Instance.GetFlag("roubouLoja2")) GameState.Instance.SetFlag("roubouLoja2", false);
+        if(GameState.Instance.GetFlag("roubouLoja3")) GameState.Instance.SetFlag("roubouLoja3", false);
 
         ChangeDayState();
 

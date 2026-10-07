@@ -5,5 +5,6 @@
 
 [node name="objDocumento3" type="Node3D" unique_id=655094101]
 script = ExtResource("1_lbmeh")
+showWhenFlag = "ultralink_buscaIniciada"
 
 [node name="documentosPickup" parent="." unique_id=471055927 instance=ExtResource("2_qmpgh")]

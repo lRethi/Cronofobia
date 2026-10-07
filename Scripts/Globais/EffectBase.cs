@@ -29,4 +29,14 @@ public abstract class EffectBase
     public virtual bool DescartarFeijaoAoPegar(string itemId) => false;
 
     public virtual void AoEscolherOpcaoDialogo() { }
+
+    public virtual float ModificarFomeAoUsar(string itemId, float valor)
+    {
+        return valor;
+    }
+
+    public virtual float ModificarSedeAoUsar(string itemId, float valor)
+    {
+        return valor;
+    }
 }

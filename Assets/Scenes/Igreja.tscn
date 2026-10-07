@@ -4,9 +4,14 @@
 [ext_resource type="Script" uid="uid://dk0ib5b4w24ll" path="res://addons/TileMapLayer3D/core/animated_tiles/animated_tile_data.gd" id="2_125th"]
 [ext_resource type="Script" uid="uid://bli432i5uj51v" path="res://addons/TileMapLayer3D/core/tile_creation_placement/tilemap_layer_settings.gd" id="3_1icfx"]
 [ext_resource type="Texture2D" uid="uid://d27sfvxajivyr" path="res://Assets/Sprites/Cenario/Parede/Hotel.png" id="4_d3eyx"]
-[ext_resource type="Texture2D" path="res://Assets/Sprites/Cenario/Parede/igreja.png" id="5_05kcg"]
 [ext_resource type="Texture2D" uid="uid://csdtq8ric3yba" path="res://Assets/Sprites/Cenario/Parede/igrejafora.png" id="6_125th"]
+[ext_resource type="PackedScene" uid="uid://c6u1mhppcndmo" path="res://Assets/Props/Portas/portaIgreja.tscn" id="7_5xmun"]
 [ext_resource type="Texture2D" uid="uid://do0n36ie16xu1" path="res://Assets/Sprites/Cenario/Parede/igrejadentro.png" id="7_125th"]
+[ext_resource type="PackedScene" uid="uid://4cvw5u3glyoy" path="res://Assets/Personagens/Protagonista.tscn" id="8_3ym52"]
+[ext_resource type="Script" uid="uid://bt56plut0kdvx" path="res://Scripts/Camera/cameraBonitaDoFred.cs" id="9_q7f26"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="10_e4o7m"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="11_u3u8u"]
+[ext_resource type="PackedScene" uid="uid://5vefm8uyc8dw" path="res://Assets/Itens/objDocumento2.tscn" id="12_3ym52"]
 
 [sub_resource type="Resource" id="Resource_3ym52"]
 script = ExtResource("3_1icfx")
@@ -17,7 +22,7 @@ mesh_mode = 1
 
 [sub_resource type="Resource" id="Resource_q7f26"]
 script = ExtResource("3_1icfx")
-tileset_texture = ExtResource("5_05kcg")
+tileset_texture = ExtResource("6_125th")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(0, 320, 320, 320)
 
@@ -36,6 +41,10 @@ tileset_zoom = 0.4240976183724846
 grid_snap_size = 0.5
 cursor_step_size = 0.5
 smart_select_mode = 1
+
+[sub_resource type="Resource" id="Resource_6wy5s"]
+script = ExtResource("11_u3u8u")
+duration = 0.0
 
 [node name="Igreja" type="Node3D" unique_id=378817196]
 
@@ -96,3 +105,30 @@ _triangle_chunks = [NodePath("TriangleChunk_R0_0_-1_C0")]
 _box_chunks = [NodePath("BoxChunk_R0_0_-1_C0"), NodePath("BoxChunk_R-1_0_-1_C0")]
 _prism_chunks = [NodePath("PrismChunk_R-1_0_-1_C0"), NodePath("PrismChunk_R0_0_-1_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
+
+[node name="portaIgreja" parent="." unique_id=1353397638 instance=ExtResource("7_5xmun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002635628, 0.98085415, 1.8855488)
+
+[node name="charGeraldoSalvador" parent="." unique_id=1046664859 instance=ExtResource("8_3ym52")]
+unique_name_in_owner = true
+transform = Transform3D(0.9996054, 0, 0.028089818, 0, 1, 0, -0.028089818, 0, 0.9996054, -0.073145, 0.79650843, -0.16302109)
+safe_margin = 0.015
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=267389878]
+transform = Transform3D(-0.9996054, 0, -0.02808973, 0, 1, 0, 0.02808973, 0, -0.9996054, -0.26307946, 0.14556551, -1.2922142)
+script = ExtResource("9_q7f26")
+
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1965630023]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+script = ExtResource("10_e4o7m")
+follow_mode = 6
+tween_resource = SubResource("Resource_6wy5s")
+tween_on_load = false
+follow_distance = 2.0
+spring_length = 2.0
+collision_mask = 31
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="objDocumento2" parent="." unique_id=1948817863 instance=ExtResource("12_3ym52")]
+transform = Transform3D(-1.1665031, 0, 1.6245832, 0, 2, 0, -1.6245832, 0, -1.1665031, -2.0236151, 0.3612616, -0.36068135)

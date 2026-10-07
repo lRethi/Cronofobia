@@ -22,13 +22,18 @@
 [ext_resource type="Texture2D" uid="uid://bnwwa86imei7t" path="res://Assets/Sprites/Objetos/Flor morta.png" id="20_swm72"]
 [ext_resource type="Texture2D" uid="uid://q8i5jelfiqjw" path="res://Assets/Sprites/Cenario/Props/Cadera.png" id="21_7sag8"]
 [ext_resource type="Texture2D" uid="uid://dynrgl0t2h7vg" path="res://Assets/Sprites/Cenario/Props/Cadeira.png" id="22_6drd6"]
+[ext_resource type="PackedScene" uid="uid://4cvw5u3glyoy" path="res://Assets/Personagens/Protagonista.tscn" id="23_swm72"]
+[ext_resource type="Script" uid="uid://bt56plut0kdvx" path="res://Scripts/Camera/cameraBonitaDoFred.cs" id="24_6h5ya"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="25_a0dfd"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="26_7wmdf"]
+[ext_resource type="PackedScene" uid="uid://dks1arua5k5ko" path="res://Assets/Props/Portas/portaEmpresa.tscn" id="27_6h5ya"]
+[ext_resource type="PackedScene" uid="uid://c4bn7n53cshpi" path="res://Assets/Itens/objDocumento3.tscn" id="28_a0dfd"]
 
 [sub_resource type="Resource" id="Resource_w4k4e"]
 script = ExtResource("3_ian0u")
 tileset_texture = ExtResource("4_7ic7j")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(0, 320, 320, 320)
-tileset_zoom = 0.1635079908265578
 current_depth_scale = 1.0
 
 [sub_resource type="Resource" id="Resource_f45fq"]
@@ -36,7 +41,6 @@ script = ExtResource("3_ian0u")
 tileset_texture = ExtResource("4_f7omw")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(0, 0, 320, 320)
-tileset_zoom = 0.35049389948139215
 smart_select_mode = 1
 mesh_mode = 2
 
@@ -45,7 +49,7 @@ script = ExtResource("3_ian0u")
 tileset_texture = ExtResource("6_k02k2")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(960, 320, 320, 320)
-tileset_zoom = 0.35049389948139215
+tileset_zoom = 0.17985878990921358
 mesh_mode = 2
 
 [sub_resource type="Resource" id="Resource_wf7k4"]
@@ -53,7 +57,6 @@ script = ExtResource("3_ian0u")
 tileset_texture = ExtResource("6_f45fq")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(640, 0, 320, 320)
-tileset_zoom = 0.2393920493691633
 mesh_mode = 2
 current_mesh_rotation = 1
 
@@ -61,7 +64,6 @@ current_mesh_rotation = 1
 script = ExtResource("3_ian0u")
 tileset_texture = ExtResource("7_trff4")
 tile_size = Vector2i(320, 320)
-tileset_zoom = 0.2896643797366877
 
 [sub_resource type="Resource" id="Resource_k02k2"]
 script = ExtResource("3_ian0u")
@@ -85,14 +87,12 @@ script = ExtResource("3_ian0u")
 tileset_texture = ExtResource("7_7ic7j")
 tile_size = Vector2i(222, 222)
 selected_tile_uv = Rect2(1110, 222, 222, 222)
-tileset_zoom = 0.5131581182307065
 
 [sub_resource type="Resource" id="Resource_i6ajr"]
 script = ExtResource("3_ian0u")
 tileset_texture = ExtResource("4_rfjcr")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(0, 0, 320, 320)
-tileset_zoom = 0.2896643797366877
 mesh_mode = 2
 
 [sub_resource type="Resource" id="Resource_fxfs0"]
@@ -118,7 +118,6 @@ script = ExtResource("3_ian0u")
 tileset_texture = ExtResource("15_42c2y")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(0, 0, 320, 320)
-tileset_zoom = 0.6830134553650705
 pixel_inset_value = 0.0
 grid_snap_size = 0.5
 cursor_step_size = 0.5
@@ -138,7 +137,6 @@ smart_select_mode = 1
 script = ExtResource("3_ian0u")
 tileset_texture = ExtResource("17_6drd6")
 tile_size = Vector2i(320, 320)
-tileset_zoom = 1.4641000000000006
 grid_snap_size = 0.5
 cursor_step_size = 0.5
 smart_select_mode = 1
@@ -148,6 +146,7 @@ script = ExtResource("3_ian0u")
 tileset_texture = ExtResource("18_e6g2i")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(0, 0, 320, 320)
+tileset_zoom = 0.6830134553650705
 grid_snap_size = 0.5
 cursor_step_size = 0.5
 smart_select_mode = 1
@@ -157,7 +156,6 @@ script = ExtResource("3_ian0u")
 tileset_texture = ExtResource("19_o6km6")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(37120, 7040, 320, 320)
-tileset_zoom = 0.17985878990921358
 mesh_mode = 2
 
 [sub_resource type="Resource" id="Resource_62nnu"]
@@ -181,10 +179,9 @@ tileset_texture = ExtResource("22_6drd6")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(0, 0, 320, 320)
 
-[sub_resource type="Environment" id="Environment_avaps"]
-ambient_light_source = 2
-ambient_light_color = Color(0.9492107, 0.94507474, 0.95644873, 1)
-ambient_light_energy = 0.38
+[sub_resource type="Resource" id="Resource_j0v6m"]
+script = ExtResource("26_7wmdf")
+duration = 0.0
 
 [node name="Empresa" type="Node3D" unique_id=306004646]
 
@@ -449,5 +446,29 @@ _tile_anim_data = PackedFloat32Array()
 _quad_chunks = [NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R-1_0_-1_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1634929488]
-environment = SubResource("Environment_avaps")
+[node name="charGeraldoSalvador" parent="." unique_id=1046664859 instance=ExtResource("23_swm72")]
+unique_name_in_owner = true
+transform = Transform3D(0.99995255, 0, -0.009739697, 0, 1, 0, 0.009739697, 0, 0.99995255, 0.23052251, 31.779861, -60.247696)
+safe_margin = 0.015
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=839034608]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.964635, 31.522139, -62.410675)
+script = ExtResource("24_6h5ya")
+
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1393427149]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 31.522139, -55.459816)
+script = ExtResource("25_a0dfd")
+follow_mode = 6
+tween_resource = SubResource("Resource_j0v6m")
+tween_on_load = false
+follow_distance = 2.0
+spring_length = 2.0
+collision_mask = 31
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="portaElevador" parent="." unique_id=1353397638 instance=ExtResource("27_6h5ya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05904281, 32.016434, -60.976425)
+
+[node name="objDocumento3" parent="." unique_id=655094101 instance=ExtResource("28_a0dfd")]
+transform = Transform3D(0.92058474, 0, -1.7755347, 0, 2, 0, 1.7755347, 0, 0.92058474, 7.4255276, 31.855099, -60.847702)

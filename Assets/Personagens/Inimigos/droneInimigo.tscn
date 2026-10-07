@@ -13,9 +13,11 @@ radius = 5.0
 [sub_resource type="SphereShape3D" id="SphereShape3D_irs17"]
 radius = 2.0
 
-[node name="droneInimigo" type="CharacterBody3D" unique_id=856536261]
+[node name="droneInimigo" type="CharacterBody3D" unique_id=856536261 node_paths=PackedStringArray("luzAlerta")]
 script = ExtResource("1_gcw2n")
-visionAngle = 180.0
+visionRange = 20.0
+visionAngle = 360.0
+luzAlerta = NodePath("SpotLight3D")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1272247020]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44912255, 0)

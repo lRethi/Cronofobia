@@ -57,14 +57,28 @@ public partial class InventoryState : Node
         if (item == null || !item.PodeSerUsado)
             return false;
 
+        float fome = item.FomeAoUsar;
+        float sede = item.SedeAoUsar;
+
+        if (EffectManager.Instance != null)
+        {
+            fome = EffectManager.Instance.ModificarFomeAoUsar(
+                item.Id,
+                fome
+            );
+
+            sede = EffectManager.Instance.ModificarSedeAoUsar(
+                item.Id,
+                sede
+            );
+        }
+
         NeedsState.Instance.SetFome(
-            NeedsState.Instance.varFome +
-            item.FomeAoUsar
+            NeedsState.Instance.varFome + fome
         );
 
         NeedsState.Instance.SetSede(
-            NeedsState.Instance.varSede +
-            item.SedeAoUsar
+            NeedsState.Instance.varSede + sede
         );
 
         return RemoverItem(index);

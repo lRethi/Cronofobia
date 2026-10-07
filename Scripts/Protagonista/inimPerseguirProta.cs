@@ -2,222 +2,319 @@ using Godot;
 
 public partial class inimPerseguirProta : CharacterBody3D
 {
-	private enum EnemyState
-	{
-		Idle,
-		Chase,
-		Search
-	}
+    private enum EnemyState
+    {
+        Idle,
+        Chase,
+        Search
+    }
 
-	private EnemyState estadoAtual = EnemyState.Idle;
+    private EnemyState estadoAtual = EnemyState.Idle;
 
-	[Export] public Node3D player;
-	[Export] public float speed = 1.5f;
-	[Export] public float visionRange = 5f;
-	[Export] public float visionAngle = 45f;
-	[Export] public float lostSightDelay = 0.25f;
+    [Export] public Node3D player;
+    [Export] public float speed = 1.5f;
+    [Export] public float visionRange = 5f;
+    [Export] public float visionAngle = 45f;
+    [Export] public float lostSightDelay = 0.25f;
+    [Export] public float tempoParaAtivar = 5f;
+    [Export] public float bonusSpeed = 1f;
+    [Export] public SpotLight3D luzAlerta;
+    [Export] public float tempoDeVida = 10f;
 
-	private NavigationAgent3D agent;
-	private Area3D alertArea;
+    private NavigationAgent3D agent;
+    private Area3D alertArea;
+    private Area3D collisionArea;
 
-	private Vector3 ultimaPosicaoConhecida;
-	private float tempoSemVisao = 0f;
+    private Vector3 ultimaPosicaoConhecida;
+    private float tempoSemVisao = 0f;
+    private float tempoAtivacao = 0f;
 
-	private bool playerNaArea = false;
+    private bool playerNaArea = false;
+    private bool playerNaCollisionArea = false;
+    private bool capturaAtiva = false;
+    private bool colisaoJaEmitida = false;
 
-	private Area3D collisionArea;
+    [Signal]
+    public delegate void PlayerColidiuEventHandler();
 
-	[Export] public float tempoDeVida = 10f;
+    public override void _Ready()
+    {
+		player = GetNode<Node3D>("../../%charGeraldoSalvador");
+        agent = GetNode<NavigationAgent3D>("NavigationAgent3D");
+        alertArea = GetNode<Area3D>("AlertArea");
+        collisionArea = GetNode<Area3D>("CollisionArea");
 
-	[Signal]
-	public delegate void PlayerColidiuEventHandler();
+        agent.TargetDesiredDistance = 0.05f;
+        agent.PathDesiredDistance = 0.05f;
 
-	public override void _Ready()
-	{
-		agent = GetNode<NavigationAgent3D>("NavigationAgent3D");
-		alertArea = GetNode<Area3D>("AlertArea");
-		collisionArea = GetNode<Area3D>("CollisionArea");
+        alertArea.BodyEntered += OnBodyEntered;
+        alertArea.BodyExited += OnBodyExited;
 
-		player = GetNode<Node3D>("%charGeraldoSalvador");
+        collisionArea.BodyEntered += OnCollisionAreaBodyEntered;
+        collisionArea.BodyExited += OnCollisionAreaBodyExited;
 
-		agent.TargetDesiredDistance = 0.05f;
-		agent.PathDesiredDistance = 0.05f;
+        if (luzAlerta != null)
+        {
+            luzAlerta.Visible = false;
+            luzAlerta.LightColor = Colors.Red;
+        }
 
-		alertArea.BodyEntered += OnBodyEntered;
-		alertArea.BodyExited += OnBodyExited;
+        GetTree().CreateTimer(tempoDeVida).Timeout += Desaparecer;
+    }
 
-		collisionArea.BodyEntered += OnCollisionAreaBodyEntered;
+    private void Desaparecer()
+    {
+        QueueFree();
+    }
 
-		GetTree().CreateTimer(tempoDeVida).Timeout += Desaparecer;
-	}
+    public override void _PhysicsProcess(double delta)
+    {
+        float dt = (float)delta;
 
-	void Desaparecer()
-	{
-		QueueFree();
-	}
+        if (!capturaAtiva)
+        {
+            tempoAtivacao += dt;
 
-	public override void _PhysicsProcess(double delta)
-	{
-		float dt = (float)delta;
+            if (tempoAtivacao >= tempoParaAtivar)
+            {
+                AtivarCaptura();
+            }
+        }
 
-		switch (estadoAtual)
-		{
-			case EnemyState.Idle:
-				EstadoIdle(dt);
-				break;
+        switch (estadoAtual)
+        {
+            case EnemyState.Idle:
+                EstadoIdle(dt);
+                break;
 
-			case EnemyState.Chase:
-				EstadoChase(dt);
-				break;
+            case EnemyState.Chase:
+                EstadoChase(dt);
+                break;
 
-			case EnemyState.Search:
-				EstadoSearch(dt);
-				break;
-		}
-	}
+            case EnemyState.Search:
+                EstadoSearch(dt);
+                break;
+        }
 
-	void EstadoIdle(float dt)
-	{
-		Velocity = Vector3.Zero;
-		MoveAndSlide();
+        TentarEmitirCaptura();
+    }
 
-		if (PodeVerPlayer())
-		{
-			estadoAtual = EnemyState.Chase;
-			tempoSemVisao = 0f;
-			ultimaPosicaoConhecida = player.GlobalTransform.Origin;
-		}
-	}
+    private void AtivarCaptura()
+    {
+        capturaAtiva = true;
+        speed += bonusSpeed;
 
-	void EstadoChase(float dt)
-	{
-		if (PodeVerPlayer())
-		{
-			tempoSemVisao = 0f;
-			ultimaPosicaoConhecida = player.GlobalTransform.Origin;
-			agent.TargetPosition = ultimaPosicaoConhecida;
-			MoveToTarget();
-			return;
-		}
+        if (luzAlerta != null)
+        {
+            luzAlerta.Visible = true;
+        }
+    }
 
-		tempoSemVisao += dt;
+    private void EstadoIdle(float dt)
+    {
+        Velocity = Vector3.Zero;
+        MoveAndSlide();
 
-		if (playerNaArea)
-		{
-			agent.TargetPosition = ultimaPosicaoConhecida;
-			MoveToTarget();
-			return;
-		}
+        if (PodeVerPlayer())
+        {
+            estadoAtual = EnemyState.Chase;
+            tempoSemVisao = 0f;
+            ultimaPosicaoConhecida = player.GlobalTransform.Origin;
+        }
+    }
 
-		if (tempoSemVisao >= lostSightDelay)
-			estadoAtual = EnemyState.Search;
-	}
+    private void EstadoChase(float dt)
+    {
+        if (PodeVerPlayer())
+        {
+            tempoSemVisao = 0f;
+            ultimaPosicaoConhecida = player.GlobalTransform.Origin;
+            agent.TargetPosition = ultimaPosicaoConhecida;
 
-	void EstadoSearch(float dt)
-	{
-		agent.TargetPosition = ultimaPosicaoConhecida;
-		MoveToTarget();
+            MoveToTarget();
+            return;
+        }
 
-		if (PodeVerPlayer())
-		{
-			estadoAtual = EnemyState.Chase;
-			tempoSemVisao = 0f;
-			return;
-		}
+        tempoSemVisao += dt;
 
-		if (agent.IsNavigationFinished())
-			estadoAtual = EnemyState.Idle;
-	}
+        if (playerNaArea)
+        {
+            agent.TargetPosition = ultimaPosicaoConhecida;
+            MoveToTarget();
+            return;
+        }
 
-	void MoveToTarget()
-	{
-		Vector3 target = ultimaPosicaoConhecida;
-		Vector3 current = GlobalTransform.Origin;
+        if (tempoSemVisao >= lostSightDelay)
+        {
+            estadoAtual = EnemyState.Search;
+        }
+    }
 
-		Vector3 next = agent.GetNextPathPosition();
-		Vector3 dir = next - current;
+    private void EstadoSearch(float dt)
+    {
+        agent.TargetPosition = ultimaPosicaoConhecida;
+        MoveToTarget();
 
-		dir.Y = 0f;
+        if (PodeVerPlayer())
+        {
+            estadoAtual = EnemyState.Chase;
+            tempoSemVisao = 0f;
+            return;
+        }
 
-		if (dir.LengthSquared() < 0.0001f)
-		{
-			dir = target - current;
-			dir.Y = 0f;
+        if (agent.IsNavigationFinished())
+        {
+            estadoAtual = EnemyState.Idle;
+        }
+    }
 
-			if (dir.LengthSquared() < 0.0001f)
-			{
-				Velocity = Vector3.Zero;
-				MoveAndSlide();
-				return;
-			}
-		}
+    private void MoveToTarget()
+    {
+        Vector3 target = ultimaPosicaoConhecida;
+        Vector3 current = GlobalTransform.Origin;
+        Vector3 next = agent.GetNextPathPosition();
+        Vector3 dir = next - current;
 
-		dir = dir.Normalized();
+        dir.Y = 0f;
 
-		Velocity = new Vector3(dir.X * speed, Velocity.Y, dir.Z * speed);
-		MoveAndSlide();
+        if (dir.LengthSquared() < 0.0001f)
+        {
+            dir = target - current;
+            dir.Y = 0f;
 
-		Vector3 lookTarget = current + dir;
-		if (!lookTarget.IsEqualApprox(current))
-			LookAt(lookTarget, Vector3.Up);
-	}
+            if (dir.LengthSquared() < 0.0001f)
+            {
+                Velocity = Vector3.Zero;
+                MoveAndSlide();
+                return;
+            }
+        }
 
-	bool PodeVerPlayer()
-	{
-		if (player == null)
-			return false;
+        dir = dir.Normalized();
 
-		Vector3 origem = GlobalTransform.Origin;
-		Vector3 alvo = player.GlobalTransform.Origin;
+        Velocity = new Vector3(
+            dir.X * speed,
+            Velocity.Y,
+            dir.Z * speed
+        );
 
-		Vector3 dir = alvo - origem;
-		float dist = dir.Length();
+        MoveAndSlide();
 
-		if (dist > visionRange)
-			return false;
+        Vector3 lookTarget = current + dir;
 
-		dir = dir.Normalized();
+        if (!lookTarget.IsEqualApprox(current))
+        {
+            LookAt(lookTarget, Vector3.Up);
+        }
+    }
 
-		Vector3 forward = -GlobalTransform.Basis.Z;
-		float dot = Mathf.Clamp(forward.Dot(dir), -1f, 1f);
-		float angulo = Mathf.RadToDeg(Mathf.Acos(dot));
+    private bool PodeVerPlayer()
+    {
+        if (player == null)
+        {
+            return false;
+        }
 
-		if (angulo > visionAngle)
-			return false;
+        Vector3 origem = GlobalTransform.Origin;
+        Vector3 alvo = player.GlobalTransform.Origin;
+        Vector3 dir = alvo - origem;
 
-		var space = GetWorld3D().DirectSpaceState;
-		var query = PhysicsRayQueryParameters3D.Create(origem, alvo);
+        float dist = dir.Length();
 
-		query.Exclude = new Godot.Collections.Array<Rid> { GetRid() };
+        if (dist > visionRange)
+        {
+            return false;
+        }
 
-		var result = space.IntersectRay(query);
+        dir = dir.Normalized();
 
-		if (result.Count == 0)
-			return false;
+        Vector3 forward = -GlobalTransform.Basis.Z;
+        float dot = Mathf.Clamp(forward.Dot(dir), -1f, 1f);
+        float angulo = Mathf.RadToDeg(Mathf.Acos(dot));
 
-		var collider = result["collider"].As<Node>();
+        if (angulo > visionAngle)
+        {
+            return false;
+        }
 
-		return collider == player || (collider != null && player.IsAncestorOf(collider));
-	}
+        var space = GetWorld3D().DirectSpaceState;
+        var query = PhysicsRayQueryParameters3D.Create(origem, alvo);
 
-	void OnBodyEntered(Node body)
-	{
-		if (body == player)
-			playerNaArea = true;
-	}
+        query.Exclude = new Godot.Collections.Array<Rid>
+        {
+            GetRid()
+        };
 
-	void OnBodyExited(Node body)
-	{
-		if (body == player)
-			playerNaArea = false;
-	}
+        var result = space.IntersectRay(query);
 
-	void OnCollisionAreaBodyEntered(Node body)
-	{
-		if (body != player)
-			return;
+        if (result.Count == 0)
+        {
+            return false;
+        }
 
-		if (estadoAtual == EnemyState.Chase || estadoAtual == EnemyState.Search)
-			EmitSignal(SignalName.PlayerColidiu);
-	}
+        var collider = result["collider"].As<Node>();
+
+        return collider == player ||
+               (collider != null && player.IsAncestorOf(collider));
+    }
+
+    private void OnBodyEntered(Node body)
+    {
+        if (body == player)
+        {
+            playerNaArea = true;
+        }
+    }
+
+    private void OnBodyExited(Node body)
+    {
+        if (body == player)
+        {
+            playerNaArea = false;
+        }
+    }
+
+    private void OnCollisionAreaBodyEntered(Node body)
+    {
+        if (body == player)
+        {
+            playerNaCollisionArea = true;
+        }
+    }
+
+    private void OnCollisionAreaBodyExited(Node body)
+    {
+        if (body == player)
+        {
+            playerNaCollisionArea = false;
+            colisaoJaEmitida = false;
+        }
+    }
+
+    private void TentarEmitirCaptura()
+    {
+        if (!capturaAtiva)
+        {
+            return;
+        }
+
+        if (!playerNaCollisionArea)
+        {
+            return;
+        }
+
+        if (colisaoJaEmitida)
+        {
+            return;
+        }
+
+        if (estadoAtual != EnemyState.Chase &&
+            estadoAtual != EnemyState.Search)
+        {
+            return;
+        }
+
+        colisaoJaEmitida = true;
+        EmitSignal(SignalName.PlayerColidiu);
+    }
 }

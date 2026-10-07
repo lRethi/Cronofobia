@@ -8,8 +8,8 @@
 [ext_resource type="Script" uid="uid://cbeumlxm2r5cw" path="res://Scripts/Camera/rotCameraPerson.cs" id="6_xif8k"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8c2qd"]
-radius = 0.19335938
-height = 0.38671875
+radius = 0.12109375
+height = 0.32714844
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uyn1v"]
 transparency = 4
@@ -36,13 +36,13 @@ item = ExtResource("2_0tq2m")
 cenaCompra = ExtResource("3_66uoc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=962770560]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.013336182, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.016448975, 0)
 shape = SubResource("CapsuleShape3D_8c2qd")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1056284462]
 material_override = SubResource("StandardMaterial3D_uyn1v")
 material_overlay = SubResource("ShaderMaterial_57i47")
-pixel_size = 0.0008
+pixel_size = 0.0006
 shaded = true
 texture_filter = 0
 texture = ExtResource("4_qbwfo")

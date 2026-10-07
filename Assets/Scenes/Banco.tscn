@@ -12,6 +12,7 @@
 [ext_resource type="Shape3D" uid="uid://dewxomad5oo27" path="res://Assets/Scenes/Banco_CollisionData/Banco_Floor_collision.res" id="8_cajuc"]
 [ext_resource type="Texture2D" uid="uid://bwmi14d5k8yw8" path="res://Assets/Sprites/Cenario/Parede/o predio do lado do alameda.png" id="8_is5c8"]
 [ext_resource type="Texture2D" uid="uid://c4g0fq1ecoga2" path="res://Assets/Sprites/Cenario/Parede/Vivo.png" id="9_fkkhy"]
+[ext_resource type="PackedScene" uid="uid://cyf0e27blyu2l" path="res://Assets/Itens/objDocumento4.tscn" id="9_oj80d"]
 [ext_resource type="Shape3D" uid="uid://cg0gmpljpe0s2" path="res://Assets/Scenes/Banco_CollisionData/Banco_Ceiling_collision.res" id="10_winu8"]
 [ext_resource type="Texture2D" uid="uid://bqrrb3e70gf8y" path="res://Assets/Sprites/Cenario/Misc/atm.png" id="10_yvlcl"]
 [ext_resource type="Texture2D" uid="uid://i0ab0a667fe2" path="res://Assets/Sprites/Cenario/Misc/idk.png" id="11_3madb"]
@@ -266,6 +267,9 @@ script = ExtResource("5_jdseb")
 
 [node name="@CollisionShape3D@158222" type="CollisionShape3D" parent="Floor/@StaticBody3D@158223" unique_id=571621864]
 shape = ExtResource("8_cajuc")
+
+[node name="objDocumento4" parent="Floor/@StaticBody3D@158223" unique_id=1205473826 instance=ExtResource("9_oj80d")]
+transform = Transform3D(1.4838789, 0, 1.3409338, 0, 2, 0, -1.3409338, 0, 1.4838789, 3.999996, 4.6212335, 6.752992)
 
 [node name="Ceiling" type="Node3D" parent="." unique_id=1626855728 node_paths=PackedStringArray("_quad_chunks")]
 script = ExtResource("1_ca0bt")
@@ -533,9 +537,12 @@ personagem = NodePath("../../../charGeraldoSalvador")
 [node name="Gerente" parent="." unique_id=1539255446 node_paths=PackedStringArray("personagem") instance=ExtResource("22_nykpw")]
 transform = Transform3D(0.021802561, 0, 0.9997623, 0, 1, 0, -0.9997623, 0, 0.021802561, -4.559514, 5.807818, 4.9886627)
 personagem = NodePath("../charGeraldoSalvador")
+alcanceInteracao = 2.5
 
 [node name="Sprite3D" parent="Gerente/StaticBody3D" parent_id_path=PackedInt32Array(1539255446, 408448575) index="2" unique_id=1766881007 node_paths=PackedStringArray("personagem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015552998, -0.9646826, -0.7131982)
 personagem = NodePath("../../../charGeraldoSalvador")
+alcanceInteracao = 2.5
 
 [node name="teleporter1" type="Area3D" parent="." unique_id=674621357 node_paths=PackedStringArray("referenciaTeleport")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.539252, 0.4842825, 0.7002151)
