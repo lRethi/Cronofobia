@@ -1,0 +1,2 @@
+If you have an AMD GPU those files are needed to have the game correctly working.
+Copy the files to the root directory, confirm the replacement and run the game as an administrator.

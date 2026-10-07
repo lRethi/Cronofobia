@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cfyj80iy77m32"]
+
+[ext_resource type="Texture2D" uid="uid://bbs0gddc1a7qj" path="res://Assets/Sprites/Cenario/Misc/Santa.png" id="1_lqp5h"]
+
+[node name="Statue1" type="StaticBody3D" unique_id=725254883]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=80763062]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+billboard = 2
+texture = ExtResource("1_lqp5h")

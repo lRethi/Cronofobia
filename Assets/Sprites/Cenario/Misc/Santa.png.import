@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3nrr2fr8mfym"
-path.s3tc="res://.godot/imported/predio q n sei onde e.png-3bd80fabd8e4ae5d9c61d6abcae56486.s3tc.ctex"
+uid="uid://bbs0gddc1a7qj"
+path.s3tc="res://.godot/imported/Santa.png-168d1ed60ed5707eb606670fbadf1fa9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Sprites/Cenario/Parede/predio q n sei onde e.png"
-dest_files=["res://.godot/imported/predio q n sei onde e.png-3bd80fabd8e4ae5d9c61d6abcae56486.s3tc.ctex"]
+source_file="res://Assets/Sprites/Cenario/Misc/Santa.png"
+dest_files=["res://.godot/imported/Santa.png-168d1ed60ed5707eb606670fbadf1fa9.s3tc.ctex"]
 
 [params]
 

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://5bfmpgr4pfkp"]
+
+[ext_resource type="Texture2D" uid="uid://c1tlg51dipyjk" path="res://Assets/Sprites/Cenario/Props/Fountain.png" id="1_ecuc1"]
+
+[node name="Fountain" type="StaticBody3D" unique_id=514824201]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1046036820]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+billboard = 2
+texture = ExtResource("1_ecuc1")

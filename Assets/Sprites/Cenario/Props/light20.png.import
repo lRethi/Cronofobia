@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1tlg51dipyjk"
-path="res://.godot/imported/untitled-pixel-art@10x.png-d04a424de33874b40316506c329c9657.ctex"
+uid="uid://3tglxdpgfph2"
+path="res://.godot/imported/light20.png-d4b79e8953e31e2dffe4882cca4dd917.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Cenario/Props/untitled-pixel-art@10x.png"
-dest_files=["res://.godot/imported/untitled-pixel-art@10x.png-d04a424de33874b40316506c329c9657.ctex"]
+source_file="res://Assets/Sprites/Cenario/Props/light20.png"
+dest_files=["res://.godot/imported/light20.png-d4b79e8953e31e2dffe4882cca4dd917.ctex"]
 
 [params]
 

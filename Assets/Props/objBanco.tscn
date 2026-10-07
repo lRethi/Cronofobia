@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cwj247t0ou8kh" path="res://Assets/Sprites/Cenario/Props/banco.png" id="3_g05qw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jktjp"]
-size = Vector3(1.107996, 0.48870468, 0.24035645)
+size = Vector3(1.0232903, 0.45249844, 2.8217468)
 
 [node name="objBanco" type="StaticBody3D" unique_id=426340957 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_g05qw")
@@ -20,5 +20,5 @@ texture_filter = 0
 texture = ExtResource("3_g05qw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=337798619]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011208534, 0.0045223236, 0.014953613)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.15, 0, 0, 0)
 shape = SubResource("BoxShape3D_jktjp")

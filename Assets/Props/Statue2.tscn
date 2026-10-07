@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bcytx6s6tm1ot"]
+
+[ext_resource type="Texture2D" uid="uid://bmtllkliemdsv" path="res://Assets/Sprites/Cenario/Misc/Caba.png" id="1_hhktd"]
+
+[node name="Statue2" type="StaticBody3D" unique_id=1721268303]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1289046051]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+billboard = 2
+texture = ExtResource("1_hhktd")

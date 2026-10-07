@@ -22,5 +22,4 @@ texture_filter = 0
 texture = ExtResource("3_m6gnf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=337798619]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.016845703, 0)
 shape = SubResource("CapsuleShape3D_8c2qd")

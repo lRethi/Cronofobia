@@ -1,0 +1,113 @@
+Need for Speed Most Wanted REDUX V3 (v3.04)
+
+This is my personal vision of NFS Most Wanted, the modpack features a huge variety of mods created by talentful members
+of NFS modding community with a personal touch to make everything work seamlessly!
+Independently by the version you chose to download, the installation is the same as it follow.
+
+UPDATED 13/10/2023
+
+Patch 3.04 Changelog
++ The pack now contains game and mod files, you don't need anymore a "clean" copy of the game, just download and play
++ Updated all scripts to latest versions (Unlimiter V4 is kept on hold, waiting for a stable release)
++ Added language selection screen on startup (English will remain the best choice)
++ Improved visual look
++ Update many car mods to latest EC version:
+  - Bugatti Veyron SS - https://nfsmods.xyz/mod/3778
+  - Chevrolet Cobalt SS - https://nfsmods.xyz/mod/4581
+  - Ferrari Enzo - https://nfsmods.xyz/mod/3700
+  - Ferrari F40 - https://nfsmods.xyz/mod/4634
+  - Ferrari F50 - https://nfsmods.xyz/mod/4422
+  - Honda Civic Si EG6 - https://nfsmods.xyz/mod/4355
+  - Honda NSX - https://nfsmods.xyz/mod/3919
+  - Lexus LFA - https://nfsmods.xyz/mod/3702
+  - Maserati MC12 - https://nfsmods.xyz/mod/4847
+  - McLaren F1 - https://nfsmods.xyz/mod/4829
+  - Nissan 350Z - https://nfsmods.xyz/mod/4308
+  - Mercedes CLK GTR - https://nfsmods.xyz/mod/3967
+  - Pagani Zonda Cinque - https://nfsmods.xyz/mod/4746
+  - Porsche Carrera GT - https://nfsmods.xyz/mod/4423
+  - Toyota Supra - https://nfsmods.xyz/mod/4628
+  
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSTALLATION:
+
+0) Before downloading and installing the mod, make sure you have DirectX abd C++ Runtimes installed.
+   In case you can download them from here:
+   - DirectX: https://www.microsoft.com/en-us/download/details.aspx?id=35
+   - C++ Runtimes: https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170
+1) Download and extract the modpack.
+2) Consider doing a quick setup of the scripts folder according to your pc performance as shown in the tutorial part at 5:39.
+3a) Depending on your GPU, open scripts/NFSMostWanted.WidescreenFix.ini and set ForcedGPUVendor as it follows:
+   - NVidia GPU: "ForcedGPUVendor = 0x10DE"
+   - AMD GPU: "ForcedGPUVendor = 0x1002"
+   - Intel GPU: "ForcedGPUVendor = 0x8086"
+   Then save.
+3b) FOR AMD USERS: You will have to install AMD FIX provided, to install drag and drop the content from "AMD FIX" folder in main game root.
+4) Launch the game and create a new profile.
+5) Enjoy the game!
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+F.A.Q. & TROUBLESHOOTING:
+
+⦁ Can my PC run MW Redux?
+Depends, generally if you have a GPU with 3 or more Gbs of VRAM you will be able to run the game. The best practise is too try and if the game is lagging I suggest you to check the correct setup as showed in the showcase video. If after that you are still having issues, you should consider using the Lite version.
+
+⦁ Does it work with Black Edition?
+Yes, Redux is based on the Black Edition of the game.
+
+⦁ Where can I find the base game?
+From patch 3.04 having the base game is NOT needed anymore. Just download and play!
+
+⦁ Can I use my Redux 2.3 profile in Redux V3?
+No, you can't use any previously created profile, you will need a new one to be able to play. This because Redux V3 has been made from scratch and there are too many changes applied.
+
+⦁ Can I add cars in MW Redux?
+Yes, you can add new cars to Redux as long they use Binary as Installation method. Modloader or Ed cars won't work and will break the game installation.
+
+⦁ How do I change game language?
+The game will ask to chose your language on startup, this will translate texts to your selected language, but since I haven't translated all new added stuffs to other languages other than english that there will be missing strings.
+
+⦁ How do I disable Motion Blur?
+You can disable Motion Blur by going in scripts/NFSMostWanted.WidescreenFix.ini and set "DisableMotionBlur = 1"
+If it doesn't work, you can go in scripts/NFSMWMotionBlurControllerSettings.ini and change MotionBlurMinEffectiveSpeed = 1000 (or something like that).
+
+⦁ How do I change buttons layout?
+You can change buttons layout in scripts/NFSMostWanted.WidescreenFix.ini and change ImproveGamepadSupport to the desired input.
+
+⦁ Where savegames are stored?
+After lauching the game and creating a new save, it will be stored in a folder called "SAVE" in main game directory.
+
+⦁ Can I run the game on Steam Deck?
+Yes, you can, but you have to delete XNFS-ShaderLoader-MW.asi from the scripts folder otherwise the game won't launch.
+
+⦁ When I launch the game it crashes and I get Error 126, what's wrong?
+You are probably missing DirectX or C++ Runtimes, you can download it from here:
+- DirectX: https://www.microsoft.com/en-us/download/details.aspx?id=35
+- C++ Runtimes: https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170
+
+⦁ How to increase FPS without messing with the modpack?**
+If your PC isn't powerful enough consider using the Lite version otherwise you can do the following things to gain some fps:
+- Disable AA (Anti-Aliasing) from video settings
+- Decrease ShadowRes (set 1024) from WidescreenFix.ini
+- Disable ImproveShadowLOD from WidescreenFix.ini
+- Decrease game's resolution from WidescreenFix.ini
+- Remove HD Reflections script
+
+If you still need help or your problem isn't listed above, consider joining on my Discord server to have further support!
+JOIN HERE: https://discord.com/servers/kryzeeplays-793227921183342602
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CREDITS:
+Aero, AJ_Lethal, Archie, Ariso, Avalanche, Aven, BadassBaboon, BlackPanthaa, BlueSkyWestSide, Burnziie, CovRETE37, D4emon712, Darudnik, Eclipse72, LunicAura,
+elaymm4, EllisRacing, eModder, Goodboygamer, IGAO Play, InfinityMain, KuruHS, LM1992, LP-Ripper24, MedievalShell, Miles Dipperion, NFS2019, nfsu360, nlgxzef,
+Opex Rah, osdever, P A I N, PedroBLR, RaTT, Raverz, Redline, Selly & Hel, TheBoss Gaming, ThirteenAG, TrackmaniaMatt, Vee, Viki, Viper4K, WF4123, XGAMER,
+YochiThMaster333, ZVott96, Zyphir
+Special thanks to all those amazing people, without them Redux wouldn't exist, thanks for allowing me to use your wonderful works!
+(I hope I haven't forgot someone... in any case thanks to everybody who supported me and my project!)
+
+Thanks and good game! :D
+
+// KryZee
