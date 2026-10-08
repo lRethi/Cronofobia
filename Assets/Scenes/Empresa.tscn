@@ -49,6 +49,7 @@
 [ext_resource type="Shape3D" uid="uid://diruq65nitl00" path="res://Assets/Scenes/Empresa_CollisionData/Empresa_TileMapLayer3D7_collision.res" id="36_mnp50"]
 [ext_resource type="Shape3D" uid="uid://ppmnf37m43ib" path="res://Assets/Scenes/Empresa_CollisionData/Empresa_TileMapLayer3D8_collision.res" id="38_gkywy"]
 [ext_resource type="Shape3D" uid="uid://bxdk04kp1cqlw" path="res://Assets/Scenes/Empresa_CollisionData/Empresa_TileMapLayer3D9_collision.res" id="40_bgspd"]
+[ext_resource type="PackedScene" uid="uid://mrlhhnue7vnr" path="res://Assets/Itens/objMoeda.tscn" id="50_1g66n"]
 
 [sub_resource type="Resource" id="Resource_w4k4e"]
 script = ExtResource("3_ian0u")
@@ -670,6 +671,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029960155, 31.538002, -43.
 
 [node name="tpAreaOut" type="Node3D" parent="." unique_id=241177220]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029960155, 31.538002, -40.407276)
+
+[node name="objMoeda" parent="." unique_id=74169055 instance=ExtResource("50_1g66n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8862575, 0.20480047, -3.5492857)
+
+[node name="objMoeda2" parent="." unique_id=257458931 instance=ExtResource("50_1g66n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7645253, 0.30480015, -2.7008743)
 
 [editable path="charGeraldoSalvador"]
 [editable path="portaElevador"]

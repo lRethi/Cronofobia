@@ -96,13 +96,13 @@ radiance_size = 1
 background_mode = 2
 sky = SubResource("Sky_q4tad")
 glow_enabled = true
+fog_enabled = true
 fog_light_color = Color(0.5890956, 0.58909565, 0.5890954, 1)
 fog_light_energy = 0.2
 fog_sun_scatter = 0.1
 fog_density = 0.05
-fog_sky_affect = 0.2
+fog_sky_affect = 0.4
 fog_depth_end = 20.0
-volumetric_fog_enabled = true
 volumetric_fog_density = 0.03
 adjustment_enabled = true
 
@@ -133,6 +133,9 @@ script = ExtResource("3_7bnv2")
 
 [node name="DirectionalLight3D_Sun" type="DirectionalLight3D" parent="DayNightController" unique_id=409840114]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.8660254, 0, -0.8660254, 0.5, 0, 4, 0)
+
+[node name="SpawnPosition" type="Node3D" parent="." unique_id=582172821]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.097602844, 1.0954882, 76.75419)
 
 [node name="charGeraldoSalvador" parent="." unique_id=1046664859 node_paths=PackedStringArray("cameraNode", "cameraPivotNode") instance=ExtResource("2_vgdj8")]
 unique_name_in_owner = true
@@ -229,7 +232,7 @@ transform = Transform3D(0.7502431, 0, 0.661162, 0, 1, 0, -0.661162, 0, 0.7502431
 [node name="Investigação" type="Node" parent="NPCs" unique_id=1842148967]
 
 [node name="Jornalista" parent="NPCs/Investigação" unique_id=144054193 instance=ExtResource("100_l8x1e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.144846, 0, 88.94404)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.144846, 0.9545207, 88.94404)
 
 [node name="Agua" type="Node" parent="NPCs" unique_id=1297111073]
 
@@ -253,33 +256,255 @@ transform = Transform3D(0.059106097, 0, 0.9982518, 0, 1, 0, -0.9982518, 0, 0.059
 
 [node name="moedaPickup" parent="Pickups/moeda" unique_id=130964378 instance=ExtResource("22_an17c")]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0.6, 0.18, 5.4)
+hideWhenFlag = "transacaoAutomatica"
 
 [node name="moedaPickup2" parent="Pickups/moeda" unique_id=1954850603 instance=ExtResource("22_an17c")]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 2.7, 0.28, 19.4)
+hideWhenFlag = "transacaoAutomatica"
 
 [node name="moedaPickup3" parent="Pickups/moeda" unique_id=325282384 instance=ExtResource("22_an17c")]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -6.4, 0.28, 30)
+hideWhenFlag = "transacaoAutomatica"
 
 [node name="moedaPickup4" parent="Pickups/moeda" unique_id=1036605298 instance=ExtResource("22_an17c")]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 4.6, 0.28, 44.4)
+hideWhenFlag = "transacaoAutomatica"
 
 [node name="moedaPickup5" parent="Pickups/moeda" unique_id=597054845 instance=ExtResource("22_an17c")]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -6.4, 0.28, 69.5)
+hideWhenFlag = "transacaoAutomatica"
 
 [node name="moedaPickup6" parent="Pickups/moeda" unique_id=1201126025 instance=ExtResource("22_an17c")]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 14.4, 0.28, 43.3)
+hideWhenFlag = "transacaoAutomatica"
 
 [node name="moedaPickup7" parent="Pickups/moeda" unique_id=1779463126 instance=ExtResource("22_an17c")]
-transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -24, 0.28, 83.4)
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -24.279, 0.28, 83.4)
+hideWhenFlag = "transacaoAutomatica"
 
 [node name="moedaPickup8" parent="Pickups/moeda" unique_id=1811742836 instance=ExtResource("22_an17c")]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 14.5, 0.28, -30.4)
+hideWhenFlag = "transacaoAutomatica"
 
 [node name="moedaPickup9" parent="Pickups/moeda" unique_id=1013891677 instance=ExtResource("22_an17c")]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -31.5, 0.28, -60.6)
+hideWhenFlag = "transacaoAutomatica"
 
 [node name="moedaPickup10" parent="Pickups/moeda" unique_id=304656438 instance=ExtResource("22_an17c")]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -48.5, 0.28, 10.5)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup11" parent="Pickups/moeda" unique_id=74169055 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -36.91674, 0.28, 19.316706)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup12" parent="Pickups/moeda" unique_id=69608782 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -25.174294, 0.28, 15.544424)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup13" parent="Pickups/moeda" unique_id=1882495262 instance=ExtResource("22_an17c")]
+transform = Transform3D(0.08383118, 0, -1.3974879, 0, 1.4, 0, 1.3974879, 0, 0.08383118, -17.22055, 1.4061517, 15.544424)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup14" parent="Pickups/moeda" unique_id=1759746375 instance=ExtResource("22_an17c")]
+transform = Transform3D(-1.3707697, 0, -0.28458858, 0, 1.4, 0, 0.28458858, 0, -1.3707697, 15.426978, 0.23535538, 8.504299)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup15" parent="Pickups/moeda" unique_id=1101874183 instance=ExtResource("22_an17c")]
+transform = Transform3D(-1.3777186, 0, -0.24878082, 0, 1.4, 0, 0.24878082, 0, -1.3777186, 12.765472, 0.412743, 0.3436002)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup16" parent="Pickups/moeda" unique_id=436026831 instance=ExtResource("22_an17c")]
+transform = Transform3D(-1.3777186, 0, -0.24878082, 0, 1.4, 0, 0.24878082, 0, -1.3777186, 18.373875, 0.41274294, -9.47053)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup17" parent="Pickups/moeda" unique_id=1877274999 instance=ExtResource("22_an17c")]
+transform = Transform3D(-1.3777186, 0, -0.24878082, 0, 1.4, 0, 0.24878082, 0, -1.3777186, 14.633258, 0.41274294, -14.429902)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup18" parent="Pickups/moeda" unique_id=1543299608 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 17.3313, 0.28, -46.450405)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup19" parent="Pickups/moeda" unique_id=587432155 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 17.3313, 0.28, -45.900017)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup22" parent="Pickups/moeda" unique_id=1905607978 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0.7870426, 0.28, -53.43644)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup23" parent="Pickups/moeda" unique_id=930976430 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -2.899488, 0.28, -53.31418)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup24" parent="Pickups/moeda" unique_id=1555035129 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 1.4264647, 0.28, -60.229965)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup25" parent="Pickups/moeda" unique_id=201374001 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -13.137924, 0.28, -59.81691)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup35" parent="Pickups/moeda" unique_id=2138402373 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -32.390453, 0.28000048, -52.197495)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup36" parent="Pickups/moeda" unique_id=268595017 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -37.24866, 0.28000048, -67.40192)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup37" parent="Pickups/moeda" unique_id=869608327 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -45.04303, 0.28000048, -60.68574)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup26" parent="Pickups/moeda" unique_id=1404961837 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -13.254786, 0.28000048, -46.525852)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup27" parent="Pickups/moeda" unique_id=1877739084 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -13.891407, 0.28000048, -36.416252)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup28" parent="Pickups/moeda" unique_id=563359296 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -13.804637, 0.28000048, -23.34806)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup29" parent="Pickups/moeda" unique_id=784996629 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -14.586416, 0.28000048, 1.9518719)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup30" parent="Pickups/moeda" unique_id=810761894 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -48.443253, 0.11329296, 19.36405)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup31" parent="Pickups/moeda" unique_id=60037537 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -59.639427, 0.11329296, 11.284233)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup32" parent="Pickups/moeda" unique_id=161976071 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -59.310818, 0.113292724, -0.18036938)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup33" parent="Pickups/moeda" unique_id=258884591 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -44.784554, 0.113292724, -0.15175343)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup34" parent="Pickups/moeda" unique_id=105453811 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -36.066143, 0.113292724, 2.0068965)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup20" parent="Pickups/moeda" unique_id=1236545286 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 16.965284, 0.28, -35.296177)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup21" parent="Pickups/moeda" unique_id=1716264361 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 17.41429, 2.2518146, -47.68183)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup38" parent="Pickups/moeda" unique_id=2018312048 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -38.195415, 0.28000048, -52.197495)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup39" parent="Pickups/moeda" unique_id=603915792 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -13.493828, 0.28000048, -82.6988)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup40" parent="Pickups/moeda" unique_id=337908207 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -3.9113584, 0.28, -60.229965)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup41" parent="Pickups/moeda" unique_id=1659597977 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 8.520121, -0.79823506, -70.691635)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup42" parent="Pickups/moeda" unique_id=898720247 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 5.740284, 0.30401504, -70.691635)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup43" parent="Pickups/moeda" unique_id=2110832247 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 34.264935, 0.30401504, -67.41301)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup44" parent="Pickups/moeda" unique_id=1260001969 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 33.397446, 0.30401504, -66.61718)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup45" parent="Pickups/moeda" unique_id=1069905478 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 33.397446, 0.30401504, -62.3469)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup46" parent="Pickups/moeda" unique_id=1250927456 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 16.047623, 0.30401504, -53.388454)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup47" parent="Pickups/moeda" unique_id=1001819095 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 16.047623, 0.30401504, -53.388454)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup48" parent="Pickups/moeda" unique_id=963636356 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 15.435868, 0.30401504, 58.485336)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup49" parent="Pickups/moeda" unique_id=1166979061 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 16.183994, 0.30401504, 58.485336)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup50" parent="Pickups/moeda" unique_id=1557755621 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 14.617198, 0.30401504, 58.485336)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup51" parent="Pickups/moeda" unique_id=1027375914 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 13.975053, 0.30401504, 58.485336)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup52" parent="Pickups/moeda" unique_id=1417759097 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 43.83177, 0.30401504, 58.804523)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup53" parent="Pickups/moeda" unique_id=1569726237 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 43.096394, 0.30401504, 58.804523)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup54" parent="Pickups/moeda" unique_id=689317918 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 43.83177, 0.30401504, 59.389442)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup55" parent="Pickups/moeda" unique_id=542316736 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 43.07561, 0.30401504, 59.389442)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup56" parent="Pickups/moeda" unique_id=875218628 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 44.466824, 0.30401504, 59.37369)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup57" parent="Pickups/moeda" unique_id=1991887650 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 44.466824, 0.30401504, 58.814575)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup58" parent="Pickups/moeda" unique_id=1622973245 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 22.165321, 0.30401504, 89.57036)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup59" parent="Pickups/moeda" unique_id=293270005 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 21.459389, 0.30401504, 89.57036)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup60" parent="Pickups/moeda" unique_id=1390641612 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 13.3411, 0.30401504, 102.00607)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup61" parent="Pickups/moeda" unique_id=2033238379 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 12.364843, 0.30401504, 102.00607)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup62" parent="Pickups/moeda" unique_id=1829829860 instance=ExtResource("22_an17c")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -25.501902, 0.28, 77.662)
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup63" parent="Pickups/moeda" unique_id=518666122 instance=ExtResource("22_an17c")]
+transform = Transform3D(-1.3707697, 0, -0.28458858, 0, 1.4, 0, 0.28458858, 0, -1.3707697, 19.527584, 0.23535538, 20.578527)
+hideWhenFlag = "transacaoAutomatica"
 
 [node name="PickupsDay1" type="Node" parent="Pickups" unique_id=541891627]
 

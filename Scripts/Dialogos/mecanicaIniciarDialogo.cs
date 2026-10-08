@@ -14,6 +14,8 @@ public partial class mecanicaIniciarDialogo : Node3D
 	[Export]
     public float alcanceInteracao = 1.25f;
 
+	private bool bloqueandoInteracao = false;
+
 	public override void _Ready()
 	{
 		var gs = GetNode("/root/GameState");
@@ -33,23 +35,27 @@ public partial class mecanicaIniciarDialogo : Node3D
 		float distancia = (personagem.GlobalPosition - GlobalPosition).Length();
 
 		float alcance =
-            EffectManager.Instance != null
-                ? EffectManager.Instance.GetInteractionRange(
-                    alcanceInteracao
-                )
-                : alcanceInteracao;
-		
+			EffectManager.Instance != null
+				? EffectManager.Instance.GetInteractionRange(
+					alcanceInteracao
+				)
+				: alcanceInteracao;
+
 		playerPerto = distancia <= alcance;
 
-		if (playerPerto && Input.IsActionJustPressed("interact"))
+		if (
+			playerPerto &&
+			!dialogoAtivo &&
+			!bloqueandoInteracao &&
+			Input.IsActionJustPressed("interact")
+		)
 		{
 			IniciarDialogo();
 		}
 	}
 
-	private void IniciarDialogo()
+		private void IniciarDialogo()
 	{
-		TimeState.Instance.CongelarTempo();
 		GD.Print("IniciarDialogo chamado");
 
 		if (dialogoAtivo)
@@ -57,19 +63,36 @@ public partial class mecanicaIniciarDialogo : Node3D
 
 		dialogoAtivo = true;
 
+		TimeState.Instance.CongelarTempo();
+
 		var extraStates = new Array<Variant>
 		{
 			GetNode("/root/GameState")
 		};
-		DialogueManager.ShowDialogueBalloon(dialogue, "start", extraStates);
+
+		DialogueManager.ShowDialogueBalloon(
+			dialogue,
+			"start",
+			extraStates
+		);
 	}
 
-	private void OnDialogueEnded(Resource dialogueResource)
+	private async void OnDialogueEnded(Resource dialogueResource)
 	{
-		TimeState.Instance.DescongelarTempo();
 		if (dialogueResource != dialogue)
 			return;
 
 		dialogoAtivo = false;
+
+		TimeState.Instance.DescongelarTempo();
+
+		bloqueandoInteracao = true;
+
+		await ToSignal(
+			GetTree().CreateTimer(0.15f),
+			SceneTreeTimer.SignalName.Timeout
+		);
+
+		bloqueandoInteracao = false;
 	}
 }
