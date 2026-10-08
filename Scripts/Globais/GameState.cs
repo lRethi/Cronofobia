@@ -135,8 +135,8 @@ public partial class GameState : Node
 
     public void voltarParaOMenu()
     {
-        GetTree().ChangeSceneToFile("res://Assets/Scenes/cenaTitulo.tscn");
         ResetarJogo();
+        GetTree().ChangeSceneToFile("res://Assets/Scenes/cenaTitulo.tscn");
     }
 
     public void ResetarJogo()

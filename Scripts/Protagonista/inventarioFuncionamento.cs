@@ -301,4 +301,13 @@ public partial class inventarioFuncionamento : Control
             }
         }
     }
+
+    public override void _ExitTree()
+    {
+        if (InventoryState.Instance != null)
+        {
+            InventoryState.Instance.OfertaSolicitada -= AbrirParaOferecer;
+            InventoryState.Instance.InventarioAlterado -= AtualizarInventario;
+        }
+    }
 }

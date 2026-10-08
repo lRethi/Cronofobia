@@ -42,152 +42,152 @@ align_position_with_view = Callable()
 align_rotation_with_view = Callable()
 
 [node name="doLadoDaPop" parent="ThePlayground/Buildings/Prédios Abandonados" parent_id_path=PackedInt32Array(1702091423, 309458847) index="0" unique_id=222993876 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R-1_0_-2_C0"), NodePath("SquareChunk_R-2_0_-1_C0"), NodePath("SquareChunk_R-2_1_-1_C0"), NodePath("SquareChunk_R-1_1_-1_C0"), NodePath("SquareChunk_R-1_1_-2_C0"), NodePath("SquareChunk_R-2_0_-2_C0"), NodePath("SquareChunk_R-2_1_-2_C0")]
-_triangle_chunks = [NodePath("TriangleChunk_R-1_0_-1_C0"), NodePath("TriangleChunk_R-1_0_-2_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_-2_C0"), NodePath("BoxChunk_R-1_0_-1_C0"), NodePath("BoxChunk_R-1_1_-1_C0"), NodePath("BoxChunk_R-1_1_-2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C1"), NodePath("SquareChunk_R-1_0_-2_C1"), NodePath("SquareChunk_R-2_0_-1_C1"), NodePath("SquareChunk_R-2_1_-1_C1"), NodePath("SquareChunk_R-1_1_-1_C1"), NodePath("SquareChunk_R-1_1_-2_C1"), NodePath("SquareChunk_R-2_0_-2_C1"), NodePath("SquareChunk_R-2_1_-2_C1")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_-1_C1"), NodePath("TriangleChunk_R-1_0_-2_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-2_C1"), NodePath("BoxChunk_R-1_0_-1_C1"), NodePath("BoxChunk_R-1_1_-1_C1"), NodePath("BoxChunk_R-1_1_-2_C1")]
 
 [node name="Predio2" parent="ThePlayground/Buildings/Prédios Abandonados" parent_id_path=PackedInt32Array(1702091423, 309458847) index="1" unique_id=1504349412 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R-1_1_-1_C0")]
-_triangle_chunks = [NodePath("TriangleChunk_R-1_0_-1_C0"), NodePath("TriangleChunk_R-1_1_-1_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0"), NodePath("BoxChunk_R-1_1_-1_C0"), NodePath("BoxChunk_R-1_0_-1_C1")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C1"), NodePath("SquareChunk_R-1_1_-1_C1")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_-1_C1"), NodePath("TriangleChunk_R-1_1_-1_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C2"), NodePath("BoxChunk_R-1_1_-1_C1"), NodePath("BoxChunk_R-1_0_-1_C3")]
 
 [node name="Hering" parent="ThePlayground/Buildings/Prédios Abandonados" parent_id_path=PackedInt32Array(1702091423, 309458847) index="2" unique_id=1877353873 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_1_C0"), NodePath("SquareChunk_R0_1_1_C0"), NodePath("SquareChunk_R1_0_1_C0"), NodePath("SquareChunk_R1_1_1_C0")]
-_box_chunks = [NodePath("BoxChunk_R0_0_1_C0"), NodePath("BoxChunk_R0_1_1_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_1_C1"), NodePath("SquareChunk_R0_1_1_C1"), NodePath("SquareChunk_R1_0_1_C1"), NodePath("SquareChunk_R1_1_1_C1")]
+_box_chunks = [NodePath("BoxChunk_R0_0_1_C1"), NodePath("BoxChunk_R0_1_1_C1")]
 
 [node name="Predio" parent="ThePlayground/Buildings/Prédios Abandonados" parent_id_path=PackedInt32Array(1702091423, 309458847) index="3" unique_id=1798429923 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R-1_1_-1_C0"), NodePath("SquareChunk_R-1_1_0_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R-1_0_-1_C0"), NodePath("BoxChunk_R-1_1_-1_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C1"), NodePath("SquareChunk_R-1_0_0_C1"), NodePath("SquareChunk_R-1_1_-1_C1"), NodePath("SquareChunk_R-1_1_0_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_0_C1"), NodePath("BoxChunk_R-1_0_-1_C1"), NodePath("BoxChunk_R-1_1_-1_C1")]
 
 [node name="WhatTheHell" parent="ThePlayground/Buildings/Prédios Abandonados" parent_id_path=PackedInt32Array(1702091423, 309458847) index="5" unique_id=124492726 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_3_C0")]
-_triangle_chunks = [NodePath("TriangleChunk_R0_0_3_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_3_C1")]
+_triangle_chunks = [NodePath("TriangleChunk_R0_0_3_C1")]
 
 [node name="MioDaPraca" parent="ThePlayground/Buildings/Prédios Abandonados" parent_id_path=PackedInt32Array(1702091423, 309458847) index="6" unique_id=2109387993 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R1_0_-1_C0")]
-_box_chunks = [NodePath("BoxChunk_R0_0_-1_C0"), NodePath("BoxChunk_R1_0_-1_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C1"), NodePath("SquareChunk_R1_0_-1_C1")]
+_box_chunks = [NodePath("BoxChunk_R0_0_-1_C1"), NodePath("BoxChunk_R1_0_-1_C1")]
 
 [node name="HotelAbandonado" parent="ThePlayground/Buildings/Prédios Abandonados" parent_id_path=PackedInt32Array(1702091423, 309458847) index="7" unique_id=1065200311 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-2_0_3_C0"), NodePath("SquareChunk_R-3_0_3_C0"), NodePath("SquareChunk_R-3_0_4_C0"), NodePath("SquareChunk_R-2_0_4_C0")]
-_box_chunks = [NodePath("BoxChunk_R-2_0_3_C0"), NodePath("BoxChunk_R-3_0_3_C0"), NodePath("BoxChunk_R-2_0_4_C0"), NodePath("BoxChunk_R-2_-1_3_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_3_C1"), NodePath("SquareChunk_R-3_0_3_C1"), NodePath("SquareChunk_R-3_0_4_C1"), NodePath("SquareChunk_R-2_0_4_C1")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_3_C1"), NodePath("BoxChunk_R-3_0_3_C1"), NodePath("BoxChunk_R-2_0_4_C1"), NodePath("BoxChunk_R-2_-1_3_C1")]
 
 [node name="Prédio acabado que o jão se recusa a fazer_" parent="ThePlayground/Buildings/Prédios Abandonados" parent_id_path=PackedInt32Array(1702091423, 309458847) index="8" unique_id=1278762855 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R1_0_-3_C0"), NodePath("SquareChunk_R1_0_-2_C0")]
-_box_chunks = [NodePath("BoxChunk_R1_0_-3_C0"), NodePath("BoxChunk_R1_0_-2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R1_0_-3_C1"), NodePath("SquareChunk_R1_0_-2_C1")]
+_box_chunks = [NodePath("BoxChunk_R1_0_-3_C1"), NodePath("BoxChunk_R1_0_-2_C1")]
 
 [node name="UltimaDaMinhaRua" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="0" unique_id=577328101 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks", "_prism_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_2_C0")]
-_triangle_chunks = [NodePath("TriangleChunk_R-1_0_2_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_2_C0")]
-_prism_chunks = [NodePath("PrismChunk_R-1_0_2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_2_C1")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_2_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_2_C1")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_2_C1")]
 
 [node name="Cartório" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="1" unique_id=291676996 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_2_C0"), NodePath("SquareChunk_R-1_1_2_C0"), NodePath("SquareChunk_R-1_0_2_C1")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_2_C2"), NodePath("SquareChunk_R-1_1_2_C1"), NodePath("SquareChunk_R-1_0_2_C3")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_2_C1")]
 
 [node name="Cartório2" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="2" unique_id=103311500 node_paths=PackedStringArray("_quad_chunks", "_box_chunks", "_prism_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_2_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_2_C0")]
-_prism_chunks = [NodePath("PrismChunk_R-1_0_2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_2_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_2_C1")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_2_C1")]
 
 [node name="Cartório3" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="3" unique_id=1817785524 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_2_C0"), NodePath("SquareChunk_R-1_1_2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_2_C1"), NodePath("SquareChunk_R-1_1_2_C1")]
 
 [node name="Popular" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="4" unique_id=2145016110 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_1_C0"), NodePath("SquareChunk_R-1_1_1_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_1_C0"), NodePath("BoxChunk_R-1_1_1_C0"), NodePath("BoxChunk_R-1_-1_1_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_1_C1"), NodePath("SquareChunk_R-1_1_1_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_1_C1"), NodePath("BoxChunk_R-1_1_1_C1"), NodePath("BoxChunk_R-1_-1_1_C1")]
 
 [node name="Banco1" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="5" unique_id=11679270 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R-1_1_0_C0"), NodePath("SquareChunk_R-1_0_2_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R-1_1_0_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C1"), NodePath("SquareChunk_R-1_1_0_C1"), NodePath("SquareChunk_R-1_0_2_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_0_C1"), NodePath("BoxChunk_R-1_1_0_C1")]
 
 [node name="Banco12" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="6" unique_id=1841996307 node_paths=PackedStringArray("_box_chunks")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_0_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_0_C1")]
 
 [node name="desaparecido" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="7" unique_id=1337188185 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_-2_C0"), NodePath("SquareChunk_R0_1_-2_C0"), NodePath("SquareChunk_R1_0_-2_C0"), NodePath("SquareChunk_R1_1_-2_C0")]
-_box_chunks = [NodePath("BoxChunk_R0_0_-2_C0"), NodePath("BoxChunk_R0_1_-2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-2_C1"), NodePath("SquareChunk_R0_1_-2_C1"), NodePath("SquareChunk_R1_0_-2_C1"), NodePath("SquareChunk_R1_1_-2_C1")]
+_box_chunks = [NodePath("BoxChunk_R0_0_-2_C1"), NodePath("BoxChunk_R0_1_-2_C1")]
 
 [node name="desaparecido2" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="8" unique_id=1142559748 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_-2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-2_C1")]
 
 [node name="SmileBabySmileForTheCorporation_" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="9" unique_id=430880529 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_2_C0"), NodePath("SquareChunk_R1_0_2_C0"), NodePath("SquareChunk_R2_0_2_C0"), NodePath("SquareChunk_R0_0_3_C0"), NodePath("SquareChunk_R1_0_3_C0"), NodePath("SquareChunk_R2_0_3_C0"), NodePath("SquareChunk_R1_1_2_C0"), NodePath("SquareChunk_R1_2_2_C0"), NodePath("SquareChunk_R1_1_3_C0"), NodePath("SquareChunk_R1_2_3_C0"), NodePath("SquareChunk_R2_1_3_C0"), NodePath("SquareChunk_R2_2_3_C0"), NodePath("SquareChunk_R2_1_2_C0"), NodePath("SquareChunk_R2_2_2_C0"), NodePath("SquareChunk_R1_3_2_C0"), NodePath("SquareChunk_R2_3_2_C0"), NodePath("SquareChunk_R1_3_3_C0"), NodePath("SquareChunk_R2_3_3_C0"), NodePath("SquareChunk_R1_0_2_C1")]
-_triangle_chunks = [NodePath("TriangleChunk_R1_0_3_C0"), NodePath("TriangleChunk_R1_2_3_C0"), NodePath("TriangleChunk_R1_0_2_C0"), NodePath("TriangleChunk_R1_2_2_C0"), NodePath("TriangleChunk_R0_0_3_C0"), NodePath("TriangleChunk_R0_0_2_C0"), NodePath("TriangleChunk_R2_2_2_C0"), NodePath("TriangleChunk_R2_2_3_C0")]
-_box_chunks = [NodePath("BoxChunk_R0_0_2_C0"), NodePath("BoxChunk_R1_0_2_C0"), NodePath("BoxChunk_R1_2_2_C0"), NodePath("BoxChunk_R1_2_3_C0"), NodePath("BoxChunk_R2_2_2_C0"), NodePath("BoxChunk_R2_2_3_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_2_C1"), NodePath("SquareChunk_R1_0_2_C2"), NodePath("SquareChunk_R2_0_2_C1"), NodePath("SquareChunk_R0_0_3_C1"), NodePath("SquareChunk_R1_0_3_C1"), NodePath("SquareChunk_R2_0_3_C1"), NodePath("SquareChunk_R1_1_2_C1"), NodePath("SquareChunk_R1_2_2_C1"), NodePath("SquareChunk_R1_1_3_C1"), NodePath("SquareChunk_R1_2_3_C1"), NodePath("SquareChunk_R2_1_3_C1"), NodePath("SquareChunk_R2_2_3_C1"), NodePath("SquareChunk_R2_1_2_C1"), NodePath("SquareChunk_R2_2_2_C1"), NodePath("SquareChunk_R1_3_2_C1"), NodePath("SquareChunk_R2_3_2_C1"), NodePath("SquareChunk_R1_3_3_C1"), NodePath("SquareChunk_R2_3_3_C1"), NodePath("SquareChunk_R1_0_2_C3")]
+_triangle_chunks = [NodePath("TriangleChunk_R1_0_3_C1"), NodePath("TriangleChunk_R1_2_3_C1"), NodePath("TriangleChunk_R1_0_2_C1"), NodePath("TriangleChunk_R1_2_2_C1"), NodePath("TriangleChunk_R0_0_3_C1"), NodePath("TriangleChunk_R0_0_2_C1"), NodePath("TriangleChunk_R2_2_2_C1"), NodePath("TriangleChunk_R2_2_3_C1")]
+_box_chunks = [NodePath("BoxChunk_R0_0_2_C1"), NodePath("BoxChunk_R1_0_2_C1"), NodePath("BoxChunk_R1_2_2_C1"), NodePath("BoxChunk_R1_2_3_C1"), NodePath("BoxChunk_R2_2_2_C1"), NodePath("BoxChunk_R2_2_3_C1")]
 
 [node name="ParkingLot" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="10" unique_id=573891411 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_2_C0"), NodePath("SquareChunk_R1_0_2_C0"), NodePath("SquareChunk_R0_0_1_C0"), NodePath("SquareChunk_R1_0_1_C0"), NodePath("SquareChunk_R-1_0_2_C0")]
-_box_chunks = [NodePath("BoxChunk_R0_0_2_C0"), NodePath("BoxChunk_R1_0_2_C0"), NodePath("BoxChunk_R0_0_1_C0"), NodePath("BoxChunk_R1_0_1_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_2_C1"), NodePath("SquareChunk_R1_0_2_C1"), NodePath("SquareChunk_R0_0_1_C1"), NodePath("SquareChunk_R1_0_1_C1"), NodePath("SquareChunk_R-1_0_2_C1")]
+_box_chunks = [NodePath("BoxChunk_R0_0_2_C1"), NodePath("BoxChunk_R1_0_2_C1"), NodePath("BoxChunk_R0_0_1_C1"), NodePath("BoxChunk_R1_0_1_C1")]
 
 [node name="Pop" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="11" unique_id=790136238 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_-2_C0"), NodePath("SquareChunk_R-1_0_-2_C1")]
-_triangle_chunks = [NodePath("TriangleChunk_R-1_0_-2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-2_C2"), NodePath("SquareChunk_R-1_0_-2_C3")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_-2_C1")]
 
 [node name="AtrasDaPop" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="12" unique_id=677094228 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-2_0_-2_C0"), NodePath("SquareChunk_R-2_0_-2_C1")]
-_box_chunks = [NodePath("BoxChunk_R-2_0_-2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_-2_C2"), NodePath("SquareChunk_R-2_0_-2_C3")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_-2_C1")]
 
 [node name="aTRAPOP" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="13" unique_id=1004611781 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-2_0_-2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_-2_C1")]
 
 [node name="AcademiaDoClube" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="14" unique_id=1994599291 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_3_C0"), NodePath("SquareChunk_R0_0_3_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_3_C1"), NodePath("SquareChunk_R0_0_3_C1")]
 
 [node name="Academida" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="15" unique_id=822274928 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_3_C0"), NodePath("SquareChunk_R0_0_3_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_3_C1"), NodePath("SquareChunk_R0_0_3_C1")]
 
 [node name="demia" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="16" unique_id=774668660 node_paths=PackedStringArray("_quad_chunks", "_box_chunks", "_prism_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_3_C0")]
-_box_chunks = [NodePath("BoxChunk_R0_0_3_C0"), NodePath("BoxChunk_R-1_0_3_C0"), NodePath("BoxChunk_R-1_0_2_C0")]
-_prism_chunks = [NodePath("PrismChunk_R0_0_2_C0"), NodePath("PrismChunk_R-1_0_2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_3_C1")]
+_box_chunks = [NodePath("BoxChunk_R0_0_3_C1"), NodePath("BoxChunk_R-1_0_3_C1"), NodePath("BoxChunk_R-1_0_2_C1")]
+_prism_chunks = [NodePath("PrismChunk_R0_0_2_C1"), NodePath("PrismChunk_R-1_0_2_C1")]
 
 [node name="PortaoMilitar" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="17" unique_id=586354483 node_paths=PackedStringArray("_quad_chunks", "_box_chunks", "_prism_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-3_0_0_C0"), NodePath("SquareChunk_R-2_0_0_C0")]
-_box_chunks = [NodePath("BoxChunk_R-3_0_0_C0"), NodePath("BoxChunk_R-2_0_-1_C0"), NodePath("BoxChunk_R-2_0_0_C0"), NodePath("BoxChunk_R-3_0_-1_C0")]
-_prism_chunks = [NodePath("PrismChunk_R-3_0_0_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-3_0_0_C1"), NodePath("SquareChunk_R-2_0_0_C1")]
+_box_chunks = [NodePath("BoxChunk_R-3_0_0_C1"), NodePath("BoxChunk_R-2_0_-1_C1"), NodePath("BoxChunk_R-2_0_0_C1"), NodePath("BoxChunk_R-3_0_-1_C1")]
+_prism_chunks = [NodePath("PrismChunk_R-3_0_0_C1")]
 
 [node name="JanelaMilitar" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="18" unique_id=1750416200 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-3_0_0_C0"), NodePath("SquareChunk_R-3_0_-1_C0")]
-_box_chunks = [NodePath("BoxChunk_R-3_0_0_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-3_0_0_C1"), NodePath("SquareChunk_R-3_0_-1_C1")]
+_box_chunks = [NodePath("BoxChunk_R-3_0_0_C1")]
 
 [node name="PrdeioMilitar" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="19" unique_id=329087832 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks", "_prism_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-3_0_0_C0"), NodePath("SquareChunk_R-3_0_-1_C0")]
-_triangle_chunks = [NodePath("TriangleChunk_R-3_0_0_C0")]
-_box_chunks = [NodePath("BoxChunk_R-3_0_0_C0"), NodePath("BoxChunk_R-3_0_-1_C0"), NodePath("BoxChunk_R-1_0_0_C0")]
-_prism_chunks = [NodePath("PrismChunk_R-3_0_0_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-3_0_0_C1"), NodePath("SquareChunk_R-3_0_-1_C1")]
+_triangle_chunks = [NodePath("TriangleChunk_R-3_0_0_C1")]
+_box_chunks = [NodePath("BoxChunk_R-3_0_0_C1"), NodePath("BoxChunk_R-3_0_-1_C1"), NodePath("BoxChunk_R-1_0_0_C1")]
+_prism_chunks = [NodePath("PrismChunk_R-3_0_0_C1")]
 
 [node name="DoLadinhoDoMeuPredio" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="20" unique_id=415784883 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-2_0_0_C0"), NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R-2_0_-1_C0")]
-_box_chunks = [NodePath("BoxChunk_R-2_0_0_C0"), NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R-2_0_-1_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_0_C1"), NodePath("SquareChunk_R-1_0_0_C1"), NodePath("SquareChunk_R-2_0_-1_C1")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_0_C1"), NodePath("BoxChunk_R-1_0_0_C1"), NodePath("BoxChunk_R-2_0_-1_C1")]
 
 [node name="Lugar" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="21" unique_id=1241606320 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-2_0_-1_C0"), NodePath("SquareChunk_R-2_0_0_C0")]
-_triangle_chunks = [NodePath("TriangleChunk_R-2_0_-1_C0")]
-_box_chunks = [NodePath("BoxChunk_R-2_0_-1_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_-1_C1"), NodePath("SquareChunk_R-2_0_0_C1")]
+_triangle_chunks = [NodePath("TriangleChunk_R-2_0_-1_C1")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_-1_C1")]
 
 [node name="lugarchão" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="22" unique_id=1480608403 node_paths=PackedStringArray("_box_chunks")]
-_box_chunks = [NodePath("BoxChunk_R-2_0_-1_C0"), NodePath("BoxChunk_R-2_0_0_C0")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_-1_C1"), NodePath("BoxChunk_R-2_0_0_C1")]
 
 [node name="DataCente" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="23" unique_id=1305262025 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_-2_C0"), NodePath("SquareChunk_R-1_1_-2_C0"), NodePath("SquareChunk_R0_0_-2_C0"), NodePath("SquareChunk_R0_1_-2_C0"), NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R0_0_2_C0")]
-_triangle_chunks = [NodePath("TriangleChunk_R-1_0_-2_C0"), NodePath("TriangleChunk_R0_0_-2_C0"), NodePath("TriangleChunk_R-1_0_-1_C0"), NodePath("TriangleChunk_R0_0_-1_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-2_C1"), NodePath("SquareChunk_R-1_1_-2_C1"), NodePath("SquareChunk_R0_0_-2_C1"), NodePath("SquareChunk_R0_1_-2_C1"), NodePath("SquareChunk_R0_0_-1_C1"), NodePath("SquareChunk_R-1_0_-1_C1"), NodePath("SquareChunk_R0_0_2_C1")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_-2_C1"), NodePath("TriangleChunk_R0_0_-2_C1"), NodePath("TriangleChunk_R-1_0_-1_C1"), NodePath("TriangleChunk_R0_0_-1_C1")]
 
 [node name="PredioAlmoço" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="24" unique_id=1905505543 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-2_0_2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_2_C1")]
 
 [node name="Predioalmopos2" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="25" unique_id=937035770 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-2_0_2_C0")]
-_box_chunks = [NodePath("BoxChunk_R-2_0_2_C0"), NodePath("BoxChunk_R-2_-1_2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_2_C1")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_2_C1"), NodePath("BoxChunk_R-2_-1_2_C1")]
 
 [node name="Alameda2" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="0" unique_id=1013027431 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-2_0_1_C0")]
-_box_chunks = [NodePath("BoxChunk_R-2_0_1_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_1_C1")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_1_C1")]
 
 [node name="Alameda1" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="1" unique_id=1033812290 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_1_C0"), NodePath("SquareChunk_R-1_0_2_C0"), NodePath("SquareChunk_R-2_0_1_C0"), NodePath("SquareChunk_R-2_0_2_C0")]
-_triangle_chunks = [NodePath("TriangleChunk_R-1_0_1_C0"), NodePath("TriangleChunk_R-2_0_1_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_1_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_1_C1"), NodePath("SquareChunk_R-1_0_2_C1"), NodePath("SquareChunk_R-2_0_1_C1"), NodePath("SquareChunk_R-2_0_2_C1")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_1_C1"), NodePath("TriangleChunk_R-2_0_1_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_1_C1")]
 
 [node name="portaAlameda" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="2" unique_id=1353397638 node_paths=PackedStringArray("targetArea", "personagem")]
 targetArea = NodePath("../../../../Loja2")
@@ -198,96 +198,96 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8786087, -6.173566, -56.88
 personagem = NodePath("../../../../charGeraldoSalvador")
 
 [node name="Gutao_" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="3" unique_id=163432192 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks", "_prism_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_-3_C0"), NodePath("SquareChunk_R0_-1_-3_C0")]
-_triangle_chunks = [NodePath("TriangleChunk_R0_-1_-3_C0")]
-_box_chunks = [NodePath("BoxChunk_R0_0_-3_C0")]
-_prism_chunks = [NodePath("PrismChunk_R0_0_-3_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-3_C1"), NodePath("SquareChunk_R0_-1_-3_C1")]
+_triangle_chunks = [NodePath("TriangleChunk_R0_-1_-3_C1")]
+_box_chunks = [NodePath("BoxChunk_R0_0_-3_C1")]
+_prism_chunks = [NodePath("PrismChunk_R0_0_-3_C1")]
 
 [node name="Cortes" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="4" unique_id=103720510 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R-1_0_1_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R-1_0_1_C0"), NodePath("BoxChunk_R-1_1_0_C0"), NodePath("BoxChunk_R0_1_0_C0"), NodePath("BoxChunk_R1_1_0_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C1"), NodePath("SquareChunk_R-1_0_1_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_0_C1"), NodePath("BoxChunk_R-1_0_1_C1"), NodePath("BoxChunk_R-1_1_0_C1"), NodePath("BoxChunk_R0_1_0_C1"), NodePath("BoxChunk_R1_1_0_C1")]
 
 [node name="Cortes2" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="5" unique_id=1139987096 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R-1_0_1_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_0_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C1"), NodePath("SquareChunk_R-1_0_1_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_0_C1")]
 
 [node name="Portaalio" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="6" unique_id=951799974 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_1_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_1_C1")]
 
 [node name="VivoELuigi" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="7" unique_id=1343247828 node_paths=PackedStringArray("_quad_chunks", "_box_chunks", "_prism_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R0_0_-2_C0"), NodePath("SquareChunk_R1_0_-2_C0"), NodePath("SquareChunk_R0_0_1_C0")]
-_box_chunks = [NodePath("BoxChunk_R0_0_-2_C0"), NodePath("BoxChunk_R0_0_-1_C0")]
-_prism_chunks = [NodePath("PrismChunk_R0_0_-1_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C1"), NodePath("SquareChunk_R0_0_-2_C1"), NodePath("SquareChunk_R1_0_-2_C1"), NodePath("SquareChunk_R0_0_1_C1")]
+_box_chunks = [NodePath("BoxChunk_R0_0_-2_C1"), NodePath("BoxChunk_R0_0_-1_C1")]
+_prism_chunks = [NodePath("PrismChunk_R0_0_-1_C1")]
 
 [node name="chiquinho portão" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="8" unique_id=1897290446 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C1")]
 
 [node name="Chiquinho" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="9" unique_id=1725696862 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C0")]
-_box_chunks = [NodePath("BoxChunk_R0_0_-1_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C1")]
+_box_chunks = [NodePath("BoxChunk_R0_0_-1_C1")]
 
 [node name="CasaChik2" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="10" unique_id=989977676 node_paths=PackedStringArray("_quad_chunks", "_box_chunks", "_prism_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_0_C0")]
-_box_chunks = [NodePath("BoxChunk_R0_0_0_C0"), NodePath("BoxChunk_R1_0_0_C0"), NodePath("BoxChunk_R0_-1_0_C0")]
-_prism_chunks = [NodePath("PrismChunk_R0_0_0_C0"), NodePath("PrismChunk_R1_0_0_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_0_C1")]
+_box_chunks = [NodePath("BoxChunk_R0_0_0_C1"), NodePath("BoxChunk_R1_0_0_C1"), NodePath("BoxChunk_R0_-1_0_C1")]
+_prism_chunks = [NodePath("PrismChunk_R0_0_0_C1"), NodePath("PrismChunk_R1_0_0_C1")]
 
 [node name="CasaChik" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="11" unique_id=1081791813 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks", "_prism_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_0_C0"), NodePath("SquareChunk_R1_0_0_C0")]
-_triangle_chunks = [NodePath("TriangleChunk_R0_0_0_C0"), NodePath("TriangleChunk_R1_0_0_C0")]
-_box_chunks = [NodePath("BoxChunk_R0_0_0_C0"), NodePath("BoxChunk_R1_0_0_C0"), NodePath("BoxChunk_R1_-1_0_C0"), NodePath("BoxChunk_R0_0_-1_C0"), NodePath("BoxChunk_R1_0_1_C0"), NodePath("BoxChunk_R0_-1_0_C0"), NodePath("BoxChunk_R1_0_-1_C0")]
-_prism_chunks = [NodePath("PrismChunk_R0_0_0_C0"), NodePath("PrismChunk_R0_0_-1_C0"), NodePath("PrismChunk_R1_0_0_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_0_C1"), NodePath("SquareChunk_R1_0_0_C1")]
+_triangle_chunks = [NodePath("TriangleChunk_R0_0_0_C1"), NodePath("TriangleChunk_R1_0_0_C1")]
+_box_chunks = [NodePath("BoxChunk_R0_0_0_C1"), NodePath("BoxChunk_R1_0_0_C1"), NodePath("BoxChunk_R1_-1_0_C1"), NodePath("BoxChunk_R0_0_-1_C1"), NodePath("BoxChunk_R1_0_1_C1"), NodePath("BoxChunk_R0_-1_0_C1"), NodePath("BoxChunk_R1_0_-1_C1")]
+_prism_chunks = [NodePath("PrismChunk_R0_0_0_C1"), NodePath("PrismChunk_R0_0_-1_C1"), NodePath("PrismChunk_R1_0_0_C1")]
 
 [node name="CasaVerde" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="12" unique_id=1128647063 node_paths=PackedStringArray("_quad_chunks", "_box_chunks", "_prism_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_1_C0")]
-_box_chunks = [NodePath("BoxChunk_R0_0_1_C0")]
-_prism_chunks = [NodePath("PrismChunk_R0_0_1_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_1_C1")]
+_box_chunks = [NodePath("BoxChunk_R0_0_1_C1")]
+_prism_chunks = [NodePath("PrismChunk_R0_0_1_C1")]
 
 [node name="Cinema" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="13" unique_id=1650955508 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_1_C0"), NodePath("SquareChunk_R-2_0_2_C0")]
-_box_chunks = [NodePath("BoxChunk_R0_0_1_C0"), NodePath("BoxChunk_R0_0_3_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_1_C1"), NodePath("SquareChunk_R-2_0_2_C1")]
+_box_chunks = [NodePath("BoxChunk_R0_0_1_C1"), NodePath("BoxChunk_R0_0_3_C1")]
 
 [node name="Casamuro" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="14" unique_id=936663096 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_3_C0"), NodePath("SquareChunk_R-2_0_3_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_3_C1"), NodePath("SquareChunk_R-2_0_3_C1")]
 
 [node name="CasaMurada" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="15" unique_id=1815092021 node_paths=PackedStringArray("_quad_chunks", "_box_chunks", "_prism_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_3_C0"), NodePath("SquareChunk_R-2_0_3_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_3_C0"), NodePath("BoxChunk_R-2_0_3_C0"), NodePath("BoxChunk_R-1_-1_3_C0")]
-_prism_chunks = [NodePath("PrismChunk_R-1_0_3_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_3_C1"), NodePath("SquareChunk_R-2_0_3_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_3_C1"), NodePath("BoxChunk_R-2_0_3_C1"), NodePath("BoxChunk_R-1_-1_3_C1")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_3_C1")]
 
 [node name="Csamurada" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="16" unique_id=301126715 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks", "_prism_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_3_C0")]
-_triangle_chunks = [NodePath("TriangleChunk_R-1_0_3_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_3_C0")]
-_prism_chunks = [NodePath("PrismChunk_R-1_0_3_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_3_C1")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_3_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_3_C1")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_3_C1")]
 
 [node name="Sino" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="17" unique_id=1139988878 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_-2_C0"), NodePath("SquareChunk_R-1_0_-2_C0")]
-_box_chunks = [NodePath("BoxChunk_R0_0_-2_C0"), NodePath("BoxChunk_R-1_0_-2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-2_C1"), NodePath("SquareChunk_R-1_0_-2_C1")]
+_box_chunks = [NodePath("BoxChunk_R0_0_-2_C1"), NodePath("BoxChunk_R-1_0_-2_C1")]
 
 [node name="Igreja" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="18" unique_id=708692090 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks", "_prism_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_-2_C0"), NodePath("SquareChunk_R0_0_-2_C0"), NodePath("SquareChunk_R0_0_-3_C0"), NodePath("SquareChunk_R-1_0_-3_C0")]
-_triangle_chunks = [NodePath("TriangleChunk_R0_0_-3_C0"), NodePath("TriangleChunk_R-1_0_-2_C0"), NodePath("TriangleChunk_R0_0_-2_C0"), NodePath("TriangleChunk_R-1_0_-3_C0")]
-_box_chunks = [NodePath("BoxChunk_R0_0_-3_C0"), NodePath("BoxChunk_R-1_0_-3_C0"), NodePath("BoxChunk_R0_0_-2_C0"), NodePath("BoxChunk_R-1_0_-2_C0")]
-_prism_chunks = [NodePath("PrismChunk_R-1_0_-2_C0"), NodePath("PrismChunk_R0_0_-2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-2_C1"), NodePath("SquareChunk_R0_0_-2_C1"), NodePath("SquareChunk_R0_0_-3_C1"), NodePath("SquareChunk_R-1_0_-3_C1")]
+_triangle_chunks = [NodePath("TriangleChunk_R0_0_-3_C1"), NodePath("TriangleChunk_R-1_0_-2_C1"), NodePath("TriangleChunk_R0_0_-2_C1"), NodePath("TriangleChunk_R-1_0_-3_C1")]
+_box_chunks = [NodePath("BoxChunk_R0_0_-3_C1"), NodePath("BoxChunk_R-1_0_-3_C1"), NodePath("BoxChunk_R0_0_-2_C1"), NodePath("BoxChunk_R-1_0_-2_C1")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_-2_C1"), NodePath("PrismChunk_R0_0_-2_C1")]
 
 [node name="SimuladorDeAlmoço" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="19" unique_id=710676498 node_paths=PackedStringArray("_quad_chunks", "_box_chunks", "_prism_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_2_C0"), NodePath("SquareChunk_R-2_0_2_C0"), NodePath("SquareChunk_R-1_0_0_C0")]
-_box_chunks = [NodePath("BoxChunk_R-2_0_2_C0"), NodePath("BoxChunk_R-1_0_2_C0")]
-_prism_chunks = [NodePath("PrismChunk_R-2_0_2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_2_C1"), NodePath("SquareChunk_R-2_0_2_C1"), NodePath("SquareChunk_R-1_0_0_C1")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_2_C1"), NodePath("BoxChunk_R-1_0_2_C1")]
+_prism_chunks = [NodePath("PrismChunk_R-2_0_2_C1")]
 
 [node name="SimuladorDeAlmoço2" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="20" unique_id=1173275906 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-2_0_2_C0"), NodePath("SquareChunk_R-2_-1_2_C0"), NodePath("SquareChunk_R-1_0_2_C0")]
-_box_chunks = [NodePath("BoxChunk_R-2_0_2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_2_C1"), NodePath("SquareChunk_R-2_-1_2_C1"), NodePath("SquareChunk_R-1_0_2_C1")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_2_C1")]
 
 [node name="SimuladorDeAlmoço3" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="21" unique_id=311149553 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-2_0_2_C0")]
-_box_chunks = [NodePath("BoxChunk_R-2_0_2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_2_C1")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_2_C1")]
 
 [node name="CasaDoGutao" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="22" unique_id=1100824243 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks", "_prism_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_-3_C0"), NodePath("SquareChunk_R1_0_-3_C0"), NodePath("SquareChunk_R1_-1_-3_C0")]
-_triangle_chunks = [NodePath("TriangleChunk_R1_0_-3_C0"), NodePath("TriangleChunk_R0_0_-3_C0")]
-_box_chunks = [NodePath("BoxChunk_R1_0_-3_C0"), NodePath("BoxChunk_R0_0_-3_C0")]
-_prism_chunks = [NodePath("PrismChunk_R1_0_-3_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-3_C1"), NodePath("SquareChunk_R1_0_-3_C1"), NodePath("SquareChunk_R1_-1_-3_C1")]
+_triangle_chunks = [NodePath("TriangleChunk_R1_0_-3_C1"), NodePath("TriangleChunk_R0_0_-3_C1")]
+_box_chunks = [NodePath("BoxChunk_R1_0_-3_C1"), NodePath("BoxChunk_R0_0_-3_C1")]
+_prism_chunks = [NodePath("PrismChunk_R1_0_-3_C1")]
 
 [node name="portaChiquinho" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="23" unique_id=1789396872 node_paths=PackedStringArray("targetArea", "personagem")]
 targetArea = NodePath("../../../../Loja1")
@@ -297,43 +297,43 @@ personagem = NodePath("../../../charGeraldoSalvador")
 personagem = NodePath("../../../../charGeraldoSalvador")
 
 [node name="Papelaria" parent="ThePlayground/Buildings/Casas Companias" parent_id_path=PackedInt32Array(1702091423, 376204862) index="0" unique_id=581356350 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks", "_prism_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_-3_C0"), NodePath("SquareChunk_R-2_0_-3_C0"), NodePath("SquareChunk_R0_0_-3_C0"), NodePath("SquareChunk_R1_0_-3_C0")]
-_triangle_chunks = [NodePath("TriangleChunk_R-1_0_-3_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_-3_C0"), NodePath("BoxChunk_R-2_0_-3_C0"), NodePath("BoxChunk_R1_0_-3_C0")]
-_prism_chunks = [NodePath("PrismChunk_R-1_0_-3_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-3_C1"), NodePath("SquareChunk_R-2_0_-3_C1"), NodePath("SquareChunk_R0_0_-3_C1"), NodePath("SquareChunk_R1_0_-3_C1")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_-3_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-3_C1"), NodePath("BoxChunk_R-2_0_-3_C1"), NodePath("BoxChunk_R1_0_-3_C1")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_-3_C1")]
 
 [node name="Papela3" parent="ThePlayground/Buildings/Casas Companias" parent_id_path=PackedInt32Array(1702091423, 376204862) index="1" unique_id=1334808316 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_-3_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-3_C1")]
 
 [node name="Pela2ria" parent="ThePlayground/Buildings/Casas Companias" parent_id_path=PackedInt32Array(1702091423, 376204862) index="2" unique_id=1369441869 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_-3_C0"), NodePath("SquareChunk_R-2_0_-3_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_-3_C0"), NodePath("BoxChunk_R-2_0_-3_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-3_C1"), NodePath("SquareChunk_R-2_0_-3_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-3_C1"), NodePath("BoxChunk_R-2_0_-3_C1")]
 
 [node name="CasaDoPiMiniWedding" parent="ThePlayground/Buildings/Casas Companias" parent_id_path=PackedInt32Array(1702091423, 376204862) index="3" unique_id=1229187414 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_-3_C0"), NodePath("SquareChunk_R0_0_-3_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-3_C1"), NodePath("SquareChunk_R0_0_-3_C1")]
 
 [node name="MIniWed" parent="ThePlayground/Buildings/Casas Companias" parent_id_path=PackedInt32Array(1702091423, 376204862) index="4" unique_id=1399312320 node_paths=PackedStringArray("_box_chunks", "_prism_chunks")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_-3_C0")]
-_prism_chunks = [NodePath("PrismChunk_R-1_0_-3_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-3_C1")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_-3_C1")]
 
 [node name="PidoCAsa" parent="ThePlayground/Buildings/Casas Companias" parent_id_path=PackedInt32Array(1702091423, 376204862) index="5" unique_id=1277654739 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_-3_C0"), NodePath("SquareChunk_R0_0_-3_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-3_C1"), NodePath("SquareChunk_R0_0_-3_C1")]
 
 [node name="Banco2" parent="ThePlayground/Buildings/Casas Companias" parent_id_path=PackedInt32Array(1702091423, 376204862) index="6" unique_id=1419880317 node_paths=PackedStringArray("_quad_chunks", "_box_chunks", "_prism_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_-2_C0"), NodePath("SquareChunk_R0_0_-3_C0"), NodePath("SquareChunk_R1_0_-3_C0")]
-_box_chunks = [NodePath("BoxChunk_R0_0_-2_C0"), NodePath("BoxChunk_R0_0_-3_C0"), NodePath("BoxChunk_R1_0_-3_C0")]
-_prism_chunks = [NodePath("PrismChunk_R0_0_-2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-2_C1"), NodePath("SquareChunk_R0_0_-3_C1"), NodePath("SquareChunk_R1_0_-3_C1")]
+_box_chunks = [NodePath("BoxChunk_R0_0_-2_C1"), NodePath("BoxChunk_R0_0_-3_C1"), NodePath("BoxChunk_R1_0_-3_C1")]
+_prism_chunks = [NodePath("PrismChunk_R0_0_-2_C1")]
 
 [node name="Banco22" parent="ThePlayground/Buildings/Casas Companias" parent_id_path=PackedInt32Array(1702091423, 376204862) index="7" unique_id=1669812047 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_-2_C0"), NodePath("SquareChunk_R0_0_-1_C0")]
-_box_chunks = [NodePath("BoxChunk_R0_0_-2_C0"), NodePath("BoxChunk_R0_0_-1_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-2_C1"), NodePath("SquareChunk_R0_0_-1_C1")]
+_box_chunks = [NodePath("BoxChunk_R0_0_-2_C1"), NodePath("BoxChunk_R0_0_-1_C1")]
 
 [node name="Banco23" parent="ThePlayground/Buildings/Casas Companias" parent_id_path=PackedInt32Array(1702091423, 376204862) index="8" unique_id=877400913 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_-2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-2_C1")]
 
 [node name="Gas station" parent="ThePlayground/Buildings/Casas Companias" parent_id_path=PackedInt32Array(1702091423, 376204862) index="9" unique_id=1635507985 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-2_0_0_C0"), NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R-1_-1_0_C0")]
-_box_chunks = [NodePath("BoxChunk_R-2_0_0_C0"), NodePath("BoxChunk_R-1_0_0_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_0_C1"), NodePath("SquareChunk_R-1_0_0_C1"), NodePath("SquareChunk_R-1_-1_0_C1")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_0_C1"), NodePath("BoxChunk_R-1_0_0_C1")]
 
 [node name="portaBanco" parent="ThePlayground/Buildings/Casas Companias" parent_id_path=PackedInt32Array(1702091423, 376204862) index="10" unique_id=1353397638 node_paths=PackedStringArray("targetArea", "personagem")]
 targetArea = NodePath("../../../../Banco")
@@ -343,197 +343,197 @@ personagem = NodePath("../../../charGeraldoSalvador")
 personagem = NodePath("../../../../charGeraldoSalvador")
 
 [node name="□" parent="ThePlayground/Buildings/Filler/☎" parent_id_path=PackedInt32Array(1702091423, 2084739031, 1141753130) index="0" unique_id=17551227 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_2_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_2_C0"), NodePath("BoxChunk_R-2_0_2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_2_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_2_C1"), NodePath("BoxChunk_R-2_0_2_C1")]
 
 [node name="█" parent="ThePlayground/Buildings/Filler/☎" parent_id_path=PackedInt32Array(1702091423, 2084739031, 1141753130) index="1" unique_id=1714151952 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_2_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_2_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_2_C1")]
 
 [node name="□gnd" parent="ThePlayground/Buildings/Filler/☎" parent_id_path=PackedInt32Array(1702091423, 2084739031, 1141753130) index="2" unique_id=1925172309 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-2_0_2_C0"), NodePath("SquareChunk_R-1_0_2_C0")]
-_box_chunks = [NodePath("BoxChunk_R-2_0_2_C0"), NodePath("BoxChunk_R-1_0_2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_2_C1"), NodePath("SquareChunk_R-1_0_2_C1")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_2_C1"), NodePath("BoxChunk_R-1_0_2_C1")]
 
 [node name="█portal" parent="ThePlayground/Buildings/Filler/☎" parent_id_path=PackedInt32Array(1702091423, 2084739031, 1141753130) index="3" unique_id=1131923313 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_2_C1")]
 
 [node name="1" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="1" unique_id=1170498024 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-2_0_2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_2_C1")]
 
 [node name="2" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="2" unique_id=1369730772 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-2_0_1_C0"), NodePath("SquareChunk_R-2_0_2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_1_C1"), NodePath("SquareChunk_R-2_0_2_C1")]
 
 [node name="3" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="3" unique_id=2117672760 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-2_0_1_C0"), NodePath("SquareChunk_R-1_0_1_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_1_C1"), NodePath("SquareChunk_R-1_0_1_C1")]
 
 [node name="4" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="4" unique_id=1880081192 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_1_C0"), NodePath("SquareChunk_R1_0_1_C0"), NodePath("SquareChunk_R0_-1_1_C0")]
-_box_chunks = [NodePath("BoxChunk_R0_0_1_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_1_C1"), NodePath("SquareChunk_R1_0_1_C1"), NodePath("SquareChunk_R0_-1_1_C1")]
+_box_chunks = [NodePath("BoxChunk_R0_0_1_C1")]
 
 [node name="5" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="5" unique_id=1149739887 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R1_0_1_C0"), NodePath("SquareChunk_R1_0_2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R1_0_1_C1"), NodePath("SquareChunk_R1_0_2_C1")]
 
 [node name="6" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="6" unique_id=571987004 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_3_C0"), NodePath("SquareChunk_R1_0_3_C0"), NodePath("SquareChunk_R-2_0_-3_C0")]
-_triangle_chunks = [NodePath("TriangleChunk_R0_0_3_C0")]
-_box_chunks = [NodePath("BoxChunk_R-2_0_-3_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_3_C1"), NodePath("SquareChunk_R1_0_3_C1"), NodePath("SquareChunk_R-2_0_-3_C1")]
+_triangle_chunks = [NodePath("TriangleChunk_R0_0_3_C1")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_-3_C1")]
 
 [node name="7" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="7" unique_id=164936877 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R1_0_-3_C0")]
+_quad_chunks = [NodePath("SquareChunk_R1_0_-3_C1")]
 
 [node name="8" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="8" unique_id=889686419 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_-3_C0"), NodePath("SquareChunk_R1_0_-3_C0")]
-_box_chunks = [NodePath("BoxChunk_R1_0_-3_C0"), NodePath("BoxChunk_R0_0_-3_C0"), NodePath("BoxChunk_R0_-1_-3_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-3_C1"), NodePath("SquareChunk_R1_0_-3_C1")]
+_box_chunks = [NodePath("BoxChunk_R1_0_-3_C1"), NodePath("BoxChunk_R0_0_-3_C1"), NodePath("BoxChunk_R0_-1_-3_C1")]
 
 [node name="9" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="9" unique_id=1909941590 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_-3_C0"), NodePath("SquareChunk_R-1_0_-4_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_-3_C0"), NodePath("BoxChunk_R-1_0_-4_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-3_C1"), NodePath("SquareChunk_R-1_0_-4_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-3_C1"), NodePath("BoxChunk_R-1_0_-4_C1")]
 
 [node name="10" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="10" unique_id=1388617889 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_-4_C0"), NodePath("SquareChunk_R-1_0_-3_C0"), NodePath("SquareChunk_R0_0_-3_C0"), NodePath("SquareChunk_R0_0_-4_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-4_C1"), NodePath("SquareChunk_R-1_0_-3_C1"), NodePath("SquareChunk_R0_0_-3_C1"), NodePath("SquareChunk_R0_0_-4_C1")]
 
 [node name="11" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="11" unique_id=1160420262 node_paths=PackedStringArray("_box_chunks", "_prism_chunks")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_-3_C0"), NodePath("BoxChunk_R0_0_-3_C0"), NodePath("BoxChunk_R-1_0_-4_C0"), NodePath("BoxChunk_R0_0_-4_C0")]
-_prism_chunks = [NodePath("PrismChunk_R-1_0_-3_C0"), NodePath("PrismChunk_R0_0_-3_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-3_C1"), NodePath("BoxChunk_R0_0_-3_C1"), NodePath("BoxChunk_R-1_0_-4_C1"), NodePath("BoxChunk_R0_0_-4_C1")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_-3_C1"), NodePath("PrismChunk_R0_0_-3_C1")]
 
 [node name="12" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="12" unique_id=981556521 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-2_0_-3_C0")]
-_box_chunks = [NodePath("BoxChunk_R-2_0_-3_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_-3_C1")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_-3_C1")]
 
 [node name="13" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="13" unique_id=211392892 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-2_0_0_C0"), NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R-1_0_1_C0"), NodePath("SquareChunk_R-2_0_1_C0")]
-_box_chunks = [NodePath("BoxChunk_R-2_0_0_C0"), NodePath("BoxChunk_R-1_0_0_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_0_C1"), NodePath("SquareChunk_R-1_0_0_C1"), NodePath("SquareChunk_R-1_0_1_C1"), NodePath("SquareChunk_R-2_0_1_C1")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_0_C1"), NodePath("BoxChunk_R-1_0_0_C1")]
 
 [node name="14" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="14" unique_id=297301250 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-2_0_0_C0"), NodePath("SquareChunk_R-2_0_1_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_0_C1"), NodePath("SquareChunk_R-2_0_1_C1")]
 
 [node name="15" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="15" unique_id=447312361 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-3_0_0_C0"), NodePath("SquareChunk_R-3_-1_0_C0"), NodePath("SquareChunk_R-2_0_0_C0"), NodePath("SquareChunk_R-2_0_1_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-3_0_0_C1"), NodePath("SquareChunk_R-3_-1_0_C1"), NodePath("SquareChunk_R-2_0_0_C1"), NodePath("SquareChunk_R-2_0_1_C1")]
 
 [node name="16" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="16" unique_id=1354246125 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-3_0_-1_C0")]
-_box_chunks = [NodePath("BoxChunk_R-3_0_-1_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-3_0_-1_C1")]
+_box_chunks = [NodePath("BoxChunk_R-3_0_-1_C1")]
 
 [node name="17" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="17" unique_id=1092149774 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-2_0_-1_C0"), NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R-2_-1_-2_C0"), NodePath("SquareChunk_R-2_0_-2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_-1_C1"), NodePath("SquareChunk_R-1_0_-1_C1"), NodePath("SquareChunk_R-2_-1_-2_C1"), NodePath("SquareChunk_R-2_0_-2_C1")]
 
 [node name="18" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="18" unique_id=1537024545 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-3_0_2_C0"), NodePath("SquareChunk_R-2_0_2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-3_0_2_C1"), NodePath("SquareChunk_R-2_0_2_C1")]
 
 [node name="19" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="19" unique_id=1113713934 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-3_0_2_C0")]
-_box_chunks = [NodePath("BoxChunk_R-3_0_2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-3_0_2_C1")]
+_box_chunks = [NodePath("BoxChunk_R-3_0_2_C1")]
 
 [node name="20" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="20" unique_id=1258071411 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-3_0_2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-3_0_2_C1")]
 
 [node name="21" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="21" unique_id=20207684 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-3_0_-2_C0"), NodePath("SquareChunk_R-2_0_-2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-3_0_-2_C1"), NodePath("SquareChunk_R-2_0_-2_C1")]
 
 [node name="22" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="22" unique_id=1321315285 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-2_0_-2_C0"), NodePath("SquareChunk_R-3_0_-2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_-2_C1"), NodePath("SquareChunk_R-3_0_-2_C1")]
 
 [node name="23" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="23" unique_id=1850849056 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-2_0_-3_C0")]
-_box_chunks = [NodePath("BoxChunk_R-2_0_-3_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_-3_C1")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_-3_C1")]
 
 [node name="Corner" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="0" unique_id=2011810919 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_1_C0"), NodePath("SquareChunk_R0_0_1_C0"), NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R0_0_0_C0"), NodePath("SquareChunk_R-1_-1_-1_C0"), NodePath("SquareChunk_R0_-1_-1_C0"), NodePath("SquareChunk_R-1_0_2_C0"), NodePath("SquareChunk_R0_0_2_C0"), NodePath("SquareChunk_R-1_-1_2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_1_C1"), NodePath("SquareChunk_R0_0_1_C1"), NodePath("SquareChunk_R-1_0_-1_C1"), NodePath("SquareChunk_R-1_0_0_C1"), NodePath("SquareChunk_R0_0_-1_C1"), NodePath("SquareChunk_R0_0_0_C1"), NodePath("SquareChunk_R-1_-1_-1_C1"), NodePath("SquareChunk_R0_-1_-1_C1"), NodePath("SquareChunk_R-1_0_2_C1"), NodePath("SquareChunk_R0_0_2_C1"), NodePath("SquareChunk_R-1_-1_2_C1")]
 
 [node name="CardBoard" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="1" unique_id=1963790726 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R-1_0_1_C0"), NodePath("SquareChunk_R-2_0_1_C0"), NodePath("SquareChunk_R-1_0_-2_C0"), NodePath("SquareChunk_R0_0_1_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0"), NodePath("BoxChunk_R-1_-1_-1_C0"), NodePath("BoxChunk_R-1_0_-2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C1"), NodePath("SquareChunk_R-1_0_1_C1"), NodePath("SquareChunk_R-2_0_1_C1"), NodePath("SquareChunk_R-1_0_-2_C1"), NodePath("SquareChunk_R0_0_1_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C1"), NodePath("BoxChunk_R-1_-1_-1_C1"), NodePath("BoxChunk_R-1_0_-2_C1")]
 
 [node name="Coreto" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="2" unique_id=1729854686 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_-1_0_C0"), NodePath("SquareChunk_R0_0_0_C0"), NodePath("SquareChunk_R-1_0_0_C0")]
-_triangle_chunks = [NodePath("TriangleChunk_R0_0_0_C0"), NodePath("TriangleChunk_R-1_0_0_C0")]
-_box_chunks = [NodePath("BoxChunk_R0_-1_0_C0"), NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R0_0_0_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_-1_0_C1"), NodePath("SquareChunk_R0_0_0_C1"), NodePath("SquareChunk_R-1_0_0_C1")]
+_triangle_chunks = [NodePath("TriangleChunk_R0_0_0_C1"), NodePath("TriangleChunk_R-1_0_0_C1")]
+_box_chunks = [NodePath("BoxChunk_R0_-1_0_C1"), NodePath("BoxChunk_R-1_0_0_C1"), NodePath("BoxChunk_R0_0_0_C1")]
 
 [node name="Fountain" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="3" unique_id=1305969589 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_0_C0"), NodePath("SquareChunk_R-1_0_0_C0")]
-_triangle_chunks = [NodePath("TriangleChunk_R-1_0_0_C0"), NodePath("TriangleChunk_R0_0_0_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_0_C1"), NodePath("SquareChunk_R-1_0_0_C1")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_0_C1"), NodePath("TriangleChunk_R0_0_0_C1")]
 
 [node name="BigFountain" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="4" unique_id=1033444167 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_-1_1_C0"), NodePath("SquareChunk_R0_-1_1_C0"), NodePath("SquareChunk_R0_-1_2_C0"), NodePath("SquareChunk_R-1_-1_2_C0"), NodePath("SquareChunk_R0_0_1_C0"), NodePath("SquareChunk_R-1_0_1_C0")]
-_triangle_chunks = [NodePath("TriangleChunk_R-1_0_1_C0"), NodePath("TriangleChunk_R0_0_1_C0")]
-_box_chunks = [NodePath("BoxChunk_R0_0_1_C0"), NodePath("BoxChunk_R-1_0_1_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_-1_1_C1"), NodePath("SquareChunk_R0_-1_1_C1"), NodePath("SquareChunk_R0_-1_2_C1"), NodePath("SquareChunk_R-1_-1_2_C1"), NodePath("SquareChunk_R0_0_1_C1"), NodePath("SquareChunk_R-1_0_1_C1")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_1_C1"), NodePath("TriangleChunk_R0_0_1_C1")]
+_box_chunks = [NodePath("BoxChunk_R0_0_1_C1"), NodePath("BoxChunk_R-1_0_1_C1")]
 
 [node name="Garage" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="5" unique_id=513511135 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_1_C0"), NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R0_0_-3_C0"), NodePath("SquareChunk_R1_0_-3_C0"), NodePath("SquareChunk_R-2_0_-3_C0"), NodePath("SquareChunk_R-1_0_-2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_1_C1"), NodePath("SquareChunk_R-1_0_0_C1"), NodePath("SquareChunk_R0_0_-1_C1"), NodePath("SquareChunk_R0_0_-3_C1"), NodePath("SquareChunk_R1_0_-3_C1"), NodePath("SquareChunk_R-2_0_-3_C1"), NodePath("SquareChunk_R-1_0_-2_C1")]
 
 [node name="Bloqueio" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="6" unique_id=993151954 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-2_0_2_C0"), NodePath("SquareChunk_R0_0_3_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_2_C1"), NodePath("SquareChunk_R0_0_3_C1")]
 
 [node name="EmConstrução" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="7" unique_id=1344492506 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_-3_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-3_C1")]
 
 [node name="Becos" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="8" unique_id=24677460 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_-2_C0"), NodePath("SquareChunk_R-1_0_2_C0")]
-_box_chunks = [NodePath("BoxChunk_R-2_0_-2_C0"), NodePath("BoxChunk_R-1_0_-2_C0"), NodePath("BoxChunk_R-1_0_2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-2_C1"), NodePath("SquareChunk_R-1_0_2_C1")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_-2_C1"), NodePath("BoxChunk_R-1_0_-2_C1"), NodePath("BoxChunk_R-1_0_2_C1")]
 
 [node name="Bequinhos" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="10" unique_id=1286599466 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_-2_C0"), NodePath("SquareChunk_R-2_0_-2_C0"), NodePath("SquareChunk_R-1_0_-2_C0"), NodePath("SquareChunk_R-1_0_2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-2_C1"), NodePath("SquareChunk_R-2_0_-2_C1"), NodePath("SquareChunk_R-1_0_-2_C1"), NodePath("SquareChunk_R-1_0_2_C1")]
 
 [node name="buraco" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="12" unique_id=1591660017 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-3_-1_2_C0"), NodePath("SquareChunk_R-2_-1_2_C0")]
-_box_chunks = [NodePath("BoxChunk_R-2_-1_2_C0"), NodePath("BoxChunk_R-3_-1_2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-3_-1_2_C1"), NodePath("SquareChunk_R-2_-1_2_C1")]
+_box_chunks = [NodePath("BoxChunk_R-2_-1_2_C1"), NodePath("BoxChunk_R-3_-1_2_C1")]
 
 [node name="TruckHavingSex" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="13" unique_id=223385696 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-2_0_-3_C0")]
-_box_chunks = [NodePath("BoxChunk_R-2_0_-3_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_-3_C1")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_-3_C1")]
 
 [node name="Guinda" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="14" unique_id=263781146 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_-1_3_C0"), NodePath("SquareChunk_R-1_0_3_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_3_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_-1_3_C1"), NodePath("SquareChunk_R-1_0_3_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_3_C1")]
 
 [node name="Porta" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="15" unique_id=222548907 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-2_0_0_C0"), NodePath("SquareChunk_R-2_0_-3_C0"), NodePath("SquareChunk_R-1_0_1_C0"), NodePath("SquareChunk_R-1_0_0_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_0_C1"), NodePath("SquareChunk_R-2_0_-3_C1"), NodePath("SquareChunk_R-1_0_1_C1"), NodePath("SquareChunk_R-1_0_0_C1")]
 
 [node name="PedesTal" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="16" unique_id=904529400 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_0_C0"), NodePath("SquareChunk_R-1_0_0_C0")]
-_triangle_chunks = [NodePath("TriangleChunk_R-1_0_0_C0"), NodePath("TriangleChunk_R0_0_0_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_0_C1"), NodePath("SquareChunk_R-1_0_0_C1")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_0_C1"), NodePath("TriangleChunk_R0_0_0_C1")]
 
 [node name="Pedestal" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="17" unique_id=1012010151 node_paths=PackedStringArray("_quad_chunks", "_box_chunks", "_prism_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0")]
-_box_chunks = [NodePath("BoxChunk_R0_0_0_C0"), NodePath("BoxChunk_R-1_0_0_C0")]
-_prism_chunks = [NodePath("PrismChunk_R-1_0_0_C0"), NodePath("PrismChunk_R0_0_0_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C1")]
+_box_chunks = [NodePath("BoxChunk_R0_0_0_C1"), NodePath("BoxChunk_R-1_0_0_C1")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_0_C1"), NodePath("PrismChunk_R0_0_0_C1")]
 
 [node name="RuaTile" parent="ThePlayground/Buildings/Mapa" parent_id_path=PackedInt32Array(1702091423, 362268939) index="0" unique_id=508005253 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R0_0_0_C0"), NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R-1_0_-3_C0"), NodePath("SquareChunk_R-1_0_-2_C0"), NodePath("SquareChunk_R0_0_-2_C0"), NodePath("SquareChunk_R-1_0_1_C0"), NodePath("SquareChunk_R0_0_1_C0"), NodePath("SquareChunk_R0_0_2_C0"), NodePath("SquareChunk_R-1_0_2_C0"), NodePath("SquareChunk_R-1_0_3_C0"), NodePath("SquareChunk_R0_0_3_C0"), NodePath("SquareChunk_R0_0_-3_C0"), NodePath("SquareChunk_R-2_0_0_C0"), NodePath("SquareChunk_R-2_0_2_C0"), NodePath("SquareChunk_R-3_0_2_C0"), NodePath("SquareChunk_R-3_-1_2_C0"), NodePath("SquareChunk_R-2_-1_2_C0"), NodePath("SquareChunk_R0_0_4_C0"), NodePath("SquareChunk_R1_0_-3_C0"), NodePath("SquareChunk_R-2_0_-3_C0"), NodePath("SquareChunk_R-3_0_-1_C0"), NodePath("SquareChunk_R-3_0_0_C0")]
-_triangle_chunks = [NodePath("TriangleChunk_R-1_0_2_C0"), NodePath("TriangleChunk_R0_0_2_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_3_C0"), NodePath("BoxChunk_R-1_0_2_C0"), NodePath("BoxChunk_R-2_0_2_C0"), NodePath("BoxChunk_R0_0_2_C0"), NodePath("BoxChunk_R0_0_3_C0"), NodePath("BoxChunk_R-3_0_2_C0"), NodePath("BoxChunk_R-1_0_-3_C0"), NodePath("BoxChunk_R0_0_-3_C0"), NodePath("BoxChunk_R1_0_-3_C0"), NodePath("BoxChunk_R-2_0_-3_C0"), NodePath("BoxChunk_R-3_0_-3_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C1"), NodePath("SquareChunk_R0_0_0_C1"), NodePath("SquareChunk_R-1_0_0_C1"), NodePath("SquareChunk_R-1_0_-1_C1"), NodePath("SquareChunk_R-1_0_-3_C1"), NodePath("SquareChunk_R-1_0_-2_C1"), NodePath("SquareChunk_R0_0_-2_C1"), NodePath("SquareChunk_R-1_0_1_C1"), NodePath("SquareChunk_R0_0_1_C1"), NodePath("SquareChunk_R0_0_2_C1"), NodePath("SquareChunk_R-1_0_2_C1"), NodePath("SquareChunk_R-1_0_3_C1"), NodePath("SquareChunk_R0_0_3_C1"), NodePath("SquareChunk_R0_0_-3_C1"), NodePath("SquareChunk_R-2_0_0_C1"), NodePath("SquareChunk_R-2_0_2_C1"), NodePath("SquareChunk_R-3_0_2_C1"), NodePath("SquareChunk_R-3_-1_2_C1"), NodePath("SquareChunk_R-2_-1_2_C1"), NodePath("SquareChunk_R0_0_4_C1"), NodePath("SquareChunk_R1_0_-3_C1"), NodePath("SquareChunk_R-2_0_-3_C1"), NodePath("SquareChunk_R-3_0_-1_C1"), NodePath("SquareChunk_R-3_0_0_C1")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_2_C1"), NodePath("TriangleChunk_R0_0_2_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_3_C1"), NodePath("BoxChunk_R-1_0_2_C1"), NodePath("BoxChunk_R-2_0_2_C1"), NodePath("BoxChunk_R0_0_2_C1"), NodePath("BoxChunk_R0_0_3_C1"), NodePath("BoxChunk_R-3_0_2_C1"), NodePath("BoxChunk_R-1_0_-3_C1"), NodePath("BoxChunk_R0_0_-3_C1"), NodePath("BoxChunk_R1_0_-3_C1"), NodePath("BoxChunk_R-2_0_-3_C1"), NodePath("BoxChunk_R-3_0_-3_C1")]
 
 [node name="portaDatacenter" parent="ThePlayground/Buildings/Mapa/RuaTile/_StaticBody3D_84519" parent_id_path=PackedInt32Array(1702091423, 362268939, 1258404625) index="1" unique_id=1353397638 node_paths=PackedStringArray("targetArea", "personagem")]
 targetArea = NodePath("../../../../../../Empresa")
 personagem = NodePath("../../../../../charGeraldoSalvador")
 
 [node name="PraçaTile" parent="ThePlayground/Buildings/Mapa" parent_id_path=PackedInt32Array(1702091423, 362268939) index="1" unique_id=2012757785 node_paths=PackedStringArray("_box_chunks")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_-2_C0"), NodePath("BoxChunk_R0_0_-2_C0"), NodePath("BoxChunk_R0_0_-1_C0"), NodePath("BoxChunk_R-1_0_-1_C0"), NodePath("BoxChunk_R-1_0_-3_C0"), NodePath("BoxChunk_R0_0_-3_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-2_C1"), NodePath("BoxChunk_R0_0_-2_C1"), NodePath("BoxChunk_R0_0_-1_C1"), NodePath("BoxChunk_R-1_0_-1_C1"), NodePath("BoxChunk_R-1_0_-3_C1"), NodePath("BoxChunk_R0_0_-3_C1")]
 
 [node name="PraçaTile2" parent="ThePlayground/Buildings/Mapa" parent_id_path=PackedInt32Array(1702091423, 362268939) index="2" unique_id=925897043 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks", "_prism_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R0_0_0_C0"), NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R-1_0_-1_C0")]
-_triangle_chunks = [NodePath("TriangleChunk_R0_0_0_C0"), NodePath("TriangleChunk_R-1_0_0_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0"), NodePath("BoxChunk_R0_0_-1_C0"), NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R0_0_0_C0"), NodePath("BoxChunk_R-2_0_0_C0"), NodePath("BoxChunk_R1_0_0_C0"), NodePath("BoxChunk_R1_0_-1_C0")]
-_prism_chunks = [NodePath("PrismChunk_R0_0_0_C0"), NodePath("PrismChunk_R-1_0_0_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C1"), NodePath("SquareChunk_R0_0_0_C1"), NodePath("SquareChunk_R0_0_-1_C1"), NodePath("SquareChunk_R-1_0_-1_C1")]
+_triangle_chunks = [NodePath("TriangleChunk_R0_0_0_C1"), NodePath("TriangleChunk_R-1_0_0_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C1"), NodePath("BoxChunk_R0_0_-1_C1"), NodePath("BoxChunk_R-1_0_0_C1"), NodePath("BoxChunk_R0_0_0_C1"), NodePath("BoxChunk_R-2_0_0_C1"), NodePath("BoxChunk_R1_0_0_C1"), NodePath("BoxChunk_R1_0_-1_C1")]
+_prism_chunks = [NodePath("PrismChunk_R0_0_0_C1"), NodePath("PrismChunk_R-1_0_0_C1")]
 
 [node name="PraçaTile3" parent="ThePlayground/Buildings/Mapa" parent_id_path=PackedInt32Array(1702091423, 362268939) index="3" unique_id=1392439307 node_paths=PackedStringArray("_box_chunks")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_1_C0"), NodePath("BoxChunk_R0_0_1_C0"), NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R0_0_0_C0"), NodePath("BoxChunk_R-1_0_2_C0"), NodePath("BoxChunk_R0_0_2_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_1_C1"), NodePath("BoxChunk_R0_0_1_C1"), NodePath("BoxChunk_R-1_0_0_C1"), NodePath("BoxChunk_R0_0_0_C1"), NodePath("BoxChunk_R-1_0_2_C1"), NodePath("BoxChunk_R0_0_2_C1")]
 
 [node name="PraçaTile32" parent="ThePlayground/Buildings/Mapa" parent_id_path=PackedInt32Array(1702091423, 362268939) index="4" unique_id=1900325147 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_1_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_1_C0"), NodePath("BoxChunk_R0_0_1_C0"), NodePath("BoxChunk_R-1_0_2_C0"), NodePath("BoxChunk_R0_0_2_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_1_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_1_C1"), NodePath("BoxChunk_R0_0_1_C1"), NodePath("BoxChunk_R-1_0_2_C1"), NodePath("BoxChunk_R0_0_2_C1")]
 
 [node name="PraçaTile33" parent="ThePlayground/Buildings/Mapa" parent_id_path=PackedInt32Array(1702091423, 362268939) index="5" unique_id=237798826 node_paths=PackedStringArray("_box_chunks", "_prism_chunks")]
-_box_chunks = [NodePath("BoxChunk_R0_0_1_C0"), NodePath("BoxChunk_R-1_0_1_C0"), NodePath("BoxChunk_R0_0_2_C0"), NodePath("BoxChunk_R-1_0_2_C0")]
-_prism_chunks = [NodePath("PrismChunk_R-1_0_1_C0"), NodePath("PrismChunk_R0_0_1_C0"), NodePath("PrismChunk_R0_0_2_C0"), NodePath("PrismChunk_R-1_0_2_C0")]
+_box_chunks = [NodePath("BoxChunk_R0_0_1_C1"), NodePath("BoxChunk_R-1_0_1_C1"), NodePath("BoxChunk_R0_0_2_C1"), NodePath("BoxChunk_R-1_0_2_C1")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_1_C1"), NodePath("PrismChunk_R0_0_1_C1"), NodePath("PrismChunk_R0_0_2_C1"), NodePath("PrismChunk_R-1_0_2_C1")]
 
 [node name="PraçaTile4" parent="ThePlayground/Buildings/Mapa" parent_id_path=PackedInt32Array(1702091423, 362268939) index="6" unique_id=1207772044 node_paths=PackedStringArray("_triangle_chunks", "_box_chunks", "_prism_chunks")]
-_triangle_chunks = [NodePath("TriangleChunk_R-1_0_2_C0"), NodePath("TriangleChunk_R0_0_2_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_2_C0"), NodePath("BoxChunk_R0_0_2_C0"), NodePath("BoxChunk_R-1_-1_2_C0")]
-_prism_chunks = [NodePath("PrismChunk_R0_0_2_C0"), NodePath("PrismChunk_R-1_0_2_C0")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_2_C1"), NodePath("TriangleChunk_R0_0_2_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_2_C1"), NodePath("BoxChunk_R0_0_2_C1"), NodePath("BoxChunk_R-1_-1_2_C1")]
+_prism_chunks = [NodePath("PrismChunk_R0_0_2_C1"), NodePath("PrismChunk_R-1_0_2_C1")]
 
 [node name="PraçaTile42" parent="ThePlayground/Buildings/Mapa" parent_id_path=PackedInt32Array(1702091423, 362268939) index="7" unique_id=26919086 node_paths=PackedStringArray("_box_chunks")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_2_C0"), NodePath("BoxChunk_R0_0_2_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_2_C1"), NodePath("BoxChunk_R0_0_2_C1")]
 
 [node name="Beto" parent="ThePlayground/NPCs/SemTetos" parent_id_path=PackedInt32Array(1702091423, 960359734) index="0" unique_id=1753048285 node_paths=PackedStringArray("personagem")]
 personagem = NodePath("../../../charGeraldoSalvador")
@@ -810,60 +810,6 @@ script = ExtResource("3_cg2gm")
 personagem = NodePath("charGeraldoSalvador")
 camera = NodePath("CameraPivot")
 
-[node name="BancoInterior" parent="Banco" index="0" unique_id=773337586 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R0_0_0_C0"), NodePath("SquareChunk_R-1_0_0_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0"), NodePath("BoxChunk_R0_0_-1_C0"), NodePath("BoxChunk_R0_0_0_C0"), NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R0_-1_-1_C0")]
-
-[node name="Floor" parent="Banco" index="2" unique_id=1049869144 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R0_0_0_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0"), NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R0_0_-1_C0"), NodePath("BoxChunk_R0_0_0_C0")]
-
-[node name="Ceiling" parent="Banco" index="3" unique_id=1626855728 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R0_0_0_C0")]
-
-[node name="Door" parent="Banco" index="4" unique_id=1354805643 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C0")]
-
-[node name="Mesa2" parent="Banco" index="5" unique_id=454613304 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0")]
-
-[node name="Mesa" parent="Banco" index="6" unique_id=1849121936 node_paths=PackedStringArray("_box_chunks", "_prism_chunks")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0"), NodePath("BoxChunk_R0_0_-1_C0"), NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R0_0_0_C0")]
-_prism_chunks = [NodePath("PrismChunk_R-1_0_0_C0"), NodePath("PrismChunk_R0_0_0_C0")]
-
-[node name="Door2" parent="Banco" index="7" unique_id=1494509824 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_0_C0")]
-
-[node name="ATM" parent="Banco" index="8" unique_id=1077942206 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_0_C0"), NodePath("SquareChunk_R-1_0_0_C0")]
-
-[node name="adsagfasf" parent="Banco" index="9" unique_id=1890996015 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_0_C0"), NodePath("SquareChunk_R-1_0_0_C0")]
-
-[node name="plant" parent="Banco/Computaria" parent_id_path=PackedInt32Array(2073018133, 1131668847) index="0" unique_id=764495597 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_0_C0")]
-
-[node name="TileMapLayer3D" parent="Banco/Computaria" parent_id_path=PackedInt32Array(2073018133, 1131668847) index="1" unique_id=1491518660 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0")]
-
-[node name="TileMapLayer3D2" parent="Banco/Computaria" parent_id_path=PackedInt32Array(2073018133, 1131668847) index="2" unique_id=187042892 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0")]
-
-[node name="TileMapLayer3D3" parent="Banco/Computaria" parent_id_path=PackedInt32Array(2073018133, 1131668847) index="3" unique_id=1330308919 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0")]
-
-[node name="TileMapLayer3D4" parent="Banco/Computaria" parent_id_path=PackedInt32Array(2073018133, 1131668847) index="4" unique_id=759299628 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0")]
-
-[node name="TileMapLayer3D5" parent="Banco/Computaria" parent_id_path=PackedInt32Array(2073018133, 1131668847) index="5" unique_id=317376077 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0")]
-
-[node name="TileMapLayer3D6" parent="Banco/Computaria" parent_id_path=PackedInt32Array(2073018133, 1131668847) index="6" unique_id=544570883 node_paths=PackedStringArray("_box_chunks")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_0_C0")]
-
-[node name="TileMapLayer3D7" parent="Banco/Computaria" parent_id_path=PackedInt32Array(2073018133, 1131668847) index="7" unique_id=219966606 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0")]
-
 [node name="PhantomCamera3D" parent="Banco" index="23" unique_id=468541075]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -4.7411766, 0.6992073, -7.6218166)
 
@@ -876,6 +822,43 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.908936, 41.06846, 0)
 script = ExtResource("3_cg2gm")
 personagem = NodePath("charGeraldoSalvador")
 camera = NodePath("CameraPivot")
+
+[node name="DataCenter" parent="DataCenter" index="0" unique_id=618439086 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C1"), NodePath("SquareChunk_R0_0_0_C1"), NodePath("SquareChunk_R-1_0_-1_C1"), NodePath("SquareChunk_R0_0_-1_C1"), NodePath("SquareChunk_R-1_0_1_C1"), NodePath("SquareChunk_R0_0_1_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_0_C1"), NodePath("BoxChunk_R0_0_0_C1")]
+
+[node name="Elevador" parent="DataCenter" index="1" unique_id=1770061152 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_1_C1"), NodePath("SquareChunk_R0_0_1_C1"), NodePath("SquareChunk_R-1_0_0_C1"), NodePath("SquareChunk_R0_0_0_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_0_C1"), NodePath("BoxChunk_R0_0_0_C1")]
+
+[node name="Interior" parent="DataCenter" index="2" unique_id=1826753516 node_paths=PackedStringArray("_box_chunks", "_prism_chunks")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_0_C1"), NodePath("BoxChunk_R0_0_0_C1"), NodePath("BoxChunk_R-1_0_1_C1"), NodePath("BoxChunk_R0_0_1_C1")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_0_C1"), NodePath("PrismChunk_R0_0_0_C1")]
+
+[node name="TileMapLayer3D" parent="DataCenter/computaria" parent_id_path=PackedInt32Array(658518187, 1741076000) index="0" unique_id=1870950375 node_paths=PackedStringArray("_box_chunks", "_prism_chunks")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_0_C1"), NodePath("BoxChunk_R0_0_0_C1")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_0_C1"), NodePath("PrismChunk_R0_0_0_C1")]
+
+[node name="TileMapLayer3D3" parent="DataCenter/computaria" parent_id_path=PackedInt32Array(658518187, 1741076000) index="2" unique_id=1825632849 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C1"), NodePath("SquareChunk_R0_0_0_C1")]
+_box_chunks = [NodePath("BoxChunk_R0_0_-1_C1"), NodePath("BoxChunk_R-1_0_-1_C1")]
+
+[node name="TileMapLayer3D4" parent="DataCenter/computaria" parent_id_path=PackedInt32Array(658518187, 1741076000) index="3" unique_id=468614775 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C1"), NodePath("SquareChunk_R0_0_0_C1")]
+
+[node name="TileMapLayer3D5" parent="DataCenter/computaria" parent_id_path=PackedInt32Array(658518187, 1741076000) index="4" unique_id=387199233 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_0_C1")]
+_box_chunks = [NodePath("BoxChunk_R0_0_0_C1")]
+
+[node name="TileMapLayer3D6" parent="DataCenter/computaria" parent_id_path=PackedInt32Array(658518187, 1741076000) index="5" unique_id=2095295551 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_0_C1")]
+
+[node name="TileMapLayer3D7" parent="DataCenter/computaria" parent_id_path=PackedInt32Array(658518187, 1741076000) index="6" unique_id=1521848601 node_paths=PackedStringArray("_box_chunks")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_0_C1")]
+
+[node name="TileMapLayer3D8" parent="DataCenter/computaria" parent_id_path=PackedInt32Array(658518187, 1741076000) index="7" unique_id=293766565 node_paths=PackedStringArray("_box_chunks")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_0_C1"), NodePath("BoxChunk_R0_0_0_C1")]
 
 [node name="charGeraldoSalvador" parent="DataCenter" index="5" unique_id=1046664859 node_paths=PackedStringArray("cameraNode")]
 cameraNode = NodePath("../PhantomCamera3D")
@@ -892,6 +875,69 @@ script = ExtResource("3_cg2gm")
 personagem = NodePath("charGeraldoSalvador")
 camera = NodePath("CameraPivot")
 
+[node name="chao" parent="Empresa/Building" parent_id_path=PackedInt32Array(306004646, 1944972239) index="0" unique_id=1956251060 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_prism_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C1"), NodePath("SquareChunk_R0_0_-1_C1"), NodePath("SquareChunk_R-1_1_-2_C1"), NodePath("SquareChunk_R-1_1_-1_C1"), NodePath("SquareChunk_R0_1_-2_C1"), NodePath("SquareChunk_R0_1_-1_C1"), NodePath("SquareChunk_R-1_0_-2_C1"), NodePath("SquareChunk_R0_0_-2_C1"), NodePath("SquareChunk_R-1_1_-3_C1"), NodePath("SquareChunk_R0_1_-3_C1")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_-1_C1"), NodePath("TriangleChunk_R0_0_-1_C1"), NodePath("TriangleChunk_R-1_0_-2_C1"), NodePath("TriangleChunk_R0_0_-2_C1")]
+_prism_chunks = [NodePath("PrismChunk_R-1_-1_-1_C1"), NodePath("PrismChunk_R0_-1_-1_C1"), NodePath("PrismChunk_R0_-1_-2_C1"), NodePath("PrismChunk_R-1_-1_-2_C1")]
+
+[node name="Doofenshmirtz" parent="Empresa/Building" parent_id_path=PackedInt32Array(306004646, 1944972239) index="1" unique_id=132752327 node_paths=PackedStringArray("_quad_chunks", "_box_chunks", "_prism_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C1"), NodePath("SquareChunk_R0_0_-1_C1"), NodePath("SquareChunk_R-1_0_-2_C1"), NodePath("SquareChunk_R0_0_-2_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C1"), NodePath("BoxChunk_R0_0_-1_C1"), NodePath("BoxChunk_R0_0_0_C1"), NodePath("BoxChunk_R-1_0_0_C1"), NodePath("BoxChunk_R-1_0_-2_C1"), NodePath("BoxChunk_R0_0_-2_C1")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_-1_C1"), NodePath("PrismChunk_R0_0_-1_C1")]
+
+[node name="Elevador" parent="Empresa/Building" parent_id_path=PackedInt32Array(306004646, 1944972239) index="2" unique_id=41531428 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-2_C1"), NodePath("SquareChunk_R0_0_-2_C1"), NodePath("SquareChunk_R-1_1_-3_C1"), NodePath("SquareChunk_R0_1_-3_C1")]
+_box_chunks = [NodePath("BoxChunk_R0_0_-2_C1"), NodePath("BoxChunk_R-1_0_-2_C1"), NodePath("BoxChunk_R-1_1_-3_C1"), NodePath("BoxChunk_R0_1_-3_C1")]
+
+[node name="tapete" parent="Empresa/Building" parent_id_path=PackedInt32Array(306004646, 1944972239) index="3" unique_id=178664282 node_paths=PackedStringArray("_box_chunks")]
+_box_chunks = [NodePath("BoxChunk_R0_0_-1_C1"), NodePath("BoxChunk_R-1_0_-1_C1")]
+
+[node name="Doof" parent="Empresa/Building" parent_id_path=PackedInt32Array(306004646, 1944972239) index="4" unique_id=1184508381 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_0_C1"), NodePath("SquareChunk_R-1_0_0_C1"), NodePath("SquareChunk_R0_0_-1_C1"), NodePath("SquareChunk_R-1_0_-1_C1"), NodePath("SquareChunk_R-1_1_-2_C1"), NodePath("SquareChunk_R0_1_-2_C1")]
+
+[node name="Mesa" parent="Empresa/Building" parent_id_path=PackedInt32Array(306004646, 1944972239) index="5" unique_id=156437481 node_paths=PackedStringArray("_box_chunks", "_prism_chunks")]
+_box_chunks = [NodePath("BoxChunk_R0_0_-1_C1"), NodePath("BoxChunk_R-1_0_-1_C1"), NodePath("BoxChunk_R-1_1_-1_C1"), NodePath("BoxChunk_R0_1_-1_C1"), NodePath("BoxChunk_R0_1_-2_C1"), NodePath("BoxChunk_R-1_1_-2_C1")]
+_prism_chunks = [NodePath("PrismChunk_R0_0_-1_C1"), NodePath("PrismChunk_R-1_0_-1_C1"), NodePath("PrismChunk_R0_1_-2_C1"), NodePath("PrismChunk_R0_1_-1_C1"), NodePath("PrismChunk_R-1_1_-1_C1")]
+
+[node name="Teto2" parent="Empresa/Building" parent_id_path=PackedInt32Array(306004646, 1944972239) index="6" unique_id=1157854597 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_1_-2_C1"), NodePath("SquareChunk_R-1_1_-1_C1"), NodePath("SquareChunk_R0_1_-2_C1"), NodePath("SquareChunk_R0_1_-1_C1"), NodePath("SquareChunk_R-1_1_-3_C1"), NodePath("SquareChunk_R0_1_-3_C1")]
+_box_chunks = [NodePath("BoxChunk_R0_1_-2_C1"), NodePath("BoxChunk_R0_1_-3_C1"), NodePath("BoxChunk_R-1_1_-3_C1"), NodePath("BoxChunk_R-1_1_-2_C1"), NodePath("BoxChunk_R-1_1_-1_C1")]
+
+[node name="Janela" parent="Empresa/Building" parent_id_path=PackedInt32Array(306004646, 1944972239) index="7" unique_id=1917322113 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_0_C1"), NodePath("SquareChunk_R-1_0_0_C1"), NodePath("SquareChunk_R-1_1_-1_C1"), NodePath("SquareChunk_R0_1_-1_C1")]
+
+[node name="Teto" parent="Empresa/Building" parent_id_path=PackedInt32Array(306004646, 1944972239) index="8" unique_id=1763294684 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C1"), NodePath("SquareChunk_R-1_0_-1_C1"), NodePath("SquareChunk_R-1_0_-2_C1"), NodePath("SquareChunk_R0_0_-2_C1"), NodePath("SquareChunk_R0_1_-2_C1"), NodePath("SquareChunk_R0_1_-1_C1"), NodePath("SquareChunk_R-1_1_-2_C1"), NodePath("SquareChunk_R-1_1_-1_C1")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_-1_C1"), NodePath("TriangleChunk_R0_0_-1_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C1"), NodePath("BoxChunk_R0_0_-1_C1"), NodePath("BoxChunk_R-1_1_-2_C1"), NodePath("BoxChunk_R0_1_-2_C1"), NodePath("BoxChunk_R-1_0_-2_C1"), NodePath("BoxChunk_R0_0_-2_C1"), NodePath("BoxChunk_R-1_1_-3_C1"), NodePath("BoxChunk_R0_1_-3_C1")]
+
+[node name="TileMapLayer3D" parent="Empresa/computaria" parent_id_path=PackedInt32Array(306004646, 1269299548) index="0" unique_id=1567727653 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_1_-1_C1"), NodePath("SquareChunk_R-1_0_-1_C1")]
+
+[node name="TileMapLayer3D2" parent="Empresa/computaria" parent_id_path=PackedInt32Array(306004646, 1269299548) index="1" unique_id=853976385 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_1_-1_C1"), NodePath("SquareChunk_R0_0_-1_C1")]
+
+[node name="TileMapLayer3D3" parent="Empresa/computaria" parent_id_path=PackedInt32Array(306004646, 1269299548) index="2" unique_id=1613639362 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_1_-1_C1"), NodePath("SquareChunk_R0_1_-1_C1"), NodePath("SquareChunk_R0_0_-1_C1")]
+
+[node name="TileMapLayer3D4" parent="Empresa/computaria" parent_id_path=PackedInt32Array(306004646, 1269299548) index="3" unique_id=872636955 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_1_-1_C1"), NodePath("SquareChunk_R0_1_-1_C1")]
+
+[node name="TileMapLayer3D5" parent="Empresa/computaria" parent_id_path=PackedInt32Array(306004646, 1269299548) index="4" unique_id=1703360882 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_1_-1_C1")]
+
+[node name="TileMapLayer3D6" parent="Empresa/computaria" parent_id_path=PackedInt32Array(306004646, 1269299548) index="5" unique_id=1154925939 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_1_-2_C1")]
+
+[node name="TileMapLayer3D7" parent="Empresa/computaria" parent_id_path=PackedInt32Array(306004646, 1269299548) index="6" unique_id=1101159953 node_paths=PackedStringArray("_box_chunks")]
+_box_chunks = [NodePath("BoxChunk_R-1_1_-2_C1"), NodePath("BoxChunk_R-2_1_-1_C1"), NodePath("BoxChunk_R-2_1_-2_C1"), NodePath("BoxChunk_R0_0_-1_C1"), NodePath("BoxChunk_R0_-1_-1_C1"), NodePath("BoxChunk_R-1_0_-1_C1"), NodePath("BoxChunk_R0_2_-1_C1"), NodePath("BoxChunk_R-1_2_-1_C1"), NodePath("BoxChunk_R-2_2_-1_C1"), NodePath("BoxChunk_R0_1_-1_C2"), NodePath("BoxChunk_R-1_1_-1_C1"), NodePath("BoxChunk_R-2_0_-1_C1"), NodePath("BoxChunk_R0_2_-2_C1"), NodePath("BoxChunk_R0_1_-2_C1"), NodePath("BoxChunk_R0_1_-1_C3"), NodePath("BoxChunk_R0_0_-2_C1"), NodePath("BoxChunk_R-1_1_-3_C2"), NodePath("BoxChunk_R0_1_-3_C1"), NodePath("BoxChunk_R-1_2_-3_C1"), NodePath("BoxChunk_R0_2_-3_C1"), NodePath("BoxChunk_R-1_2_-2_C1"), NodePath("BoxChunk_R-1_2_-4_C1"), NodePath("BoxChunk_R-1_1_-4_C1"), NodePath("BoxChunk_R-1_1_-3_C3")]
+
+[node name="TileMapLayer3D8" parent="Empresa/computaria" parent_id_path=PackedInt32Array(306004646, 1269299548) index="7" unique_id=1741398921 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C1")]
+
+[node name="TileMapLayer3D9" parent="Empresa/computaria" parent_id_path=PackedInt32Array(306004646, 1269299548) index="8" unique_id=388483913 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C1"), NodePath("SquareChunk_R-1_0_-1_C1")]
+
 [node name="CameraPivot" parent="Empresa" index="4" unique_id=839034608 node_paths=PackedStringArray("player")]
 player = NodePath("../charGeraldoSalvador")
 
@@ -907,6 +953,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 42.41569, -113.45841)
 script = ExtResource("3_cg2gm")
 personagem = NodePath("charGeraldoSalvador")
 camera = NodePath("CameraPivot")
+
+[node name="Teto" parent="Igreja/Building" parent_id_path=PackedInt32Array(378817196, 1360395522) index="0" unique_id=741898430 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C1"), NodePath("SquareChunk_R0_0_0_C1")]
+_box_chunks = [NodePath("BoxChunk_R0_0_-1_C1"), NodePath("BoxChunk_R-1_0_-1_C1")]
+
+[node name="Chão" parent="Igreja/Building" parent_id_path=PackedInt32Array(378817196, 1360395522) index="1" unique_id=638474494 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-2_C1"), NodePath("SquareChunk_R-1_0_-1_C1"), NodePath("SquareChunk_R0_0_-1_C1"), NodePath("SquareChunk_R-1_0_0_C1"), NodePath("SquareChunk_R0_0_0_C1")]
+
+[node name="Igreja" parent="Igreja/Building" parent_id_path=PackedInt32Array(378817196, 1360395522) index="2" unique_id=1843874483 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_0_C1"), NodePath("SquareChunk_R-1_0_0_C1"), NodePath("SquareChunk_R-1_0_-1_C1"), NodePath("SquareChunk_R0_0_-1_C1")]
+_triangle_chunks = [NodePath("TriangleChunk_R0_0_0_C1"), NodePath("TriangleChunk_R-1_0_0_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_0_C1"), NodePath("BoxChunk_R0_0_0_C1"), NodePath("BoxChunk_R-1_0_-1_C1"), NodePath("BoxChunk_R0_0_-1_C1")]
+
+[node name="Dentro" parent="Igreja/Building" parent_id_path=PackedInt32Array(378817196, 1360395522) index="3" unique_id=1160176044 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks", "_prism_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C1"), NodePath("SquareChunk_R0_0_-1_C1")]
+_triangle_chunks = [NodePath("TriangleChunk_R0_0_-1_C1")]
+_box_chunks = [NodePath("BoxChunk_R0_0_-1_C1"), NodePath("BoxChunk_R-1_0_-1_C1")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_-1_C1"), NodePath("PrismChunk_R0_0_-1_C1")]
 
 [node name="portaIgreja" parent="Igreja" index="2" unique_id=1353397638 node_paths=PackedStringArray("targetArea", "personagem")]
 targetArea = NodePath("../../ThePlayground")
@@ -926,31 +990,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97.39919, 54.067184, 0)
 script = ExtResource("3_cg2gm")
 personagem = NodePath("charGeraldoSalvador")
 camera = NodePath("CameraPivot")
-
-[node name="Loja" parent="Loja1" index="0" unique_id=120406308 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R0_0_0_C0"), NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R-1_0_0_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0"), NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R0_0_-1_C0"), NodePath("BoxChunk_R0_0_0_C0")]
-
-[node name="Porta" parent="Loja1" index="1" unique_id=1675647979 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_0_C0")]
-
-[node name="Mesa" parent="Loja1" index="2" unique_id=610238110 node_paths=PackedStringArray("_box_chunks", "_prism_chunks")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0")]
-_prism_chunks = [NodePath("PrismChunk_R-1_0_-1_C0")]
-
-[node name="mesa" parent="Loja1" index="3" unique_id=1839103522 node_paths=PackedStringArray("_box_chunks", "_prism_chunks")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0")]
-_prism_chunks = [NodePath("PrismChunk_R-1_-1_-1_C0")]
-
-[node name="cardboard" parent="Loja1" index="4" unique_id=1341772641 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R-1_0_-1_C0")]
-
-[node name="mugo" parent="Loja1" index="5" unique_id=1685554034 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R0_0_0_C0"), NodePath("SquareChunk_R-1_0_0_C0")]
-_box_chunks = [NodePath("BoxChunk_R0_0_0_C0")]
-
-[node name="mugo2" parent="Loja1" index="6" unique_id=686489987 node_paths=PackedStringArray("_quad_chunks")]
-_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R0_0_-1_C0")]
 
 [node name="portaLoja" parent="Loja1" index="8" unique_id=1353397638 node_paths=PackedStringArray("targetArea")]
 targetArea = NodePath("../../ThePlayground")
@@ -1012,6 +1051,21 @@ script = ExtResource("3_cg2gm")
 personagem = NodePath("charGeraldoSalvador")
 camera = NodePath("CameraPivot")
 
+[node name="TileMapLayer3D" parent="Loja2" index="0" unique_id=1652089213 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C1"), NodePath("SquareChunk_R0_0_-1_C1")]
+_box_chunks = [NodePath("BoxChunk_R0_0_0_C1"), NodePath("BoxChunk_R0_0_-1_C1"), NodePath("BoxChunk_R-1_0_0_C1")]
+
+[node name="mesa" parent="Loja2" index="1" unique_id=1792653579 node_paths=PackedStringArray("_box_chunks", "_prism_chunks")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C1"), NodePath("BoxChunk_R0_0_-1_C1")]
+_prism_chunks = [NodePath("PrismChunk_R0_0_-1_C1")]
+
+[node name="card" parent="Loja2" index="2" unique_id=1147276272 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C1"), NodePath("SquareChunk_R-1_0_-1_C1")]
+
+[node name="patreleralera" parent="Loja2" index="3" unique_id=1849625991 node_paths=PackedStringArray("_box_chunks", "_prism_chunks")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C1")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_-1_C1")]
+
 [node name="portaBanco" parent="Loja2" index="4" unique_id=1353397638 node_paths=PackedStringArray("targetArea")]
 targetArea = NodePath("../../ThePlayground")
 
@@ -1029,6 +1083,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.8428, 42.639626, -48.284
 script = ExtResource("3_cg2gm")
 personagem = NodePath("charGeraldoSalvador")
 camera = NodePath("CameraPivot")
+
+[node name="porta" parent="Loja3" index="0" unique_id=427781348 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C1")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_-1_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C1")]
+
+[node name="TileMapLayer3D" parent="Loja3" index="1" unique_id=2090003749 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C1")]
+
+[node name="Mesa" parent="Loja3" index="2" unique_id=1320430457 node_paths=PackedStringArray("_quad_chunks", "_box_chunks", "_prism_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_-1_-1_C1"), NodePath("SquareChunk_R-1_0_-1_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C1"), NodePath("BoxChunk_R0_0_-1_C1"), NodePath("BoxChunk_R-1_0_0_C1")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_-1_C1")]
+
+[node name="Dentro" parent="Loja3" index="3" unique_id=1278611091 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C1")]
+
+[node name="daoe" parent="Loja3" index="4" unique_id=151333428 node_paths=PackedStringArray("_box_chunks")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C1")]
+
+[node name="pooort" parent="Loja3" index="5" unique_id=67718138 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C1"), NodePath("SquareChunk_R0_0_-1_C1")]
 
 [node name="objGalaoAgua" parent="Loja3/Buyables/Day1" parent_id_path=PackedInt32Array(1601253988, 427194548) index="0" unique_id=279675217]
 hideWhenFlag = "valeAlimentacaoVirtual"

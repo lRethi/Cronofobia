@@ -41,6 +41,12 @@ public partial class WorldManager : Node
             AtivarArea(areaInicial);
     }
 
+    public override void _UnhandledInput(InputEvent @event)
+    {
+        if (@event.IsActionPressed("interrupt"))
+            GameState.Instance?.voltarParaOMenu();
+    }
+
     public void AtivarArea(WorldArea novaArea)
     {
         if (novaArea == null)

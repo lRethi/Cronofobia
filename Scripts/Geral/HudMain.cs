@@ -93,4 +93,14 @@ public partial class HudMain : Control
     {
         textDinheiro.Text = $"R${value:0.00}";
     }
+
+    public override void _ExitTree()
+    {
+        if (NeedsState.Instance != null)
+        {
+            NeedsState.Instance.HungerChanged -= OnHungerChanged;
+            NeedsState.Instance.ThirstChanged -= OnThirstChanged;
+            NeedsState.Instance.MoneyChanged -= OnMoneyChanged;
+        }
+    }
 }
