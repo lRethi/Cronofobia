@@ -226,7 +226,7 @@ duration = 0.0
 size = Vector3(0.6973877, 5.9921875, 12.024841)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4f2p8"]
-size = Vector3(1.9210358, 1.8800964, 0.3486328)
+size = Vector3(1.9210358, 1.8800964, 0.27600098)
 
 [node name="Empresa" type="Node3D" unique_id=306004646]
 
@@ -649,28 +649,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.635723, 7.076092, 4.960545
 shape = SubResource("BoxShape3D_6h5ya")
 
 [node name="teleporter1" type="Area3D" parent="." unique_id=850413825 node_paths=PackedStringArray("referenciaTeleport")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029960155, 31.40807, -42.561287)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029960155, 31.40807, -42.43031)
 script = ExtResource("30_s0gqs")
-referenciaTeleport = NodePath("../tpAreaIn")
+referenciaTeleport = NodePath("../tpAreaOut")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="teleporter1" unique_id=981406740]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021247864, 0.5662384, 0.3256836)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021247864, 0.5662384, 0.28936768)
 shape = SubResource("BoxShape3D_4f2p8")
 
 [node name="teleporter2" type="Area3D" parent="." unique_id=238257491 node_paths=PackedStringArray("referenciaTeleport")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029960155, 31.40807, -42.0212)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029960155, 31.40807, -42.049534)
 script = ExtResource("30_s0gqs")
-referenciaTeleport = NodePath("../tpAreaOut")
+referenciaTeleport = NodePath("../tpAreaIn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="teleporter2" unique_id=464459615]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021247864, 0.5662384, 0.3256836)
 shape = SubResource("BoxShape3D_4f2p8")
 
 [node name="tpAreaIn" type="Node3D" parent="." unique_id=224555914]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029960155, 31.538002, -43.702736)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029960155, 31.538002, -43.13293)
 
 [node name="tpAreaOut" type="Node3D" parent="." unique_id=241177220]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029960155, 31.538002, -40.407276)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029960155, 31.538002, -40.83589)
 
 [node name="objMoeda" parent="." unique_id=74169055 instance=ExtResource("50_1g66n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8862575, 0.20480047, -3.5492857)
