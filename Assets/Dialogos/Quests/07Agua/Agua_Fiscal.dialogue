@@ -1,7 +1,7 @@
 
 
 ~ start
-if TimeState.minutoDoDia() > 600 and TimeState.minutoDoDia < 1020
+if TimeState.minutoDoDia > 600 and TimeState.minutoDoDia < 1020
 	=> amigo
 
 Fiscal: A-Ahem... Posso t-te ajudar com mais a-alguma coisa?

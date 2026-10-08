@@ -3,12 +3,12 @@
 [ext_resource type="Script" uid="uid://db2gd2d1xp67h" path="res://Scripts/Dialogos/DialogueBalloon.cs" id="1_1sks0"]
 [ext_resource type="Script" uid="uid://b8beyexrpj6n7" path="res://addons/dialogue_manager/nodes/dialogue_label/DialogueLabel.cs" id="1_414uv"]
 [ext_resource type="Script" uid="uid://bf0gf4upyxj5l" path="res://addons/dialogue_manager/nodes/responses_menu/DialogueResponsesMenu.cs" id="2_1sks0"]
-[ext_resource type="Texture2D" uid="uid://drigbbqkn520u" path="res://Assets/Sprites/HUD/caixaDialogo(1).png" id="2_013uw"]
+[ext_resource type="Texture2D" uid="uid://drigbbqkn520u" path="res://Assets/Sprites/HUD/Botoes/caixaDialogo(1).png" id="2_013uw"]
 [ext_resource type="FontFile" uid="uid://csxaaxokix70k" path="res://Assets/Fontes/phantomguardians.regular.ttf" id="3_vr5vl"]
 [ext_resource type="FontFile" uid="uid://d0l83dbasooy7" path="res://Assets/Fontes/neuromax.regular.ttf" id="4_o62ln"]
-[ext_resource type="Texture2D" uid="uid://0ch6fppaxyen" path="res://Assets/Sprites/HUD/caixaDialogo.png" id="4_pt8ea"]
-[ext_resource type="Texture2D" uid="uid://bsc3yil7d8xci" path="res://Assets/Sprites/HUD/opcaoDialogo.png" id="6_paylq"]
-[ext_resource type="Texture2D" uid="uid://h3fsji0jjwyy" path="res://Assets/Sprites/HUD/opcaoDialogoSel.png" id="7_pt8ea"]
+[ext_resource type="Texture2D" uid="uid://0ch6fppaxyen" path="res://Assets/Sprites/HUD/Botoes/caixaDialogo.png" id="4_pt8ea"]
+[ext_resource type="Texture2D" uid="uid://bsc3yil7d8xci" path="res://Assets/Sprites/HUD/Botoes/opcaoDialogo.png" id="6_paylq"]
+[ext_resource type="Texture2D" uid="uid://h3fsji0jjwyy" path="res://Assets/Sprites/HUD/Botoes/opcaoDialogoSel.png" id="7_pt8ea"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_irs17"]
 content_margin_left = 8.0
@@ -334,6 +334,7 @@ _data = {
 }
 
 [node name="DialogueBalloon" type="CanvasLayer" unique_id=1165952088]
+layer = -1
 script = ExtResource("1_1sks0")
 
 [node name="DialogueUI" type="Control" parent="." unique_id=323043626]

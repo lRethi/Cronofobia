@@ -58,6 +58,7 @@ font = ExtResource("4_0vaky")
 font_color = Color(0, 0, 0, 1)
 
 [node name="Inventory" type="Control" unique_id=1651639305 node_paths=PackedStringArray("slotsInventario", "texturasSlots", "telaUso", "lblNomeItem", "lblDescricaoItem", "botUsar", "botDescartar", "botSair", "telaOferecer", "botSim", "botNao")]
+z_index = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

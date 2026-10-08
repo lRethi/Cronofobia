@@ -202,10 +202,10 @@ public partial class TimeState : Node
         if (!ignorarNecessidades)
         {
             bool teveComida =
-                NeedsState.Instance.varFome == 3f;
+                NeedsState.Instance.varFome >= 3f;
 
             bool teveAgua =
-                NeedsState.Instance.varSede == 3f;
+                NeedsState.Instance.varSede >= 3f;
 
             comidaSuficiente = teveComida;
             aguaSuficiente = teveAgua;

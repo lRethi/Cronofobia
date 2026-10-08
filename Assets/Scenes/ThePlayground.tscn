@@ -20,11 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://mrlhhnue7vnr" path="res://Assets/Itens/objMoeda.tscn" id="22_an17c"]
 [ext_resource type="PackedScene" uid="uid://do2x0pe173kn1" path="res://Assets/Props/objBin.tscn" id="26_654w1"]
 [ext_resource type="PackedScene" uid="uid://5q3xgalcvrw1" path="res://Assets/Props/objLampPost.tscn" id="30_cowwq"]
-[ext_resource type="PackedScene" uid="uid://ctandxc0poegn" path="res://Assets/Personagens/SirMinhoca.tscn" id="33_05ac5"]
 [ext_resource type="Script" uid="uid://cgm5ydwn0eb7u" path="res://Scripts/Camera/dialogueCameraController.cs" id="41_oqisv"]
 [ext_resource type="Resource" uid="uid://dwvsa07bnobnk" path="res://Assets/Resources/Objetos/objBanco.tres" id="45_7pcv4"]
 [ext_resource type="PackedScene" uid="uid://dfuwb642558d" path="res://Assets/Scenes/playgroundFiller.tscn" id="46_pggdx"]
-[ext_resource type="Resource" uid="uid://b47uhpkq62epd" path="res://Assets/dialogoGenericoSemTeto.dialogue" id="57_e21sh"]
 [ext_resource type="PackedScene" uid="uid://dx8se0mn8qcfv" path="res://Assets/Itens/objMarmita.tscn" id="89_mii6s"]
 [ext_resource type="PackedScene" uid="uid://d1iedt53ggboo" path="res://Assets/Props/Portas/portaLojaGrade.tscn" id="91_ox51y"]
 [ext_resource type="PackedScene" uid="uid://2vlwbmhhm1js" path="res://Assets/Personagens/Beto.tscn" id="91_v6eui"]
@@ -181,11 +179,6 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 [node name="Mapa" parent="Buildings" unique_id=362268939 instance=ExtResource("16_2x265")]
 
 [node name="NPCs" type="Node" parent="." unique_id=1183954181]
-
-[node name="SirNhoca" parent="NPCs" unique_id=1088714365 node_paths=PackedStringArray("personagem") instance=ExtResource("33_05ac5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10464883, 0.3586347, -3.6715722)
-dialogue = ExtResource("57_e21sh")
-personagem = NodePath("../../charGeraldoSalvador")
 
 [node name="SemTetos" type="Node" parent="NPCs" unique_id=960359734]
 

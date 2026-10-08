@@ -1218,6 +1218,7 @@ personagem = NodePath("../charGeraldoSalvador")
 openingTime = 480.0
 closingTime = 1140.0
 isInterior = true
+cantInteractFlag = "roubouLoja3"
 
 [node name="portaLoja" parent="." unique_id=1692563808 node_paths=PackedStringArray("personagem") instance=ExtResource("20_wqp0u")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.002793789, 1.0155104, -2.502242)
@@ -1225,6 +1226,7 @@ personagem = NodePath("../charGeraldoSalvador")
 openingTime = 480.0
 closingTime = 1140.0
 isInterior = true
+cantInteractFlag = "roubouLoja3"
 
 [editable path="Buyables/Day1/objGalaoAgua"]
 [editable path="Buyables/Day1/objGalaoAgua2"]
