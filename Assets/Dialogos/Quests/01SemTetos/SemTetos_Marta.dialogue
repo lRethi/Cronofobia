@@ -1,49 +1,222 @@
 ~ start
 
-if GetFlag("semtetos_comida")
-	=> comida_feita
+if not GetFlag("martaPrimeiroDialogoVisto")
+	=> martaPrimeiroDialogo
 
-Dona Cida: A Marta comentou que vocês estão tentando juntar comida.
+if GetFlag("semtetos_abrigo_inaugurado")
+	=> abrigo_inaugurado
 
-Tenho alguma coisa para entregar.
-$> InventoryState.OferecerItem()
-=> verificar_comida
-Ainda estou procurando.
-Dona Cida: Tá bom.
-Dona Cida: Quando encontrar alguma coisa que dê pra dividir, traz pra cá.
-Dona Cida: Não precisa ser muito.
-Dona Cida: Sempre aparece alguém com fome.
+if GetFlag("semtetos_grupo_abandonado")
+	=> abandonou
+
+if GetFlag("semtetos_novo_lugar_encontrado")
+	=> encontrou
+
+if GetFlag("semtetos_procurar_novo_lugar")
+	=> procurando
+
+if GetFlag("semtetos_resultado_13_falha")
+	=> falha
+
+if GetFlag("semtetos_resultado_13_sucesso")
+	=> inauguracao
+
+if GetFlag("semtetos_madeira") and GetFlag("semtetos_comida") and GetFlag("semtetos_ferramentas") and GetFlag("semtetos_cobertores")
+	=> terreno
+
+if GetFlag("semtetos_ponto_conheceu_grupo")
+	=> reencontro
+
+Marta: Precisa de mais alguma coisa?
+=> decisao
+
+~ martaPrimeiroDialogo
+Marta: Nunca te vi por aqui...
+Marta: E você também tem uma dessas no braço.
+Marta: Então imagino que já tenha ouvido alguma coisa sobre isso.
+
+Marta: Eu sou a Marta.
+Marta: A gente tá tentando arrumar um lugar pro pessoal dormir.
+Marta: Um lugar só.
+Marta: Pra ninguém precisar ficar se espalhando por aí toda noite.
+
+Marta: Ainda somos poucos.
+Marta: Cada um traz o que consegue.
+Marta: Aí a gente tenta fazer o resto aparecer.
+
+Marta: Por enquanto...
+Marta: Bom.
+Marta: Não parece muito com um abrigo.
+Marta: Mas é o que a gente tem.
+$> GameState.SetFlag("martaPrimeiroDialogoVisto", true)
+=> decisao
+
+~ decisao
+
+- Posso ajudar.
+  $> GameState.SetFlag("semtetos_ponto_conheceu_grupo", true)
+  Marta: Então ajuda.
+  Marta: A gente tá precisando do básico.
+  Marta: Comida, cobertores, madeira e algumas ferramentas.
+  Marta: O Naldo tá na praça, ele é quem precisa da madeira. A Cida tá no coreto, tentando juntar comida.
+  Marta: O Beto e o Júlio tão aqui, e eles precisam de cobertores e ferramentas.
+  Marta: Quando essas quatro coisas estiverem resolvidas, a gente vê o que faz depois.
+  => END
+
+- Só queria saber o que está acontecendo aqui.
+  Marta: O que tá acontecendo?
+  Marta: A gente tá tentando fazer alguma coisa com muito pouco.
+  Marta: É basicamente isso.
+  => END
+
+- O que é essa coisa no braço das pessoas?
+	Marta: Isso?
+	Marta: Começou a aparecer faz umas semanas.
+	Marta: Algumas pessoas acordaram com isso no braço sem nem lembrar de onde veio.
+	Marta: Morador de rua, gente em situação difícil...
+	Marta: Não foi só uma ou duas pessoas.
+	Marta: Parece ser algum tipo de IÁ.
+	Marta: Daquelas que os ricos usam pra fazer sabe-se lá o quê.
+	Marta: Essa aqui fala comigo, dá palpite...
+	Marta: Às vezes eu mando ela calar a boca e ela continua.
+
+	Marta: Tem gente que acha que isso vai matar a gente.
+	Marta: Talvez.
+	Marta: Eu não sei.
+
+	Marta: Até agora ela não fez nada comigo.
+	Marta: Então eu tenho coisa mais importante pra me preocupar.
+=> decisao
+
+~ reencontro
+
+Marta: Ainda estamos juntando as coisas.
+Marta: Comida, cobertores, madeira e ferramentas.
+Marta: Parece pouco, mas sem isso a gente não consegue levantar nada.
+
+Marta: Quando terminar...
+Marta: Aí eu te conto o problema de verdade.
 => END
 
-~ verificar_comida
+~ terreno
 
-if InventoryState.ItemOferecidoId == "marmita"
-	=> comida_ok
+Marta: Tá.
+Marta: O básico já tá resolvido.
+Marta: Agora vem a parte que eu tava tentando evitar.
 
-if InventoryState.ItemOferecidoId == "lata_feijao"
-	=> comida_ok
+Marta: A gente precisa descobrir se vão deixar a gente ficar aqui.
 
-=> comida_errada
+Marta: Você pode falar com a empresa.
+Marta: Só não sei se aqueles engomadinhos vão querer ouvir.
 
-~ comida_ok
+Marta: Também dá pra tentar a igreja.
+Marta: Ou o banco.
 
-Dona Cida: Ah...
-Dona Cida: Isso ajuda bastante.
-$> InventoryState.ConsumirItemOferecido()
-$> GameState.SetFlag("semtetos_comida", true)
-Dona Cida: Vou guardar pro pessoal da noite.
-Dona Cida: Obrigada, viu?
+Marta: A igreja costuma ajudar gente como a gente.
+Marta: E o banco...
+Marta: Bom, banco nunca perde uma oportunidade de colocar o próprio nome em alguma coisa.
+
+- Falar diretamente com a empresa.
+  $> GameState.SetFlag("semTetos_buscarEmpresa", true)
+  Marta: Boa sorte.
+  Marta: E tenta conseguir alguma autorização antes que o prazo acabe.
+  Marta: Porque se depender só da boa vontade deles, a gente tá ferrado.
+  => END
+
+- Procurar ajuda da igreja.
+  $> GameState.SetFlag("semTetos_desbloqueou2.1", true)
+  $> GameState.SetFlag("semTetos_buscarIgreja", true)
+  Marta: Talvez o padre consiga abrir uma porta pra gente.
+  Marta: Eu não consigo, pelo menos.
+  => END
+
+- Procurar ajuda do banco.
+  $> GameState.SetFlag("semTetos_desbloqueou3.1", true)
+  $> GameState.SetFlag("semTetos_buscarBanco", true)
+  Marta: Banco...
+  Marta: Tá.
+  Marta: Não custa tentar.
+  Marta: Vai que eles enxergam alguma vantagem nisso.
+  => END
+
+- Não envolver com isso.
+  $> GameState.SetFlag("semTetos_terrenoIgnorado", true)
+  Marta: ...
+  Marta: Tá bom.
+  Marta: Então a gente tenta sozinho.
+  Marta: Obrigada pelo que você já fez.
+  $> GameState.Instance.AdicionarWeirdRouteValue(1)
+  => END
+
+~ inauguracao
+
+Marta: A autorização saiu.
+Marta: Então agora ninguém pode vir aqui e simplesmente mandar a gente embora.
+Marta: Falta só colocar tudo de pé.
 => END
 
-~ comida_errada
+~ falha
 
-Dona Cida: Acho melhor não.
-Dona Cida: A gente precisa de coisa que dê pra realmente alimentar o pessoal.
+Marta: A empresa recusou.
+Marta: Então a gente não pode ficar aqui.
+
+Marta: O que a gente conseguiu montar vai ter que sair.
+Marta: Eu sei.
+Marta: É uma merda.
+
+Marta: Mas não dá pra continuar sem autorização.
+Marta: Não quero que apareça alguém aqui e transforme isso em problema pra todo mundo.
+
+- Ajudar a retirar as coisas.
+  $> GameState.SetFlag("semtetos_expulsao_concluida", true)
+  Marta: Tá....
+  Marta: Então vamos desmontar tudo antes que alguém apareça.
+  $> GameState.Instance.AdicionarWeirdRouteValue(1)
+  => END
+
+- Ajudar a procurar outro lugar.
+  $> GameState.SetFlag("semtetos_expulsao_concluida", true)
+  $> GameState.SetFlag("semtetos_procurar_novo_lugar", true)
+  Marta: Então a gente procura outro.
+  Marta: Em algum lugar devem deixar a gente ficar.
+  Marta: Eu espero.
+  => END
+
+~ abrigo_inaugurado
+
+Marta: ...
+Marta: A gente conseguiu.
+
+Marta: O abrigo tá funcionando.
+Marta: Tem um teto.
+Marta: Tem gente dormindo lá dentro.
+
+Marta: Não é grande coisa.
+Marta: Mas é melhor do que não ter nada.
 => END
 
-~ comida_feita
+~ procurando
 
-Dona Cida: A comida já tá resolvida.
-Dona Cida: Vê com o pessoal da madeira ou dos cobertores.
-Dona Cida: Eles sempre têm alguma coisa faltando.
+Marta: Encontrou alguma coisa?
+
+- Ainda não.
+  Marta: Então continua procurando.
+  Marta: Não precisa ser perfeito.
+  Marta: Só precisa existir.
+  Marta: E precisa ser um lugar onde ninguém venha expulsar a gente amanhã.
+  => END
+
+~ encontrou
+
+Marta: O lugar ainda é improvisado.
+Marta: Mas ninguém veio mandar a gente sair.
+Marta: Por enquanto, isso já é alguma coisa.
+=> END
+
+~ abandonou
+
+Marta: O grupo acabou se desfazendo...
+Marta: Cada um foi pra um lado.
+
+Marta: Então não tem mais muito o que fazer aqui.
 => END

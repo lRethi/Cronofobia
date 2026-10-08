@@ -7,7 +7,7 @@
 script = ExtResource("1_mafrq")
 Id = "lata_feijao"
 Nome = "Lata de Feijão"
-Descricao = "Uma lata de feijão. Não parece muito apetitosa, mas ainda está boa."
+Descricao = "Uma lata de feijão, parece apetitosa."
 Textura = ExtResource("1_t8xmd")
 FomeAoUsar = 1.0
 metadata/_custom_type_script = "uid://c34nkk713lbx5"

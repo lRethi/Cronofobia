@@ -121,4 +121,9 @@ public partial class QuestState : Node
                 EmitSignal(SignalName.QuestsChanged);
         }
     }
+    public void Resetar()
+    {
+        Quests.Clear();
+        EmitSignal(SignalName.QuestsChanged);
+    } 
 }

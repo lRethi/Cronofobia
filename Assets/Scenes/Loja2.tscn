@@ -5,33 +5,44 @@
 [ext_resource type="Script" uid="uid://bli432i5uj51v" path="res://addons/TileMapLayer3D/core/tile_creation_placement/tilemap_layer_settings.gd" id="3_bfpp8"]
 [ext_resource type="Texture2D" uid="uid://ixwtwa7d5c6t" path="res://Assets/Sprites/Cenario/Parede/Banco2.png" id="4_e0kmx"]
 [ext_resource type="Texture2D" uid="uid://c32wknkcg1mr6" path="res://Assets/Sprites/Cenario/Parede/cartorio.png" id="5_4riwx"]
+[ext_resource type="Script" uid="uid://c2lxt2vjdjb4b" path="res://addons/TileMapLayer3D/nodes/static_collision_body.gd" id="5_xqijk"]
 [ext_resource type="Texture2D" uid="uid://bjoe4yrudgr0a" path="res://Assets/Sprites/Cenario/Parede/Predio do victor.png" id="6_3t50d"]
+[ext_resource type="Shape3D" uid="uid://d3nugog3mvm03" path="res://Assets/Scenes/Loja2_CollisionData/Loja2_Loja_collision.res" id="6_6ywrt"]
 [ext_resource type="Texture2D" uid="uid://bhr4slcwvo2ut" path="res://Assets/Sprites/Cenario/Parede/Garagem.png" id="7_ispub"]
+[ext_resource type="Shape3D" uid="uid://cv6fe0nywefbd" path="res://Assets/Scenes/Loja2_CollisionData/Loja2_Porta_collision.res" id="8_mnpvg"]
 [ext_resource type="Texture2D" uid="uid://d1mrq7asj83j" path="res://Assets/Sprites/Cenario/Misc/cardoard.png" id="8_pm5w4"]
 [ext_resource type="Texture2D" uid="uid://on0g33jm2uhj" path="res://Assets/Sprites/Objetos/agua.png" id="9_7bu0c"]
+[ext_resource type="Shape3D" uid="uid://dy7cxbpevy25h" path="res://Assets/Scenes/Loja2_CollisionData/Loja2_Mesa_collision.res" id="10_0d5dk"]
 [ext_resource type="PackedScene" uid="uid://d1iedt53ggboo" path="res://Assets/Props/Portas/portaLojaGrade.tscn" id="10_ng17w"]
 [ext_resource type="PackedScene" uid="uid://4cvw5u3glyoy" path="res://Assets/Personagens/Protagonista.tscn" id="11_3t50d"]
+[ext_resource type="Shape3D" uid="uid://dy7cxbpevy25h" path="res://Assets/Scenes/Loja2_CollisionData/Loja2_mesa_collision.res" id="12_1kqbq"]
 [ext_resource type="Script" uid="uid://bt56plut0kdvx" path="res://Scripts/Camera/cameraBonitaDoFred.cs" id="12_ispub"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="13_pm5w4"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="14_7bu0c"]
+[ext_resource type="Shape3D" uid="uid://hmymh2e8rhbd" path="res://Assets/Scenes/Loja2_CollisionData/Loja2_cardboard_collision.res" id="14_dvyej"]
 [ext_resource type="PackedScene" uid="uid://b4mgjc55khc8n" path="res://Assets/Itens/objAgua.tscn" id="15_mag0k"]
+[ext_resource type="Shape3D" uid="uid://cl5yfmy8f2g1d" path="res://Assets/Scenes/Loja2_CollisionData/Loja2_mugo_collision.res" id="15_qk8kj"]
+[ext_resource type="Shape3D" uid="uid://biwlae1ui6821" path="res://Assets/Scenes/Loja2_CollisionData/Loja2_mugo2_collision.res" id="16_0kh64"]
 [ext_resource type="PackedScene" uid="uid://d1kp3yfxc7qii" path="res://Assets/Itens/objFeijao.tscn" id="16_04kjx"]
 [ext_resource type="PackedScene" uid="uid://dx8se0mn8qcfv" path="res://Assets/Itens/objMarmita.tscn" id="17_f7chx"]
 [ext_resource type="PackedScene" uid="uid://dvo2rfyvp1ns0" path="res://Assets/Itens/objGalaoAgua.tscn" id="18_j3wye"]
+[ext_resource type="PackedScene" uid="uid://004tqboou7a3" path="res://Assets/Personagens/Atendente.tscn" id="19_es8ce"]
 
 [sub_resource type="Resource" id="Resource_mag0k"]
 script = ExtResource("3_bfpp8")
 tileset_texture = ExtResource("4_e0kmx")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(1280, 0, 320, 320)
-selected_tiles = Array[Rect2]([Rect2(1280, 0, 320, 320)])
-tileset_zoom = 0.5644739300537771
+smart_select_mode = 1
+main_app_mode = 2
 mesh_mode = 2
 
 [sub_resource type="Resource" id="Resource_04kjx"]
 script = ExtResource("3_bfpp8")
 tileset_texture = ExtResource("5_4riwx")
 tile_size = Vector2i(160, 160)
+smart_select_mode = 1
+main_app_mode = 2
 
 [sub_resource type="Resource" id="Resource_f7chx"]
 script = ExtResource("3_bfpp8")
@@ -41,6 +52,7 @@ selected_tile_uv = Rect2(0, 320, 320, 320)
 grid_snap_size = 0.5
 cursor_step_size = 0.5
 smart_select_mode = 1
+main_app_mode = 2
 mesh_mode = 2
 
 [sub_resource type="Resource" id="Resource_j3wye"]
@@ -51,6 +63,7 @@ selected_tile_uv = Rect2(320, 320, 320, 320)
 grid_snap_size = 0.5
 cursor_step_size = 0.5
 smart_select_mode = 1
+main_app_mode = 2
 mesh_mode = 2
 
 [sub_resource type="Resource" id="Resource_34wx2"]
@@ -58,10 +71,10 @@ script = ExtResource("3_bfpp8")
 tileset_texture = ExtResource("8_pm5w4")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(960, 0, 320, 320)
-tileset_zoom = 0.4240976183724846
 grid_snap_size = 0.5
 cursor_step_size = 0.5
 smart_select_mode = 1
+main_app_mode = 2
 
 [sub_resource type="Resource" id="Resource_hgh5k"]
 script = ExtResource("3_bfpp8")
@@ -71,16 +84,17 @@ selected_tile_uv = Rect2(320, 640, 320, 320)
 grid_snap_size = 0.5
 cursor_step_size = 0.5
 smart_select_mode = 1
+main_app_mode = 2
 current_mesh_rotation = 2
 
 [sub_resource type="Resource" id="Resource_reo5q"]
 script = ExtResource("3_bfpp8")
 tileset_texture = ExtResource("9_7bu0c")
 tile_size = Vector2i(1539, 1539)
-tileset_zoom = 0.23939204936916328
 grid_snap_size = 0.5
 cursor_step_size = 0.5
 smart_select_mode = 1
+main_app_mode = 2
 
 [sub_resource type="Resource" id="Resource_esdjp"]
 script = ExtResource("14_7bu0c")
@@ -98,9 +112,15 @@ _tile_transform_indices = PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
 _tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
 _tile_anim_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1)
 _tile_anim_data = PackedFloat32Array()
-_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R0_0_0_C0"), NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R-1_0_0_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0"), NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R0_0_-1_C0"), NodePath("BoxChunk_R0_0_0_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C1"), NodePath("SquareChunk_R0_0_0_C1"), NodePath("SquareChunk_R-1_0_-1_C1"), NodePath("SquareChunk_R-1_0_0_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C1"), NodePath("BoxChunk_R-1_0_0_C1"), NodePath("BoxChunk_R0_0_-1_C1"), NodePath("BoxChunk_R0_0_0_C1")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
+
+[node name="@StaticBody3D@278612" type="StaticBody3D" parent="Loja" unique_id=2006296441]
+script = ExtResource("5_xqijk")
+
+[node name="@CollisionShape3D@278611" type="CollisionShape3D" parent="Loja/@StaticBody3D@278612" unique_id=605866939]
+shape = ExtResource("6_6ywrt")
 
 [node name="Porta" type="Node3D" parent="." unique_id=1675647979 node_paths=PackedStringArray("_quad_chunks")]
 script = ExtResource("1_v6lsy")
@@ -112,8 +132,14 @@ _tile_transform_indices = PackedInt32Array(0, 1, 2, 3)
 _tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
 _tile_anim_indices = PackedInt32Array(-1, -1, -1, -1)
 _tile_anim_data = PackedFloat32Array()
-_quad_chunks = [NodePath("SquareChunk_R0_0_0_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_0_C1")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
+
+[node name="@StaticBody3D@279572" type="StaticBody3D" parent="Porta" unique_id=1260713904]
+script = ExtResource("5_xqijk")
+
+[node name="@CollisionShape3D@279571" type="CollisionShape3D" parent="Porta/@StaticBody3D@279572" unique_id=91827013]
+shape = ExtResource("8_mnpvg")
 
 [node name="Mesa" type="Node3D" parent="." unique_id=610238110 node_paths=PackedStringArray("_box_chunks", "_prism_chunks")]
 script = ExtResource("1_v6lsy")
@@ -125,9 +151,15 @@ _tile_transform_indices = PackedInt32Array(0, 1, 2, 3, 4, 5, 6)
 _tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
 _tile_anim_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1, -1)
 _tile_anim_data = PackedFloat32Array()
-_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0")]
-_prism_chunks = [NodePath("PrismChunk_R-1_0_-1_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C1")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_-1_C1")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
+
+[node name="@StaticBody3D@281013" type="StaticBody3D" parent="Mesa" unique_id=836524682]
+script = ExtResource("5_xqijk")
+
+[node name="@CollisionShape3D@281012" type="CollisionShape3D" parent="Mesa/@StaticBody3D@281013" unique_id=1928488967]
+shape = ExtResource("10_0d5dk")
 
 [node name="mesa" type="Node3D" parent="." unique_id=1839103522 node_paths=PackedStringArray("_box_chunks", "_prism_chunks")]
 script = ExtResource("1_v6lsy")
@@ -139,9 +171,15 @@ _tile_transform_indices = PackedInt32Array(0, 1, 2, 3)
 _tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1)
 _tile_anim_indices = PackedInt32Array(-1, -1, -1, -1)
 _tile_anim_data = PackedFloat32Array()
-_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0")]
-_prism_chunks = [NodePath("PrismChunk_R-1_-1_-1_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C1")]
+_prism_chunks = [NodePath("PrismChunk_R-1_-1_-1_C1")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
+
+[node name="@StaticBody3D@281973" type="StaticBody3D" parent="mesa" unique_id=456482873]
+script = ExtResource("5_xqijk")
+
+[node name="@CollisionShape3D@281972" type="CollisionShape3D" parent="mesa/@StaticBody3D@281973" unique_id=1671554103]
+shape = ExtResource("12_1kqbq")
 
 [node name="cardboard" type="Node3D" parent="." unique_id=1341772641 node_paths=PackedStringArray("_quad_chunks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
@@ -154,8 +192,14 @@ _tile_transform_indices = PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
 _tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
 _tile_anim_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1)
 _tile_anim_data = PackedFloat32Array()
-_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R-1_0_-1_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C1"), NodePath("SquareChunk_R-1_0_-1_C1")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
+
+[node name="@StaticBody3D@283410" type="StaticBody3D" parent="cardboard" unique_id=1266876522]
+script = ExtResource("5_xqijk")
+
+[node name="@CollisionShape3D@283409" type="CollisionShape3D" parent="cardboard/@StaticBody3D@283410" unique_id=1014034824]
+shape = ExtResource("14_dvyej")
 
 [node name="mugo" type="Node3D" parent="." unique_id=1685554034 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01, 0, -0.11)
@@ -168,9 +212,15 @@ _tile_transform_indices = PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
 _tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
 _tile_anim_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1)
 _tile_anim_data = PackedFloat32Array()
-_quad_chunks = [NodePath("SquareChunk_R0_0_0_C0"), NodePath("SquareChunk_R-1_0_0_C0")]
-_box_chunks = [NodePath("BoxChunk_R0_0_0_C0")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_0_C1"), NodePath("SquareChunk_R-1_0_0_C1")]
+_box_chunks = [NodePath("BoxChunk_R0_0_0_C1")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
+
+[node name="@StaticBody3D@286288" type="StaticBody3D" parent="mugo" unique_id=733702515]
+script = ExtResource("5_xqijk")
+
+[node name="@CollisionShape3D@286287" type="CollisionShape3D" parent="mugo/@StaticBody3D@286288" unique_id=469003501]
+shape = ExtResource("15_qk8kj")
 
 [node name="mugo2" type="Node3D" parent="." unique_id=686489987 node_paths=PackedStringArray("_quad_chunks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01, 0, 0.01)
@@ -183,8 +233,14 @@ _tile_transform_indices = PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
 _tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
 _tile_anim_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1)
 _tile_anim_data = PackedFloat32Array()
-_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R0_0_-1_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C1"), NodePath("SquareChunk_R0_0_-1_C1")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
+
+[node name="@StaticBody3D@285805" type="StaticBody3D" parent="mugo2" unique_id=805631740]
+script = ExtResource("5_xqijk")
+
+[node name="@CollisionShape3D@285804" type="CollisionShape3D" parent="mugo2/@StaticBody3D@285805" unique_id=1443017552]
+shape = ExtResource("16_0kh64")
 
 [node name="walter and bens" type="Node3D" parent="." unique_id=681798349]
 script = ExtResource("1_v6lsy")
@@ -205,30 +261,39 @@ closingTime = 960.0
 isInterior = true
 cantInteractFlag = "roubouLoja2"
 
-[node name="charGeraldoSalvador" parent="." unique_id=1046664859 instance=ExtResource("11_3t50d")]
+[node name="charGeraldoSalvador" parent="." unique_id=1046664859 node_paths=PackedStringArray("cameraNode", "cameraPivotNode") instance=ExtResource("11_3t50d")]
 unique_name_in_owner = true
 transform = Transform3D(0.9988284, 0, 0.048392117, 0, 1, 0, -0.048392117, 0, 0.9988284, 1.0578036, 0.8416812, 2.0776772)
 safe_margin = 0.015
+cameraNode = NodePath("../PhantomCamera3D")
+cameraPivotNode = NodePath("../CameraPivot")
+
+[node name="DirectionalSprite" parent="charGeraldoSalvador" index="3" unique_id=578035060 node_paths=PackedStringArray("cameraScript")]
+cameraScript = NodePath("../../CameraPivot")
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=1215842521]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.964635, 0, -4.950857)
 script = ExtResource("12_ispub")
 
-[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1945840713]
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1945840713 node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
-transform = Transform3D(0.017248208, 0, -0.9998512, 0, 1, 0, 0.9998512, 0, 0.017248208, 0, 0.8794199, 2)
+transform = Transform3D(0.9988284, 0, 0.04839212, 0, 1, 0, -0.04839212, 0, 0.9988284, 1.1545879, 0.8416812, 4.075334)
 script = ExtResource("13_pm5w4")
 follow_mode = 6
+follow_target = NodePath("../charGeraldoSalvador")
 tween_resource = SubResource("Resource_esdjp")
 tween_on_load = false
 follow_distance = 2.0
 spring_length = 2.0
 collision_mask = 31
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="Pickups" type="Node" parent="." unique_id=1273795430]
+[node name="Pickups" type="Node3D" parent="." unique_id=1874654099]
 
-[node name="Dia1" type="Node" parent="Pickups" unique_id=1737631340]
+[node name="Dia1" type="Node3D" parent="Pickups" unique_id=1242624616]
 
 [node name="objAgua" parent="Pickups/Dia1" unique_id=1479640235 instance=ExtResource("15_mag0k")]
 transform = Transform3D(0.47857764, 0, 0.87804514, 0, 1, 0, -0.87804514, 0, 0.47857764, -0.22768402, 0.90278506, -3.216026)
@@ -237,6 +302,7 @@ diaMaximo = 1
 
 [node name="garrafaAgua" parent="Pickups/Dia1/objAgua" index="0" unique_id=1482991818]
 preco = 5.0
+compravel = true
 flagToSetOnSteal = "roubouLoja2"
 
 [node name="objFeijao" parent="Pickups/Dia1" unique_id=134085674 instance=ExtResource("16_04kjx")]
@@ -246,6 +312,7 @@ diaMaximo = 1
 
 [node name="lataFeijao" parent="Pickups/Dia1/objFeijao" index="0" unique_id=1762641796]
 preco = 4.0
+compravel = true
 flagToSetOnSteal = "roubouLoja2"
 
 [node name="objMarmita" parent="Pickups/Dia1" unique_id=610517771 instance=ExtResource("17_f7chx")]
@@ -255,6 +322,7 @@ diaMaximo = 1
 
 [node name="marmitaPickup" parent="Pickups/Dia1/objMarmita" index="0" unique_id=645683784]
 preco = 16.0
+compravel = true
 flagToSetOnSteal = "roubouLoja2"
 
 [node name="objGalaoAgua" parent="Pickups/Dia1" unique_id=279675217 instance=ExtResource("18_j3wye")]
@@ -264,9 +332,10 @@ diaMaximo = 1
 
 [node name="galaoAgua" parent="Pickups/Dia1/objGalaoAgua" index="0" unique_id=1963751312]
 preco = 18.0
+compravel = true
 flagToSetOnSteal = "roubouLoja2"
 
-[node name="Dia2" type="Node" parent="Pickups" unique_id=1544588214]
+[node name="Dia2" type="Node3D" parent="Pickups" unique_id=25308989]
 
 [node name="objAgua" parent="Pickups/Dia2" unique_id=371874136 instance=ExtResource("15_mag0k")]
 transform = Transform3D(0.47857764, 0, 0.87804514, 0, 1, 0, -0.87804514, 0, 0.47857764, -0.22768402, 0.90278506, -3.216026)
@@ -276,6 +345,7 @@ diaMaximo = 2
 
 [node name="garrafaAgua" parent="Pickups/Dia2/objAgua" index="0" unique_id=1482991818]
 preco = 5.0
+compravel = true
 flagToSetOnSteal = "roubouLoja2"
 
 [node name="objFeijao" parent="Pickups/Dia2" unique_id=12238407 instance=ExtResource("16_04kjx")]
@@ -286,6 +356,7 @@ diaMaximo = 2
 
 [node name="lataFeijao" parent="Pickups/Dia2/objFeijao" index="0" unique_id=1762641796]
 preco = 4.0
+compravel = true
 flagToSetOnSteal = "roubouLoja2"
 
 [node name="objMarmita" parent="Pickups/Dia2" unique_id=1906770387 instance=ExtResource("17_f7chx")]
@@ -296,6 +367,7 @@ diaMaximo = 2
 
 [node name="marmitaPickup" parent="Pickups/Dia2/objMarmita" index="0" unique_id=645683784]
 preco = 16.0
+compravel = true
 flagToSetOnSteal = "roubouLoja2"
 
 [node name="objGalaoAgua" parent="Pickups/Dia2" unique_id=852034422 instance=ExtResource("18_j3wye")]
@@ -306,9 +378,10 @@ diaMaximo = 2
 
 [node name="galaoAgua" parent="Pickups/Dia2/objGalaoAgua" index="0" unique_id=1963751312]
 preco = 18.0
+compravel = true
 flagToSetOnSteal = "roubouLoja2"
 
-[node name="Dia3" type="Node" parent="Pickups" unique_id=1904469421]
+[node name="Dia3" type="Node3D" parent="Pickups" unique_id=543691432]
 
 [node name="objAgua" parent="Pickups/Dia3" unique_id=73838131 instance=ExtResource("15_mag0k")]
 transform = Transform3D(0.47857764, 0, 0.87804514, 0, 1, 0, -0.87804514, 0, 0.47857764, -0.22768402, 0.90278506, -3.216026)
@@ -318,6 +391,7 @@ diaMaximo = 3
 
 [node name="garrafaAgua" parent="Pickups/Dia3/objAgua" index="0" unique_id=1482991818]
 preco = 5.0
+compravel = true
 flagToSetOnSteal = "roubouLoja2"
 
 [node name="objFeijao" parent="Pickups/Dia3" unique_id=1056451852 instance=ExtResource("16_04kjx")]
@@ -328,6 +402,7 @@ diaMaximo = 3
 
 [node name="lataFeijao" parent="Pickups/Dia3/objFeijao" index="0" unique_id=1762641796]
 preco = 4.0
+compravel = true
 flagToSetOnSteal = "roubouLoja2"
 
 [node name="objMarmita" parent="Pickups/Dia3" unique_id=695906505 instance=ExtResource("17_f7chx")]
@@ -338,6 +413,7 @@ diaMaximo = 3
 
 [node name="marmitaPickup" parent="Pickups/Dia3/objMarmita" index="0" unique_id=645683784]
 preco = 16.0
+compravel = true
 flagToSetOnSteal = "roubouLoja2"
 
 [node name="objGalaoAgua" parent="Pickups/Dia3" unique_id=1061528759 instance=ExtResource("18_j3wye")]
@@ -348,9 +424,10 @@ diaMaximo = 3
 
 [node name="galaoAgua" parent="Pickups/Dia3/objGalaoAgua" index="0" unique_id=1963751312]
 preco = 18.0
+compravel = true
 flagToSetOnSteal = "roubouLoja2"
 
-[node name="Dia4" type="Node" parent="Pickups" unique_id=1023387074]
+[node name="Dia4" type="Node3D" parent="Pickups" unique_id=1456630789]
 
 [node name="objAgua" parent="Pickups/Dia4" unique_id=1067986758 instance=ExtResource("15_mag0k")]
 transform = Transform3D(0.47857764, 0, 0.87804514, 0, 1, 0, -0.87804514, 0, 0.47857764, -0.22768402, 0.90278506, -3.216026)
@@ -360,6 +437,7 @@ diaMaximo = 4
 
 [node name="garrafaAgua" parent="Pickups/Dia4/objAgua" index="0" unique_id=1482991818]
 preco = 5.0
+compravel = true
 flagToSetOnSteal = "roubouLoja2"
 
 [node name="objFeijao" parent="Pickups/Dia4" unique_id=380699333 instance=ExtResource("16_04kjx")]
@@ -370,6 +448,7 @@ diaMaximo = 4
 
 [node name="lataFeijao" parent="Pickups/Dia4/objFeijao" index="0" unique_id=1762641796]
 preco = 4.0
+compravel = true
 flagToSetOnSteal = "roubouLoja2"
 
 [node name="objMarmita" parent="Pickups/Dia4" unique_id=673907821 instance=ExtResource("17_f7chx")]
@@ -380,6 +459,7 @@ diaMaximo = 4
 
 [node name="marmitaPickup" parent="Pickups/Dia4/objMarmita" index="0" unique_id=645683784]
 preco = 16.0
+compravel = true
 flagToSetOnSteal = "roubouLoja2"
 
 [node name="objGalaoAgua" parent="Pickups/Dia4" unique_id=772996566 instance=ExtResource("18_j3wye")]
@@ -390,9 +470,10 @@ diaMaximo = 4
 
 [node name="galaoAgua" parent="Pickups/Dia4/objGalaoAgua" index="0" unique_id=1963751312]
 preco = 18.0
+compravel = true
 flagToSetOnSteal = "roubouLoja2"
 
-[node name="Dia5" type="Node" parent="Pickups" unique_id=1031396824]
+[node name="Dia5" type="Node3D" parent="Pickups" unique_id=1666784878]
 
 [node name="objAgua" parent="Pickups/Dia5" unique_id=288363588 instance=ExtResource("15_mag0k")]
 transform = Transform3D(0.47857764, 0, 0.87804514, 0, 1, 0, -0.87804514, 0, 0.47857764, -0.22768402, 0.90278506, -3.216026)
@@ -402,6 +483,7 @@ diaMaximo = 5
 
 [node name="garrafaAgua" parent="Pickups/Dia5/objAgua" index="0" unique_id=1482991818]
 preco = 5.0
+compravel = true
 flagToSetOnSteal = "roubouLoja2"
 
 [node name="objFeijao" parent="Pickups/Dia5" unique_id=1864931249 instance=ExtResource("16_04kjx")]
@@ -412,6 +494,7 @@ diaMaximo = 5
 
 [node name="lataFeijao" parent="Pickups/Dia5/objFeijao" index="0" unique_id=1762641796]
 preco = 4.0
+compravel = true
 flagToSetOnSteal = "roubouLoja2"
 
 [node name="objMarmita" parent="Pickups/Dia5" unique_id=851817362 instance=ExtResource("17_f7chx")]
@@ -422,6 +505,7 @@ diaMaximo = 5
 
 [node name="marmitaPickup" parent="Pickups/Dia5/objMarmita" index="0" unique_id=645683784]
 preco = 16.0
+compravel = true
 flagToSetOnSteal = "roubouLoja2"
 
 [node name="objGalaoAgua" parent="Pickups/Dia5" unique_id=2063523220 instance=ExtResource("18_j3wye")]
@@ -432,9 +516,10 @@ diaMaximo = 5
 
 [node name="galaoAgua" parent="Pickups/Dia5/objGalaoAgua" index="0" unique_id=1963751312]
 preco = 18.0
+compravel = true
 flagToSetOnSteal = "roubouLoja2"
 
-[node name="Dia6" type="Node" parent="Pickups" unique_id=2074595996]
+[node name="Dia6" type="Node3D" parent="Pickups" unique_id=1173057374]
 
 [node name="objAgua" parent="Pickups/Dia6" unique_id=1617272719 instance=ExtResource("15_mag0k")]
 transform = Transform3D(0.47857764, 0, 0.87804514, 0, 1, 0, -0.87804514, 0, 0.47857764, -0.22768402, 0.90278506, -3.216026)
@@ -444,6 +529,7 @@ diaMaximo = 6
 
 [node name="garrafaAgua" parent="Pickups/Dia6/objAgua" index="0" unique_id=1482991818]
 preco = 5.0
+compravel = true
 flagToSetOnSteal = "roubouLoja2"
 
 [node name="objFeijao" parent="Pickups/Dia6" unique_id=250801568 instance=ExtResource("16_04kjx")]
@@ -454,6 +540,7 @@ diaMaximo = 6
 
 [node name="lataFeijao" parent="Pickups/Dia6/objFeijao" index="0" unique_id=1762641796]
 preco = 4.0
+compravel = true
 flagToSetOnSteal = "roubouLoja2"
 
 [node name="objMarmita" parent="Pickups/Dia6" unique_id=1499425594 instance=ExtResource("17_f7chx")]
@@ -464,6 +551,7 @@ diaMaximo = 6
 
 [node name="marmitaPickup" parent="Pickups/Dia6/objMarmita" index="0" unique_id=645683784]
 preco = 16.0
+compravel = true
 flagToSetOnSteal = "roubouLoja2"
 
 [node name="objGalaoAgua" parent="Pickups/Dia6" unique_id=1326012606 instance=ExtResource("18_j3wye")]
@@ -474,9 +562,10 @@ diaMaximo = 6
 
 [node name="galaoAgua" parent="Pickups/Dia6/objGalaoAgua" index="0" unique_id=1963751312]
 preco = 18.0
+compravel = true
 flagToSetOnSteal = "roubouLoja2"
 
-[node name="Dia7" type="Node" parent="Pickups" unique_id=775952141]
+[node name="Dia7" type="Node3D" parent="Pickups" unique_id=1769284317]
 
 [node name="objAgua" parent="Pickups/Dia7" unique_id=2045509695 instance=ExtResource("15_mag0k")]
 transform = Transform3D(0.47857764, 0, 0.87804514, 0, 1, 0, -0.87804514, 0, 0.47857764, -0.22768402, 0.90278506, -3.216026)
@@ -485,6 +574,7 @@ diaMinimo = 7
 
 [node name="garrafaAgua" parent="Pickups/Dia7/objAgua" index="0" unique_id=1482991818]
 preco = 5.0
+compravel = true
 flagToSetOnSteal = "roubouLoja2"
 
 [node name="objFeijao" parent="Pickups/Dia7" unique_id=1311932091 instance=ExtResource("16_04kjx")]
@@ -494,6 +584,7 @@ diaMinimo = 7
 
 [node name="lataFeijao" parent="Pickups/Dia7/objFeijao" index="0" unique_id=1762641796]
 preco = 4.0
+compravel = true
 flagToSetOnSteal = "roubouLoja2"
 
 [node name="objMarmita" parent="Pickups/Dia7" unique_id=1196334741 instance=ExtResource("17_f7chx")]
@@ -503,6 +594,7 @@ diaMinimo = 7
 
 [node name="marmitaPickup" parent="Pickups/Dia7/objMarmita" index="0" unique_id=645683784]
 preco = 16.0
+compravel = true
 flagToSetOnSteal = "roubouLoja2"
 
 [node name="objGalaoAgua" parent="Pickups/Dia7" unique_id=2019644988 instance=ExtResource("18_j3wye")]
@@ -512,8 +604,17 @@ diaMinimo = 7
 
 [node name="galaoAgua" parent="Pickups/Dia7/objGalaoAgua" index="0" unique_id=1963751312]
 preco = 18.0
+compravel = true
 flagToSetOnSteal = "roubouLoja2"
 
+[node name="Atendente" parent="." unique_id=2040080851 instance=ExtResource("19_es8ce")]
+transform = Transform3D(1.2221549, 0, 0.8696766, 0, 1.5, 0, -0.8696766, 0, 1.2221549, -1.4028047, 1.0189027, -3.1218326)
+script = null
+
+[node name="Sprite3D" parent="Atendente/StaticBody3D" parent_id_path=PackedInt32Array(2040080851, 408448575) index="2" unique_id=1766881007]
+alcanceInteracao = 0.0
+
+[editable path="charGeraldoSalvador"]
 [editable path="Pickups/Dia1/objAgua"]
 [editable path="Pickups/Dia1/objFeijao"]
 [editable path="Pickups/Dia1/objMarmita"]
@@ -542,3 +643,4 @@ flagToSetOnSteal = "roubouLoja2"
 [editable path="Pickups/Dia7/objFeijao"]
 [editable path="Pickups/Dia7/objMarmita"]
 [editable path="Pickups/Dia7/objGalaoAgua"]
+[editable path="Atendente"]

@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://b3fy6w0lh1qmq"]
+
+[ext_resource type="Script" uid="uid://g406lwqsh4u2" path="res://Scripts/Dialogos/mecanicaIniciarDialogo.cs" id="1_6uake"]
+[ext_resource type="Script" uid="uid://b3hrgs61lvn5x" path="res://addons/dialogue_manager/nodes/marker/DialogueMarker3D.cs" id="1_vohni"]
+[ext_resource type="Shader" uid="uid://ba2yn3rm04xny" path="res://Assets/Shaders/HighlightNPC.gdshader" id="2_f72cw"]
+[ext_resource type="Resource" uid="uid://dna7gu4lxyd2w" path="res://Assets/Dialogos/Quests/01SemTetos/SemTetos_Naldo.dialogue" id="2_qbfay"]
+[ext_resource type="Texture2D" uid="uid://dmiknpsl7ey2k" path="res://Assets/Sprites/Personagens/NPCs/npcNaldo.webp" id="3_6uake"]
+[ext_resource type="Script" uid="uid://cbeumlxm2r5cw" path="res://Scripts/Camera/rotCameraPerson.cs" id="4_qbfay"]
+[ext_resource type="Script" uid="uid://di1arvpjf0c22" path="res://Scripts/Objetos/Gatekeep.cs" id="5_7nwrx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t5o0d"]
+size = Vector3(0.78771687, 1.1235352, 0.003)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0vwjf"]
+render_priority = -1
+shader = ExtResource("2_f72cw")
+shader_parameter/sprite_texture = ExtResource("3_6uake")
+shader_parameter/enable_outline = false
+shader_parameter/outline_color = Color(0.20463821, 0.5316224, 0.83996034, 1)
+shader_parameter/outline_thickness = 5.0000002375
+shader_parameter/glow_speed = 4.5000002104901196
+shader_parameter/glow_intensity = 0.750000035625
+
+[node name="Naldo" type="Node3D" unique_id=674993073]
+script = ExtResource("1_6uake")
+dialogue = ExtResource("2_qbfay")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1751596470]
+
+[node name="DialogueMarker3D" type="Marker3D" parent="StaticBody3D" unique_id=687569441]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44449052, 0.31752193, 0.16019109)
+script = ExtResource("1_vohni")
+CharacterName = "Naldo"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=924341173]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0016584098, -0.22469547, 0)
+shape = SubResource("BoxShape3D_t5o0d")
+
+[node name="Sprite3D" type="Sprite3D" parent="StaticBody3D" unique_id=428684596]
+material_overlay = SubResource("ShaderMaterial_0vwjf")
+pixel_size = 0.0025
+alpha_cut = 2
+alpha_antialiasing_mode = 1
+alpha_antialiasing_edge = 1.0
+texture_filter = 0
+texture = ExtResource("3_6uake")
+script = ExtResource("4_qbfay")
+rotateToPerson = false
+
+[node name="Gatekeep" type="Node" parent="." unique_id=1683383770]
+script = ExtResource("5_7nwrx")
+hideWhenFlag = "semtetos_grupo_abandonado"

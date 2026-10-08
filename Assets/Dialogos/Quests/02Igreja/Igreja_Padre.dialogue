@@ -21,7 +21,7 @@ if GetFlag("igreja_milagre_aceitou_tecnologia") and GetFlag("igreja_milagre_conc
 if GetFlag("igreja_milagre_presenciou_ia") and not GetFlag("igreja_milagre_concluida")
 	=> milagre
 
-if GetFlag("igreja_necessitados_concluida") and not GetFlag("igreja_milagre_presenciou_ia")
+if GetFlag("igreja_necessitados_entrega_comida") and GetFlag("igreja_necessitados_entrega_agua") and GetFlag("igreja_necessitados_entrega_cobertor") and not GetFlag("igreja_milagre_presenciou_ia")
 	=> depois_necessitados
 
 if GetFlag("igreja_palavra_tarefa_concluida") and not GetFlag("igreja_necessitados_concluida")
@@ -118,12 +118,17 @@ Padre: Às vezes, só precisamos fazer o que temos chegar até quem não tem.
 	Padre: Comida, água e alguns recursos básicos.
 	Padre: Não precisa resolver a vida de ninguém.
 	Padre: Apenas faça o que temos chegar até quem precisa.
+	$> GameState.SetFlag("igreja_necessitados_iniciado", true)
 	=> END
+
+- Ficar em silêncio.
+	Padre: Se quiser ajudar, sabe o que fazer.
+	$> GameState.SetFlag("igreja_necessitados_iniciado", true)
 
 - Perguntar por que a igreja faz isso.
 	Padre: Porque são pessoas.
 	Padre: Eu não acho que seja preciso encontrar uma razão mais complicada do que essa.
-	=> END
+	=> necessitados
 
 
 ~ depois_necessitados
@@ -144,6 +149,8 @@ Padre: E foi a partir dele que comecei a perceber que havia algo errado.
 
 Padre: Converse com ele.
 Padre: Depois volte aqui.
+
+$> GameState.SetFlag("igreja_necessitados_concluida", true)
 
 => END
 

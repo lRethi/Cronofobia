@@ -4,25 +4,33 @@
 [ext_resource type="Script" uid="uid://dk0ib5b4w24ll" path="res://addons/TileMapLayer3D/core/animated_tiles/animated_tile_data.gd" id="2_p88bu"]
 [ext_resource type="Script" uid="uid://bli432i5uj51v" path="res://addons/TileMapLayer3D/core/tile_creation_placement/tilemap_layer_settings.gd" id="3_a38qp"]
 [ext_resource type="Texture2D" uid="uid://dc6gkmwxhfqh1" path="res://Assets/Sprites/Cenario/Parede/Alameda.png" id="4_0vkq4"]
+[ext_resource type="Script" uid="uid://c2lxt2vjdjb4b" path="res://addons/TileMapLayer3D/nodes/static_collision_body.gd" id="5_hgh5k"]
 [ext_resource type="Texture2D" uid="uid://bjoe4yrudgr0a" path="res://Assets/Sprites/Cenario/Parede/Predio do victor.png" id="5_k85vw"]
 [ext_resource type="Texture2D" uid="uid://d1mrq7asj83j" path="res://Assets/Sprites/Cenario/Misc/cardoard.png" id="6_dvn4s"]
+[ext_resource type="Shape3D" uid="uid://byda7egyy61jf" path="res://Assets/Scenes/Loja1_CollisionData/Loja1_TileMapLayer3D_collision.res" id="6_reo5q"]
 [ext_resource type="Texture2D" uid="uid://c01nk4oedpxfs" path="res://Assets/Sprites/Cenario/Parede/MinhaCasaLiteralmente.png" id="7_p88bu"]
 [ext_resource type="PackedScene" uid="uid://bwpfieqkwkuhf" path="res://Assets/Props/Portas/portaAlameda.tscn" id="8_a38qp"]
+[ext_resource type="Shape3D" uid="uid://bjiqxs1arx1pk" path="res://Assets/Scenes/Loja1_CollisionData/Loja1_mesa_collision.res" id="8_esdjp"]
 [ext_resource type="PackedScene" uid="uid://4cvw5u3glyoy" path="res://Assets/Personagens/Protagonista.tscn" id="9_w3bdd"]
 [ext_resource type="Script" uid="uid://bt56plut0kdvx" path="res://Scripts/Camera/cameraBonitaDoFred.cs" id="10_blm62"]
+[ext_resource type="Shape3D" uid="uid://7e3x4svaeq1w" path="res://Assets/Scenes/Loja1_CollisionData/Loja1_card_collision.res" id="10_snsul"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="11_jn8c4"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="12_amorw"]
+[ext_resource type="Shape3D" uid="uid://d4klmvxwfu3ow" path="res://Assets/Scenes/Loja1_CollisionData/Loja1_patreleralera_collision.res" id="12_ftk2s"]
 [ext_resource type="PackedScene" uid="uid://bys0mhxwtdsi0" path="res://Assets/Itens/objFerramentas.tscn" id="13_os6rt"]
 [ext_resource type="PackedScene" uid="uid://bmcus7sbh0y07" path="res://Assets/Itens/objMadeira.tscn" id="14_mlmpd"]
 [ext_resource type="PackedScene" uid="uid://domsv65yjgreo" path="res://Assets/Itens/objCobertor.tscn" id="15_es8ce"]
 [ext_resource type="PackedScene" uid="uid://b4mgjc55khc8n" path="res://Assets/Itens/objAgua.tscn" id="16_ud7x3"]
 [ext_resource type="PackedScene" uid="uid://d1kp3yfxc7qii" path="res://Assets/Itens/objFeijao.tscn" id="17_jj1a2"]
+[ext_resource type="PackedScene" uid="uid://004tqboou7a3" path="res://Assets/Personagens/Atendente.tscn" id="18_mag0k"]
 
 [sub_resource type="Resource" id="Resource_w3bdd"]
 script = ExtResource("3_a38qp")
 tileset_texture = ExtResource("4_0vkq4")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(0, 0, 320, 320)
+smart_select_mode = 1
+main_app_mode = 2
 
 [sub_resource type="Resource" id="Resource_blm62"]
 script = ExtResource("3_a38qp")
@@ -32,6 +40,7 @@ selected_tile_uv = Rect2(0, 640, 320, 320)
 grid_snap_size = 0.5
 cursor_step_size = 0.5
 smart_select_mode = 1
+main_app_mode = 2
 mesh_mode = 2
 current_mesh_rotation = 2
 
@@ -40,11 +49,10 @@ script = ExtResource("3_a38qp")
 tileset_texture = ExtResource("6_dvn4s")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(960, 0, 320, 320)
-selected_tiles = Array[Rect2]([Rect2(960, 0, 320, 320)])
-tileset_zoom = 0.6209213230591549
 grid_snap_size = 0.5
 cursor_step_size = 0.5
 smart_select_mode = 1
+main_app_mode = 2
 
 [sub_resource type="Resource" id="Resource_a38qp"]
 script = ExtResource("3_a38qp")
@@ -54,6 +62,7 @@ selected_tile_uv = Rect2(0, 0, 320, 320)
 grid_snap_size = 0.5
 cursor_step_size = 0.5
 smart_select_mode = 1
+main_app_mode = 2
 mesh_mode = 3
 
 [sub_resource type="Resource" id="Resource_ei0sl"]
@@ -72,9 +81,15 @@ _tile_transform_indices = PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
 _tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
 _tile_anim_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1)
 _tile_anim_data = PackedFloat32Array()
-_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C1"), NodePath("SquareChunk_R0_0_-1_C1")]
-_box_chunks = [NodePath("BoxChunk_R0_0_0_C1"), NodePath("BoxChunk_R0_0_-1_C1"), NodePath("BoxChunk_R-1_0_0_C1")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R0_0_-1_C0")]
+_box_chunks = [NodePath("BoxChunk_R0_0_0_C0"), NodePath("BoxChunk_R0_0_-1_C0"), NodePath("BoxChunk_R-1_0_0_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
+
+[node name="@StaticBody3D@290818" type="StaticBody3D" parent="TileMapLayer3D" unique_id=1389196843]
+script = ExtResource("5_hgh5k")
+
+[node name="@CollisionShape3D@290817" type="CollisionShape3D" parent="TileMapLayer3D/@StaticBody3D@290818" unique_id=1511305057]
+shape = ExtResource("6_reo5q")
 
 [node name="mesa" type="Node3D" parent="." unique_id=1792653579 node_paths=PackedStringArray("_box_chunks", "_prism_chunks")]
 script = ExtResource("1_4x372")
@@ -86,9 +101,15 @@ _tile_transform_indices = PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
 _tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1)
 _tile_anim_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1)
 _tile_anim_data = PackedFloat32Array()
-_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C1"), NodePath("BoxChunk_R0_0_-1_C1")]
-_prism_chunks = [NodePath("PrismChunk_R0_0_-1_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0"), NodePath("BoxChunk_R0_0_-1_C0")]
+_prism_chunks = [NodePath("PrismChunk_R0_0_-1_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
+
+[node name="@StaticBody3D@289858" type="StaticBody3D" parent="mesa" unique_id=876950895]
+script = ExtResource("5_hgh5k")
+
+[node name="@CollisionShape3D@289857" type="CollisionShape3D" parent="mesa/@StaticBody3D@289858" unique_id=1144445707]
+shape = ExtResource("8_esdjp")
 
 [node name="card" type="Node3D" parent="." unique_id=1147276272 node_paths=PackedStringArray("_quad_chunks")]
 script = ExtResource("1_4x372")
@@ -100,8 +121,14 @@ _tile_transform_indices = PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
 _tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
 _tile_anim_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1)
 _tile_anim_data = PackedFloat32Array()
-_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C1"), NodePath("SquareChunk_R-1_0_-1_C1")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R-1_0_-1_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
+
+[node name="@StaticBody3D@288898" type="StaticBody3D" parent="card" unique_id=419536689]
+script = ExtResource("5_hgh5k")
+
+[node name="@CollisionShape3D@288897" type="CollisionShape3D" parent="card/@StaticBody3D@288898" unique_id=599290940]
+shape = ExtResource("10_snsul")
 
 [node name="patreleralera" type="Node3D" parent="." unique_id=1849625991 node_paths=PackedStringArray("_box_chunks", "_prism_chunks")]
 script = ExtResource("1_4x372")
@@ -113,9 +140,15 @@ _tile_transform_indices = PackedInt32Array(0, 1, 2, 3)
 _tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
 _tile_anim_indices = PackedInt32Array(-1, -1, -1, -1)
 _tile_anim_data = PackedFloat32Array()
-_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C1")]
-_prism_chunks = [NodePath("PrismChunk_R-1_0_-1_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_-1_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
+
+[node name="@StaticBody3D@287461" type="StaticBody3D" parent="patreleralera" unique_id=1360554659]
+script = ExtResource("5_hgh5k")
+
+[node name="@CollisionShape3D@287460" type="CollisionShape3D" parent="patreleralera/@StaticBody3D@287461" unique_id=1842333189]
+shape = ExtResource("12_ftk2s")
 
 [node name="portaBanco" parent="." unique_id=1353397638 node_paths=PackedStringArray("personagem") instance=ExtResource("8_a38qp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46818113, 0.99693096, -0.076205015)
@@ -125,69 +158,434 @@ closingTime = 1080.0
 isInterior = true
 cantInteractFlag = "roubouLoja1"
 
-[node name="charGeraldoSalvador" parent="." unique_id=1046664859 instance=ExtResource("9_w3bdd")]
+[node name="charGeraldoSalvador" parent="." unique_id=1046664859 node_paths=PackedStringArray("cameraNode", "cameraPivotNode") instance=ExtResource("9_w3bdd")]
 unique_name_in_owner = true
 transform = Transform3D(0.9998486, 0, 0.017397821, 0, 1, 0, -0.017397821, 0, 0.9998486, 0.23052251, 0.8416812, -0.83463466)
 safe_margin = 0.015
+cameraNode = NodePath("../PhantomCamera3D")
+cameraPivotNode = NodePath("../CameraPivot")
 
-[node name="CameraPivot" type="Node3D" parent="." unique_id=973411901]
+[node name="DirectionalSprite" parent="charGeraldoSalvador" index="3" unique_id=578035060 node_paths=PackedStringArray("cameraScript")]
+cameraScript = NodePath("../../CameraPivot")
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=973411901 node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.964635, 0, -4.950857)
 script = ExtResource("10_blm62")
+player = NodePath("../charGeraldoSalvador")
 
-[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=360918699]
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=360918699 node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+transform = Transform3D(0.99984866, 0, 0.017397823, 0, 1, 0, -0.017397823, 0, 0.99984866, 0.26531816, 0.8416812, 1.1650625)
 script = ExtResource("11_jn8c4")
 follow_mode = 6
+follow_target = NodePath("../charGeraldoSalvador")
 tween_resource = SubResource("Resource_ei0sl")
 tween_on_load = false
 follow_distance = 2.0
 spring_length = 2.0
 collision_mask = 31
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="objFerramentas" parent="." unique_id=1486293974 instance=ExtResource("13_os6rt")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.5283856, 0.84311795, -5.459429)
-diaMaximo = 1
+[node name="Pickups" type="Node3D" parent="." unique_id=907119612]
 
-[node name="ferramentasPickup" parent="objFerramentas" index="0" unique_id=73228649]
-preco = 7.0
-flagToSetOnSteal = "roubouLoja1"
+[node name="Day1" type="Node3D" parent="Pickups" unique_id=1477888299]
 
-[node name="objTabua" parent="." unique_id=1296188439 instance=ExtResource("14_mlmpd")]
+[node name="objTabua" parent="Pickups/Day1" unique_id=1296188439 instance=ExtResource("14_mlmpd")]
 transform = Transform3D(1.1211593, 0, 0.99649477, 0, 1.5, 0, -0.99649477, 0, 1.1211593, 0.53293204, 0.92274344, -5.7769117)
 diaMaximo = 1
 
-[node name="madeiraPickup" parent="objTabua" index="0" unique_id=978875287]
+[node name="madeiraPickup" parent="Pickups/Day1/objTabua" index="0" unique_id=978875287]
 preco = 6.0
+compravel = true
 flagToSetOnSteal = "roubouLoja1"
 
-[node name="objCobertor" parent="." unique_id=1861986911 instance=ExtResource("15_es8ce")]
+[node name="objCobertor" parent="Pickups/Day1" unique_id=1861986911 instance=ExtResource("15_es8ce")]
 transform = Transform3D(1.7336959, 0, 0.9971452, 0, 2, 0, -0.9971452, 0, 1.7336959, -0.04349643, 0.91349435, -5.348861)
 diaMaximo = 1
 
-[node name="cobertorPickup" parent="objCobertor" index="0" unique_id=47070940]
+[node name="cobertorPickup" parent="Pickups/Day1/objCobertor" index="0" unique_id=47070940]
 preco = 7.0
+compravel = true
 flagToSetOnSteal = "roubouLoja1"
 
-[node name="objAgua" parent="." unique_id=1479640235 instance=ExtResource("16_ud7x3")]
+[node name="objAgua" parent="Pickups/Day1" unique_id=1479640235 instance=ExtResource("16_ud7x3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2331202, 0.6961323, -5.129467)
 diaMaximo = 1
 
-[node name="garrafaAgua" parent="objAgua" index="0" unique_id=1482991818]
+[node name="garrafaAgua" parent="Pickups/Day1/objAgua" index="0" unique_id=1482991818]
 preco = 6.0
+compravel = true
 flagToSetOnSteal = "roubouLoja1"
 
-[node name="objFeijao" parent="." unique_id=134085674 instance=ExtResource("17_jj1a2")]
+[node name="objFeijao" parent="Pickups/Day1" unique_id=134085674 instance=ExtResource("17_jj1a2")]
 transform = Transform3D(0.45228663, 0, 0.89187264, 0, 1, 0, -0.89187264, 0, 0.45228663, -2.8331144, 0.6506537, -4.1699424)
 diaMaximo = 1
 
-[node name="lataFeijao" parent="objFeijao" index="0" unique_id=1762641796]
+[node name="lataFeijao" parent="Pickups/Day1/objFeijao" index="0" unique_id=1762641796]
 preco = 5.0
+compravel = true
 flagToSetOnSteal = "roubouLoja1"
 
-[editable path="objFerramentas"]
-[editable path="objTabua"]
-[editable path="objCobertor"]
-[editable path="objAgua"]
-[editable path="objFeijao"]
+[node name="objFerramentas" parent="Pickups/Day1" unique_id=1486293974 instance=ExtResource("13_os6rt")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.5283856, 0.84311795, -5.459429)
+diaMaximo = 1
+
+[node name="ferramentasPickup" parent="Pickups/Day1/objFerramentas" index="0" unique_id=73228649]
+preco = 7.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="Day2" type="Node3D" parent="Pickups" unique_id=1874553485]
+
+[node name="objTabua" parent="Pickups/Day2" unique_id=760306444 instance=ExtResource("14_mlmpd")]
+transform = Transform3D(1.1211593, 0, 0.99649477, 0, 1.5, 0, -0.99649477, 0, 1.1211593, 0.53293204, 0.92274344, -5.7769117)
+diaMinimo = 2
+diaMaximo = 2
+
+[node name="madeiraPickup" parent="Pickups/Day2/objTabua" index="0" unique_id=978875287]
+preco = 6.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="objCobertor" parent="Pickups/Day2" unique_id=1737747020 instance=ExtResource("15_es8ce")]
+transform = Transform3D(1.7336959, 0, 0.9971452, 0, 2, 0, -0.9971452, 0, 1.7336959, -0.04349643, 0.91349435, -5.348861)
+diaMinimo = 2
+diaMaximo = 2
+
+[node name="cobertorPickup" parent="Pickups/Day2/objCobertor" index="0" unique_id=47070940]
+preco = 7.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="objAgua" parent="Pickups/Day2" unique_id=1412866642 instance=ExtResource("16_ud7x3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2331202, 0.6961323, -5.129467)
+diaMinimo = 2
+diaMaximo = 2
+
+[node name="garrafaAgua" parent="Pickups/Day2/objAgua" index="0" unique_id=1482991818]
+preco = 6.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="objFeijao" parent="Pickups/Day2" unique_id=1020925168 instance=ExtResource("17_jj1a2")]
+transform = Transform3D(0.45228663, 0, 0.89187264, 0, 1, 0, -0.89187264, 0, 0.45228663, -2.8331144, 0.6506537, -4.1699424)
+diaMinimo = 2
+diaMaximo = 2
+
+[node name="lataFeijao" parent="Pickups/Day2/objFeijao" index="0" unique_id=1762641796]
+preco = 5.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="objFerramentas" parent="Pickups/Day2" unique_id=1390091603 instance=ExtResource("13_os6rt")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.5283856, 0.84311795, -5.459429)
+diaMinimo = 2
+diaMaximo = 2
+
+[node name="ferramentasPickup" parent="Pickups/Day2/objFerramentas" index="0" unique_id=73228649]
+preco = 7.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="Day3" type="Node3D" parent="Pickups" unique_id=1123112886]
+
+[node name="objTabua" parent="Pickups/Day3" unique_id=1954157698 instance=ExtResource("14_mlmpd")]
+transform = Transform3D(1.1211593, 0, 0.99649477, 0, 1.5, 0, -0.99649477, 0, 1.1211593, 0.53293204, 0.92274344, -5.7769117)
+diaMinimo = 3
+diaMaximo = 3
+
+[node name="madeiraPickup" parent="Pickups/Day3/objTabua" index="0" unique_id=978875287]
+preco = 6.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="objCobertor" parent="Pickups/Day3" unique_id=1880270468 instance=ExtResource("15_es8ce")]
+transform = Transform3D(1.7336959, 0, 0.9971452, 0, 2, 0, -0.9971452, 0, 1.7336959, -0.04349643, 0.91349435, -5.348861)
+diaMinimo = 3
+diaMaximo = 3
+
+[node name="cobertorPickup" parent="Pickups/Day3/objCobertor" index="0" unique_id=47070940]
+preco = 7.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="objAgua" parent="Pickups/Day3" unique_id=1951283933 instance=ExtResource("16_ud7x3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2331202, 0.6961323, -5.129467)
+diaMinimo = 3
+diaMaximo = 3
+
+[node name="garrafaAgua" parent="Pickups/Day3/objAgua" index="0" unique_id=1482991818]
+preco = 6.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="objFeijao" parent="Pickups/Day3" unique_id=1463189058 instance=ExtResource("17_jj1a2")]
+transform = Transform3D(0.45228663, 0, 0.89187264, 0, 1, 0, -0.89187264, 0, 0.45228663, -2.8331144, 0.6506537, -4.1699424)
+diaMinimo = 3
+diaMaximo = 3
+
+[node name="lataFeijao" parent="Pickups/Day3/objFeijao" index="0" unique_id=1762641796]
+preco = 5.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="objFerramentas" parent="Pickups/Day3" unique_id=1569327381 instance=ExtResource("13_os6rt")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.5283856, 0.84311795, -5.459429)
+diaMinimo = 3
+diaMaximo = 3
+
+[node name="ferramentasPickup" parent="Pickups/Day3/objFerramentas" index="0" unique_id=73228649]
+preco = 7.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="Day4" type="Node3D" parent="Pickups" unique_id=2121348609]
+
+[node name="objTabua" parent="Pickups/Day4" unique_id=1220163998 instance=ExtResource("14_mlmpd")]
+transform = Transform3D(1.1211593, 0, 0.99649477, 0, 1.5, 0, -0.99649477, 0, 1.1211593, 0.53293204, 0.92274344, -5.7769117)
+diaMinimo = 4
+diaMaximo = 4
+
+[node name="madeiraPickup" parent="Pickups/Day4/objTabua" index="0" unique_id=978875287]
+preco = 6.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="objCobertor" parent="Pickups/Day4" unique_id=814726269 instance=ExtResource("15_es8ce")]
+transform = Transform3D(1.7336959, 0, 0.9971452, 0, 2, 0, -0.9971452, 0, 1.7336959, -0.04349643, 0.91349435, -5.348861)
+diaMinimo = 4
+diaMaximo = 4
+
+[node name="cobertorPickup" parent="Pickups/Day4/objCobertor" index="0" unique_id=47070940]
+preco = 7.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="objAgua" parent="Pickups/Day4" unique_id=154037253 instance=ExtResource("16_ud7x3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2331202, 0.6961323, -5.129467)
+diaMinimo = 4
+diaMaximo = 4
+
+[node name="garrafaAgua" parent="Pickups/Day4/objAgua" index="0" unique_id=1482991818]
+preco = 6.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="objFeijao" parent="Pickups/Day4" unique_id=1045625135 instance=ExtResource("17_jj1a2")]
+transform = Transform3D(0.45228663, 0, 0.89187264, 0, 1, 0, -0.89187264, 0, 0.45228663, -2.8331144, 0.6506537, -4.1699424)
+diaMinimo = 4
+diaMaximo = 4
+
+[node name="lataFeijao" parent="Pickups/Day4/objFeijao" index="0" unique_id=1762641796]
+preco = 5.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="objFerramentas" parent="Pickups/Day4" unique_id=257125961 instance=ExtResource("13_os6rt")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.5283856, 0.84311795, -5.459429)
+diaMinimo = 4
+diaMaximo = 4
+
+[node name="ferramentasPickup" parent="Pickups/Day4/objFerramentas" index="0" unique_id=73228649]
+preco = 7.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="Day5" type="Node3D" parent="Pickups" unique_id=1717888198]
+
+[node name="objTabua" parent="Pickups/Day5" unique_id=1159382714 instance=ExtResource("14_mlmpd")]
+transform = Transform3D(1.1211593, 0, 0.99649477, 0, 1.5, 0, -0.99649477, 0, 1.1211593, 0.53293204, 0.92274344, -5.7769117)
+diaMinimo = 5
+diaMaximo = 5
+
+[node name="madeiraPickup" parent="Pickups/Day5/objTabua" index="0" unique_id=978875287]
+preco = 6.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="objCobertor" parent="Pickups/Day5" unique_id=467183056 instance=ExtResource("15_es8ce")]
+transform = Transform3D(1.7336959, 0, 0.9971452, 0, 2, 0, -0.9971452, 0, 1.7336959, -0.04349643, 0.91349435, -5.348861)
+diaMinimo = 5
+diaMaximo = 5
+
+[node name="cobertorPickup" parent="Pickups/Day5/objCobertor" index="0" unique_id=47070940]
+preco = 7.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="objAgua" parent="Pickups/Day5" unique_id=1610668374 instance=ExtResource("16_ud7x3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2331202, 0.6961323, -5.129467)
+diaMinimo = 5
+diaMaximo = 5
+
+[node name="garrafaAgua" parent="Pickups/Day5/objAgua" index="0" unique_id=1482991818]
+preco = 6.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="objFeijao" parent="Pickups/Day5" unique_id=2057839322 instance=ExtResource("17_jj1a2")]
+transform = Transform3D(0.45228663, 0, 0.89187264, 0, 1, 0, -0.89187264, 0, 0.45228663, -2.8331144, 0.6506537, -4.1699424)
+diaMinimo = 5
+diaMaximo = 5
+
+[node name="lataFeijao" parent="Pickups/Day5/objFeijao" index="0" unique_id=1762641796]
+preco = 5.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="objFerramentas" parent="Pickups/Day5" unique_id=954376153 instance=ExtResource("13_os6rt")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.5283856, 0.84311795, -5.459429)
+diaMinimo = 5
+diaMaximo = 5
+
+[node name="ferramentasPickup" parent="Pickups/Day5/objFerramentas" index="0" unique_id=73228649]
+preco = 7.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="Day6" type="Node3D" parent="Pickups" unique_id=649569942]
+
+[node name="objTabua" parent="Pickups/Day6" unique_id=1340565266 instance=ExtResource("14_mlmpd")]
+transform = Transform3D(1.1211593, 0, 0.99649477, 0, 1.5, 0, -0.99649477, 0, 1.1211593, 0.53293204, 0.92274344, -5.7769117)
+diaMinimo = 6
+diaMaximo = 6
+
+[node name="madeiraPickup" parent="Pickups/Day6/objTabua" index="0" unique_id=978875287]
+preco = 6.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="objCobertor" parent="Pickups/Day6" unique_id=1134574094 instance=ExtResource("15_es8ce")]
+transform = Transform3D(1.7336959, 0, 0.9971452, 0, 2, 0, -0.9971452, 0, 1.7336959, -0.04349643, 0.91349435, -5.348861)
+diaMinimo = 6
+diaMaximo = 6
+
+[node name="cobertorPickup" parent="Pickups/Day6/objCobertor" index="0" unique_id=47070940]
+preco = 7.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="objAgua" parent="Pickups/Day6" unique_id=1935310290 instance=ExtResource("16_ud7x3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2331202, 0.6961323, -5.129467)
+diaMinimo = 6
+diaMaximo = 6
+
+[node name="garrafaAgua" parent="Pickups/Day6/objAgua" index="0" unique_id=1482991818]
+preco = 6.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="objFeijao" parent="Pickups/Day6" unique_id=375909422 instance=ExtResource("17_jj1a2")]
+transform = Transform3D(0.45228663, 0, 0.89187264, 0, 1, 0, -0.89187264, 0, 0.45228663, -2.8331144, 0.6506537, -4.1699424)
+diaMinimo = 6
+diaMaximo = 6
+
+[node name="lataFeijao" parent="Pickups/Day6/objFeijao" index="0" unique_id=1762641796]
+preco = 5.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="objFerramentas" parent="Pickups/Day6" unique_id=1570717120 instance=ExtResource("13_os6rt")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.5283856, 0.84311795, -5.459429)
+diaMinimo = 6
+diaMaximo = 6
+
+[node name="ferramentasPickup" parent="Pickups/Day6/objFerramentas" index="0" unique_id=73228649]
+preco = 7.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="Day7" type="Node3D" parent="Pickups" unique_id=74115494]
+
+[node name="objTabua" parent="Pickups/Day7" unique_id=851791094 instance=ExtResource("14_mlmpd")]
+transform = Transform3D(1.1211593, 0, 0.99649477, 0, 1.5, 0, -0.99649477, 0, 1.1211593, 0.53293204, 0.92274344, -5.7769117)
+diaMinimo = 7
+
+[node name="madeiraPickup" parent="Pickups/Day7/objTabua" index="0" unique_id=978875287]
+preco = 6.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="objCobertor" parent="Pickups/Day7" unique_id=883897766 instance=ExtResource("15_es8ce")]
+transform = Transform3D(1.7336959, 0, 0.9971452, 0, 2, 0, -0.9971452, 0, 1.7336959, -0.04349643, 0.91349435, -5.348861)
+diaMinimo = 7
+
+[node name="cobertorPickup" parent="Pickups/Day7/objCobertor" index="0" unique_id=47070940]
+preco = 7.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="objAgua" parent="Pickups/Day7" unique_id=672557351 instance=ExtResource("16_ud7x3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2331202, 0.6961323, -5.129467)
+diaMinimo = 7
+
+[node name="garrafaAgua" parent="Pickups/Day7/objAgua" index="0" unique_id=1482991818]
+preco = 6.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="objFeijao" parent="Pickups/Day7" unique_id=907461936 instance=ExtResource("17_jj1a2")]
+transform = Transform3D(0.45228663, 0, 0.89187264, 0, 1, 0, -0.89187264, 0, 0.45228663, -2.8331144, 0.6506537, -4.1699424)
+diaMinimo = 7
+
+[node name="lataFeijao" parent="Pickups/Day7/objFeijao" index="0" unique_id=1762641796]
+preco = 5.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="objFerramentas" parent="Pickups/Day7" unique_id=338576507 instance=ExtResource("13_os6rt")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.5283856, 0.84311795, -5.459429)
+diaMinimo = 7
+
+[node name="ferramentasPickup" parent="Pickups/Day7/objFerramentas" index="0" unique_id=73228649]
+preco = 7.0
+compravel = true
+flagToSetOnSteal = "roubouLoja1"
+
+[node name="Atendente" parent="." unique_id=2040080851 instance=ExtResource("18_mag0k")]
+transform = Transform3D(1.4994758, 0, 0.03965977, 0, 1.5, 0, -0.03965977, 0, 1.4994758, -1.1070178, 1.069343, -5.8624988)
+script = null
+
+[node name="Sprite3D" parent="Atendente/StaticBody3D" parent_id_path=PackedInt32Array(2040080851, 408448575) index="2" unique_id=1766881007]
+alcanceInteracao = 0.0
+
+[editable path="charGeraldoSalvador"]
+[editable path="Pickups/Day1/objTabua"]
+[editable path="Pickups/Day1/objCobertor"]
+[editable path="Pickups/Day1/objAgua"]
+[editable path="Pickups/Day1/objFeijao"]
+[editable path="Pickups/Day1/objFerramentas"]
+[editable path="Pickups/Day2/objTabua"]
+[editable path="Pickups/Day2/objCobertor"]
+[editable path="Pickups/Day2/objAgua"]
+[editable path="Pickups/Day2/objFeijao"]
+[editable path="Pickups/Day2/objFerramentas"]
+[editable path="Pickups/Day3/objTabua"]
+[editable path="Pickups/Day3/objCobertor"]
+[editable path="Pickups/Day3/objAgua"]
+[editable path="Pickups/Day3/objFeijao"]
+[editable path="Pickups/Day3/objFerramentas"]
+[editable path="Pickups/Day4/objTabua"]
+[editable path="Pickups/Day4/objCobertor"]
+[editable path="Pickups/Day4/objAgua"]
+[editable path="Pickups/Day4/objFeijao"]
+[editable path="Pickups/Day4/objFerramentas"]
+[editable path="Pickups/Day5/objTabua"]
+[editable path="Pickups/Day5/objCobertor"]
+[editable path="Pickups/Day5/objAgua"]
+[editable path="Pickups/Day5/objFeijao"]
+[editable path="Pickups/Day5/objFerramentas"]
+[editable path="Pickups/Day6/objTabua"]
+[editable path="Pickups/Day6/objCobertor"]
+[editable path="Pickups/Day6/objAgua"]
+[editable path="Pickups/Day6/objFeijao"]
+[editable path="Pickups/Day6/objFerramentas"]
+[editable path="Pickups/Day7/objTabua"]
+[editable path="Pickups/Day7/objCobertor"]
+[editable path="Pickups/Day7/objAgua"]
+[editable path="Pickups/Day7/objFeijao"]
+[editable path="Pickups/Day7/objFerramentas"]
+[editable path="Atendente"]

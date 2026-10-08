@@ -1,0 +1,338 @@
+[gd_scene format=3 uid="uid://h8b211hx81km"]
+
+[ext_resource type="Script" uid="uid://cfkecrj0kmwxp" path="res://Scripts/Menu/endingController.cs" id="1_qugsi"]
+[ext_resource type="Texture2D" uid="uid://dr4aqlg15g5mi" path="res://Assets/Sprites/HUD/Finais/geraldoMorto.jpg" id="2_c3dss"]
+[ext_resource type="FontFile" uid="uid://cqr3wp0jf5r5n" path="res://Assets/Fontes/fragile-bombers.down-regular.otf" id="3_qugsi"]
+[ext_resource type="FontFile" uid="uid://d0l83dbasooy7" path="res://Assets/Fontes/neuromax.regular.ttf" id="4_ptx6a"]
+
+[sub_resource type="Animation" id="Animation_lrcc7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Texto/Titulo:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Texto/Desc1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Texto/Desc2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Texto/Desc3:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Texto/Desc4:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Texto/Desc4:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Texto/Desc3:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Texto/Desc2:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Texto/Desc1:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_e07ce"]
+resource_name = "endingSequence"
+length = 2.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Texto/Titulo:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Texto/Desc1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Texto/Desc2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Texto/Desc3:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Texto/Desc4:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Texto/Desc4:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Texto/Desc3:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.4, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Texto/Desc2:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Texto/Desc1:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xy8nv"]
+_data = {
+&"RESET": SubResource("Animation_lrcc7"),
+&"endingSequence": SubResource("Animation_e07ce")
+}
+
+[node name="Node2D" type="Node2D" unique_id=1613329645 node_paths=PackedStringArray("animationPlayer")]
+script = ExtResource("1_qugsi")
+animationPlayer = NodePath("Node/AnimationPlayer")
+
+[node name="Visual" type="Node" parent="." unique_id=1669398049]
+
+[node name="ColorRect" type="ColorRect" parent="Visual" unique_id=802900451]
+modulate = Color(0.74978, 0.74978, 0.74977994, 1)
+offset_right = 1151.0
+offset_bottom = 647.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Visual" unique_id=1930918602]
+offset_right = 556.0
+offset_bottom = 649.0
+texture = ExtResource("2_c3dss")
+expand_mode = 1
+
+[node name="Texto" type="Node" parent="." unique_id=360240040]
+
+[node name="Titulo" type="RichTextLabel" parent="Texto" unique_id=1838809718]
+offset_left = 683.0
+offset_top = 73.0
+offset_right = 1020.0
+offset_bottom = 139.0
+theme_override_fonts/normal_font = ExtResource("3_qugsi")
+theme_override_font_sizes/normal_font_size = 38
+text = "FINAL IV - Assimilação"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Desc1" type="RichTextLabel" parent="Texto" unique_id=1266770706]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_left = 622.0
+offset_top = 138.0
+offset_right = 1048.0
+offset_bottom = 217.0
+theme_override_fonts/normal_font = ExtResource("4_ptx6a")
+text = "As palavras d'Ele ajudam a inibir os murmúrios imparáveis do painel em seu braço, estabilizado na frequência do Deus-Máquina.
+"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Desc2" type="RichTextLabel" parent="Texto" unique_id=1823145351]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_left = 622.0
+offset_top = 217.0
+offset_right = 1048.0
+offset_bottom = 296.0
+theme_override_fonts/normal_font = ExtResource("4_ptx6a")
+text = "Agora seus dias, mais calmos, se resumem a ir aos cultos e ajudar na igreja..."
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Desc3" type="RichTextLabel" parent="Texto" unique_id=515386837]
+modulate = Color(1, 1, 1, 0)
+offset_left = 619.0
+offset_top = 296.0
+offset_right = 1045.0
+offset_bottom = 375.0
+theme_override_fonts/normal_font = ExtResource("4_ptx6a")
+text = "Mas, na calada da noite, você se pergunta às vezes:"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Desc4" type="RichTextLabel" parent="Texto" unique_id=1550996435]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_left = 619.0
+offset_top = 375.0
+offset_right = 1045.0
+offset_bottom = 454.0
+theme_override_fonts/normal_font = ExtResource("4_ptx6a")
+text = "É isso mesmo que a sua vida deveria ser? Ou você apenas encontrou uma voz diferente para obedecer?\"
+"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Desc5" type="RichTextLabel" parent="Texto" unique_id=493689044]
+offset_left = 619.0
+offset_top = 554.0
+offset_right = 1045.0
+offset_bottom = 633.0
+theme_override_colors/default_color = Color(0, 0.7647059, 0.8784314, 1)
+theme_override_fonts/normal_font = ExtResource("4_ptx6a")
+text = "..."
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Node" type="Node" parent="." unique_id=366789642]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node" unique_id=2063885325]
+libraries/ = SubResource("AnimationLibrary_xy8nv")

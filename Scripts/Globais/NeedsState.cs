@@ -118,4 +118,19 @@ public partial class NeedsState : Node
     {
         return Mathf.RoundToInt(maximoDinheiro);
     }
+
+    public void Resetar()
+    {
+        varFome = 0f;
+        varSede = 0f;
+        varDinheiro = 0f;
+
+        maximoFome = 3f;
+        maximoSede = 3f;
+        maximoDinheiro = 100f;
+
+        EmitSignal(SignalName.HungerChanged, varFome);
+        EmitSignal(SignalName.ThirstChanged, varSede);
+        EmitSignal(SignalName.MoneyChanged, varDinheiro);
+    }
 }

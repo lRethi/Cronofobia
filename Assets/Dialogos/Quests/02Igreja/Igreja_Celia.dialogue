@@ -1,17 +1,29 @@
 ~ start
 
 if GetFlag("igreja_necessitados_entrega_cobertor")
-	Célia: O cobertor ainda está comigo.
+	Célia: Muito obrigada pelo cobertor de novo, querido.
 	Célia: Parece pouca coisa, eu sei...
-	Célia: Mas quando você dorme do lado de fora, qualquer coisa já faz diferença.
+	Célia: Mas, realmente ajudou quem precisava.
 	=> END
 
-Célia: Disseram que você está fazendo algumas entregas pela igreja.
-Célia: Eu só estou precisando de alguma coisa pra me proteger do frio.
+if GetFlag("igreja_necessitados_iniciado")
+	=> celiaDialogoQuest
 
-- Tenho um cobertor.
+Célia: Bom dia, querido.
+Célia: Precisa de alguma coisa?
+Célia: Nós, da igreja, estamos sempre de braços abertos para auxiliar a comunidade.
+Célia: Você devia falar com o padre... Vamos, entre, entre.
+=> END
+
+~ celiaDialogoQuest
+Célia: Disseram que você está fazendo algumas entregas pela igreja.
+Célia: Se você me trouxer algo para ajudar com o frio, eu posso coordenar pra entregar isso pra quem precisa.
+
+- Oferecer cobertor.
 	$> InventoryState.OferecerItem()
 	=> verificar_oferta
+- Ficar em silêncio.
+=> END
 
 
 ~ verificar_oferta

@@ -1,16 +1,22 @@
 ~ start
+
+if GetFlag("agua_finalizada")
+	=> flaviaUltimoDialogo
+
+if not GetFlag("agua_iniciada")
+	=> flaviaDialogoStartQuest
+
+Flávia: Eu me lembro de como a fonte era linda...
+Flávia: Nas noites de natal, brilhante e reluzente...
+Flávia: E com uma água tão doce e refrescante...
+=> END
+
+~ flaviaDialogoStartQuest
 Flávia: Veio aqui para beber água e se abrigar, assim como nós?
 Flávia: Uma pena, senhor...
 Flávia: Você está alguns anos atrasado.
 Flávia: A fonte foi desligada, e a água parou de ser roteada para cá...
-
 $> GameState.SetFlag("agua_iniciada")
-=> END
-
-~ flaviaSegundoDialogo
-Flávia: Eu me lembro de como a fonte era linda...
-Flávia: Nas noites de natal, brilhante e reluzente...
-Flávia: E com uma água tão doce e refrescante...
 => END
 
 ~ flaviaUltimoDialogo

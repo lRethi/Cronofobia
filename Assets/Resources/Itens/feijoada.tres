@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://03r3o3qtoahj"]
+
+[ext_resource type="Script" uid="uid://c34nkk713lbx5" path="res://Scripts/Resources/ItemDefinition.cs" id="1_pqbgm"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_w8kwr"]
+load_path = "res://.godot/imported/Feijoada.png-0e52a8de52c68e73f9d53c813163ce6d.s3tc.ctex"
+
+[resource]
+script = ExtResource("1_pqbgm")
+Id = "feijoada"
+Nome = "Feijoada"
+Descricao = "Uma feijoada caseira. Tanto nutritiva quanto hidratante."
+Textura = SubResource("CompressedTexture2D_w8kwr")
+FomeAoUsar = 2.0
+SedeAoUsar = 2.0
+metadata/_custom_type_script = "uid://c34nkk713lbx5"

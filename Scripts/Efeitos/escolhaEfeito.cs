@@ -21,16 +21,16 @@ public partial class escolhaEfeito : CanvasLayer
 	{
 		efeitos = opcoes;
 
-		botao1.GetNode<Label>("Nome").Text = efeitos[0].Nome;
-		botao1.GetNode<Label>("Desc").Text = efeitos[0].Desc;
+		botao1.GetNode<RichTextLabel>("Nome").Text = efeitos[0].Nome;
+		botao1.GetNode<RichTextLabel>("Desc").Text = efeitos[0].Desc;
 		botao1.GetNode<TextureRect>("Sprite").Texture = GD.Load<Texture2D>(efeitos[0].SpritePath);
 
-		botao2.GetNode<Label>("Nome").Text = efeitos[1].Nome;
-		botao2.GetNode<Label>("Desc").Text = efeitos[1].Desc;
+		botao2.GetNode<RichTextLabel>("Nome").Text = efeitos[1].Nome;
+		botao2.GetNode<RichTextLabel>("Desc").Text = efeitos[1].Desc;
 		botao2.GetNode<TextureRect>("Sprite").Texture = GD.Load<Texture2D>(efeitos[1].SpritePath);
 
-		botao3.GetNode<Label>("Nome").Text = efeitos[2].Nome;
-		botao3.GetNode<Label>("Desc").Text = efeitos[2].Desc;
+		botao3.GetNode<RichTextLabel>("Nome").Text = efeitos[2].Nome;
+		botao3.GetNode<RichTextLabel>("Desc").Text = efeitos[2].Desc;
 		botao3.GetNode<TextureRect>("Sprite").Texture = GD.Load<Texture2D>(efeitos[2].SpritePath);
 	}
 	private void OnBotao1Pressed()

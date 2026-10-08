@@ -210,45 +210,48 @@ public partial class TimeState : Node
             comidaSuficiente = teveComida;
             aguaSuficiente = teveAgua;
 
-            if (teveComida)
-                diasSemComer = 0;
-            else
+            if (!teveComida)
                 diasSemComer++;
 
-            if (teveAgua)
-                diasSemBeber = 0;
-            else
+            if (!teveAgua)
                 diasSemBeber++;
 
             bool temAbrigo =
                 lugarParaDormir ||
                 EffectManager.Instance.PermiteDormirSemLugar();
 
-            if (temAbrigo)
-                diasSemAbrigo = 0;
-            else
+            if (!temAbrigo)
                 diasSemAbrigo++;
 
             if (diasSemComer >= maximoDiasSemComer)
             {
-                GameState.Instance.endGame("semComida");
+                GameState.Instance.endGame("fimInevitavel");
                 return;
             }
 
             if (diasSemBeber >= maximoDiasSemBeber)
             {
-                GameState.Instance.endGame("semAgua");
+                GameState.Instance.endGame("fimInevitavel");
                 return;
             }
 
             if (diasSemAbrigo >= maximoDiasSemAbrigo)
             {
-                GameState.Instance.endGame("semLugarParaDormir");
+                GameState.Instance.endGame("frioDaNoite");
                 return;
             }
         }
 
+        if(diaAtual >= maximoDias)
+        {
+            GameState.Instance.endingSequence();
+        }
+
         EffectManager.Instance.FimDoDia();
+
+        if(GameState.Instance.GetFlag("roubouLoja1")) GameState.Instance.SetFlag("roubouLoja1", false);
+        if(GameState.Instance.GetFlag("roubouLoja2")) GameState.Instance.SetFlag("roubouLoja2", false);
+        if(GameState.Instance.GetFlag("roubouLoja3")) GameState.Instance.SetFlag("roubouLoja3", false);
 
         CongelarTempo();
 
@@ -365,6 +368,45 @@ public partial class TimeState : Node
                 0,
                 novoMaximo
             );
+    }
+
+    public void Resetar()
+    {
+        duracaoDiaSegundos = 120f;
+
+        minutoDoDia = 480f;
+        minutoInicioDia = 480f;
+        minutoFimNoite = 1320f;
+
+        escalaTempo = 1f;
+
+        diaAtual = 1;
+        maximoDias = 7;
+
+        maximoDiasSemComer = 2;
+        maximoDiasSemBeber = 2;
+        maximoDiasSemAbrigo = 2;
+
+        diasSemComer = 0;
+        diasSemBeber = 0;
+        diasSemAbrigo = 0;
+
+        lugarParaDormir = true;
+        comidaSuficiente = true;
+        aguaSuficiente = true;
+
+        noiteFinalizada = false;
+
+        currentDayState = GetDayState(minutoDoDia);
+        ultimoMinuto = Mathf.FloorToInt(minutoDoDia);
+
+        capturasRestantes = 2;
+
+        GameState.TempoCongelado = false;
+
+        TimeChanged?.Invoke(minutoDoDia);
+        DayChanged?.Invoke(diaAtual);
+        DayStateChanged?.Invoke(currentDayState);
     }
 }
 

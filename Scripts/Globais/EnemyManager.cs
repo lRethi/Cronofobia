@@ -3,40 +3,52 @@ using System.Collections.Generic;
 
 public partial class EnemyManager : Node3D
 {
-    [Export] public string flagRoubo = "roubouLoja1";
-    [Export] public PackedScene cenaInimigo;
-    [Export] public Node3D pontoSpawn1;
-    [Export] public Node3D pontoSpawn2;
-    [Export] public Node3D pontoCaptura;
-    [Export] public Node3D player;
+	[Export] public string flagRoubo = "roubouLoja1";
+	[Export] public PackedScene cenaInimigo;
+	[Export] public Node3D pontoSpawn1;
+	[Export] public Node3D pontoSpawn2;
+	[Export] public Node3D pontoCaptura;
+	[Export] public Node3D player;
 
-    private bool alertaAtivada = false;
-    private bool capturaEmAndamento = false;
+	private bool alertaAtivada = false;
+	private bool capturaEmAndamento = false;
+	private readonly List<inimPerseguirProta> inimigos = new();
 
-    private readonly List<inimPerseguirProta> inimigos = new();
+	public override void _Ready()
+	{
+		if (GameState.Instance == null)
+		{
+			return;
+		}
 
-    public override void _Ready()
-    {
-        if (GameState.Instance != null)
-        {
-            GameState.Instance.FlagChanged += OnFlagChanged;
+		GameState.Instance.FlagChanged += OnFlagChanged;
+		CallDeferred(nameof(VerificarRouboInicial));
+	}
 
-            if (GameState.Instance.GetFlag(flagRoubo))
-            {
-                Alertar();
-            }
-        }
-    }
+	public override void _ExitTree()
+	{
+		if (GameState.Instance != null)
+		{
+			GameState.Instance.FlagChanged -= OnFlagChanged;
+		}
+	}
 
-    public override void _ExitTree()
-    {
-        if (GameState.Instance != null)
-        {
-            GameState.Instance.FlagChanged -= OnFlagChanged;
-        }
-    }
+	private void VerificarRouboInicial()
+	{
+		if (GameState.Instance == null)
+		{
+			return;
+		}
 
-    private void OnFlagChanged(string flag, bool valor)
+		if (!GameState.Instance.GetFlag(flagRoubo))
+		{
+			return;
+		}
+
+		Alertar();
+	}
+
+	private void OnFlagChanged(string flag, bool valor)
     {
         if (flag != flagRoubo)
         {
@@ -45,115 +57,150 @@ public partial class EnemyManager : Node3D
 
         if (!valor)
         {
+            alertaAtivada = false;
+            capturaEmAndamento = false;
+            DestruirInimigos();
             return;
         }
 
-        Alertar();
+        CallDeferred(nameof(Alertar));
     }
 
-    private void Alertar()
-    {
-        if (alertaAtivada)
-        {
-            return;
-        }
+	private void Alertar()
+	{
+		if (alertaAtivada)
+		{
+			return;
+		}
 
-        if (cenaInimigo == null)
-        {
-            return;
-        }
+		if (cenaInimigo == null)
+		{
+			return;
+		}
 
-        alertaAtivada = true;
+		Node3D playerAtual = ObterPlayerAtual();
 
-        Node3D playerAtual = ObterPlayerAtual();
+		if (playerAtual == null)
+		{
+			return;
+		}
 
-        if (playerAtual == null)
-        {
-            return;
-        }
+		bool algumInimigoSpawnado = false;
 
-        SpawnInimigo(pontoSpawn1, playerAtual);
-        SpawnInimigo(pontoSpawn2, playerAtual);
-    }
+		if (pontoSpawn1 != null)
+		{
+			SpawnInimigo(pontoSpawn1, playerAtual);
+			algumInimigoSpawnado = true;
+		}
 
-    private Node3D ObterPlayerAtual()
-    {
-        if (IsInstanceValid(player))
-        {
-            return player;
-        }
+		if (pontoSpawn2 != null)
+		{
+			SpawnInimigo(pontoSpawn2, playerAtual);
+			algumInimigoSpawnado = true;
+		}
 
-        if (WorldManager.Instance == null)
-        {
-            return null;
-        }
+		if (!algumInimigoSpawnado)
+		{
+			return;
+		}
 
-        if (WorldManager.Instance.AreaAtual == null)
-        {
-            return null;
-        }
+		alertaAtivada = true;
+	}
 
-        return WorldManager.Instance.AreaAtual.personagem;
-    }
+	private Node3D ObterPlayerAtual()
+	{
+		if (IsInstanceValid(player))
+		{
+			return player;
+		}
 
-    private void SpawnInimigo(Node3D pontoSpawn, Node3D playerAtual)
-    {
-        if (pontoSpawn == null)
-        {
-            return;
-        }
+		if (WorldManager.Instance == null)
+		{
+			return null;
+		}
 
-        var inimigo = cenaInimigo.Instantiate<inimPerseguirProta>();
+		if (WorldManager.Instance.AreaAtual == null)
+		{
+			return null;
+		}
 
-        AddChild(inimigo);
+		WorldArea areaAtual = WorldManager.Instance.AreaAtual;
 
-        inimigo.GlobalTransform = pontoSpawn.GlobalTransform;
-        inimigo.player = playerAtual;
+		if (!IsInstanceValid(areaAtual.personagem))
+		{
+			return null;
+		}
 
-        inimigo.PlayerColidiu += OnPlayerColidiu;
+		return areaAtual.personagem;
+	}
 
-        inimigos.Add(inimigo);
-    }
+	private void SpawnInimigo(Node3D pontoSpawn, Node3D playerAtual)
+	{
+		if (pontoSpawn == null || cenaInimigo == null || playerAtual == null)
+		{
+			return;
+		}
 
-    private void OnPlayerColidiu()
-    {
-        if (capturaEmAndamento)
-        {
-            return;
-        }
+		inimPerseguirProta inimigo = cenaInimigo.Instantiate<inimPerseguirProta>();
 
-        capturaEmAndamento = true;
+		inimigo.player = playerAtual;
 
-        Node3D playerAtual = ObterPlayerAtual();
+		AddChild(inimigo);
 
-        if (playerAtual != null && pontoCaptura != null)
-        {
-            playerAtual.GlobalPosition = pontoCaptura.GlobalPosition;
-        }
+		inimigo.GlobalTransform = pontoSpawn.GlobalTransform;
+		inimigo.PlayerColidiu += OnPlayerColidiu;
 
-        int capturasRestantes = TimeState.Instance.RegistrarCaptura();
+		inimigos.Add(inimigo);
+	}
 
-        DestruirInimigos();
+	private void OnPlayerColidiu()
+	{
+		if (capturaEmAndamento)
+		{
+			return;
+		}
 
-        if (capturasRestantes > 0)
-        {
-            TimeState.Instance.finalizarNoite(true);
-            return;
-        }
+		capturaEmAndamento = true;
 
-        GameState.Instance.endGame("endingConfinamento");
-    }
+		Node3D playerAtual = ObterPlayerAtual();
 
-    private void DestruirInimigos()
-    {
-        foreach (var inimigo in inimigos)
-        {
-            if (IsInstanceValid(inimigo))
-            {
-                inimigo.QueueFree();
-            }
-        }
+		if (playerAtual != null && pontoCaptura != null)
+		{
+			playerAtual.GlobalPosition = pontoCaptura.GlobalPosition;
+		}
 
-        inimigos.Clear();
-    }
+		if (TimeState.Instance == null)
+		{
+			DestruirInimigos();
+			return;
+		}
+
+		int capturasRestantes = TimeState.Instance.RegistrarCaptura();
+
+		DestruirInimigos();
+
+		if (capturasRestantes > 0)
+		{
+			TimeState.Instance.finalizarNoite(true);
+			return;
+		}
+
+		if (GameState.Instance != null)
+		{
+			GameState.Instance.endGame("confinamento");
+		}
+	}
+
+	private void DestruirInimigos()
+	{
+		foreach (inimPerseguirProta inimigo in inimigos)
+		{
+			if (IsInstanceValid(inimigo))
+			{
+				inimigo.QueueFree();
+			}
+		}
+
+		inimigos.Clear();
+	}
 }

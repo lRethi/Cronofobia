@@ -39,7 +39,7 @@ public partial class inimPerseguirProta : CharacterBody3D
 
     public override void _Ready()
     {
-		player = GetNode<Node3D>("../../%charGeraldoSalvador");
+		player = GetNode<Node3D>("/root/World/ThePlayground/charGeraldoSalvador");
         agent = GetNode<NavigationAgent3D>("NavigationAgent3D");
         alertArea = GetNode<Area3D>("AlertArea");
         collisionArea = GetNode<Area3D>("CollisionArea");

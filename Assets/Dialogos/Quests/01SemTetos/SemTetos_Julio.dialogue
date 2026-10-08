@@ -3,6 +3,14 @@
 if GetFlag("semtetos_cobertores")
 	=> cobertores_feitos
 
+if GetFlag("semtetos_ponto_conheceu_grupo")
+	=> julioDialogoQuest
+
+Júlio: Se tu estiver querendo alguma coisa, fala com a Marta, não comigo.
+=> END
+
+~ julioDialogoQuest
+Júlio: A Marta deve ter te falado já, mas...
 Júlio: Tá faltando cobertor.
 Júlio: E quando o sol vai embora, faz uma diferença danada.
 

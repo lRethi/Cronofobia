@@ -11,7 +11,7 @@ public partial class TransacaoAutomatica : EffectBase
     public override void aoEscolher()
     {
         GameState.Instance.SetFlag(
-            Nome,
+            "transacaoAutomatica",
             true
         );
     }

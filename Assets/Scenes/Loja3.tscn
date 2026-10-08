@@ -5,17 +5,25 @@
 [ext_resource type="Script" uid="uid://bli432i5uj51v" path="res://addons/TileMapLayer3D/core/tile_creation_placement/tilemap_layer_settings.gd" id="3_k702s"]
 [ext_resource type="Texture2D" uid="uid://c32wknkcg1mr6" path="res://Assets/Sprites/Cenario/Parede/cartorio.png" id="4_b2k2r"]
 [ext_resource type="Texture2D" uid="uid://csdtq8ric3yba" path="res://Assets/Sprites/Cenario/Parede/igrejafora.png" id="5_l7pnp"]
+[ext_resource type="Script" uid="uid://c2lxt2vjdjb4b" path="res://addons/TileMapLayer3D/nodes/static_collision_body.gd" id="5_mmsls"]
 [ext_resource type="Texture2D" uid="uid://c1c8ep251ki7u" path="res://Assets/Sprites/Cenario/Parede/mesa banco.png" id="6_5gfeg"]
+[ext_resource type="Shape3D" uid="uid://ijs20m4eqmq8" path="res://Assets/Scenes/Loja3_CollisionData/Loja3_porta_collision.res" id="6_wqp0u"]
 [ext_resource type="Texture2D" uid="uid://dc6gkmwxhfqh1" path="res://Assets/Sprites/Cenario/Parede/Alameda.png" id="7_s2w77"]
 [ext_resource type="Texture2D" uid="uid://by0yhmbggy3xm" path="res://Assets/Sprites/Cenario/Parede/miodapraca.png" id="8_fwolc"]
+[ext_resource type="Shape3D" uid="uid://cy2b2odp7p38b" path="res://Assets/Scenes/Loja3_CollisionData/Loja3_TileMapLayer3D_collision.res" id="8_sygq8"]
 [ext_resource type="PackedScene" uid="uid://dvo2rfyvp1ns0" path="res://Assets/Itens/objGalaoAgua.tscn" id="9_l7pnp"]
 [ext_resource type="PackedScene" uid="uid://dx8se0mn8qcfv" path="res://Assets/Itens/objMarmita.tscn" id="10_5gfeg"]
+[ext_resource type="Shape3D" uid="uid://ca4rfoqyh38g7" path="res://Assets/Scenes/Loja3_CollisionData/Loja3_Mesa_collision.res" id="10_lw5xs"]
 [ext_resource type="PackedScene" uid="uid://d1kp3yfxc7qii" path="res://Assets/Itens/objFeijao.tscn" id="11_s2w77"]
 [ext_resource type="PackedScene" uid="uid://b4mgjc55khc8n" path="res://Assets/Itens/objAgua.tscn" id="12_fwolc"]
+[ext_resource type="Shape3D" uid="uid://nas7cgw6v5us" path="res://Assets/Scenes/Loja3_CollisionData/Loja3_Dentro_collision.res" id="12_u6s6a"]
 [ext_resource type="PackedScene" uid="uid://4cvw5u3glyoy" path="res://Assets/Personagens/Protagonista.tscn" id="13_p7ig8"]
 [ext_resource type="Script" uid="uid://bt56plut0kdvx" path="res://Scripts/Camera/cameraBonitaDoFred.cs" id="14_lfygk"]
+[ext_resource type="Shape3D" uid="uid://b783yul8q3ckq" path="res://Assets/Scenes/Loja3_CollisionData/Loja3_daoe_collision.res" id="14_vokjo"]
+[ext_resource type="Shape3D" uid="uid://bladwdw6a47vh" path="res://Assets/Scenes/Loja3_CollisionData/Loja3_pooort_collision.res" id="15_5kykr"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="15_ftpn1"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="16_tiipt"]
+[ext_resource type="PackedScene" uid="uid://004tqboou7a3" path="res://Assets/Personagens/Atendente.tscn" id="17_lfygk"]
 
 [sub_resource type="Resource" id="Resource_p7ig8"]
 script = ExtResource("3_k702s")
@@ -25,12 +33,15 @@ selected_tile_uv = Rect2(320, 0, 320, 320)
 grid_snap_size = 0.5
 cursor_step_size = 0.5
 smart_select_mode = 1
+main_app_mode = 2
 
 [sub_resource type="Resource" id="Resource_lfygk"]
 script = ExtResource("3_k702s")
 tileset_texture = ExtResource("5_l7pnp")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(0, 320, 320, 320)
+smart_select_mode = 1
+main_app_mode = 2
 mesh_mode = 2
 
 [sub_resource type="Resource" id="Resource_ftpn1"]
@@ -38,10 +49,10 @@ script = ExtResource("3_k702s")
 tileset_texture = ExtResource("6_5gfeg")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(320, 0, 320, 320)
-selected_tiles = Array[Rect2]([Rect2(320, 0, 320, 320)])
 grid_snap_size = 0.5
 cursor_step_size = 0.5
 smart_select_mode = 1
+main_app_mode = 2
 mesh_mode = 2
 
 [sub_resource type="Resource" id="Resource_tiipt"]
@@ -49,12 +60,15 @@ script = ExtResource("3_k702s")
 tileset_texture = ExtResource("7_s2w77")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(0, 320, 320, 320)
+smart_select_mode = 1
+main_app_mode = 2
 
 [sub_resource type="Resource" id="Resource_rrqq6"]
 script = ExtResource("3_k702s")
 tileset_texture = ExtResource("8_fwolc")
 tile_size = Vector2i(320, 320)
-tileset_zoom = 0.2896643797366877
+smart_select_mode = 1
+main_app_mode = 2
 mesh_mode = 2
 
 [sub_resource type="Resource" id="Resource_vghtq"]
@@ -62,6 +76,8 @@ script = ExtResource("3_k702s")
 tileset_texture = ExtResource("4_b2k2r")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(320, 0, 320, 320)
+smart_select_mode = 1
+main_app_mode = 2
 
 [sub_resource type="Resource" id="Resource_56lyv"]
 script = ExtResource("16_tiipt")
@@ -85,6 +101,12 @@ _triangle_chunks = [NodePath("TriangleChunk_R-1_0_-1_C0")]
 _box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
+[node name="@StaticBody3D@271682" type="StaticBody3D" parent="porta" unique_id=1512926030]
+script = ExtResource("5_mmsls")
+
+[node name="@CollisionShape3D@271681" type="CollisionShape3D" parent="porta/@StaticBody3D@271682" unique_id=1129179745]
+shape = ExtResource("6_wqp0u")
+
 [node name="TileMapLayer3D" type="Node3D" parent="." unique_id=2090003749 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
 script = ExtResource("1_vghtq")
 settings = SubResource("Resource_lfygk")
@@ -98,6 +120,12 @@ _tile_anim_data = PackedFloat32Array()
 _quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C0")]
 _box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
+
+[node name="@StaticBody3D@272642" type="StaticBody3D" parent="TileMapLayer3D" unique_id=1303211430]
+script = ExtResource("5_mmsls")
+
+[node name="@CollisionShape3D@272641" type="CollisionShape3D" parent="TileMapLayer3D/@StaticBody3D@272642" unique_id=1789666473]
+shape = ExtResource("8_sygq8")
 
 [node name="Mesa" type="Node3D" parent="." unique_id=1320430457 node_paths=PackedStringArray("_quad_chunks", "_box_chunks", "_prism_chunks")]
 script = ExtResource("1_vghtq")
@@ -114,6 +142,12 @@ _box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0"), NodePath("BoxChunk_R0_0_-1_C0")
 _prism_chunks = [NodePath("PrismChunk_R-1_0_-1_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
+[node name="@StaticBody3D@273602" type="StaticBody3D" parent="Mesa" unique_id=874239589]
+script = ExtResource("5_mmsls")
+
+[node name="@CollisionShape3D@273601" type="CollisionShape3D" parent="Mesa/@StaticBody3D@273602" unique_id=455505659]
+shape = ExtResource("10_lw5xs")
+
 [node name="Dentro" type="Node3D" parent="." unique_id=1278611091 node_paths=PackedStringArray("_quad_chunks")]
 script = ExtResource("1_vghtq")
 settings = SubResource("Resource_tiipt")
@@ -126,6 +160,12 @@ _tile_anim_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
 _tile_anim_data = PackedFloat32Array()
 _quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
+
+[node name="@StaticBody3D@274565" type="StaticBody3D" parent="Dentro" unique_id=1395992823]
+script = ExtResource("5_mmsls")
+
+[node name="@CollisionShape3D@274564" type="CollisionShape3D" parent="Dentro/@StaticBody3D@274565" unique_id=236331911]
+shape = ExtResource("12_u6s6a")
 
 [node name="daoe" type="Node3D" parent="." unique_id=151333428 node_paths=PackedStringArray("_box_chunks")]
 script = ExtResource("1_vghtq")
@@ -140,6 +180,12 @@ _tile_anim_data = PackedFloat32Array()
 _box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
+[node name="@StaticBody3D@276002" type="StaticBody3D" parent="daoe" unique_id=1119927473]
+script = ExtResource("5_mmsls")
+
+[node name="@CollisionShape3D@276001" type="CollisionShape3D" parent="daoe/@StaticBody3D@276002" unique_id=359741537]
+shape = ExtResource("14_vokjo")
+
 [node name="pooort" type="Node3D" parent="." unique_id=67718138 node_paths=PackedStringArray("_quad_chunks")]
 script = ExtResource("1_vghtq")
 settings = SubResource("Resource_vghtq")
@@ -153,9 +199,15 @@ _tile_anim_data = PackedFloat32Array()
 _quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R0_0_-1_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
-[node name="Buyables" type="Node" parent="." unique_id=1385038893]
+[node name="@StaticBody3D@276962" type="StaticBody3D" parent="pooort" unique_id=1129301660]
+script = ExtResource("5_mmsls")
 
-[node name="Day1" type="Node" parent="Buyables" unique_id=856256494]
+[node name="@CollisionShape3D@276961" type="CollisionShape3D" parent="pooort/@StaticBody3D@276962" unique_id=1926293566]
+shape = ExtResource("15_5kykr")
+
+[node name="Buyables" type="Node3D" parent="." unique_id=1561324257]
+
+[node name="Day1" type="Node3D" parent="Buyables" unique_id=427194548]
 
 [node name="objGalaoAgua" parent="Buyables/Day1" unique_id=279675217 instance=ExtResource("9_l7pnp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.298976, 0.9309467, -3.0691466)
@@ -221,7 +273,7 @@ preco = 8.0
 compravel = true
 
 [node name="objMarmita" parent="Buyables/Day1" unique_id=610517771 instance=ExtResource("10_5gfeg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3555584, 0.8386617, -1.2075212)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -4.3555584, 0.8386617, -1.2075212)
 usarDia = true
 diaMaximo = 1
 
@@ -230,7 +282,7 @@ preco = 20.0
 compravel = true
 
 [node name="objMarmita2" parent="Buyables/Day1" unique_id=1636693981 instance=ExtResource("10_5gfeg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6286926, 0.8386617, -1.2075212)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6.6286926, 0.8386617, -1.2075212)
 usarDia = true
 diaMaximo = 1
 
@@ -283,7 +335,7 @@ diaMaximo = 1
 preco = 7.0
 compravel = true
 
-[node name="Day2" type="Node" parent="Buyables" unique_id=1890544314]
+[node name="Day2" type="Node3D" parent="Buyables" unique_id=1855482770]
 
 [node name="objGalaoAgua" parent="Buyables/Day2" unique_id=397133963 instance=ExtResource("9_l7pnp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.298976, 0.9309467, -3.0691466)
@@ -356,7 +408,7 @@ preco = 8.0
 compravel = true
 
 [node name="objMarmita" parent="Buyables/Day2" unique_id=907965318 instance=ExtResource("10_5gfeg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3555584, 0.8386617, -1.2075212)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -4.3555584, 0.8386617, -1.2075212)
 usarDia = true
 diaMinimo = 2
 diaMaximo = 2
@@ -366,7 +418,7 @@ preco = 20.0
 compravel = true
 
 [node name="objMarmita2" parent="Buyables/Day2" unique_id=1836982259 instance=ExtResource("10_5gfeg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6286926, 0.8386617, -1.2075212)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6.6286926, 0.8386617, -1.2075212)
 usarDia = true
 diaMinimo = 2
 diaMaximo = 2
@@ -425,7 +477,7 @@ diaMaximo = 2
 preco = 7.0
 compravel = true
 
-[node name="Day3" type="Node" parent="Buyables" unique_id=588793089]
+[node name="Day3" type="Node3D" parent="Buyables" unique_id=1577210928]
 
 [node name="objGalaoAgua" parent="Buyables/Day3" unique_id=858305943 instance=ExtResource("9_l7pnp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.298976, 0.9309467, -3.0691466)
@@ -498,7 +550,7 @@ preco = 8.0
 compravel = true
 
 [node name="objMarmita" parent="Buyables/Day3" unique_id=45372242 instance=ExtResource("10_5gfeg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3555584, 0.8386617, -1.2075212)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -4.3555584, 0.8386617, -1.2075212)
 usarDia = true
 diaMinimo = 3
 diaMaximo = 3
@@ -508,7 +560,7 @@ preco = 20.0
 compravel = true
 
 [node name="objMarmita2" parent="Buyables/Day3" unique_id=432656734 instance=ExtResource("10_5gfeg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6286926, 0.8386617, -1.2075212)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6.6286926, 0.8386617, -1.2075212)
 usarDia = true
 diaMinimo = 3
 diaMaximo = 3
@@ -567,7 +619,7 @@ diaMaximo = 3
 preco = 7.0
 compravel = true
 
-[node name="Day4" type="Node" parent="Buyables" unique_id=1538696145]
+[node name="Day4" type="Node3D" parent="Buyables" unique_id=1144773137]
 
 [node name="objGalaoAgua" parent="Buyables/Day4" unique_id=908037770 instance=ExtResource("9_l7pnp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.298976, 0.9309467, -3.0691466)
@@ -640,7 +692,7 @@ preco = 8.0
 compravel = true
 
 [node name="objMarmita" parent="Buyables/Day4" unique_id=1717127911 instance=ExtResource("10_5gfeg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3555584, 0.8386617, -1.2075212)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -4.3555584, 0.8386617, -1.2075212)
 usarDia = true
 diaMinimo = 4
 diaMaximo = 4
@@ -650,7 +702,7 @@ preco = 20.0
 compravel = true
 
 [node name="objMarmita2" parent="Buyables/Day4" unique_id=395145635 instance=ExtResource("10_5gfeg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6286926, 0.8386617, -1.2075212)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6.6286926, 0.8386617, -1.2075212)
 usarDia = true
 diaMinimo = 4
 diaMaximo = 4
@@ -709,7 +761,7 @@ diaMaximo = 4
 preco = 7.0
 compravel = true
 
-[node name="Day5" type="Node" parent="Buyables" unique_id=1226390076]
+[node name="Day5" type="Node3D" parent="Buyables" unique_id=565109525]
 
 [node name="objGalaoAgua" parent="Buyables/Day5" unique_id=1635954055 instance=ExtResource("9_l7pnp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.298976, 0.9309467, -3.0691466)
@@ -782,7 +834,7 @@ preco = 8.0
 compravel = true
 
 [node name="objMarmita" parent="Buyables/Day5" unique_id=1444270071 instance=ExtResource("10_5gfeg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3555584, 0.8386617, -1.2075212)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -4.3555584, 0.8386617, -1.2075212)
 usarDia = true
 diaMinimo = 5
 diaMaximo = 5
@@ -792,7 +844,7 @@ preco = 20.0
 compravel = true
 
 [node name="objMarmita2" parent="Buyables/Day5" unique_id=2099773265 instance=ExtResource("10_5gfeg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6286926, 0.8386617, -1.2075212)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6.6286926, 0.8386617, -1.2075212)
 usarDia = true
 diaMinimo = 5
 diaMaximo = 5
@@ -851,7 +903,7 @@ diaMaximo = 5
 preco = 7.0
 compravel = true
 
-[node name="Day6" type="Node" parent="Buyables" unique_id=1988092492]
+[node name="Day6" type="Node3D" parent="Buyables" unique_id=609283028]
 
 [node name="objGalaoAgua" parent="Buyables/Day6" unique_id=392009211 instance=ExtResource("9_l7pnp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.298976, 0.9309467, -3.0691466)
@@ -924,7 +976,7 @@ preco = 8.0
 compravel = true
 
 [node name="objMarmita" parent="Buyables/Day6" unique_id=1759041799 instance=ExtResource("10_5gfeg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3555584, 0.8386617, -1.2075212)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -4.3555584, 0.8386617, -1.2075212)
 usarDia = true
 diaMinimo = 6
 diaMaximo = 6
@@ -934,7 +986,7 @@ preco = 20.0
 compravel = true
 
 [node name="objMarmita2" parent="Buyables/Day6" unique_id=978860511 instance=ExtResource("10_5gfeg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6286926, 0.8386617, -1.2075212)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6.6286926, 0.8386617, -1.2075212)
 usarDia = true
 diaMinimo = 6
 diaMaximo = 6
@@ -993,7 +1045,7 @@ diaMaximo = 6
 preco = 7.0
 compravel = true
 
-[node name="Day7" type="Node" parent="Buyables" unique_id=882258681]
+[node name="Day7" type="Node3D" parent="Buyables" unique_id=1627681141]
 
 [node name="objGalaoAgua" parent="Buyables/Day7" unique_id=2099225428 instance=ExtResource("9_l7pnp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.298976, 0.9309467, -3.0691466)
@@ -1059,7 +1111,7 @@ preco = 8.0
 compravel = true
 
 [node name="objMarmita" parent="Buyables/Day7" unique_id=29011888 instance=ExtResource("10_5gfeg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3555584, 0.8386617, -1.2075212)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -4.3555584, 0.8386617, -1.2075212)
 usarDia = true
 diaMinimo = 7
 
@@ -1068,7 +1120,7 @@ preco = 20.0
 compravel = true
 
 [node name="objMarmita2" parent="Buyables/Day7" unique_id=48742891 instance=ExtResource("10_5gfeg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6286926, 0.8386617, -1.2075212)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6.6286926, 0.8386617, -1.2075212)
 usarDia = true
 diaMinimo = 7
 
@@ -1121,10 +1173,15 @@ diaMinimo = 7
 preco = 7.0
 compravel = true
 
-[node name="charGeraldoSalvador" parent="." unique_id=1046664859 instance=ExtResource("13_p7ig8")]
+[node name="charGeraldoSalvador" parent="." unique_id=1046664859 node_paths=PackedStringArray("cameraNode", "cameraPivotNode") instance=ExtResource("13_p7ig8")]
 unique_name_in_owner = true
 transform = Transform3D(0.58688486, 0, 0.8096704, 0, 1, 0, -0.8096704, 0, 0.58688486, -1.3219385, 0.9204049, -1.7280135)
 safe_margin = 0.015
+cameraNode = NodePath("../PhantomCamera3D")
+cameraPivotNode = NodePath("../CameraPivot")
+
+[node name="DirectionalSprite" parent="charGeraldoSalvador" index="3" unique_id=578035060 node_paths=PackedStringArray("cameraScript")]
+cameraScript = NodePath("../../CameraPivot")
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=1864590295 node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.964635, 0, -4.950857)
@@ -1146,6 +1203,13 @@ align_transform_with_view = Callable()
 align_position_with_view = Callable()
 align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Atendente" parent="." unique_id=2040080851 instance=ExtResource("17_lfygk")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2.9677758, 1.0713121, -5.487026)
+script = null
+
+[node name="Sprite3D" parent="Atendente/StaticBody3D" parent_id_path=PackedInt32Array(2040080851, 408448575) index="2" unique_id=1766881007]
+alcanceInteracao = 0.0
 
 [editable path="Buyables/Day1/objGalaoAgua"]
 [editable path="Buyables/Day1/objGalaoAgua2"]
@@ -1245,3 +1309,5 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 [editable path="Buyables/Day7/objFeijao3"]
 [editable path="Buyables/Day7/objFeijao4"]
 [editable path="Buyables/Day7/objFeijao5"]
+[editable path="charGeraldoSalvador"]
+[editable path="Atendente"]

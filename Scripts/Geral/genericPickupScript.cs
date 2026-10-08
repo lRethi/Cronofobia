@@ -109,7 +109,7 @@ public partial class genericPickupScript : Area3D
 
     public override void _Process(double delta)
     {
-        if (personagem == null)
+        if (personagem == null || this.Visible == false)
             return;
 
         if (EffectManager.Instance != null &&
@@ -280,9 +280,8 @@ public partial class genericPickupScript : Area3D
                 return resultado;
 
             case TipoPickup.Dinheiro:
-                NeedsState.Instance.SetDinheiro(
-                    NeedsState.Instance.varDinheiro + valorRecurso
-                );
+                if (GameState.Instance.GetFlag("detectorMetais")) NeedsState.Instance.SetDinheiro(NeedsState.Instance.varDinheiro + valorRecurso * 2f);
+                else NeedsState.Instance.SetDinheiro(NeedsState.Instance.varDinheiro + valorRecurso);
 
                 return true;
         }

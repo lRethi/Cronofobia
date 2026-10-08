@@ -4,20 +4,30 @@
 [ext_resource type="Script" uid="uid://dk0ib5b4w24ll" path="res://addons/TileMapLayer3D/core/animated_tiles/animated_tile_data.gd" id="2_125th"]
 [ext_resource type="Script" uid="uid://bli432i5uj51v" path="res://addons/TileMapLayer3D/core/tile_creation_placement/tilemap_layer_settings.gd" id="3_1icfx"]
 [ext_resource type="Texture2D" uid="uid://d27sfvxajivyr" path="res://Assets/Sprites/Cenario/Parede/Hotel.png" id="4_d3eyx"]
+[ext_resource type="Script" uid="uid://c2lxt2vjdjb4b" path="res://addons/TileMapLayer3D/nodes/static_collision_body.gd" id="5_231ll"]
 [ext_resource type="Texture2D" uid="uid://csdtq8ric3yba" path="res://Assets/Sprites/Cenario/Parede/igrejafora.png" id="6_125th"]
+[ext_resource type="Shape3D" uid="uid://d2i5xsbbjm1ye" path="res://Assets/Scenes/Igreja_CollisionData/Igreja_Teto_collision.res" id="6_yvk1x"]
 [ext_resource type="PackedScene" uid="uid://c6u1mhppcndmo" path="res://Assets/Props/Portas/portaIgreja.tscn" id="7_5xmun"]
 [ext_resource type="Texture2D" uid="uid://do0n36ie16xu1" path="res://Assets/Sprites/Cenario/Parede/igrejadentro.png" id="7_125th"]
+[ext_resource type="PackedScene" uid="uid://delcm56lbk14e" path="res://Assets/Personagens/DonaLucia.tscn" id="7_q7f26"]
 [ext_resource type="PackedScene" uid="uid://4cvw5u3glyoy" path="res://Assets/Personagens/Protagonista.tscn" id="8_3ym52"]
+[ext_resource type="Shape3D" uid="uid://csxsslc0gfsln" path="res://Assets/Scenes/Igreja_CollisionData/Igreja_Chão_collision.res" id="8_37nyn"]
+[ext_resource type="PackedScene" uid="uid://butibmbqcd0cf" path="res://Assets/Personagens/Joao.tscn" id="8_e4o7m"]
 [ext_resource type="Script" uid="uid://bt56plut0kdvx" path="res://Scripts/Camera/cameraBonitaDoFred.cs" id="9_q7f26"]
+[ext_resource type="Shape3D" uid="uid://b17ny81bf7p6x" path="res://Assets/Scenes/Igreja_CollisionData/Igreja_Igreja_collision.res" id="9_vxtu7"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="10_e4o7m"]
+[ext_resource type="Shape3D" uid="uid://v3g76rruugis" path="res://Assets/Scenes/Igreja_CollisionData/Igreja_Dentro_collision.res" id="11_2cnm2"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="11_u3u8u"]
 [ext_resource type="PackedScene" uid="uid://5vefm8uyc8dw" path="res://Assets/Itens/objDocumento2.tscn" id="12_3ym52"]
+[ext_resource type="PackedScene" uid="uid://m3y1lncvc85w" path="res://Assets/Personagens/Padre.tscn" id="15_u3u8u"]
 
 [sub_resource type="Resource" id="Resource_3ym52"]
 script = ExtResource("3_1icfx")
 tileset_texture = ExtResource("4_d3eyx")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(640, 320, 320, 320)
+smart_select_mode = 1
+main_app_mode = 2
 mesh_mode = 1
 
 [sub_resource type="Resource" id="Resource_q7f26"]
@@ -25,12 +35,16 @@ script = ExtResource("3_1icfx")
 tileset_texture = ExtResource("6_125th")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(0, 320, 320, 320)
+smart_select_mode = 1
+main_app_mode = 2
 
 [sub_resource type="Resource" id="Resource_e4o7m"]
 script = ExtResource("3_1icfx")
 tileset_texture = ExtResource("6_125th")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(1280, 320, 320, 320)
+smart_select_mode = 1
+main_app_mode = 2
 
 [sub_resource type="Resource" id="Resource_1icfx"]
 script = ExtResource("3_1icfx")
@@ -39,6 +53,8 @@ tile_size = Vector2i(320, 320)
 grid_snap_size = 0.5
 cursor_step_size = 0.5
 smart_select_mode = 1
+main_app_mode = 2
+mesh_mode = 2
 
 [sub_resource type="Resource" id="Resource_6wy5s"]
 script = ExtResource("11_u3u8u")
@@ -58,9 +74,15 @@ _tile_transform_indices = PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
 _tile_transform_data = PackedFloat32Array(1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1)
 _tile_anim_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1)
 _tile_anim_data = PackedFloat32Array()
-_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C1"), NodePath("SquareChunk_R0_0_0_C1")]
-_box_chunks = [NodePath("BoxChunk_R0_0_-1_C1"), NodePath("BoxChunk_R-1_0_-1_C1")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R0_0_0_C0")]
+_box_chunks = [NodePath("BoxChunk_R0_0_-1_C0"), NodePath("BoxChunk_R-1_0_-1_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
+
+[node name="@StaticBody3D@291986" type="StaticBody3D" parent="Building/Teto" unique_id=249629138]
+script = ExtResource("5_231ll")
+
+[node name="@CollisionShape3D@291985" type="CollisionShape3D" parent="Building/Teto/@StaticBody3D@291986" unique_id=1982311377]
+shape = ExtResource("6_yvk1x")
 
 [node name="Chão" type="Node3D" parent="Building" unique_id=638474494 node_paths=PackedStringArray("_quad_chunks")]
 script = ExtResource("1_05kcg")
@@ -72,8 +94,14 @@ _tile_transform_indices = PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
 _tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
 _tile_anim_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1)
 _tile_anim_data = PackedFloat32Array()
-_quad_chunks = [NodePath("SquareChunk_R-1_0_-2_C1"), NodePath("SquareChunk_R-1_0_-1_C1"), NodePath("SquareChunk_R0_0_-1_C1"), NodePath("SquareChunk_R-1_0_0_C1"), NodePath("SquareChunk_R0_0_0_C1")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-2_C0"), NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R0_0_0_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
+
+[node name="@StaticBody3D@292946" type="StaticBody3D" parent="Building/Chão" unique_id=70118789]
+script = ExtResource("5_231ll")
+
+[node name="@CollisionShape3D@292945" type="CollisionShape3D" parent="Building/Chão/@StaticBody3D@292946" unique_id=451218797]
+shape = ExtResource("8_37nyn")
 
 [node name="Igreja" type="Node3D" parent="Building" unique_id=1843874483 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks")]
 script = ExtResource("1_05kcg")
@@ -85,60 +113,89 @@ _tile_transform_indices = PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
 _tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
 _tile_anim_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1)
 _tile_anim_data = PackedFloat32Array()
-_quad_chunks = [NodePath("SquareChunk_R0_0_0_C1"), NodePath("SquareChunk_R-1_0_0_C1"), NodePath("SquareChunk_R-1_0_-1_C1"), NodePath("SquareChunk_R0_0_-1_C1")]
-_triangle_chunks = [NodePath("TriangleChunk_R0_0_0_C1"), NodePath("TriangleChunk_R-1_0_0_C1")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_0_C1"), NodePath("BoxChunk_R0_0_0_C1"), NodePath("BoxChunk_R-1_0_-1_C1"), NodePath("BoxChunk_R0_0_-1_C1")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_0_C0"), NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R0_0_-1_C0")]
+_triangle_chunks = [NodePath("TriangleChunk_R0_0_0_C0"), NodePath("TriangleChunk_R-1_0_0_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R0_0_0_C0"), NodePath("BoxChunk_R-1_0_-1_C0"), NodePath("BoxChunk_R0_0_-1_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
+
+[node name="@StaticBody3D@295820" type="StaticBody3D" parent="Building/Igreja" unique_id=2145291575]
+script = ExtResource("5_231ll")
+
+[node name="@CollisionShape3D@295819" type="CollisionShape3D" parent="Building/Igreja/@StaticBody3D@295820" unique_id=1081549180]
+shape = ExtResource("9_vxtu7")
 
 [node name="Dentro" type="Node3D" parent="Building" unique_id=1160176044 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks", "_prism_chunks")]
 script = ExtResource("1_05kcg")
 settings = SubResource("Resource_1icfx")
-_tile_positions = PackedVector3Array(-2, -0.5, -6.5, 1, -0.5, -6.5, -1, -0.5, -5.5, 0, -0.5, -5.5, -1, 0, -6, 1, 0, -6, -2, 0, -6, -0.5, -0.5, -5.5, -1, -0.5, -3.5, -1, -0.5, -2.5, 0, -0.5, -2.5, 0, -0.5, -3.5, -1, -0.5, -4.5, 0, -0.5, -4.5, 0, -0.5, -1.5, -1, -0.5, -1.5, 1, 0, -2.5, 2, 0, -2.5, 1, 0, -3.5, 2, 0, -3.5, 1, 0, -4.5, 2, 0, -4.5, -3, 0, -4.5, -2, 0, -4.5, -3, 0, -3.5, -2, 0, -3.5, -3, 0, -2.5, -2, 0, -2.5, 0.5, -0.5, -5.5, -1.5, -0.5, -5.5, 0, -0.5, -5.5, 0, 0, -6, -1, -0.5, -5.5, -0.5, 0, -6, -1, 3, -6.5, 0, 3, -6.5, -1, 2, -6.5, 0, 2, -6.5)
-_tile_uv_rects = PackedFloat32Array(320, 0, 320, 320, 320, 0, 320, 320, 320, 0, 320, 320, 320, 0, 320, 320, 320, 0, 320, 320, 320, 0, 320, 320, 320, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 960, 320, 320, 320, 960, 320, 320, 0, 960, 320, 320, 320, 960, 320, 320, 0, 960, 320, 320, 320, 960, 320, 320, 0, 960, 320, 320, 320, 960, 320, 320, 0, 960, 320, 320, 320, 960, 320, 320, 0, 960, 320, 320, 320, 960, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 320, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 640, 0, 320, 320, 960, 0, 320, 320, 640, 320, 320, 320, 960, 320, 320, 320)
-_tile_flags = PackedInt32Array(130123, 130058, 130050, 130050, 130048, 130176, 130497, 130306, 130304, 130304, 130304, 130304, 130304, 130304, 130432, 130528, 130050, 130050, 130050, 130050, 130050, 130050, 130050, 130050, 130050, 130050, 130050, 130050, 130466, 130498, 130304, 130048, 130304, 130368, 130050, 130050, 130050, 130050)
-_tile_transform_indices = PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37)
-_tile_transform_data = PackedFloat32Array(1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
-_tile_anim_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1)
+_tile_positions = PackedVector3Array(-2, -0.5, -6.5, 1, -0.5, -6.5, -1, -0.5, -5.5, 0, -0.5, -5.5, -1, 0, -6, 1, 0, -6, -2, 0, -6, -0.5, -0.5, -5.5, -1, -0.5, -3.5, -1, -0.5, -2.5, 0, -0.5, -2.5, 0, -0.5, -3.5, -1, -0.5, -4.5, 0, -0.5, -4.5, 0, -0.5, -1.5, -1, -0.5, -1.5, 0.5, -0.5, -5.5, -1.5, -0.5, -5.5, 0, -0.5, -5.5, 0, 0, -6, -1, -0.5, -5.5, -0.5, 0, -6, -1, 3, -6.5, 0, 3, -6.5, -1, 2, -6.5, 0, 2, -6.5, 1, 0, -2.5, 2, 0, -2.5, 2, 0, -2.5, 1, -8.742278e-08, -2.5, -2, 0, -2.5, -3, -8.742278e-08, -2.5, -2, 0, -3.5, -3, -8.742278e-08, -3.5, 2, 0, -3.5, 1, -8.742278e-08, -3.5, -2, 0, -4.5, -3, -8.742278e-08, -4.5, 2, 0, -4.5, 1, -8.742278e-08, -4.5)
+_tile_uv_rects = PackedFloat32Array(320, 0, 320, 320, 320, 0, 320, 320, 320, 0, 320, 320, 320, 0, 320, 320, 320, 0, 320, 320, 320, 0, 320, 320, 320, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 320, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 640, 0, 320, 320, 960, 0, 320, 320, 640, 320, 320, 320, 960, 320, 320, 320, 0, 960, 320, 320, 320, 960, 320, 320, 0, 960, 320, 320, 320, 960, 320, 320, 0, 960, 320, 320, 320, 960, 320, 320, 0, 960, 320, 320, 320, 960, 320, 320, 0, 960, 320, 320, 320, 960, 320, 320, 0, 960, 320, 320, 320, 960, 320, 320, 0, 960, 320, 320, 320, 960, 320, 320)
+_tile_flags = PackedInt32Array(130123, 130058, 130050, 130050, 130048, 130176, 130497, 130306, 130304, 130304, 130304, 130304, 130304, 130304, 130432, 130528, 130466, 130498, 130304, 130048, 130304, 130368, 130050, 130050, 130050, 130050, 130050, 130050, 130307, 130307, 130307, 130307, 130307, 130307, 130307, 130307, 130307, 130307, 130307, 130307)
+_tile_transform_indices = PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39)
+_tile_transform_data = PackedFloat32Array(1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
+_tile_anim_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1)
 _tile_anim_data = PackedFloat32Array()
-_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C1"), NodePath("SquareChunk_R0_0_-1_C1")]
-_triangle_chunks = [NodePath("TriangleChunk_R0_0_-1_C1")]
-_box_chunks = [NodePath("BoxChunk_R0_0_-1_C1"), NodePath("BoxChunk_R-1_0_-1_C1")]
-_prism_chunks = [NodePath("PrismChunk_R-1_0_-1_C1"), NodePath("PrismChunk_R0_0_-1_C1")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R0_0_-1_C0")]
+_triangle_chunks = [NodePath("TriangleChunk_R0_0_-1_C0")]
+_box_chunks = [NodePath("BoxChunk_R0_0_-1_C0"), NodePath("BoxChunk_R-1_0_-1_C0")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_-1_C0"), NodePath("PrismChunk_R0_0_-1_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
-[node name="NPCs" type="Node" parent="." unique_id=787190130]
+[node name="@StaticBody3D@294383" type="StaticBody3D" parent="Building/Dentro" unique_id=305995919]
+script = ExtResource("5_231ll")
 
-[node name="Igreja" type="Node" parent="NPCs" unique_id=1950952024]
+[node name="@CollisionShape3D@294382" type="CollisionShape3D" parent="Building/Dentro/@StaticBody3D@294383" unique_id=76351221]
+shape = ExtResource("11_2cnm2")
 
-[node name="DonaLucia" type="Node3D" parent="NPCs/Igreja" unique_id=1599549245]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6772831, 0, -4.7158346)
+[node name="NPCs" type="Node3D" parent="." unique_id=1358978568]
 
-[node name="Joao" type="Node3D" parent="NPCs/Igreja" unique_id=844013638]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8833927, 0.4908191, -5.7343426)
+[node name="Igreja" type="Node3D" parent="NPCs" unique_id=1092587547]
+
+[node name="DonaLucia" parent="NPCs/Igreja" unique_id=897304876 node_paths=PackedStringArray("personagem") instance=ExtResource("7_q7f26")]
+transform = Transform3D(0.52580965, 0, 0.85060227, 0, 1, 0, -0.85060227, 0, 0.52580965, -1.5534327, 0.9200032, -4.7889204)
+personagem = NodePath("../../../charGeraldoSalvador")
+
+[node name="Padre" parent="NPCs/Igreja" unique_id=1855740221 node_paths=PackedStringArray("personagem") instance=ExtResource("15_u3u8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019110203, 1.7164569, -5.612837)
+personagem = NodePath("../../../charGeraldoSalvador")
+
+[node name="Joao" parent="NPCs/Igreja" unique_id=1594021294 node_paths=PackedStringArray("personagem") instance=ExtResource("8_e4o7m")]
+transform = Transform3D(0.6198004, 0, -0.7847595, 0, 1, 0, 0.7847595, 0, 0.6198004, 1.3566239, 0.8115758, -4.666244)
+personagem = NodePath("../../../charGeraldoSalvador")
 
 [node name="portaIgreja" parent="." unique_id=1353397638 instance=ExtResource("7_5xmun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002635628, 0.98085415, 1.8855488)
 
-[node name="charGeraldoSalvador" parent="." unique_id=1046664859 instance=ExtResource("8_3ym52")]
+[node name="charGeraldoSalvador" parent="." unique_id=1046664859 node_paths=PackedStringArray("cameraNode", "cameraPivotNode") instance=ExtResource("8_3ym52")]
 unique_name_in_owner = true
 transform = Transform3D(0.9996054, 0, 0.028089818, 0, 1, 0, -0.028089818, 0, 0.9996054, -0.073145, 0.79650843, -0.16302109)
 safe_margin = 0.015
+cameraNode = NodePath("../PhantomCamera3D")
+cameraPivotNode = NodePath("../CameraPivot")
+
+[node name="DirectionalSprite" parent="charGeraldoSalvador" index="3" unique_id=578035060 node_paths=PackedStringArray("cameraScript")]
+cameraScript = NodePath("../../CameraPivot")
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=267389878]
 transform = Transform3D(-0.9996054, 0, -0.02808973, 0, 1, 0, 0.02808973, 0, -0.9996054, -0.26307946, 0.14556551, -1.2922142)
 script = ExtResource("9_q7f26")
 
-[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1965630023]
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1965630023 node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+transform = Transform3D(0.9996054, 0, 0.02808982, 0, 1, 0, -0.02808982, 0, 0.9996054, -0.016965367, 0.79650843, 1.8361897)
 script = ExtResource("10_e4o7m")
 follow_mode = 6
+follow_target = NodePath("../charGeraldoSalvador")
 tween_resource = SubResource("Resource_6wy5s")
 tween_on_load = false
 follow_distance = 2.0
 spring_length = 2.0
 collision_mask = 31
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="objDocumento2" parent="." unique_id=1948817863 instance=ExtResource("12_3ym52")]
 transform = Transform3D(-1.1665031, 0, 1.6245832, 0, 2, 0, -1.6245832, 0, -1.1665031, -2.0236151, 0.3612616, -0.36068135)
+
+[editable path="charGeraldoSalvador"]

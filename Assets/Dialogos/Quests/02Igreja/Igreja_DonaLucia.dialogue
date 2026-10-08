@@ -6,6 +6,14 @@ if GetFlag("igreja_necessitados_entrega_comida")
 	Dona Lúcia: A igreja é uma das poucas que ainda se lembra da gente.
 	=> END
 
+if GetFlag("igreja_necessitados_iniciado")
+	=> luciaDialogoQuest
+
+Dona Lúcia: Se você precisa de alguma coisa, devia conversar com o padre, irmão.
+=> END
+
+~ luciaDialogoQuest
+
 Dona Lúcia: O Padre disse que você estava fazendo algumas entregas.
 Dona Lúcia: Não precisa ser muita coisa.
 Dona Lúcia: Qualquer comida já ajuda bastante por aqui.

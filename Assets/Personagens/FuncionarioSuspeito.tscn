@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://ci2b44abmre58"]
+
+[ext_resource type="Script" uid="uid://g406lwqsh4u2" path="res://Scripts/Dialogos/mecanicaIniciarDialogo.cs" id="1_bbgj7"]
+[ext_resource type="Resource" uid="uid://bmwo3frqr6lcr" path="res://Assets/Dialogos/Quests/06Empresa/Empresa_FuncionarioSuspeito.dialogue" id="2_bbgj7"]
+[ext_resource type="Script" uid="uid://b3hrgs61lvn5x" path="res://addons/dialogue_manager/nodes/marker/DialogueMarker3D.cs" id="3_8ucn4"]
+[ext_resource type="Shader" uid="uid://ba2yn3rm04xny" path="res://Assets/Shaders/HighlightNPC.gdshader" id="4_6btxc"]
+[ext_resource type="Texture2D" uid="uid://c23lpjrj82gp7" path="res://Assets/Sprites/Personagens/NPCs/npcFuncionario.webp" id="5_milms"]
+[ext_resource type="Script" uid="uid://cbeumlxm2r5cw" path="res://Scripts/Camera/rotCameraPerson.cs" id="6_l8o7w"]
+[ext_resource type="Script" uid="uid://di1arvpjf0c22" path="res://Scripts/Objetos/Gatekeep.cs" id="7_hdepw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jgqcl"]
+size = Vector3(0.78771687, 1.1235352, 0.003)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bosx4"]
+render_priority = -1
+shader = ExtResource("4_6btxc")
+shader_parameter/sprite_texture = ExtResource("5_milms")
+shader_parameter/enable_outline = false
+shader_parameter/outline_color = Color(0.20463821, 0.5316224, 0.83996034, 1)
+shader_parameter/outline_thickness = 5.0000002375
+shader_parameter/glow_speed = 4.5000002104901196
+shader_parameter/glow_intensity = 0.750000035625
+
+[node name="FuncionarioSuspeito" type="Node3D" unique_id=897304876]
+script = ExtResource("1_bbgj7")
+dialogue = ExtResource("2_bbgj7")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=827481059]
+
+[node name="DialogueMarker3D" type="Marker3D" parent="StaticBody3D" unique_id=2142460566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44449052, 0.31752193, 0.16019109)
+script = ExtResource("3_8ucn4")
+CharacterName = "Funcionário Suspeito"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1703522581]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0016584098, -0.22469547, 0)
+shape = SubResource("BoxShape3D_jgqcl")
+
+[node name="Sprite3D" type="Sprite3D" parent="StaticBody3D" unique_id=457058443]
+material_overlay = SubResource("ShaderMaterial_bosx4")
+pixel_size = 0.0025
+alpha_cut = 2
+alpha_antialiasing_mode = 1
+alpha_antialiasing_edge = 1.0
+texture_filter = 0
+texture = ExtResource("5_milms")
+script = ExtResource("6_l8o7w")
+rotateToPerson = false
+
+[node name="Gatekeep" type="Node" parent="." unique_id=1159474246]
+script = ExtResource("7_hdepw")
+hideWhenFlag = "semtetos_empresa_autorizacao_favor"

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c5cmt0qx4hx5k"]
+
+[ext_resource type="Script" uid="uid://di1arvpjf0c22" path="res://Scripts/Objetos/Gatekeep.cs" id="1_i40f7"]
+[ext_resource type="PackedScene" uid="uid://ji5a6sfw5c2w" path="res://Assets/Itens/Resources/feijoada.tscn" id="2_i40f7"]
+
+[node name="objFeijoada" type="Node3D" unique_id=134085674]
+script = ExtResource("1_i40f7")
+
+[node name="lataFeijao" parent="." unique_id=1762641796 instance=ExtResource("2_i40f7")]

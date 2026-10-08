@@ -4,29 +4,48 @@
 [ext_resource type="Script" uid="uid://dk0ib5b4w24ll" path="res://addons/TileMapLayer3D/core/animated_tiles/animated_tile_data.gd" id="2_gpi4c"]
 [ext_resource type="Script" uid="uid://bli432i5uj51v" path="res://addons/TileMapLayer3D/core/tile_creation_placement/tilemap_layer_settings.gd" id="3_xnvr0"]
 [ext_resource type="Texture2D" uid="uid://dfwpqd3v4a4aw" path="res://Assets/Sprites/Cenario/Parede/Data Center.png" id="4_vd5gs"]
+[ext_resource type="Script" uid="uid://c2lxt2vjdjb4b" path="res://addons/TileMapLayer3D/nodes/static_collision_body.gd" id="5_8fy54"]
 [ext_resource type="Texture2D" uid="uid://caejjoe12synt" path="res://Assets/Sprites/Cenario/Parede/Mercado.png" id="5_i4vto"]
 [ext_resource type="Texture2D" uid="uid://dc6gkmwxhfqh1" path="res://Assets/Sprites/Cenario/Parede/Alameda.png" id="6_03we1"]
+[ext_resource type="Shape3D" uid="uid://cw2h8lhamhvq6" path="res://Assets/Scenes/DataCenter_CollisionData/DataCenter_DataCenter_collision.res" id="6_fsqdy"]
 [ext_resource type="Texture2D" uid="uid://bjoe4yrudgr0a" path="res://Assets/Sprites/Cenario/Parede/Predio do victor.png" id="7_a5gwt"]
+[ext_resource type="Shape3D" uid="uid://boibe2eop734u" path="res://Assets/Scenes/DataCenter_CollisionData/DataCenter_Elevador_collision.res" id="8_0l5xb"]
 [ext_resource type="Texture2D" uid="uid://dynrgl0t2h7vg" path="res://Assets/Sprites/Cenario/Props/Cadeira.png" id="8_4yfn2"]
 [ext_resource type="Texture2D" uid="uid://q8i5jelfiqjw" path="res://Assets/Sprites/Cenario/Props/Cadera.png" id="9_co3ys"]
 [ext_resource type="Texture2D" uid="uid://c4rls1j1c4s08" path="res://Assets/Sprites/Objetos/compu.png" id="10_38np6"]
+[ext_resource type="Shape3D" uid="uid://c3ika1pd1uer1" path="res://Assets/Scenes/DataCenter_CollisionData/DataCenter_Interior_collision.res" id="10_xnb6d"]
 [ext_resource type="Texture2D" uid="uid://doig7fb75stgj" path="res://Assets/Sprites/Objetos/tador.png" id="11_7m0vu"]
+[ext_resource type="Shape3D" uid="uid://bbtumncivcv6m" path="res://Assets/Scenes/DataCenter_CollisionData/DataCenter_TileMapLayer3D_collision.res" id="12_grc71"]
 [ext_resource type="Texture2D" uid="uid://t0cro27f8f71" path="res://Assets/Sprites/Objetos/television.png" id="12_humgb"]
 [ext_resource type="Texture2D" uid="uid://dr71mmirwfpnf" path="res://Assets/Sprites/Objetos/papeis.png" id="13_n74kk"]
 [ext_resource type="PackedScene" uid="uid://dr3u2kaj3fy8a" path="res://Assets/Itens/objDocumento1.tscn" id="14_4yfn2"]
+[ext_resource type="Shape3D" uid="uid://bckq4683be64k" path="res://Assets/Scenes/DataCenter_CollisionData/DataCenter_TileMapLayer3D3_collision.res" id="14_lokwu"]
+[ext_resource type="PackedScene" uid="uid://4cvw5u3glyoy" path="res://Assets/Personagens/Protagonista.tscn" id="15_humgb"]
+[ext_resource type="Shape3D" uid="uid://dqosmaj0d4y7d" path="res://Assets/Scenes/DataCenter_CollisionData/DataCenter_TileMapLayer3D4_collision.res" id="16_3dsk0"]
+[ext_resource type="Script" uid="uid://bt56plut0kdvx" path="res://Scripts/Camera/cameraBonitaDoFred.cs" id="16_n74kk"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="17_dd0gw"]
+[ext_resource type="Shape3D" uid="uid://d0mgih3appsph" path="res://Assets/Scenes/DataCenter_CollisionData/DataCenter_TileMapLayer3D5_collision.res" id="18_e5rbi"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="18_kfnsp"]
+[ext_resource type="PackedScene" uid="uid://cckiognud4ixc" path="res://Assets/Props/Portas/portaDatacenter.tscn" id="19_n74kk"]
+[ext_resource type="Shape3D" uid="uid://8dcocsj4ubg5" path="res://Assets/Scenes/DataCenter_CollisionData/DataCenter_TileMapLayer3D6_collision.res" id="20_4gax6"]
+[ext_resource type="PackedScene" uid="uid://004tqboou7a3" path="res://Assets/Personagens/Atendente.tscn" id="20_dd0gw"]
+[ext_resource type="Shape3D" uid="uid://bmw0vvqouciy2" path="res://Assets/Scenes/DataCenter_CollisionData/DataCenter_TileMapLayer3D7_collision.res" id="22_juhis"]
+[ext_resource type="Shape3D" uid="uid://bnwnsdnlvuhi6" path="res://Assets/Scenes/DataCenter_CollisionData/DataCenter_TileMapLayer3D8_collision.res" id="24_gqq4j"]
 
 [sub_resource type="Resource" id="Resource_qosdd"]
 script = ExtResource("3_xnvr0")
 tileset_texture = ExtResource("4_vd5gs")
 tile_size = Vector2i(320, 320)
-tileset_zoom = 0.35049389948139215
+smart_select_mode = 1
+main_app_mode = 2
 
 [sub_resource type="Resource" id="Resource_a5gwt"]
 script = ExtResource("3_xnvr0")
 tileset_texture = ExtResource("5_i4vto")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(960, 640, 320, 320)
-tileset_zoom = 0.35049389948139215
+smart_select_mode = 1
+main_app_mode = 2
 mesh_mode = 2
 
 [sub_resource type="Resource" id="Resource_4yfn2"]
@@ -34,10 +53,10 @@ script = ExtResource("3_xnvr0")
 tileset_texture = ExtResource("6_03we1")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(320, 320, 320, 320)
-tileset_zoom = 0.21762913579014848
 grid_snap_size = 0.5
 cursor_step_size = 0.5
 smart_select_mode = 1
+main_app_mode = 2
 mesh_mode = 3
 
 [sub_resource type="Resource" id="Resource_dd0gw"]
@@ -48,23 +67,29 @@ selected_tile_uv = Rect2(0, 320, 320, 320)
 grid_snap_size = 0.5
 cursor_step_size = 0.5
 smart_select_mode = 1
+main_app_mode = 2
 mesh_mode = 3
 
 [sub_resource type="Resource" id="Resource_kfnsp"]
 script = ExtResource("3_xnvr0")
+smart_select_mode = 1
+main_app_mode = 2
 
 [sub_resource type="Resource" id="Resource_sq8t0"]
 script = ExtResource("3_xnvr0")
 tileset_texture = ExtResource("8_4yfn2")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(0, 0, 320, 320)
-tileset_zoom = 0.9090909090909092
+smart_select_mode = 1
+main_app_mode = 2
 
 [sub_resource type="Resource" id="Resource_og0io"]
 script = ExtResource("3_xnvr0")
 tileset_texture = ExtResource("9_co3ys")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(0, 0, 320, 320)
+smart_select_mode = 1
+main_app_mode = 2
 
 [sub_resource type="Resource" id="Resource_dwtqy"]
 script = ExtResource("3_xnvr0")
@@ -74,24 +99,33 @@ selected_tile_uv = Rect2(0, 0, 320, 320)
 grid_snap_size = 0.5
 cursor_step_size = 0.5
 smart_select_mode = 1
+main_app_mode = 2
+mesh_mode = 2
+current_mesh_rotation = 2
+is_face_flipped = true
 
 [sub_resource type="Resource" id="Resource_wsts3"]
 script = ExtResource("3_xnvr0")
 tileset_texture = ExtResource("11_7m0vu")
 tile_size = Vector2i(320, 320)
+selected_tile_uv = Rect2(0, 0, 320, 320)
 grid_snap_size = 0.5
 cursor_step_size = 0.5
 smart_select_mode = 1
+main_app_mode = 2
+mesh_mode = 2
+current_mesh_rotation = 2
+is_face_flipped = true
 
 [sub_resource type="Resource" id="Resource_1ble8"]
 script = ExtResource("3_xnvr0")
 tileset_texture = ExtResource("12_humgb")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(0, 960, 320, 320)
-tileset_zoom = 0.21762913579014848
 grid_snap_size = 0.5
 cursor_step_size = 0.5
 smart_select_mode = 1
+main_app_mode = 2
 mesh_mode = 2
 
 [sub_resource type="Resource" id="Resource_4gcft"]
@@ -99,10 +133,24 @@ script = ExtResource("3_xnvr0")
 tileset_texture = ExtResource("13_n74kk")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(0, 0, 320, 320)
-selected_tiles = Array[Rect2]([Rect2(0, 0, 320, 320)])
 grid_snap_size = 0.5
 cursor_step_size = 0.5
 smart_select_mode = 1
+main_app_mode = 2
+mesh_mode = 2
+current_mesh_rotation = 2
+is_face_flipped = true
+
+[sub_resource type="Resource" id="Resource_8rm2b"]
+script = ExtResource("18_kfnsp")
+duration = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ctbi"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8c2qd"]
+material = SubResource("StandardMaterial3D_8ctbi")
 
 [node name="DataCenter" type="Node3D" unique_id=658518187]
 
@@ -120,6 +168,12 @@ _quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R0_0_0
 _box_chunks = [NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R0_0_0_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
+[node name="@StaticBody3D@317292" type="StaticBody3D" parent="DataCenter" unique_id=595112727]
+script = ExtResource("5_8fy54")
+
+[node name="@CollisionShape3D@317291" type="CollisionShape3D" parent="DataCenter/@StaticBody3D@317292" unique_id=93906260]
+shape = ExtResource("6_fsqdy")
+
 [node name="Elevador" type="Node3D" parent="." unique_id=1770061152 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
 script = ExtResource("1_y33fn")
 settings = SubResource("Resource_a5gwt")
@@ -134,6 +188,12 @@ _quad_chunks = [NodePath("SquareChunk_R-1_0_1_C0"), NodePath("SquareChunk_R0_0_1
 _box_chunks = [NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R0_0_0_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
+[node name="@StaticBody3D@318729" type="StaticBody3D" parent="Elevador" unique_id=243935927]
+script = ExtResource("5_8fy54")
+
+[node name="@CollisionShape3D@318728" type="CollisionShape3D" parent="Elevador/@StaticBody3D@318729" unique_id=132019708]
+shape = ExtResource("8_0l5xb")
+
 [node name="Interior" type="Node3D" parent="." unique_id=1826753516 node_paths=PackedStringArray("_box_chunks", "_prism_chunks")]
 script = ExtResource("1_y33fn")
 settings = SubResource("Resource_4yfn2")
@@ -147,6 +207,12 @@ _tile_anim_data = PackedFloat32Array()
 _box_chunks = [NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R0_0_0_C0"), NodePath("BoxChunk_R-1_0_1_C0"), NodePath("BoxChunk_R0_0_1_C0")]
 _prism_chunks = [NodePath("PrismChunk_R-1_0_0_C0"), NodePath("PrismChunk_R0_0_0_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
+
+[node name="@StaticBody3D@320166" type="StaticBody3D" parent="Interior" unique_id=400380922]
+script = ExtResource("5_8fy54")
+
+[node name="@CollisionShape3D@320165" type="CollisionShape3D" parent="Interior/@StaticBody3D@320166" unique_id=231896375]
+shape = ExtResource("10_xnb6d")
 
 [node name="computaria" type="Node3D" parent="." unique_id=1741076000]
 
@@ -164,6 +230,12 @@ _box_chunks = [NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R0_0_0_C0")]
 _prism_chunks = [NodePath("PrismChunk_R-1_0_0_C0"), NodePath("PrismChunk_R0_0_0_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
+[node name="@StaticBody3D@322257" type="StaticBody3D" parent="computaria/TileMapLayer3D" unique_id=285598960]
+script = ExtResource("5_8fy54")
+
+[node name="@CollisionShape3D@322256" type="CollisionShape3D" parent="computaria/TileMapLayer3D/@StaticBody3D@322257" unique_id=611998527]
+shape = ExtResource("12_grc71")
+
 [node name="TileMapLayer3D2" type="Node3D" parent="computaria" unique_id=472478106]
 script = ExtResource("1_y33fn")
 settings = SubResource("Resource_kfnsp")
@@ -176,59 +248,86 @@ _tile_anim_indices = PackedInt32Array()
 _tile_anim_data = PackedFloat32Array()
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
-[node name="TileMapLayer3D3" type="Node3D" parent="computaria" unique_id=1825632849 node_paths=PackedStringArray("_quad_chunks")]
+[node name="TileMapLayer3D3" type="Node3D" parent="computaria" unique_id=1825632849 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
 script = ExtResource("1_y33fn")
 settings = SubResource("Resource_sq8t0")
-_tile_positions = PackedVector3Array(3, 0, 5.5, 3, 0, 4.5, 3, 0, 3.5, 3, 0, 2.5)
-_tile_uv_rects = PackedFloat32Array(0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320)
-_tile_flags = PackedInt32Array(130051, 130051, 130051, 130051)
-_tile_transform_indices = PackedInt32Array(0, 1, 2, 3)
-_tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
-_tile_anim_indices = PackedInt32Array(-1, -1, -1, -1)
+_tile_positions = PackedVector3Array(2, 0, -4.5, 1, 0, -4.5, -2, 0, -4.5, -3, 0, -4.5, 2, 0, -3.5, 1, 0, -3.5, -2, 0, -3.5, -3, 0, -3.5, -4, 0, 2.5, -4, 0, 3.5, -4, 0, 4.5, -4, 0, 5.5, 3, 0, 2.5, 3, 0, 3.5, 3, 0, 4.5, 3, 0, 5.5)
+_tile_uv_rects = PackedFloat32Array(320, 960, 320, 320, 0, 960, 320, 320, 320, 960, 320, 320, 0, 960, 320, 320, 320, 960, 320, 320, 0, 960, 320, 320, 320, 960, 320, 320, 0, 960, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320)
+_tile_flags = PackedInt32Array(130306, 130306, 130306, 130306, 130306, 130306, 130306, 130306, 130050, 130050, 130050, 130050, 130051, 130051, 130051, 130051)
+_tile_transform_indices = PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
+_tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
+_tile_anim_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1)
 _tile_anim_data = PackedFloat32Array()
-_quad_chunks = [NodePath("SquareChunk_R0_0_0_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R0_0_0_C0")]
+_box_chunks = [NodePath("BoxChunk_R0_0_-1_C0"), NodePath("BoxChunk_R-1_0_-1_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
+
+[node name="@StaticBody3D@324178" type="StaticBody3D" parent="computaria/TileMapLayer3D3" unique_id=878145464]
+script = ExtResource("5_8fy54")
+
+[node name="@CollisionShape3D@324177" type="CollisionShape3D" parent="computaria/TileMapLayer3D3/@StaticBody3D@324178" unique_id=1889930989]
+shape = ExtResource("14_lokwu")
 
 [node name="TileMapLayer3D4" type="Node3D" parent="computaria" unique_id=468614775 node_paths=PackedStringArray("_quad_chunks")]
 script = ExtResource("1_y33fn")
 settings = SubResource("Resource_og0io")
-_tile_positions = PackedVector3Array(-4, 0, 5.5, -4, 0, 4.5, -4, 0, 3.5, -4, 0, 2.5)
-_tile_uv_rects = PackedFloat32Array(0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320)
-_tile_flags = PackedInt32Array(130051, 130051, 130051, 130051)
-_tile_transform_indices = PackedInt32Array(0, 1, 2, 3)
-_tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
-_tile_anim_indices = PackedInt32Array(-1, -1, -1, -1)
+_tile_positions = PackedVector3Array(-4, 0, 5.5, -4, 0, 4.5, -4, 0, 3.5, -4, 0, 2.5, 3, 0, 2.5, 3, 0, 3.5, 3, 0, 4.5, 3, 0, 5.5)
+_tile_uv_rects = PackedFloat32Array(0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320, 0, 0, 320, 320)
+_tile_flags = PackedInt32Array(130051, 130051, 130051, 130051, 130050, 130050, 130050, 130050)
+_tile_transform_indices = PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7)
+_tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
+_tile_anim_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1, -1, -1)
 _tile_anim_data = PackedFloat32Array()
-_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R0_0_0_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
-[node name="TileMapLayer3D5" type="Node3D" parent="computaria" unique_id=387199233 node_paths=PackedStringArray("_quad_chunks")]
+[node name="@StaticBody3D@325138" type="StaticBody3D" parent="computaria/TileMapLayer3D4" unique_id=1965880762]
+script = ExtResource("5_8fy54")
+
+[node name="@CollisionShape3D@325137" type="CollisionShape3D" parent="computaria/TileMapLayer3D4/@StaticBody3D@325138" unique_id=1860893821]
+shape = ExtResource("16_3dsk0")
+
+[node name="TileMapLayer3D5" type="Node3D" parent="computaria" unique_id=387199233 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 script = ExtResource("1_y33fn")
 settings = SubResource("Resource_dwtqy")
-_tile_positions = PackedVector3Array(0, 0.5, 7)
-_tile_uv_rects = PackedFloat32Array(0, 0, 320, 320)
-_tile_flags = PackedInt32Array(130051)
-_tile_transform_indices = PackedInt32Array(0)
-_tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1)
-_tile_anim_indices = PackedInt32Array(-1)
+_tile_positions = PackedVector3Array(0, 0.5, 7, 0, 0.5, 7)
+_tile_uv_rects = PackedFloat32Array(0, 0, 320, 320, 0, 0, 320, 320)
+_tile_flags = PackedInt32Array(130051, 130882)
+_tile_transform_indices = PackedInt32Array(0, 1)
+_tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
+_tile_anim_indices = PackedInt32Array(-1, -1)
 _tile_anim_data = PackedFloat32Array()
 _quad_chunks = [NodePath("SquareChunk_R0_0_0_C0")]
+_box_chunks = [NodePath("BoxChunk_R0_0_0_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
-[node name="TileMapLayer3D6" type="Node3D" parent="computaria" unique_id=2095295551 node_paths=PackedStringArray("_quad_chunks")]
+[node name="@StaticBody3D@326575" type="StaticBody3D" parent="computaria/TileMapLayer3D5" unique_id=447924078]
+script = ExtResource("5_8fy54")
+
+[node name="@CollisionShape3D@326574" type="CollisionShape3D" parent="computaria/TileMapLayer3D5/@StaticBody3D@326575" unique_id=760930054]
+shape = ExtResource("18_e5rbi")
+
+[node name="TileMapLayer3D6" type="Node3D" parent="computaria" unique_id=2095295551 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 script = ExtResource("1_y33fn")
 settings = SubResource("Resource_wsts3")
-_tile_positions = PackedVector3Array(-1, 0.5, 7)
-_tile_uv_rects = PackedFloat32Array(0, 0, 320, 320)
-_tile_flags = PackedInt32Array(130051)
-_tile_transform_indices = PackedInt32Array(0)
-_tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1)
-_tile_anim_indices = PackedInt32Array(-1)
+_tile_positions = PackedVector3Array(-1, 0.5, 7, -1, 0.5, 7)
+_tile_uv_rects = PackedFloat32Array(0, 0, 320, 320, 0, 0, 320, 320)
+_tile_flags = PackedInt32Array(130051, 130882)
+_tile_transform_indices = PackedInt32Array(0, 1)
+_tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
+_tile_anim_indices = PackedInt32Array(-1, -1)
 _tile_anim_data = PackedFloat32Array()
 _quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_0_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
+
+[node name="@StaticBody3D@330886" type="StaticBody3D" parent="computaria/TileMapLayer3D6" unique_id=4277353]
+script = ExtResource("5_8fy54")
+
+[node name="@CollisionShape3D@330885" type="CollisionShape3D" parent="computaria/TileMapLayer3D6/@StaticBody3D@330886" unique_id=1750971859]
+shape = ExtResource("20_4gax6")
 
 [node name="TileMapLayer3D7" type="Node3D" parent="computaria" unique_id=1521848601 node_paths=PackedStringArray("_box_chunks")]
 script = ExtResource("1_y33fn")
@@ -243,19 +342,86 @@ _tile_anim_data = PackedFloat32Array()
 _box_chunks = [NodePath("BoxChunk_R-1_0_0_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
-[node name="TileMapLayer3D8" type="Node3D" parent="computaria" unique_id=293766565 node_paths=PackedStringArray("_quad_chunks")]
+[node name="@StaticBody3D@329449" type="StaticBody3D" parent="computaria/TileMapLayer3D7" unique_id=458610476]
+script = ExtResource("5_8fy54")
+
+[node name="@CollisionShape3D@329448" type="CollisionShape3D" parent="computaria/TileMapLayer3D7/@StaticBody3D@329449" unique_id=1967732842]
+shape = ExtResource("22_juhis")
+
+[node name="TileMapLayer3D8" type="Node3D" parent="computaria" unique_id=293766565 node_paths=PackedStringArray("_box_chunks")]
 script = ExtResource("1_y33fn")
 settings = SubResource("Resource_4gcft")
-_tile_positions = PackedVector3Array(1, 0.5, 8, -1.5, 0.5, 7.5)
+_tile_positions = PackedVector3Array(-1.5, 0.5, 7.5, 1, 0.5, 8)
 _tile_uv_rects = PackedFloat32Array(0, 0, 320, 320, 0, 0, 320, 320)
-_tile_flags = PackedInt32Array(130051, 130051)
+_tile_flags = PackedInt32Array(130882, 130882)
 _tile_transform_indices = PackedInt32Array(0, 1)
 _tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
 _tile_anim_indices = PackedInt32Array(-1, -1)
 _tile_anim_data = PackedFloat32Array()
-_quad_chunks = [NodePath("SquareChunk_R0_0_0_C0"), NodePath("SquareChunk_R-1_0_0_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R0_0_0_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
+
+[node name="@StaticBody3D@328012" type="StaticBody3D" parent="computaria/TileMapLayer3D8" unique_id=1776201474]
+script = ExtResource("5_8fy54")
+
+[node name="@CollisionShape3D@328011" type="CollisionShape3D" parent="computaria/TileMapLayer3D8/@StaticBody3D@328012" unique_id=1519326612]
+shape = ExtResource("24_gqq4j")
 
 [node name="objDocumento1" parent="." unique_id=1986320915 instance=ExtResource("14_4yfn2")]
 transform = Transform3D(0.4185596, 0, 1.9557116, 0, 2, 0, -1.9557116, 0, 0.4185596, 3.4426546, 0.3538928, 1.5019919)
 showWhenFlag = "ultralink_buscaIniciada"
+
+[node name="charGeraldoSalvador" parent="." unique_id=1046664859 node_paths=PackedStringArray("cameraPivotNode") instance=ExtResource("15_humgb")]
+unique_name_in_owner = true
+transform = Transform3D(0.9996054, 0, 0.028089818, 0, 1, 0, -0.028089818, 0, 0.9996054, -0.073145, 0.8587768, 0.51041055)
+safe_margin = 0.015
+cameraPivotNode = NodePath("../CameraPivot")
+
+[node name="DirectionalSprite" parent="charGeraldoSalvador" index="3" unique_id=578035060 node_paths=PackedStringArray("cameraScript")]
+cameraScript = NodePath("../../CameraPivot")
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=1472954509 node_paths=PackedStringArray("player")]
+transform = Transform3D(-0.9996054, 0, -0.02808973, 0, 1, 0, 0.02808973, 0, -0.9996054, -0.26307946, 0.20783389, -0.6187825)
+script = ExtResource("16_n74kk")
+player = NodePath("../charGeraldoSalvador")
+
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=919233502 node_paths=PackedStringArray("follow_target")]
+unique_name_in_owner = true
+transform = Transform3D(0.9996054, 0, 0.02808982, 0, 1, 0, -0.02808982, 0, 0.9996054, -0.016965367, 0.8587768, 2.5096214)
+script = ExtResource("17_dd0gw")
+follow_mode = 6
+follow_target = NodePath("../charGeraldoSalvador")
+tween_resource = SubResource("Resource_8rm2b")
+tween_on_load = false
+follow_distance = 2.0
+spring_length = 2.0
+collision_mask = 31
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+align_rotation_with_view = Callable()
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="portaDatacenter" parent="." unique_id=1353397638 node_paths=PackedStringArray("personagem") instance=ExtResource("19_n74kk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0038002878, 1.0144652, 0.008547753)
+personagem = NodePath("../charGeraldoSalvador")
+openingTime = 480.0
+closingTime = 1080.0
+isInterior = true
+
+[node name="Sprite3D" parent="portaDatacenter" index="0" unique_id=131051309 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../charGeraldoSalvador")
+
+[node name="Atendente" parent="." unique_id=2040080851 instance=ExtResource("20_dd0gw")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.028967753, 1.0182983, 7.7716055)
+script = null
+
+[node name="Sprite3D" parent="Atendente/StaticBody3D" parent_id_path=PackedInt32Array(2040080851, 408448575) index="2" unique_id=1766881007]
+alcanceInteracao = 0.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1759883582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.7000294)
+mesh = SubResource("BoxMesh_8c2qd")
+
+[editable path="charGeraldoSalvador"]
+[editable path="portaDatacenter"]
+[editable path="Atendente"]

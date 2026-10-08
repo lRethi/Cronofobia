@@ -43,7 +43,8 @@ public partial class OPENTHEGATES : StaticBody3D
         if (GameState.Instance.GetFlag(cantInteractFlag))
         {
             if (isInterior) TrocarArea();
-        } else return;
+            else return;
+        } 
 
         float minutoAtual = TimeState.Instance.minutoDoDia;
 

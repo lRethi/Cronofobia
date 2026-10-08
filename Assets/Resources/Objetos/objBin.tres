@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="DirectionalSpriteResource" format=3 uid="uid://b3s1v41ypftn4"]
 
-[ext_resource type="Texture2D" uid="uid://dni20oobe5mt8" path="res://Assets/Sprites/Cenario/Props/bancoB.png" id="1_he242"]
-[ext_resource type="Texture2D" uid="uid://cwj247t0ou8kh" path="res://Assets/Sprites/Cenario/Props/banco.png" id="3_cxrix"]
+[ext_resource type="Texture2D" uid="uid://bogp3fo4t2owc" path="res://Assets/Sprites/Cenario/Props/binB.png" id="1_he242"]
+[ext_resource type="Texture2D" uid="uid://bhy02e6ewon1g" path="res://Assets/Sprites/Cenario/Props/binF.png" id="3_cxrix"]
 [ext_resource type="Script" uid="uid://b0fa1dne8hw5f" path="res://Scripts/Resources/DirectionalSpriteData.cs" id="3_qt8s2"]
-[ext_resource type="Texture2D" uid="uid://d3dqmh8b780ib" path="res://Assets/Sprites/Cenario/Props/bancoL.png" id="4_dimo7"]
-[ext_resource type="Texture2D" uid="uid://chuhdrka63rbi" path="res://Assets/Sprites/Cenario/Props/bancoR.png" id="5_17047"]
+[ext_resource type="Texture2D" uid="uid://b75ofuvhd1l47" path="res://Assets/Sprites/Cenario/Props/binL.png" id="4_dimo7"]
+[ext_resource type="Texture2D" uid="uid://44wcf18fkk4c" path="res://Assets/Sprites/Cenario/Props/binR.png" id="5_17047"]
 [ext_resource type="Script" uid="uid://dxulphw667pgt" path="res://Scripts/Resources/DirectionalSpriteResource.cs" id="5_ln2n7"]
 
 [sub_resource type="Resource" id="Resource_4lxxw"]

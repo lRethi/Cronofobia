@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="DirectionalSpriteResource" format=3 uid="uid://dwvsa07bnobnk"]
+
+[ext_resource type="Texture2D" uid="uid://dni20oobe5mt8" path="res://Assets/Sprites/Cenario/Props/bancoB.png" id="1_tp1ib"]
+[ext_resource type="Script" uid="uid://b0fa1dne8hw5f" path="res://Scripts/Resources/DirectionalSpriteData.cs" id="2_ahum3"]
+[ext_resource type="Texture2D" uid="uid://cwj247t0ou8kh" path="res://Assets/Sprites/Cenario/Props/banco.png" id="3_ahum3"]
+[ext_resource type="Texture2D" uid="uid://d3dqmh8b780ib" path="res://Assets/Sprites/Cenario/Props/bancoL.png" id="4_wqro1"]
+[ext_resource type="Texture2D" uid="uid://chuhdrka63rbi" path="res://Assets/Sprites/Cenario/Props/bancoR.png" id="5_1p522"]
+[ext_resource type="Script" uid="uid://dxulphw667pgt" path="res://Scripts/Resources/DirectionalSpriteResource.cs" id="6_ij1u7"]
+
+[sub_resource type="Resource" id="Resource_4lxxw"]
+script = ExtResource("2_ahum3")
+Texture = ExtResource("1_tp1ib")
+metadata/_custom_type_script = "uid://b0fa1dne8hw5f"
+
+[sub_resource type="Resource" id="Resource_ypbf6"]
+script = ExtResource("2_ahum3")
+Texture = ExtResource("3_ahum3")
+metadata/_custom_type_script = "uid://b0fa1dne8hw5f"
+
+[sub_resource type="Resource" id="Resource_57com"]
+script = ExtResource("2_ahum3")
+Texture = ExtResource("4_wqro1")
+metadata/_custom_type_script = "uid://b0fa1dne8hw5f"
+
+[sub_resource type="Resource" id="Resource_51x2w"]
+script = ExtResource("2_ahum3")
+Texture = ExtResource("5_1p522")
+metadata/_custom_type_script = "uid://b0fa1dne8hw5f"
+
+[resource]
+script = ExtResource("6_ij1u7")
+Back = SubResource("Resource_4lxxw")
+Right = SubResource("Resource_51x2w")
+Front = SubResource("Resource_ypbf6")
+Left = SubResource("Resource_57com")
+metadata/_custom_type_script = "uid://dxulphw667pgt"

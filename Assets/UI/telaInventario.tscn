@@ -349,7 +349,7 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_0vaky")
 theme_override_styles/focus = SubResource("StyleBoxTexture_gq3fx")
 text = "Não"
 
-[node name="telaFazerFeijoada" type="Panel" parent="." unique_id=663261305]
+[node name="telaFazerFeijoada" type="Panel" parent="." unique_id=663261305 node_paths=PackedStringArray("btnFazerFeijoada")]
 layout_mode = 0
 offset_left = 858.0
 offset_top = 307.0
@@ -357,6 +357,7 @@ offset_right = 1043.0
 offset_bottom = 371.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_73xor")
 script = ExtResource("10_jvro6")
+btnFazerFeijoada = NodePath("botSim")
 
 [node name="Label" type="Label" parent="telaFazerFeijoada" unique_id=1255004069]
 layout_mode = 0

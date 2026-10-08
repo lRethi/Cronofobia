@@ -387,4 +387,9 @@ public partial class InventoryState : Node
 
         return AdicionarItem(feijoada);
     }
+
+    public void Resetar()
+    {
+        Limpar();
+    }
 }

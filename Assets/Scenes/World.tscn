@@ -12,11 +12,12 @@
 [ext_resource type="PackedScene" uid="uid://5a6qtoub36jc" path="res://Assets/Scenes/Loja1.tscn" id="10_xcnau"]
 [ext_resource type="PackedScene" uid="uid://7ytht27jms5d" path="res://Assets/Scenes/Loja3.tscn" id="11_vtf5x"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="12_mgpwa"]
-[ext_resource type="PackedScene" uid="uid://03vyq8qs01b1" path="res://Assets/Scenes/fog_post_process.tscn" id="13_52kks"]
 [ext_resource type="PackedScene" uid="uid://b8kdadftm2bc7" path="res://Assets/UI/hudHorario.tscn" id="14_xv5rl"]
 [ext_resource type="PackedScene" uid="uid://bt0y13avl08jo" path="res://Assets/UI/hud_main.tscn" id="15_cd7ii"]
 [ext_resource type="PackedScene" uid="uid://c3qp6nf2wgnsr" path="res://Assets/UI/telaInventario.tscn" id="16_xcnau"]
 [ext_resource type="Script" uid="uid://cgm5ydwn0eb7u" path="res://Scripts/Camera/dialogueCameraController.cs" id="17_52kks"]
+[ext_resource type="Script" uid="uid://dhssuh1tvu3lw" path="res://Scripts/Globais/EnemyManager.cs" id="17_xv5rl"]
+[ext_resource type="PackedScene" uid="uid://c4vccexgyrjmw" path="res://Assets/Personagens/Inimigos/droneInimigo.tscn" id="18_cd7ii"]
 
 [node name="World" type="Node3D" unique_id=298841364]
 
@@ -35,8 +36,768 @@ camera = NodePath("CameraPivot")
 [node name="DirectionalSprite" parent="ThePlayground/charGeraldoSalvador" parent_id_path=PackedInt32Array(1702091423, 1046664859) index="3" unique_id=578035060 node_paths=PackedStringArray("cameraScript")]
 cameraScript = NodePath("../../CameraPivot")
 
-[node name="portaBanco" parent="ThePlayground/Buildings/Casas Companias" parent_id_path=PackedInt32Array(1702091423, 1577077153) index="9" unique_id=1353397638 node_paths=PackedStringArray("targetArea")]
+[node name="PhantomCamera3D" parent="ThePlayground" index="7" unique_id=1167174207]
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+align_rotation_with_view = Callable()
+
+[node name="doLadoDaPop" parent="ThePlayground/Buildings/Prédios Abandonados" parent_id_path=PackedInt32Array(1702091423, 309458847) index="0" unique_id=222993876 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R-1_0_-2_C0"), NodePath("SquareChunk_R-2_0_-1_C0"), NodePath("SquareChunk_R-2_1_-1_C0"), NodePath("SquareChunk_R-1_1_-1_C0"), NodePath("SquareChunk_R-1_1_-2_C0"), NodePath("SquareChunk_R-2_0_-2_C0"), NodePath("SquareChunk_R-2_1_-2_C0")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_-1_C0"), NodePath("TriangleChunk_R-1_0_-2_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-2_C0"), NodePath("BoxChunk_R-1_0_-1_C0"), NodePath("BoxChunk_R-1_1_-1_C0"), NodePath("BoxChunk_R-1_1_-2_C0")]
+
+[node name="Predio2" parent="ThePlayground/Buildings/Prédios Abandonados" parent_id_path=PackedInt32Array(1702091423, 309458847) index="1" unique_id=1504349412 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R-1_1_-1_C0")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_-1_C0"), NodePath("TriangleChunk_R-1_1_-1_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0"), NodePath("BoxChunk_R-1_1_-1_C0"), NodePath("BoxChunk_R-1_0_-1_C1")]
+
+[node name="Hering" parent="ThePlayground/Buildings/Prédios Abandonados" parent_id_path=PackedInt32Array(1702091423, 309458847) index="2" unique_id=1877353873 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_1_C0"), NodePath("SquareChunk_R0_1_1_C0"), NodePath("SquareChunk_R1_0_1_C0"), NodePath("SquareChunk_R1_1_1_C0")]
+_box_chunks = [NodePath("BoxChunk_R0_0_1_C0"), NodePath("BoxChunk_R0_1_1_C0")]
+
+[node name="Predio" parent="ThePlayground/Buildings/Prédios Abandonados" parent_id_path=PackedInt32Array(1702091423, 309458847) index="3" unique_id=1798429923 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R-1_1_-1_C0"), NodePath("SquareChunk_R-1_1_0_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R-1_0_-1_C0"), NodePath("BoxChunk_R-1_1_-1_C0")]
+
+[node name="WhatTheHell" parent="ThePlayground/Buildings/Prédios Abandonados" parent_id_path=PackedInt32Array(1702091423, 309458847) index="5" unique_id=124492726 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_3_C0")]
+_triangle_chunks = [NodePath("TriangleChunk_R0_0_3_C0")]
+
+[node name="MioDaPraca" parent="ThePlayground/Buildings/Prédios Abandonados" parent_id_path=PackedInt32Array(1702091423, 309458847) index="6" unique_id=2109387993 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R1_0_-1_C0")]
+_box_chunks = [NodePath("BoxChunk_R0_0_-1_C0"), NodePath("BoxChunk_R1_0_-1_C0")]
+
+[node name="HotelAbandonado" parent="ThePlayground/Buildings/Prédios Abandonados" parent_id_path=PackedInt32Array(1702091423, 309458847) index="7" unique_id=1065200311 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_3_C0"), NodePath("SquareChunk_R-3_0_3_C0"), NodePath("SquareChunk_R-3_0_4_C0"), NodePath("SquareChunk_R-2_0_4_C0")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_3_C0"), NodePath("BoxChunk_R-3_0_3_C0"), NodePath("BoxChunk_R-2_0_4_C0"), NodePath("BoxChunk_R-2_-1_3_C0")]
+
+[node name="Prédio acabado que o jão se recusa a fazer_" parent="ThePlayground/Buildings/Prédios Abandonados" parent_id_path=PackedInt32Array(1702091423, 309458847) index="8" unique_id=1278762855 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R1_0_-3_C0"), NodePath("SquareChunk_R1_0_-2_C0")]
+_box_chunks = [NodePath("BoxChunk_R1_0_-3_C0"), NodePath("BoxChunk_R1_0_-2_C0")]
+
+[node name="UltimaDaMinhaRua" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="0" unique_id=577328101 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks", "_prism_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_2_C0")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_2_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_2_C0")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_2_C0")]
+
+[node name="Cartório" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="1" unique_id=291676996 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_2_C0"), NodePath("SquareChunk_R-1_1_2_C0"), NodePath("SquareChunk_R-1_0_2_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_2_C0")]
+
+[node name="Cartório2" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="2" unique_id=103311500 node_paths=PackedStringArray("_quad_chunks", "_box_chunks", "_prism_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_2_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_2_C0")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_2_C0")]
+
+[node name="Cartório3" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="3" unique_id=1817785524 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_2_C0"), NodePath("SquareChunk_R-1_1_2_C0")]
+
+[node name="Popular" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="4" unique_id=2145016110 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_1_C0"), NodePath("SquareChunk_R-1_1_1_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_1_C0"), NodePath("BoxChunk_R-1_1_1_C0"), NodePath("BoxChunk_R-1_-1_1_C0")]
+
+[node name="Banco1" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="5" unique_id=11679270 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R-1_1_0_C0"), NodePath("SquareChunk_R-1_0_2_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R-1_1_0_C0")]
+
+[node name="Banco12" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="6" unique_id=1841996307 node_paths=PackedStringArray("_box_chunks")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_0_C0")]
+
+[node name="desaparecido" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="7" unique_id=1337188185 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-2_C0"), NodePath("SquareChunk_R0_1_-2_C0"), NodePath("SquareChunk_R1_0_-2_C0"), NodePath("SquareChunk_R1_1_-2_C0")]
+_box_chunks = [NodePath("BoxChunk_R0_0_-2_C0"), NodePath("BoxChunk_R0_1_-2_C0")]
+
+[node name="desaparecido2" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="8" unique_id=1142559748 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-2_C0")]
+
+[node name="SmileBabySmileForTheCorporation_" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="9" unique_id=430880529 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_2_C0"), NodePath("SquareChunk_R1_0_2_C0"), NodePath("SquareChunk_R2_0_2_C0"), NodePath("SquareChunk_R0_0_3_C0"), NodePath("SquareChunk_R1_0_3_C0"), NodePath("SquareChunk_R2_0_3_C0"), NodePath("SquareChunk_R1_1_2_C0"), NodePath("SquareChunk_R1_2_2_C0"), NodePath("SquareChunk_R1_1_3_C0"), NodePath("SquareChunk_R1_2_3_C0"), NodePath("SquareChunk_R2_1_3_C0"), NodePath("SquareChunk_R2_2_3_C0"), NodePath("SquareChunk_R2_1_2_C0"), NodePath("SquareChunk_R2_2_2_C0"), NodePath("SquareChunk_R1_3_2_C0"), NodePath("SquareChunk_R2_3_2_C0"), NodePath("SquareChunk_R1_3_3_C0"), NodePath("SquareChunk_R2_3_3_C0"), NodePath("SquareChunk_R1_0_2_C1")]
+_triangle_chunks = [NodePath("TriangleChunk_R1_0_3_C0"), NodePath("TriangleChunk_R1_2_3_C0"), NodePath("TriangleChunk_R1_0_2_C0"), NodePath("TriangleChunk_R1_2_2_C0"), NodePath("TriangleChunk_R0_0_3_C0"), NodePath("TriangleChunk_R0_0_2_C0"), NodePath("TriangleChunk_R2_2_2_C0"), NodePath("TriangleChunk_R2_2_3_C0")]
+_box_chunks = [NodePath("BoxChunk_R0_0_2_C0"), NodePath("BoxChunk_R1_0_2_C0"), NodePath("BoxChunk_R1_2_2_C0"), NodePath("BoxChunk_R1_2_3_C0"), NodePath("BoxChunk_R2_2_2_C0"), NodePath("BoxChunk_R2_2_3_C0")]
+
+[node name="ParkingLot" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="10" unique_id=573891411 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_2_C0"), NodePath("SquareChunk_R1_0_2_C0"), NodePath("SquareChunk_R0_0_1_C0"), NodePath("SquareChunk_R1_0_1_C0"), NodePath("SquareChunk_R-1_0_2_C0")]
+_box_chunks = [NodePath("BoxChunk_R0_0_2_C0"), NodePath("BoxChunk_R1_0_2_C0"), NodePath("BoxChunk_R0_0_1_C0"), NodePath("BoxChunk_R1_0_1_C0")]
+
+[node name="Pop" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="11" unique_id=790136238 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-2_C0"), NodePath("SquareChunk_R-1_0_-2_C1")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_-2_C0")]
+
+[node name="AtrasDaPop" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="12" unique_id=677094228 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_-2_C0"), NodePath("SquareChunk_R-2_0_-2_C1")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_-2_C0")]
+
+[node name="aTRAPOP" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="13" unique_id=1004611781 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_-2_C0")]
+
+[node name="AcademiaDoClube" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="14" unique_id=1994599291 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_3_C0"), NodePath("SquareChunk_R0_0_3_C0")]
+
+[node name="Academida" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="15" unique_id=822274928 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_3_C0"), NodePath("SquareChunk_R0_0_3_C0")]
+
+[node name="demia" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="16" unique_id=774668660 node_paths=PackedStringArray("_quad_chunks", "_box_chunks", "_prism_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_3_C0")]
+_box_chunks = [NodePath("BoxChunk_R0_0_3_C0"), NodePath("BoxChunk_R-1_0_3_C0"), NodePath("BoxChunk_R-1_0_2_C0")]
+_prism_chunks = [NodePath("PrismChunk_R0_0_2_C0"), NodePath("PrismChunk_R-1_0_2_C0")]
+
+[node name="PortaoMilitar" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="17" unique_id=586354483 node_paths=PackedStringArray("_quad_chunks", "_box_chunks", "_prism_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-3_0_0_C0"), NodePath("SquareChunk_R-2_0_0_C0")]
+_box_chunks = [NodePath("BoxChunk_R-3_0_0_C0"), NodePath("BoxChunk_R-2_0_-1_C0"), NodePath("BoxChunk_R-2_0_0_C0"), NodePath("BoxChunk_R-3_0_-1_C0")]
+_prism_chunks = [NodePath("PrismChunk_R-3_0_0_C0")]
+
+[node name="JanelaMilitar" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="18" unique_id=1750416200 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-3_0_0_C0"), NodePath("SquareChunk_R-3_0_-1_C0")]
+_box_chunks = [NodePath("BoxChunk_R-3_0_0_C0")]
+
+[node name="PrdeioMilitar" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="19" unique_id=329087832 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks", "_prism_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-3_0_0_C0"), NodePath("SquareChunk_R-3_0_-1_C0")]
+_triangle_chunks = [NodePath("TriangleChunk_R-3_0_0_C0")]
+_box_chunks = [NodePath("BoxChunk_R-3_0_0_C0"), NodePath("BoxChunk_R-3_0_-1_C0"), NodePath("BoxChunk_R-1_0_0_C0")]
+_prism_chunks = [NodePath("PrismChunk_R-3_0_0_C0")]
+
+[node name="DoLadinhoDoMeuPredio" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="20" unique_id=415784883 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_0_C0"), NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R-2_0_-1_C0")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_0_C0"), NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R-2_0_-1_C0")]
+
+[node name="Lugar" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="21" unique_id=1241606320 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_-1_C0"), NodePath("SquareChunk_R-2_0_0_C0")]
+_triangle_chunks = [NodePath("TriangleChunk_R-2_0_-1_C0")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_-1_C0")]
+
+[node name="lugarchão" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="22" unique_id=1480608403 node_paths=PackedStringArray("_box_chunks")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_-1_C0"), NodePath("BoxChunk_R-2_0_0_C0")]
+
+[node name="DataCente" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="23" unique_id=1305262025 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-2_C0"), NodePath("SquareChunk_R-1_1_-2_C0"), NodePath("SquareChunk_R0_0_-2_C0"), NodePath("SquareChunk_R0_1_-2_C0"), NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R0_0_2_C0")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_-2_C0"), NodePath("TriangleChunk_R0_0_-2_C0"), NodePath("TriangleChunk_R-1_0_-1_C0"), NodePath("TriangleChunk_R0_0_-1_C0")]
+
+[node name="PredioAlmoço" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="24" unique_id=1905505543 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_2_C0")]
+
+[node name="Predioalmopos2" parent="ThePlayground/Buildings/Prédios Companias" parent_id_path=PackedInt32Array(1702091423, 488836010) index="25" unique_id=937035770 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_2_C0")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_2_C0"), NodePath("BoxChunk_R-2_-1_2_C0")]
+
+[node name="Alameda2" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="0" unique_id=1013027431 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_1_C0")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_1_C0")]
+
+[node name="Alameda1" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="1" unique_id=1033812290 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_1_C0"), NodePath("SquareChunk_R-1_0_2_C0"), NodePath("SquareChunk_R-2_0_1_C0"), NodePath("SquareChunk_R-2_0_2_C0")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_1_C0"), NodePath("TriangleChunk_R-2_0_1_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_1_C0")]
+
+[node name="portaAlameda" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="2" unique_id=1353397638 node_paths=PackedStringArray("targetArea", "personagem")]
+targetArea = NodePath("../../../../Loja2")
+personagem = NodePath("../../../charGeraldoSalvador")
+
+[node name="Sprite3D" parent="ThePlayground/Buildings/Casas Abandonadas/portaAlameda" index="0" unique_id=131051309 node_paths=PackedStringArray("personagem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8786087, -6.173566, -56.889553)
+personagem = NodePath("../../../../charGeraldoSalvador")
+
+[node name="Gutao_" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="3" unique_id=163432192 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks", "_prism_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-3_C0"), NodePath("SquareChunk_R0_-1_-3_C0")]
+_triangle_chunks = [NodePath("TriangleChunk_R0_-1_-3_C0")]
+_box_chunks = [NodePath("BoxChunk_R0_0_-3_C0")]
+_prism_chunks = [NodePath("PrismChunk_R0_0_-3_C0")]
+
+[node name="Cortes" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="4" unique_id=103720510 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R-1_0_1_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R-1_0_1_C0"), NodePath("BoxChunk_R-1_1_0_C0"), NodePath("BoxChunk_R0_1_0_C0"), NodePath("BoxChunk_R1_1_0_C0")]
+
+[node name="Cortes2" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="5" unique_id=1139987096 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R-1_0_1_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_0_C0")]
+
+[node name="Portaalio" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="6" unique_id=951799974 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_1_C0")]
+
+[node name="VivoELuigi" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="7" unique_id=1343247828 node_paths=PackedStringArray("_quad_chunks", "_box_chunks", "_prism_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R0_0_-2_C0"), NodePath("SquareChunk_R1_0_-2_C0"), NodePath("SquareChunk_R0_0_1_C0")]
+_box_chunks = [NodePath("BoxChunk_R0_0_-2_C0"), NodePath("BoxChunk_R0_0_-1_C0")]
+_prism_chunks = [NodePath("PrismChunk_R0_0_-1_C0")]
+
+[node name="chiquinho portão" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="8" unique_id=1897290446 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C0")]
+
+[node name="Chiquinho" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="9" unique_id=1725696862 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C0")]
+_box_chunks = [NodePath("BoxChunk_R0_0_-1_C0")]
+
+[node name="CasaChik2" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="10" unique_id=989977676 node_paths=PackedStringArray("_quad_chunks", "_box_chunks", "_prism_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_0_C0")]
+_box_chunks = [NodePath("BoxChunk_R0_0_0_C0"), NodePath("BoxChunk_R1_0_0_C0"), NodePath("BoxChunk_R0_-1_0_C0")]
+_prism_chunks = [NodePath("PrismChunk_R0_0_0_C0"), NodePath("PrismChunk_R1_0_0_C0")]
+
+[node name="CasaChik" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="11" unique_id=1081791813 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks", "_prism_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_0_C0"), NodePath("SquareChunk_R1_0_0_C0")]
+_triangle_chunks = [NodePath("TriangleChunk_R0_0_0_C0"), NodePath("TriangleChunk_R1_0_0_C0")]
+_box_chunks = [NodePath("BoxChunk_R0_0_0_C0"), NodePath("BoxChunk_R1_0_0_C0"), NodePath("BoxChunk_R1_-1_0_C0"), NodePath("BoxChunk_R0_0_-1_C0"), NodePath("BoxChunk_R1_0_1_C0"), NodePath("BoxChunk_R0_-1_0_C0"), NodePath("BoxChunk_R1_0_-1_C0")]
+_prism_chunks = [NodePath("PrismChunk_R0_0_0_C0"), NodePath("PrismChunk_R0_0_-1_C0"), NodePath("PrismChunk_R1_0_0_C0")]
+
+[node name="CasaVerde" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="12" unique_id=1128647063 node_paths=PackedStringArray("_quad_chunks", "_box_chunks", "_prism_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_1_C0")]
+_box_chunks = [NodePath("BoxChunk_R0_0_1_C0")]
+_prism_chunks = [NodePath("PrismChunk_R0_0_1_C0")]
+
+[node name="Cinema" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="13" unique_id=1650955508 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_1_C0"), NodePath("SquareChunk_R-2_0_2_C0")]
+_box_chunks = [NodePath("BoxChunk_R0_0_1_C0"), NodePath("BoxChunk_R0_0_3_C0")]
+
+[node name="Casamuro" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="14" unique_id=936663096 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_3_C0"), NodePath("SquareChunk_R-2_0_3_C0")]
+
+[node name="CasaMurada" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="15" unique_id=1815092021 node_paths=PackedStringArray("_quad_chunks", "_box_chunks", "_prism_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_3_C0"), NodePath("SquareChunk_R-2_0_3_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_3_C0"), NodePath("BoxChunk_R-2_0_3_C0"), NodePath("BoxChunk_R-1_-1_3_C0")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_3_C0")]
+
+[node name="Csamurada" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="16" unique_id=301126715 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks", "_prism_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_3_C0")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_3_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_3_C0")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_3_C0")]
+
+[node name="Sino" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="17" unique_id=1139988878 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-2_C0"), NodePath("SquareChunk_R-1_0_-2_C0")]
+_box_chunks = [NodePath("BoxChunk_R0_0_-2_C0"), NodePath("BoxChunk_R-1_0_-2_C0")]
+
+[node name="Igreja" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="18" unique_id=708692090 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks", "_prism_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-2_C0"), NodePath("SquareChunk_R0_0_-2_C0"), NodePath("SquareChunk_R0_0_-3_C0"), NodePath("SquareChunk_R-1_0_-3_C0")]
+_triangle_chunks = [NodePath("TriangleChunk_R0_0_-3_C0"), NodePath("TriangleChunk_R-1_0_-2_C0"), NodePath("TriangleChunk_R0_0_-2_C0"), NodePath("TriangleChunk_R-1_0_-3_C0")]
+_box_chunks = [NodePath("BoxChunk_R0_0_-3_C0"), NodePath("BoxChunk_R-1_0_-3_C0"), NodePath("BoxChunk_R0_0_-2_C0"), NodePath("BoxChunk_R-1_0_-2_C0")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_-2_C0"), NodePath("PrismChunk_R0_0_-2_C0")]
+
+[node name="SimuladorDeAlmoço" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="19" unique_id=710676498 node_paths=PackedStringArray("_quad_chunks", "_box_chunks", "_prism_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_2_C0"), NodePath("SquareChunk_R-2_0_2_C0"), NodePath("SquareChunk_R-1_0_0_C0")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_2_C0"), NodePath("BoxChunk_R-1_0_2_C0")]
+_prism_chunks = [NodePath("PrismChunk_R-2_0_2_C0")]
+
+[node name="SimuladorDeAlmoço2" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="20" unique_id=1173275906 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_2_C0"), NodePath("SquareChunk_R-2_-1_2_C0"), NodePath("SquareChunk_R-1_0_2_C0")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_2_C0")]
+
+[node name="SimuladorDeAlmoço3" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="21" unique_id=311149553 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_2_C0")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_2_C0")]
+
+[node name="CasaDoGutao" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="22" unique_id=1100824243 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks", "_prism_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-3_C0"), NodePath("SquareChunk_R1_0_-3_C0"), NodePath("SquareChunk_R1_-1_-3_C0")]
+_triangle_chunks = [NodePath("TriangleChunk_R1_0_-3_C0"), NodePath("TriangleChunk_R0_0_-3_C0")]
+_box_chunks = [NodePath("BoxChunk_R1_0_-3_C0"), NodePath("BoxChunk_R0_0_-3_C0")]
+_prism_chunks = [NodePath("PrismChunk_R1_0_-3_C0")]
+
+[node name="portaChiquinho" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="23" unique_id=1789396872 node_paths=PackedStringArray("targetArea", "personagem")]
+targetArea = NodePath("../../../../Loja1")
+personagem = NodePath("../../../charGeraldoSalvador")
+
+[node name="Sprite3D" parent="ThePlayground/Buildings/Casas Abandonadas/portaChiquinho" index="0" unique_id=131051309 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../../../charGeraldoSalvador")
+
+[node name="Papelaria" parent="ThePlayground/Buildings/Casas Companias" parent_id_path=PackedInt32Array(1702091423, 376204862) index="0" unique_id=581356350 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks", "_prism_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-3_C0"), NodePath("SquareChunk_R-2_0_-3_C0"), NodePath("SquareChunk_R0_0_-3_C0"), NodePath("SquareChunk_R1_0_-3_C0")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_-3_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-3_C0"), NodePath("BoxChunk_R-2_0_-3_C0"), NodePath("BoxChunk_R1_0_-3_C0")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_-3_C0")]
+
+[node name="Papela3" parent="ThePlayground/Buildings/Casas Companias" parent_id_path=PackedInt32Array(1702091423, 376204862) index="1" unique_id=1334808316 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-3_C0")]
+
+[node name="Pela2ria" parent="ThePlayground/Buildings/Casas Companias" parent_id_path=PackedInt32Array(1702091423, 376204862) index="2" unique_id=1369441869 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-3_C0"), NodePath("SquareChunk_R-2_0_-3_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-3_C0"), NodePath("BoxChunk_R-2_0_-3_C0")]
+
+[node name="CasaDoPiMiniWedding" parent="ThePlayground/Buildings/Casas Companias" parent_id_path=PackedInt32Array(1702091423, 376204862) index="3" unique_id=1229187414 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-3_C0"), NodePath("SquareChunk_R0_0_-3_C0")]
+
+[node name="MIniWed" parent="ThePlayground/Buildings/Casas Companias" parent_id_path=PackedInt32Array(1702091423, 376204862) index="4" unique_id=1399312320 node_paths=PackedStringArray("_box_chunks", "_prism_chunks")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-3_C0")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_-3_C0")]
+
+[node name="PidoCAsa" parent="ThePlayground/Buildings/Casas Companias" parent_id_path=PackedInt32Array(1702091423, 376204862) index="5" unique_id=1277654739 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-3_C0"), NodePath("SquareChunk_R0_0_-3_C0")]
+
+[node name="Banco2" parent="ThePlayground/Buildings/Casas Companias" parent_id_path=PackedInt32Array(1702091423, 376204862) index="6" unique_id=1419880317 node_paths=PackedStringArray("_quad_chunks", "_box_chunks", "_prism_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-2_C0"), NodePath("SquareChunk_R0_0_-3_C0"), NodePath("SquareChunk_R1_0_-3_C0")]
+_box_chunks = [NodePath("BoxChunk_R0_0_-2_C0"), NodePath("BoxChunk_R0_0_-3_C0"), NodePath("BoxChunk_R1_0_-3_C0")]
+_prism_chunks = [NodePath("PrismChunk_R0_0_-2_C0")]
+
+[node name="Banco22" parent="ThePlayground/Buildings/Casas Companias" parent_id_path=PackedInt32Array(1702091423, 376204862) index="7" unique_id=1669812047 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-2_C0"), NodePath("SquareChunk_R0_0_-1_C0")]
+_box_chunks = [NodePath("BoxChunk_R0_0_-2_C0"), NodePath("BoxChunk_R0_0_-1_C0")]
+
+[node name="Banco23" parent="ThePlayground/Buildings/Casas Companias" parent_id_path=PackedInt32Array(1702091423, 376204862) index="8" unique_id=877400913 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-2_C0")]
+
+[node name="Gas station" parent="ThePlayground/Buildings/Casas Companias" parent_id_path=PackedInt32Array(1702091423, 376204862) index="9" unique_id=1635507985 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_0_C0"), NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R-1_-1_0_C0")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_0_C0"), NodePath("BoxChunk_R-1_0_0_C0")]
+
+[node name="portaBanco" parent="ThePlayground/Buildings/Casas Companias" parent_id_path=PackedInt32Array(1702091423, 376204862) index="10" unique_id=1353397638 node_paths=PackedStringArray("targetArea", "personagem")]
 targetArea = NodePath("../../../../Banco")
+personagem = NodePath("../../../charGeraldoSalvador")
+
+[node name="Sprite3D" parent="ThePlayground/Buildings/Casas Companias/portaBanco" index="0" unique_id=131051309 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../../../charGeraldoSalvador")
+
+[node name="□" parent="ThePlayground/Buildings/Filler/☎" parent_id_path=PackedInt32Array(1702091423, 2084739031, 1141753130) index="0" unique_id=17551227 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_2_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_2_C0"), NodePath("BoxChunk_R-2_0_2_C0")]
+
+[node name="█" parent="ThePlayground/Buildings/Filler/☎" parent_id_path=PackedInt32Array(1702091423, 2084739031, 1141753130) index="1" unique_id=1714151952 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_2_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_2_C0")]
+
+[node name="□gnd" parent="ThePlayground/Buildings/Filler/☎" parent_id_path=PackedInt32Array(1702091423, 2084739031, 1141753130) index="2" unique_id=1925172309 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_2_C0"), NodePath("SquareChunk_R-1_0_2_C0")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_2_C0"), NodePath("BoxChunk_R-1_0_2_C0")]
+
+[node name="█portal" parent="ThePlayground/Buildings/Filler/☎" parent_id_path=PackedInt32Array(1702091423, 2084739031, 1141753130) index="3" unique_id=1131923313 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_2_C0")]
+
+[node name="1" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="1" unique_id=1170498024 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_2_C0")]
+
+[node name="2" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="2" unique_id=1369730772 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_1_C0"), NodePath("SquareChunk_R-2_0_2_C0")]
+
+[node name="3" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="3" unique_id=2117672760 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_1_C0"), NodePath("SquareChunk_R-1_0_1_C0")]
+
+[node name="4" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="4" unique_id=1880081192 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_1_C0"), NodePath("SquareChunk_R1_0_1_C0"), NodePath("SquareChunk_R0_-1_1_C0")]
+_box_chunks = [NodePath("BoxChunk_R0_0_1_C0")]
+
+[node name="5" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="5" unique_id=1149739887 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R1_0_1_C0"), NodePath("SquareChunk_R1_0_2_C0")]
+
+[node name="6" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="6" unique_id=571987004 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_3_C0"), NodePath("SquareChunk_R1_0_3_C0"), NodePath("SquareChunk_R-2_0_-3_C0")]
+_triangle_chunks = [NodePath("TriangleChunk_R0_0_3_C0")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_-3_C0")]
+
+[node name="7" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="7" unique_id=164936877 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R1_0_-3_C0")]
+
+[node name="8" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="8" unique_id=889686419 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-3_C0"), NodePath("SquareChunk_R1_0_-3_C0")]
+_box_chunks = [NodePath("BoxChunk_R1_0_-3_C0"), NodePath("BoxChunk_R0_0_-3_C0"), NodePath("BoxChunk_R0_-1_-3_C0")]
+
+[node name="9" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="9" unique_id=1909941590 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-3_C0"), NodePath("SquareChunk_R-1_0_-4_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-3_C0"), NodePath("BoxChunk_R-1_0_-4_C0")]
+
+[node name="10" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="10" unique_id=1388617889 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-4_C0"), NodePath("SquareChunk_R-1_0_-3_C0"), NodePath("SquareChunk_R0_0_-3_C0"), NodePath("SquareChunk_R0_0_-4_C0")]
+
+[node name="11" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="11" unique_id=1160420262 node_paths=PackedStringArray("_box_chunks", "_prism_chunks")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-3_C0"), NodePath("BoxChunk_R0_0_-3_C0"), NodePath("BoxChunk_R-1_0_-4_C0"), NodePath("BoxChunk_R0_0_-4_C0")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_-3_C0"), NodePath("PrismChunk_R0_0_-3_C0")]
+
+[node name="12" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="12" unique_id=981556521 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_-3_C0")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_-3_C0")]
+
+[node name="13" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="13" unique_id=211392892 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_0_C0"), NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R-1_0_1_C0"), NodePath("SquareChunk_R-2_0_1_C0")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_0_C0"), NodePath("BoxChunk_R-1_0_0_C0")]
+
+[node name="14" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="14" unique_id=297301250 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_0_C0"), NodePath("SquareChunk_R-2_0_1_C0")]
+
+[node name="15" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="15" unique_id=447312361 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-3_0_0_C0"), NodePath("SquareChunk_R-3_-1_0_C0"), NodePath("SquareChunk_R-2_0_0_C0"), NodePath("SquareChunk_R-2_0_1_C0")]
+
+[node name="16" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="16" unique_id=1354246125 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-3_0_-1_C0")]
+_box_chunks = [NodePath("BoxChunk_R-3_0_-1_C0")]
+
+[node name="17" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="17" unique_id=1092149774 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_-1_C0"), NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R-2_-1_-2_C0"), NodePath("SquareChunk_R-2_0_-2_C0")]
+
+[node name="18" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="18" unique_id=1537024545 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-3_0_2_C0"), NodePath("SquareChunk_R-2_0_2_C0")]
+
+[node name="19" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="19" unique_id=1113713934 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-3_0_2_C0")]
+_box_chunks = [NodePath("BoxChunk_R-3_0_2_C0")]
+
+[node name="20" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="20" unique_id=1258071411 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-3_0_2_C0")]
+
+[node name="21" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="21" unique_id=20207684 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-3_0_-2_C0"), NodePath("SquareChunk_R-2_0_-2_C0")]
+
+[node name="22" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="22" unique_id=1321315285 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_-2_C0"), NodePath("SquareChunk_R-3_0_-2_C0")]
+
+[node name="23" parent="ThePlayground/Buildings/Filler" parent_id_path=PackedInt32Array(1702091423, 2084739031) index="23" unique_id=1850849056 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_-3_C0")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_-3_C0")]
+
+[node name="Corner" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="0" unique_id=2011810919 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_1_C0"), NodePath("SquareChunk_R0_0_1_C0"), NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R0_0_0_C0"), NodePath("SquareChunk_R-1_-1_-1_C0"), NodePath("SquareChunk_R0_-1_-1_C0"), NodePath("SquareChunk_R-1_0_2_C0"), NodePath("SquareChunk_R0_0_2_C0"), NodePath("SquareChunk_R-1_-1_2_C0")]
+
+[node name="CardBoard" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="1" unique_id=1963790726 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R-1_0_1_C0"), NodePath("SquareChunk_R-2_0_1_C0"), NodePath("SquareChunk_R-1_0_-2_C0"), NodePath("SquareChunk_R0_0_1_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0"), NodePath("BoxChunk_R-1_-1_-1_C0"), NodePath("BoxChunk_R-1_0_-2_C0")]
+
+[node name="Coreto" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="2" unique_id=1729854686 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_-1_0_C0"), NodePath("SquareChunk_R0_0_0_C0"), NodePath("SquareChunk_R-1_0_0_C0")]
+_triangle_chunks = [NodePath("TriangleChunk_R0_0_0_C0"), NodePath("TriangleChunk_R-1_0_0_C0")]
+_box_chunks = [NodePath("BoxChunk_R0_-1_0_C0"), NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R0_0_0_C0")]
+
+[node name="Fountain" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="3" unique_id=1305969589 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_0_C0"), NodePath("SquareChunk_R-1_0_0_C0")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_0_C0"), NodePath("TriangleChunk_R0_0_0_C0")]
+
+[node name="BigFountain" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="4" unique_id=1033444167 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_-1_1_C0"), NodePath("SquareChunk_R0_-1_1_C0"), NodePath("SquareChunk_R0_-1_2_C0"), NodePath("SquareChunk_R-1_-1_2_C0"), NodePath("SquareChunk_R0_0_1_C0"), NodePath("SquareChunk_R-1_0_1_C0")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_1_C0"), NodePath("TriangleChunk_R0_0_1_C0")]
+_box_chunks = [NodePath("BoxChunk_R0_0_1_C0"), NodePath("BoxChunk_R-1_0_1_C0")]
+
+[node name="Garage" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="5" unique_id=513511135 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_1_C0"), NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R0_0_-3_C0"), NodePath("SquareChunk_R1_0_-3_C0"), NodePath("SquareChunk_R-2_0_-3_C0"), NodePath("SquareChunk_R-1_0_-2_C0")]
+
+[node name="Bloqueio" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="6" unique_id=993151954 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_2_C0"), NodePath("SquareChunk_R0_0_3_C0")]
+
+[node name="EmConstrução" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="7" unique_id=1344492506 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-3_C0")]
+
+[node name="Becos" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="8" unique_id=24677460 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-2_C0"), NodePath("SquareChunk_R-1_0_2_C0")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_-2_C0"), NodePath("BoxChunk_R-1_0_-2_C0"), NodePath("BoxChunk_R-1_0_2_C0")]
+
+[node name="Bequinhos" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="10" unique_id=1286599466 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-2_C0"), NodePath("SquareChunk_R-2_0_-2_C0"), NodePath("SquareChunk_R-1_0_-2_C0"), NodePath("SquareChunk_R-1_0_2_C0")]
+
+[node name="buraco" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="12" unique_id=1591660017 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-3_-1_2_C0"), NodePath("SquareChunk_R-2_-1_2_C0")]
+_box_chunks = [NodePath("BoxChunk_R-2_-1_2_C0"), NodePath("BoxChunk_R-3_-1_2_C0")]
+
+[node name="TruckHavingSex" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="13" unique_id=223385696 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_-3_C0")]
+_box_chunks = [NodePath("BoxChunk_R-2_0_-3_C0")]
+
+[node name="Guinda" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="14" unique_id=263781146 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_-1_3_C0"), NodePath("SquareChunk_R-1_0_3_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_3_C0")]
+
+[node name="Porta" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="15" unique_id=222548907 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-2_0_0_C0"), NodePath("SquareChunk_R-2_0_-3_C0"), NodePath("SquareChunk_R-1_0_1_C0"), NodePath("SquareChunk_R-1_0_0_C0")]
+
+[node name="PedesTal" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="16" unique_id=904529400 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_0_C0"), NodePath("SquareChunk_R-1_0_0_C0")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_0_C0"), NodePath("TriangleChunk_R0_0_0_C0")]
+
+[node name="Pedestal" parent="ThePlayground/Buildings/Doohickies" parent_id_path=PackedInt32Array(1702091423, 2076119526) index="17" unique_id=1012010151 node_paths=PackedStringArray("_quad_chunks", "_box_chunks", "_prism_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0")]
+_box_chunks = [NodePath("BoxChunk_R0_0_0_C0"), NodePath("BoxChunk_R-1_0_0_C0")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_0_C0"), NodePath("PrismChunk_R0_0_0_C0")]
+
+[node name="RuaTile" parent="ThePlayground/Buildings/Mapa" parent_id_path=PackedInt32Array(1702091423, 362268939) index="0" unique_id=508005253 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R0_0_0_C0"), NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R-1_0_-3_C0"), NodePath("SquareChunk_R-1_0_-2_C0"), NodePath("SquareChunk_R0_0_-2_C0"), NodePath("SquareChunk_R-1_0_1_C0"), NodePath("SquareChunk_R0_0_1_C0"), NodePath("SquareChunk_R0_0_2_C0"), NodePath("SquareChunk_R-1_0_2_C0"), NodePath("SquareChunk_R-1_0_3_C0"), NodePath("SquareChunk_R0_0_3_C0"), NodePath("SquareChunk_R0_0_-3_C0"), NodePath("SquareChunk_R-2_0_0_C0"), NodePath("SquareChunk_R-2_0_2_C0"), NodePath("SquareChunk_R-3_0_2_C0"), NodePath("SquareChunk_R-3_-1_2_C0"), NodePath("SquareChunk_R-2_-1_2_C0"), NodePath("SquareChunk_R0_0_4_C0"), NodePath("SquareChunk_R1_0_-3_C0"), NodePath("SquareChunk_R-2_0_-3_C0"), NodePath("SquareChunk_R-3_0_-1_C0"), NodePath("SquareChunk_R-3_0_0_C0")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_2_C0"), NodePath("TriangleChunk_R0_0_2_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_3_C0"), NodePath("BoxChunk_R-1_0_2_C0"), NodePath("BoxChunk_R-2_0_2_C0"), NodePath("BoxChunk_R0_0_2_C0"), NodePath("BoxChunk_R0_0_3_C0"), NodePath("BoxChunk_R-3_0_2_C0"), NodePath("BoxChunk_R-1_0_-3_C0"), NodePath("BoxChunk_R0_0_-3_C0"), NodePath("BoxChunk_R1_0_-3_C0"), NodePath("BoxChunk_R-2_0_-3_C0"), NodePath("BoxChunk_R-3_0_-3_C0")]
+
+[node name="portaDatacenter" parent="ThePlayground/Buildings/Mapa/RuaTile/_StaticBody3D_84519" parent_id_path=PackedInt32Array(1702091423, 362268939, 1258404625) index="1" unique_id=1353397638 node_paths=PackedStringArray("targetArea", "personagem")]
+targetArea = NodePath("../../../../../../Empresa")
+personagem = NodePath("../../../../../charGeraldoSalvador")
+
+[node name="PraçaTile" parent="ThePlayground/Buildings/Mapa" parent_id_path=PackedInt32Array(1702091423, 362268939) index="1" unique_id=2012757785 node_paths=PackedStringArray("_box_chunks")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-2_C0"), NodePath("BoxChunk_R0_0_-2_C0"), NodePath("BoxChunk_R0_0_-1_C0"), NodePath("BoxChunk_R-1_0_-1_C0"), NodePath("BoxChunk_R-1_0_-3_C0"), NodePath("BoxChunk_R0_0_-3_C0")]
+
+[node name="PraçaTile2" parent="ThePlayground/Buildings/Mapa" parent_id_path=PackedInt32Array(1702091423, 362268939) index="2" unique_id=925897043 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks", "_prism_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R0_0_0_C0"), NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R-1_0_-1_C0")]
+_triangle_chunks = [NodePath("TriangleChunk_R0_0_0_C0"), NodePath("TriangleChunk_R-1_0_0_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0"), NodePath("BoxChunk_R0_0_-1_C0"), NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R0_0_0_C0"), NodePath("BoxChunk_R-2_0_0_C0"), NodePath("BoxChunk_R1_0_0_C0"), NodePath("BoxChunk_R1_0_-1_C0")]
+_prism_chunks = [NodePath("PrismChunk_R0_0_0_C0"), NodePath("PrismChunk_R-1_0_0_C0")]
+
+[node name="PraçaTile3" parent="ThePlayground/Buildings/Mapa" parent_id_path=PackedInt32Array(1702091423, 362268939) index="3" unique_id=1392439307 node_paths=PackedStringArray("_box_chunks")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_1_C0"), NodePath("BoxChunk_R0_0_1_C0"), NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R0_0_0_C0"), NodePath("BoxChunk_R-1_0_2_C0"), NodePath("BoxChunk_R0_0_2_C0")]
+
+[node name="PraçaTile32" parent="ThePlayground/Buildings/Mapa" parent_id_path=PackedInt32Array(1702091423, 362268939) index="4" unique_id=1900325147 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_1_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_1_C0"), NodePath("BoxChunk_R0_0_1_C0"), NodePath("BoxChunk_R-1_0_2_C0"), NodePath("BoxChunk_R0_0_2_C0")]
+
+[node name="PraçaTile33" parent="ThePlayground/Buildings/Mapa" parent_id_path=PackedInt32Array(1702091423, 362268939) index="5" unique_id=237798826 node_paths=PackedStringArray("_box_chunks", "_prism_chunks")]
+_box_chunks = [NodePath("BoxChunk_R0_0_1_C0"), NodePath("BoxChunk_R-1_0_1_C0"), NodePath("BoxChunk_R0_0_2_C0"), NodePath("BoxChunk_R-1_0_2_C0")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_1_C0"), NodePath("PrismChunk_R0_0_1_C0"), NodePath("PrismChunk_R0_0_2_C0"), NodePath("PrismChunk_R-1_0_2_C0")]
+
+[node name="PraçaTile4" parent="ThePlayground/Buildings/Mapa" parent_id_path=PackedInt32Array(1702091423, 362268939) index="6" unique_id=1207772044 node_paths=PackedStringArray("_triangle_chunks", "_box_chunks", "_prism_chunks")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_2_C0"), NodePath("TriangleChunk_R0_0_2_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_2_C0"), NodePath("BoxChunk_R0_0_2_C0"), NodePath("BoxChunk_R-1_-1_2_C0")]
+_prism_chunks = [NodePath("PrismChunk_R0_0_2_C0"), NodePath("PrismChunk_R-1_0_2_C0")]
+
+[node name="PraçaTile42" parent="ThePlayground/Buildings/Mapa" parent_id_path=PackedInt32Array(1702091423, 362268939) index="7" unique_id=26919086 node_paths=PackedStringArray("_box_chunks")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_2_C0"), NodePath("BoxChunk_R0_0_2_C0")]
+
+[node name="Beto" parent="ThePlayground/NPCs/SemTetos" parent_id_path=PackedInt32Array(1702091423, 960359734) index="0" unique_id=1753048285 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../../charGeraldoSalvador")
+
+[node name="Cida" parent="ThePlayground/NPCs/SemTetos" parent_id_path=PackedInt32Array(1702091423, 960359734) index="1" unique_id=1064334710 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../../charGeraldoSalvador")
+
+[node name="Julio" parent="ThePlayground/NPCs/SemTetos" parent_id_path=PackedInt32Array(1702091423, 960359734) index="2" unique_id=2129442150 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../../charGeraldoSalvador")
+
+[node name="Naldo" parent="ThePlayground/NPCs/SemTetos" parent_id_path=PackedInt32Array(1702091423, 960359734) index="3" unique_id=674993073 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../../charGeraldoSalvador")
+
+[node name="Marta" parent="ThePlayground/NPCs/SemTetos" parent_id_path=PackedInt32Array(1702091423, 960359734) index="4" unique_id=897304876 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../../charGeraldoSalvador")
+
+[node name="Samuel" parent="ThePlayground/NPCs/Igreja" parent_id_path=PackedInt32Array(1702091423, 1910320808) index="0" unique_id=1976791646 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../../charGeraldoSalvador")
+
+[node name="Celia" parent="ThePlayground/NPCs/Igreja" parent_id_path=PackedInt32Array(1702091423, 1910320808) index="1" unique_id=110069806 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../../charGeraldoSalvador")
+
+[node name="Ayub" parent="ThePlayground/NPCs/Ultralink" parent_id_path=PackedInt32Array(1702091423, 1977167998) index="0" unique_id=1767155342 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../../charGeraldoSalvador")
+
+[node name="Ayub2" parent="ThePlayground/NPCs/Ultralink" parent_id_path=PackedInt32Array(1702091423, 1977167998) index="1" unique_id=900270729 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../../charGeraldoSalvador")
+
+[node name="Ayub3" parent="ThePlayground/NPCs/Ultralink" parent_id_path=PackedInt32Array(1702091423, 1977167998) index="2" unique_id=1295632975 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../../charGeraldoSalvador")
+
+[node name="Ayub4" parent="ThePlayground/NPCs/Ultralink" parent_id_path=PackedInt32Array(1702091423, 1977167998) index="3" unique_id=975519190 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../../charGeraldoSalvador")
+
+[node name="Jaelson" parent="ThePlayground/NPCs/Ultralink" parent_id_path=PackedInt32Array(1702091423, 1977167998) index="4" unique_id=1906602715 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../../charGeraldoSalvador")
+
+[node name="Jornalista" parent="ThePlayground/NPCs/Investigação" parent_id_path=PackedInt32Array(1702091423, 1842148967) index="0" unique_id=144054193 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../../charGeraldoSalvador")
+
+[node name="FiscalGordoGagoFofo" parent="ThePlayground/NPCs/Agua" parent_id_path=PackedInt32Array(1702091423, 1297111073) index="0" unique_id=1897147077 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../../charGeraldoSalvador")
+
+[node name="Flavia" parent="ThePlayground/NPCs/Agua" parent_id_path=PackedInt32Array(1702091423, 1297111073) index="1" unique_id=312762541 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../../charGeraldoSalvador")
+
+[node name="Policial" parent="ThePlayground/NPCs/Policia" parent_id_path=PackedInt32Array(1702091423, 440949506) index="0" unique_id=823697691 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../../charGeraldoSalvador")
+
+[node name="Crime" parent="ThePlayground/NPCs/Policia" parent_id_path=PackedInt32Array(1702091423, 440949506) index="1" unique_id=1787401107 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../../charGeraldoSalvador")
+
+[node name="moedaPickup" parent="ThePlayground/Pickups/moeda" parent_id_path=PackedInt32Array(1702091423, 158876945) index="0" unique_id=130964378]
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup2" parent="ThePlayground/Pickups/moeda" parent_id_path=PackedInt32Array(1702091423, 158876945) index="1" unique_id=1954850603]
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup3" parent="ThePlayground/Pickups/moeda" parent_id_path=PackedInt32Array(1702091423, 158876945) index="2" unique_id=325282384]
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup4" parent="ThePlayground/Pickups/moeda" parent_id_path=PackedInt32Array(1702091423, 158876945) index="3" unique_id=1036605298]
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup5" parent="ThePlayground/Pickups/moeda" parent_id_path=PackedInt32Array(1702091423, 158876945) index="4" unique_id=597054845]
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup6" parent="ThePlayground/Pickups/moeda" parent_id_path=PackedInt32Array(1702091423, 158876945) index="5" unique_id=1201126025]
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup7" parent="ThePlayground/Pickups/moeda" parent_id_path=PackedInt32Array(1702091423, 158876945) index="6" unique_id=1779463126]
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup8" parent="ThePlayground/Pickups/moeda" parent_id_path=PackedInt32Array(1702091423, 158876945) index="7" unique_id=1811742836]
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup9" parent="ThePlayground/Pickups/moeda" parent_id_path=PackedInt32Array(1702091423, 158876945) index="8" unique_id=1013891677]
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="moedaPickup10" parent="ThePlayground/Pickups/moeda" parent_id_path=PackedInt32Array(1702091423, 158876945) index="9" unique_id=304656438]
+hideWhenFlag = "transacaoAutomatica"
+
+[node name="garrafaAgua1" parent="ThePlayground/Pickups/PickupsDay1" parent_id_path=PackedInt32Array(1702091423, 541891627) index="6" unique_id=661547270]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua3" parent="ThePlayground/Pickups/PickupsDay1" parent_id_path=PackedInt32Array(1702091423, 541891627) index="7" unique_id=1133153098]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua4" parent="ThePlayground/Pickups/PickupsDay1" parent_id_path=PackedInt32Array(1702091423, 541891627) index="8" unique_id=524581114]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua5" parent="ThePlayground/Pickups/PickupsDay1" parent_id_path=PackedInt32Array(1702091423, 541891627) index="9" unique_id=1550041699]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua7" parent="ThePlayground/Pickups/PickupsDay1" parent_id_path=PackedInt32Array(1702091423, 541891627) index="10" unique_id=1881158363]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua9" parent="ThePlayground/Pickups/PickupsDay1" parent_id_path=PackedInt32Array(1702091423, 541891627) index="11" unique_id=672463261]
+hideWhenFlag = "detectorMetais"
+
+[node name="galaoAgua 12" parent="ThePlayground/Pickups/PickupsDay1" parent_id_path=PackedInt32Array(1702091423, 541891627) index="12" unique_id=1983970650]
+hideWhenFlag = "detectorMetais"
+
+[node name="objMarmita 12" parent="ThePlayground/Pickups/PickupsDay1" parent_id_path=PackedInt32Array(1702091423, 541891627) index="13" unique_id=1247057809]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="garrafaAgua2" parent="ThePlayground/Pickups/PickupsDay2" parent_id_path=PackedInt32Array(1702091423, 912031620) index="6" unique_id=276264657]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua6" parent="ThePlayground/Pickups/PickupsDay2" parent_id_path=PackedInt32Array(1702091423, 912031620) index="7" unique_id=834018009]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua8" parent="ThePlayground/Pickups/PickupsDay2" parent_id_path=PackedInt32Array(1702091423, 912031620) index="8" unique_id=1028096398]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua10" parent="ThePlayground/Pickups/PickupsDay2" parent_id_path=PackedInt32Array(1702091423, 912031620) index="9" unique_id=2058309004]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua11" parent="ThePlayground/Pickups/PickupsDay2" parent_id_path=PackedInt32Array(1702091423, 912031620) index="10" unique_id=897369689]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua12" parent="ThePlayground/Pickups/PickupsDay2" parent_id_path=PackedInt32Array(1702091423, 912031620) index="11" unique_id=1767864039]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua1" parent="ThePlayground/Pickups/PickupsDay3" parent_id_path=PackedInt32Array(1702091423, 30359997) index="6" unique_id=1637016452]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua2" parent="ThePlayground/Pickups/PickupsDay3" parent_id_path=PackedInt32Array(1702091423, 30359997) index="7" unique_id=25087757]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua4" parent="ThePlayground/Pickups/PickupsDay3" parent_id_path=PackedInt32Array(1702091423, 30359997) index="8" unique_id=775512503]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua5" parent="ThePlayground/Pickups/PickupsDay3" parent_id_path=PackedInt32Array(1702091423, 30359997) index="9" unique_id=674187183]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua7" parent="ThePlayground/Pickups/PickupsDay3" parent_id_path=PackedInt32Array(1702091423, 30359997) index="10" unique_id=1177903204]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua8" parent="ThePlayground/Pickups/PickupsDay3" parent_id_path=PackedInt32Array(1702091423, 30359997) index="11" unique_id=426803422]
+hideWhenFlag = "detectorMetais"
+
+[node name="galaoAgua 1" parent="ThePlayground/Pickups/PickupsDay3" parent_id_path=PackedInt32Array(1702091423, 30359997) index="12" unique_id=541075317]
+hideWhenFlag = "detectorMetais"
+
+[node name="objMarmita 1" parent="ThePlayground/Pickups/PickupsDay3" parent_id_path=PackedInt32Array(1702091423, 30359997) index="13" unique_id=411691281]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="garrafaAgua5" parent="ThePlayground/Pickups/PickupsDay4" parent_id_path=PackedInt32Array(1702091423, 1265038886) index="6" unique_id=552654653]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua6" parent="ThePlayground/Pickups/PickupsDay4" parent_id_path=PackedInt32Array(1702091423, 1265038886) index="7" unique_id=1690597707]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua8" parent="ThePlayground/Pickups/PickupsDay4" parent_id_path=PackedInt32Array(1702091423, 1265038886) index="8" unique_id=678374388]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua9" parent="ThePlayground/Pickups/PickupsDay4" parent_id_path=PackedInt32Array(1702091423, 1265038886) index="9" unique_id=1999046860]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua11" parent="ThePlayground/Pickups/PickupsDay4" parent_id_path=PackedInt32Array(1702091423, 1265038886) index="10" unique_id=717031908]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua12" parent="ThePlayground/Pickups/PickupsDay4" parent_id_path=PackedInt32Array(1702091423, 1265038886) index="11" unique_id=379020617]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua1" parent="ThePlayground/Pickups/PickupsDay5" parent_id_path=PackedInt32Array(1702091423, 1230395399) index="6" unique_id=196665936]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua2" parent="ThePlayground/Pickups/PickupsDay5" parent_id_path=PackedInt32Array(1702091423, 1230395399) index="7" unique_id=1350864520]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua3" parent="ThePlayground/Pickups/PickupsDay5" parent_id_path=PackedInt32Array(1702091423, 1230395399) index="8" unique_id=96206259]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua6" parent="ThePlayground/Pickups/PickupsDay5" parent_id_path=PackedInt32Array(1702091423, 1230395399) index="9" unique_id=527958083]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua7" parent="ThePlayground/Pickups/PickupsDay5" parent_id_path=PackedInt32Array(1702091423, 1230395399) index="10" unique_id=1333444880]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua8" parent="ThePlayground/Pickups/PickupsDay5" parent_id_path=PackedInt32Array(1702091423, 1230395399) index="11" unique_id=1781196761]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua2" parent="ThePlayground/Pickups/PickupsDay6" parent_id_path=PackedInt32Array(1702091423, 924921367) index="6" unique_id=1316979429]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua3" parent="ThePlayground/Pickups/PickupsDay6" parent_id_path=PackedInt32Array(1702091423, 924921367) index="7" unique_id=1913001313]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua6" parent="ThePlayground/Pickups/PickupsDay6" parent_id_path=PackedInt32Array(1702091423, 924921367) index="8" unique_id=1275369410]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua8" parent="ThePlayground/Pickups/PickupsDay6" parent_id_path=PackedInt32Array(1702091423, 924921367) index="9" unique_id=1880641233]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua10" parent="ThePlayground/Pickups/PickupsDay6" parent_id_path=PackedInt32Array(1702091423, 924921367) index="10" unique_id=1394894167]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua12" parent="ThePlayground/Pickups/PickupsDay6" parent_id_path=PackedInt32Array(1702091423, 924921367) index="11" unique_id=1533073581]
+hideWhenFlag = "detectorMetais"
+
+[node name="galaoAgua 5" parent="ThePlayground/Pickups/PickupsDay6" parent_id_path=PackedInt32Array(1702091423, 924921367) index="12" unique_id=1009452062]
+hideWhenFlag = "detectorMetais"
+
+[node name="objMarmita 5" parent="ThePlayground/Pickups/PickupsDay6" parent_id_path=PackedInt32Array(1702091423, 924921367) index="13" unique_id=1069747677]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="garrafaAgua1" parent="ThePlayground/Pickups/PickupsDay7" parent_id_path=PackedInt32Array(1702091423, 1117979540) index="6" unique_id=771869302]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua2" parent="ThePlayground/Pickups/PickupsDay7" parent_id_path=PackedInt32Array(1702091423, 1117979540) index="7" unique_id=114385890]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua3" parent="ThePlayground/Pickups/PickupsDay7" parent_id_path=PackedInt32Array(1702091423, 1117979540) index="8" unique_id=611862134]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua10" parent="ThePlayground/Pickups/PickupsDay7" parent_id_path=PackedInt32Array(1702091423, 1117979540) index="9" unique_id=1504844092]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua11" parent="ThePlayground/Pickups/PickupsDay7" parent_id_path=PackedInt32Array(1702091423, 1117979540) index="10" unique_id=1005546677]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua12" parent="ThePlayground/Pickups/PickupsDay7" parent_id_path=PackedInt32Array(1702091423, 1117979540) index="11" unique_id=803850282]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua1" parent="ThePlayground/Pickups/PickupsQuests" parent_id_path=PackedInt32Array(1702091423, 161321810) index="0" unique_id=1479640235]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua2" parent="ThePlayground/Pickups/PickupsQuests" parent_id_path=PackedInt32Array(1702091423, 161321810) index="1" unique_id=1487089072]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua3" parent="ThePlayground/Pickups/PickupsQuests" parent_id_path=PackedInt32Array(1702091423, 161321810) index="2" unique_id=1563286044]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua4" parent="ThePlayground/Pickups/PickupsQuests" parent_id_path=PackedInt32Array(1702091423, 161321810) index="3" unique_id=1514333294]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua5" parent="ThePlayground/Pickups/PickupsQuests" parent_id_path=PackedInt32Array(1702091423, 161321810) index="4" unique_id=1008827717]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua6" parent="ThePlayground/Pickups/PickupsQuests" parent_id_path=PackedInt32Array(1702091423, 161321810) index="5" unique_id=1997256974]
+hideWhenFlag = "detectorMetais"
+
+[node name="garrafaAgua7" parent="ThePlayground/Pickups/PickupsQuests" parent_id_path=PackedInt32Array(1702091423, 161321810) index="6" unique_id=1994932838]
+hideWhenFlag = "detectorMetais"
+
+[node name="portaLojaPapelaria2" parent="ThePlayground/Map Props/LampPosts" parent_id_path=PackedInt32Array(1702091423, 1991673971) index="9" unique_id=1031796949 node_paths=PackedStringArray("targetArea")]
+targetArea = NodePath("../../../../Loja3")
+
+[node name="Sprite3D" parent="ThePlayground/Map Props/LampPosts/portaLojaPapelaria2" index="0" unique_id=131051309 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../../../charGeraldoSalvador")
+
+[node name="portaLojaPapelaria1" parent="ThePlayground/Map Props/LampPosts" parent_id_path=PackedInt32Array(1702091423, 1991673971) index="10" unique_id=108971148 node_paths=PackedStringArray("targetArea")]
+targetArea = NodePath("../../../../Loja3")
+
+[node name="Sprite3D" parent="ThePlayground/Map Props/LampPosts/portaLojaPapelaria1" index="0" unique_id=131051309 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../../../charGeraldoSalvador")
+
+[node name="portaDatacenter" parent="ThePlayground" index="13" unique_id=792405160 node_paths=PackedStringArray("targetArea")]
+targetArea = NodePath("../../DataCenter")
+
+[node name="Sprite3D" parent="ThePlayground/portaDatacenter" index="0" unique_id=131051309 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../charGeraldoSalvador")
 
 [node name="Backrooms" parent="." unique_id=1088645663 instance=ExtResource("4_plie7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -105.56489, 0)
@@ -49,43 +810,316 @@ script = ExtResource("3_cg2gm")
 personagem = NodePath("charGeraldoSalvador")
 camera = NodePath("CameraPivot")
 
-[node name="DirectionalSprite" parent="Banco/charGeraldoSalvador" parent_id_path=PackedInt32Array(2073018133, 1046664859) index="3" unique_id=578035060 node_paths=PackedStringArray("cameraScript")]
-cameraScript = NodePath("../../CameraPivot")
+[node name="BancoInterior" parent="Banco" index="0" unique_id=773337586 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R0_0_0_C0"), NodePath("SquareChunk_R-1_0_0_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0"), NodePath("BoxChunk_R0_0_-1_C0"), NodePath("BoxChunk_R0_0_0_C0"), NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R0_-1_-1_C0")]
 
-[node name="PhantomCamera3D" parent="Banco" index="22" unique_id=468541075]
+[node name="Floor" parent="Banco" index="2" unique_id=1049869144 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R0_0_0_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0"), NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R0_0_-1_C0"), NodePath("BoxChunk_R0_0_0_C0")]
+
+[node name="Ceiling" parent="Banco" index="3" unique_id=1626855728 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R0_0_0_C0")]
+
+[node name="Door" parent="Banco" index="4" unique_id=1354805643 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C0")]
+
+[node name="Mesa2" parent="Banco" index="5" unique_id=454613304 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0")]
+
+[node name="Mesa" parent="Banco" index="6" unique_id=1849121936 node_paths=PackedStringArray("_box_chunks", "_prism_chunks")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0"), NodePath("BoxChunk_R0_0_-1_C0"), NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R0_0_0_C0")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_0_C0"), NodePath("PrismChunk_R0_0_0_C0")]
+
+[node name="Door2" parent="Banco" index="7" unique_id=1494509824 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_0_C0")]
+
+[node name="ATM" parent="Banco" index="8" unique_id=1077942206 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_0_C0"), NodePath("SquareChunk_R-1_0_0_C0")]
+
+[node name="adsagfasf" parent="Banco" index="9" unique_id=1890996015 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_0_C0"), NodePath("SquareChunk_R-1_0_0_C0")]
+
+[node name="plant" parent="Banco/Computaria" parent_id_path=PackedInt32Array(2073018133, 1131668847) index="0" unique_id=764495597 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_0_C0")]
+
+[node name="TileMapLayer3D" parent="Banco/Computaria" parent_id_path=PackedInt32Array(2073018133, 1131668847) index="1" unique_id=1491518660 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0")]
+
+[node name="TileMapLayer3D2" parent="Banco/Computaria" parent_id_path=PackedInt32Array(2073018133, 1131668847) index="2" unique_id=187042892 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0")]
+
+[node name="TileMapLayer3D3" parent="Banco/Computaria" parent_id_path=PackedInt32Array(2073018133, 1131668847) index="3" unique_id=1330308919 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0")]
+
+[node name="TileMapLayer3D4" parent="Banco/Computaria" parent_id_path=PackedInt32Array(2073018133, 1131668847) index="4" unique_id=759299628 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0")]
+
+[node name="TileMapLayer3D5" parent="Banco/Computaria" parent_id_path=PackedInt32Array(2073018133, 1131668847) index="5" unique_id=317376077 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0")]
+
+[node name="TileMapLayer3D6" parent="Banco/Computaria" parent_id_path=PackedInt32Array(2073018133, 1131668847) index="6" unique_id=544570883 node_paths=PackedStringArray("_box_chunks")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_0_C0")]
+
+[node name="TileMapLayer3D7" parent="Banco/Computaria" parent_id_path=PackedInt32Array(2073018133, 1131668847) index="7" unique_id=219966606 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0")]
+
+[node name="PhantomCamera3D" parent="Banco" index="23" unique_id=468541075]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -4.7411766, 0.6992073, -7.6218166)
 
-[node name="portaBanco" parent="Banco" index="25" unique_id=1353397638 node_paths=PackedStringArray("targetArea")]
+[node name="portaBanco" parent="Banco" index="26" unique_id=1353397638 node_paths=PackedStringArray("targetArea")]
 targetArea = NodePath("../../ThePlayground")
 timeLimit = true
 
-[node name="DataCenter" parent="." unique_id=658518187 instance=ExtResource("6_mgpwa")]
+[node name="DataCenter" parent="." unique_id=658518187 node_paths=PackedStringArray("personagem", "camera") instance=ExtResource("6_mgpwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.908936, 41.06846, 0)
 script = ExtResource("3_cg2gm")
+personagem = NodePath("charGeraldoSalvador")
+camera = NodePath("CameraPivot")
 
-[node name="Empresa" parent="." unique_id=306004646 instance=ExtResource("7_52kks")]
+[node name="charGeraldoSalvador" parent="DataCenter" index="5" unique_id=1046664859 node_paths=PackedStringArray("cameraNode")]
+cameraNode = NodePath("../PhantomCamera3D")
+
+[node name="PhantomCamera3D" parent="DataCenter" index="7" unique_id=919233502]
+transform = Transform3D(0.99960536, 0, 0.028091433, 0, 1, 0, -0.028091433, 0, 0.99960536, -0.016960144, 0.8587761, 2.5096214)
+
+[node name="portaDatacenter" parent="DataCenter" index="8" unique_id=1353397638 node_paths=PackedStringArray("targetArea")]
+targetArea = NodePath("../../ThePlayground")
+
+[node name="Empresa" parent="." unique_id=306004646 node_paths=PackedStringArray("personagem", "camera") instance=ExtResource("7_52kks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 37.209892, 195.17984)
 script = ExtResource("3_cg2gm")
+personagem = NodePath("charGeraldoSalvador")
+camera = NodePath("CameraPivot")
 
-[node name="Igreja" parent="." unique_id=378817196 instance=ExtResource("8_xv5rl")]
+[node name="CameraPivot" parent="Empresa" index="4" unique_id=839034608 node_paths=PackedStringArray("player")]
+player = NodePath("../charGeraldoSalvador")
+
+[node name="PhantomCamera3D" parent="Empresa" index="5" unique_id=1393427149]
+transform = Transform3D(0.99995255, 0, -0.009739682, 0, 1, 0, 0.009739682, 0, 0.99995255, 0.21104312, 31.779861, -58.247787)
+
+[node name="portaElevador" parent="Empresa" index="6" unique_id=1353397638 node_paths=PackedStringArray("targetArea", "personagem")]
+targetArea = NodePath("../../ThePlayground")
+personagem = NodePath("../charGeraldoSalvador")
+
+[node name="Igreja" parent="." unique_id=378817196 node_paths=PackedStringArray("personagem", "camera") instance=ExtResource("8_xv5rl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 42.41569, -113.45841)
 script = ExtResource("3_cg2gm")
+personagem = NodePath("charGeraldoSalvador")
+camera = NodePath("CameraPivot")
 
-[node name="Loja1" parent="." unique_id=1428285256 instance=ExtResource("9_cd7ii")]
+[node name="portaIgreja" parent="Igreja" index="2" unique_id=1353397638 node_paths=PackedStringArray("targetArea", "personagem")]
+targetArea = NodePath("../../ThePlayground")
+personagem = NodePath("../charGeraldoSalvador")
+
+[node name="Sprite3D" parent="Igreja/portaIgreja" index="0" unique_id=131051309 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../charGeraldoSalvador")
+
+[node name="CameraPivot" parent="Igreja" index="4" unique_id=267389878 node_paths=PackedStringArray("player")]
+player = NodePath("../charGeraldoSalvador")
+
+[node name="PhantomCamera3D" parent="Igreja" index="5" unique_id=1965630023]
+transform = Transform3D(0.9996054, 0, 0.028089773, 0, 1, 0, -0.028089773, 0, 0.9996054, -0.016965367, 0.7965088, 1.8361969)
+
+[node name="Loja1" parent="." unique_id=1428285256 node_paths=PackedStringArray("personagem", "camera") instance=ExtResource("9_cd7ii")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97.39919, 54.067184, 0)
 script = ExtResource("3_cg2gm")
+personagem = NodePath("charGeraldoSalvador")
+camera = NodePath("CameraPivot")
 
-[node name="Loja2" parent="." unique_id=814047897 instance=ExtResource("10_xcnau")]
+[node name="Loja" parent="Loja1" index="0" unique_id=120406308 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R0_0_0_C0"), NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R-1_0_0_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0"), NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R0_0_-1_C0"), NodePath("BoxChunk_R0_0_0_C0")]
+
+[node name="Porta" parent="Loja1" index="1" unique_id=1675647979 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_0_C0")]
+
+[node name="Mesa" parent="Loja1" index="2" unique_id=610238110 node_paths=PackedStringArray("_box_chunks", "_prism_chunks")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_-1_C0")]
+
+[node name="mesa" parent="Loja1" index="3" unique_id=1839103522 node_paths=PackedStringArray("_box_chunks", "_prism_chunks")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0")]
+_prism_chunks = [NodePath("PrismChunk_R-1_-1_-1_C0")]
+
+[node name="cardboard" parent="Loja1" index="4" unique_id=1341772641 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R-1_0_-1_C0")]
+
+[node name="mugo" parent="Loja1" index="5" unique_id=1685554034 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R0_0_0_C0"), NodePath("SquareChunk_R-1_0_0_C0")]
+_box_chunks = [NodePath("BoxChunk_R0_0_0_C0")]
+
+[node name="mugo2" parent="Loja1" index="6" unique_id=686489987 node_paths=PackedStringArray("_quad_chunks")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R0_0_-1_C0")]
+
+[node name="portaLoja" parent="Loja1" index="8" unique_id=1353397638 node_paths=PackedStringArray("targetArea")]
+targetArea = NodePath("../../ThePlayground")
+
+[node name="Sprite3D" parent="Loja1/portaLoja" index="0" unique_id=131051309 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../charGeraldoSalvador")
+
+[node name="CameraPivot" parent="Loja1" index="10" unique_id=1215842521 node_paths=PackedStringArray("player")]
+player = NodePath("../../Loja2/charGeraldoSalvador")
+
+[node name="PhantomCamera3D" parent="Loja1" index="11" unique_id=1945840713]
+transform = Transform3D(0.99882835, 0, 0.04839325, 0, 1, 0, -0.04839325, 0, 0.99882835, 1.1545868, 0.84168243, 4.075334)
+
+[node name="objMarmita" parent="Loja1/Pickups/Dia1" parent_id_path=PackedInt32Array(1428285256, 1242624616) index="2" unique_id=610517771]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objGalaoAgua" parent="Loja1/Pickups/Dia1" parent_id_path=PackedInt32Array(1428285256, 1242624616) index="3" unique_id=279675217]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objMarmita" parent="Loja1/Pickups/Dia2" parent_id_path=PackedInt32Array(1428285256, 25308989) index="2" unique_id=1906770387]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objGalaoAgua" parent="Loja1/Pickups/Dia2" parent_id_path=PackedInt32Array(1428285256, 25308989) index="3" unique_id=852034422]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objMarmita" parent="Loja1/Pickups/Dia3" parent_id_path=PackedInt32Array(1428285256, 543691432) index="2" unique_id=695906505]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objGalaoAgua" parent="Loja1/Pickups/Dia3" parent_id_path=PackedInt32Array(1428285256, 543691432) index="3" unique_id=1061528759]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objMarmita" parent="Loja1/Pickups/Dia4" parent_id_path=PackedInt32Array(1428285256, 1456630789) index="2" unique_id=673907821]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objGalaoAgua" parent="Loja1/Pickups/Dia4" parent_id_path=PackedInt32Array(1428285256, 1456630789) index="3" unique_id=772996566]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objMarmita" parent="Loja1/Pickups/Dia5" parent_id_path=PackedInt32Array(1428285256, 1666784878) index="2" unique_id=851817362]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objGalaoAgua" parent="Loja1/Pickups/Dia5" parent_id_path=PackedInt32Array(1428285256, 1666784878) index="3" unique_id=2063523220]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objMarmita" parent="Loja1/Pickups/Dia6" parent_id_path=PackedInt32Array(1428285256, 1173057374) index="2" unique_id=1499425594]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objGalaoAgua" parent="Loja1/Pickups/Dia6" parent_id_path=PackedInt32Array(1428285256, 1173057374) index="3" unique_id=1326012606]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objMarmita" parent="Loja1/Pickups/Dia7" parent_id_path=PackedInt32Array(1428285256, 1769284317) index="2" unique_id=1196334741]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objGalaoAgua" parent="Loja1/Pickups/Dia7" parent_id_path=PackedInt32Array(1428285256, 1769284317) index="3" unique_id=2019644988]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="Loja2" parent="." unique_id=814047897 node_paths=PackedStringArray("personagem", "camera") instance=ExtResource("10_xcnau")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.856117, 49.233067, 0)
 script = ExtResource("3_cg2gm")
+personagem = NodePath("charGeraldoSalvador")
+camera = NodePath("CameraPivot")
 
-[node name="Loja3" parent="." unique_id=1601253988 instance=ExtResource("11_vtf5x")]
+[node name="portaBanco" parent="Loja2" index="4" unique_id=1353397638 node_paths=PackedStringArray("targetArea")]
+targetArea = NodePath("../../ThePlayground")
+
+[node name="Sprite3D" parent="Loja2/portaBanco" index="0" unique_id=131051309 node_paths=PackedStringArray("personagem")]
+personagem = NodePath("../../charGeraldoSalvador")
+
+[node name="CameraPivot" parent="Loja2" index="6" unique_id=973411901 node_paths=PackedStringArray("player")]
+player = NodePath("../../Loja1/charGeraldoSalvador")
+
+[node name="PhantomCamera3D" parent="Loja2" index="7" unique_id=360918699]
+transform = Transform3D(0.99984866, 0, 0.017396929, 0, 1, 0, -0.017396929, 0, 0.99984866, 0.265316, 0.84168243, 1.1650625)
+
+[node name="Loja3" parent="." unique_id=1601253988 node_paths=PackedStringArray("personagem", "camera") instance=ExtResource("11_vtf5x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.8428, 42.639626, -48.28467)
 script = ExtResource("3_cg2gm")
+personagem = NodePath("charGeraldoSalvador")
+camera = NodePath("CameraPivot")
+
+[node name="objGalaoAgua" parent="Loja3/Buyables/Day1" parent_id_path=PackedInt32Array(1601253988, 427194548) index="0" unique_id=279675217]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objGalaoAgua2" parent="Loja3/Buyables/Day1" parent_id_path=PackedInt32Array(1601253988, 427194548) index="1" unique_id=1225094206]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objMarmita" parent="Loja3/Buyables/Day1" parent_id_path=PackedInt32Array(1601253988, 427194548) index="7" unique_id=610517771]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objMarmita2" parent="Loja3/Buyables/Day1" parent_id_path=PackedInt32Array(1601253988, 427194548) index="8" unique_id=1636693981]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objGalaoAgua" parent="Loja3/Buyables/Day2" parent_id_path=PackedInt32Array(1601253988, 1855482770) index="0" unique_id=397133963]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objGalaoAgua2" parent="Loja3/Buyables/Day2" parent_id_path=PackedInt32Array(1601253988, 1855482770) index="1" unique_id=1516767030]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objMarmita" parent="Loja3/Buyables/Day2" parent_id_path=PackedInt32Array(1601253988, 1855482770) index="7" unique_id=907965318]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objMarmita2" parent="Loja3/Buyables/Day2" parent_id_path=PackedInt32Array(1601253988, 1855482770) index="8" unique_id=1836982259]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objGalaoAgua" parent="Loja3/Buyables/Day3" parent_id_path=PackedInt32Array(1601253988, 1577210928) index="0" unique_id=858305943]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objGalaoAgua2" parent="Loja3/Buyables/Day3" parent_id_path=PackedInt32Array(1601253988, 1577210928) index="1" unique_id=904764090]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objMarmita" parent="Loja3/Buyables/Day3" parent_id_path=PackedInt32Array(1601253988, 1577210928) index="7" unique_id=45372242]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objMarmita2" parent="Loja3/Buyables/Day3" parent_id_path=PackedInt32Array(1601253988, 1577210928) index="8" unique_id=432656734]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objGalaoAgua" parent="Loja3/Buyables/Day4" parent_id_path=PackedInt32Array(1601253988, 1144773137) index="0" unique_id=908037770]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objGalaoAgua2" parent="Loja3/Buyables/Day4" parent_id_path=PackedInt32Array(1601253988, 1144773137) index="1" unique_id=1148996139]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objMarmita" parent="Loja3/Buyables/Day4" parent_id_path=PackedInt32Array(1601253988, 1144773137) index="7" unique_id=1717127911]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objMarmita2" parent="Loja3/Buyables/Day4" parent_id_path=PackedInt32Array(1601253988, 1144773137) index="8" unique_id=395145635]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objGalaoAgua" parent="Loja3/Buyables/Day5" parent_id_path=PackedInt32Array(1601253988, 565109525) index="0" unique_id=1635954055]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objGalaoAgua2" parent="Loja3/Buyables/Day5" parent_id_path=PackedInt32Array(1601253988, 565109525) index="1" unique_id=330210893]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objMarmita" parent="Loja3/Buyables/Day5" parent_id_path=PackedInt32Array(1601253988, 565109525) index="7" unique_id=1444270071]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objMarmita2" parent="Loja3/Buyables/Day5" parent_id_path=PackedInt32Array(1601253988, 565109525) index="8" unique_id=2099773265]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objGalaoAgua" parent="Loja3/Buyables/Day6" parent_id_path=PackedInt32Array(1601253988, 609283028) index="0" unique_id=392009211]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objGalaoAgua2" parent="Loja3/Buyables/Day6" parent_id_path=PackedInt32Array(1601253988, 609283028) index="1" unique_id=1558156974]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objMarmita" parent="Loja3/Buyables/Day6" parent_id_path=PackedInt32Array(1601253988, 609283028) index="7" unique_id=1759041799]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objMarmita2" parent="Loja3/Buyables/Day6" parent_id_path=PackedInt32Array(1601253988, 609283028) index="8" unique_id=978860511]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objGalaoAgua" parent="Loja3/Buyables/Day7" parent_id_path=PackedInt32Array(1601253988, 1627681141) index="0" unique_id=2099225428]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objGalaoAgua2" parent="Loja3/Buyables/Day7" parent_id_path=PackedInt32Array(1601253988, 1627681141) index="1" unique_id=131806428]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objMarmita" parent="Loja3/Buyables/Day7" parent_id_path=PackedInt32Array(1601253988, 1627681141) index="7" unique_id=29011888]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="objMarmita2" parent="Loja3/Buyables/Day7" parent_id_path=PackedInt32Array(1601253988, 1627681141) index="8" unique_id=48742891]
+hideWhenFlag = "valeAlimentacaoVirtual"
+
+[node name="PhantomCamera3D" parent="Loja3" index="9" unique_id=2119924188]
+transform = Transform3D(0.58688563, 0, 0.80966985, 0, 1, 0, -0.80966985, 0, 0.58688563, 0.29740143, 0.92040634, -0.5542412)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=530915317]
 physics_interpolation_mode = 1
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 63.77798, 55.79201, -7.6218166)
+transform = Transform3D(0.58688563, 0, 0.80966985, 0, 1, 0, -0.80966985, 0, 0.58688563, -100.545395, 43.56003, -48.838913)
 top_level = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=1784526613]
@@ -93,9 +1127,6 @@ process_priority = 300
 process_physics_priority = 300
 script = ExtResource("12_mgpwa")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
-
-[node name="FogPostProcess" parent="Camera3D" unique_id=1951028512 instance=ExtResource("13_52kks")]
-visible = false
 
 [node name="HUD_TimeOfDay" parent="." unique_id=1654327781 instance=ExtResource("14_xv5rl")]
 
@@ -110,8 +1141,79 @@ texturasSlots = []
 unique_name_in_owner = true
 script = ExtResource("17_52kks")
 
+[node name="Enemy Spawn Areas" type="Node" parent="." unique_id=176960505]
+
+[node name="EnemyManagerLoja1" type="Node3D" parent="Enemy Spawn Areas" unique_id=402444173 node_paths=PackedStringArray("pontoSpawn1", "pontoSpawn2", "pontoCaptura", "player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.582202, 2.845952, 52.431343)
+script = ExtResource("17_xv5rl")
+cenaInimigo = ExtResource("18_cd7ii")
+pontoSpawn1 = NodePath("Spawn1")
+pontoSpawn2 = NodePath("Spawn2")
+pontoCaptura = NodePath("TPArea")
+player = NodePath("../../ThePlayground/charGeraldoSalvador")
+
+[node name="Spawn1" type="Node3D" parent="Enemy Spawn Areas/EnemyManagerLoja1" unique_id=1057435783]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9044933, 1.6284218)
+
+[node name="Spawn2" type="Node3D" parent="Enemy Spawn Areas/EnemyManagerLoja1" unique_id=1779395562]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9044933, -1.2954025)
+
+[node name="TPArea" type="Node3D" parent="Enemy Spawn Areas/EnemyManagerLoja1" unique_id=497949240]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.25738, 0, -46.042286)
+
+[node name="EnemyManagerLoja2" type="Node3D" parent="Enemy Spawn Areas" unique_id=489032531 node_paths=PackedStringArray("pontoSpawn1", "pontoSpawn2", "pontoCaptura", "player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.868798, 2.845952, -6.375249)
+script = ExtResource("17_xv5rl")
+flagRoubo = "roubouLoja2"
+cenaInimigo = ExtResource("18_cd7ii")
+pontoSpawn1 = NodePath("Spawn1")
+pontoSpawn2 = NodePath("Spawn2")
+pontoCaptura = NodePath("TPArea")
+player = NodePath("../../ThePlayground/charGeraldoSalvador")
+
+[node name="Spawn1" type="Node3D" parent="Enemy Spawn Areas/EnemyManagerLoja2" unique_id=1118716916]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9044933, 1.6284218)
+
+[node name="Spawn2" type="Node3D" parent="Enemy Spawn Areas/EnemyManagerLoja2" unique_id=232934524]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9044933, -1.2954025)
+
+[node name="TPArea" type="Node3D" parent="Enemy Spawn Areas/EnemyManagerLoja2" unique_id=2010736186]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.74646, 0, 13.18744)
+
+[node name="EnemyManagerLoja3" type="Node3D" parent="Enemy Spawn Areas" unique_id=900986762 node_paths=PackedStringArray("pontoSpawn1", "pontoSpawn2", "pontoCaptura", "player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.828673, 2.845952, -68.56779)
+script = ExtResource("17_xv5rl")
+flagRoubo = "roubouLoja3"
+cenaInimigo = ExtResource("18_cd7ii")
+pontoSpawn1 = NodePath("Spawn1")
+pontoSpawn2 = NodePath("Spawn2")
+pontoCaptura = NodePath("TPArea")
+player = NodePath("../../ThePlayground/charGeraldoSalvador")
+
+[node name="Spawn1" type="Node3D" parent="Enemy Spawn Areas/EnemyManagerLoja3" unique_id=1313794336]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9044933, 1.6284256)
+
+[node name="Spawn2" type="Node3D" parent="Enemy Spawn Areas/EnemyManagerLoja3" unique_id=1718600382]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9044933, -1.2954025)
+
+[node name="TPArea" type="Node3D" parent="Enemy Spawn Areas/EnemyManagerLoja3" unique_id=682356354]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.7615, 0, 75.080315)
+
 [editable path="ThePlayground"]
 [editable path="ThePlayground/charGeraldoSalvador"]
+[editable path="ThePlayground/Buildings/Prédios Abandonados"]
+[editable path="ThePlayground/Buildings/Prédios Companias"]
+[editable path="ThePlayground/Buildings/Casas Abandonadas"]
+[editable path="ThePlayground/Buildings/Casas Abandonadas/portaAlameda"]
+[editable path="ThePlayground/Buildings/Casas Abandonadas/portaChiquinho"]
+[editable path="ThePlayground/Buildings/Casas Companias"]
+[editable path="ThePlayground/Buildings/Casas Companias/portaBanco"]
+[editable path="ThePlayground/Buildings/Filler"]
+[editable path="ThePlayground/Buildings/Doohickies"]
+[editable path="ThePlayground/Buildings/Mapa"]
+[editable path="ThePlayground/Map Props/LampPosts/portaLojaPapelaria2"]
+[editable path="ThePlayground/Map Props/LampPosts/portaLojaPapelaria1"]
+[editable path="ThePlayground/portaDatacenter"]
 [editable path="Banco"]
 [editable path="Banco/Atendente"]
 [editable path="Banco/NPC1"]
@@ -120,3 +1222,185 @@ script = ExtResource("17_52kks")
 [editable path="Banco/NPC4"]
 [editable path="Banco/Gerente"]
 [editable path="Banco/charGeraldoSalvador"]
+[editable path="DataCenter"]
+[editable path="DataCenter/charGeraldoSalvador"]
+[editable path="DataCenter/portaDatacenter"]
+[editable path="DataCenter/Atendente"]
+[editable path="Empresa"]
+[editable path="Empresa/charGeraldoSalvador"]
+[editable path="Empresa/portaElevador"]
+[editable path="Igreja"]
+[editable path="Igreja/portaIgreja"]
+[editable path="Igreja/charGeraldoSalvador"]
+[editable path="Loja1"]
+[editable path="Loja1/portaLoja"]
+[editable path="Loja1/charGeraldoSalvador"]
+[editable path="Loja1/Pickups/Dia1/objAgua"]
+[editable path="Loja1/Pickups/Dia1/objFeijao"]
+[editable path="Loja1/Pickups/Dia1/objMarmita"]
+[editable path="Loja1/Pickups/Dia1/objGalaoAgua"]
+[editable path="Loja1/Pickups/Dia2/objAgua"]
+[editable path="Loja1/Pickups/Dia2/objFeijao"]
+[editable path="Loja1/Pickups/Dia2/objMarmita"]
+[editable path="Loja1/Pickups/Dia2/objGalaoAgua"]
+[editable path="Loja1/Pickups/Dia3/objAgua"]
+[editable path="Loja1/Pickups/Dia3/objFeijao"]
+[editable path="Loja1/Pickups/Dia3/objMarmita"]
+[editable path="Loja1/Pickups/Dia3/objGalaoAgua"]
+[editable path="Loja1/Pickups/Dia4/objAgua"]
+[editable path="Loja1/Pickups/Dia4/objFeijao"]
+[editable path="Loja1/Pickups/Dia4/objMarmita"]
+[editable path="Loja1/Pickups/Dia4/objGalaoAgua"]
+[editable path="Loja1/Pickups/Dia5/objAgua"]
+[editable path="Loja1/Pickups/Dia5/objFeijao"]
+[editable path="Loja1/Pickups/Dia5/objMarmita"]
+[editable path="Loja1/Pickups/Dia5/objGalaoAgua"]
+[editable path="Loja1/Pickups/Dia6/objAgua"]
+[editable path="Loja1/Pickups/Dia6/objFeijao"]
+[editable path="Loja1/Pickups/Dia6/objMarmita"]
+[editable path="Loja1/Pickups/Dia6/objGalaoAgua"]
+[editable path="Loja1/Pickups/Dia7/objAgua"]
+[editable path="Loja1/Pickups/Dia7/objFeijao"]
+[editable path="Loja1/Pickups/Dia7/objMarmita"]
+[editable path="Loja1/Pickups/Dia7/objGalaoAgua"]
+[editable path="Loja1/Atendente"]
+[editable path="Loja2"]
+[editable path="Loja2/portaBanco"]
+[editable path="Loja2/charGeraldoSalvador"]
+[editable path="Loja2/Pickups/Day1/objTabua"]
+[editable path="Loja2/Pickups/Day1/objCobertor"]
+[editable path="Loja2/Pickups/Day1/objAgua"]
+[editable path="Loja2/Pickups/Day1/objFeijao"]
+[editable path="Loja2/Pickups/Day1/objFerramentas"]
+[editable path="Loja2/Pickups/Day2/objTabua"]
+[editable path="Loja2/Pickups/Day2/objCobertor"]
+[editable path="Loja2/Pickups/Day2/objAgua"]
+[editable path="Loja2/Pickups/Day2/objFeijao"]
+[editable path="Loja2/Pickups/Day2/objFerramentas"]
+[editable path="Loja2/Pickups/Day3/objTabua"]
+[editable path="Loja2/Pickups/Day3/objCobertor"]
+[editable path="Loja2/Pickups/Day3/objAgua"]
+[editable path="Loja2/Pickups/Day3/objFeijao"]
+[editable path="Loja2/Pickups/Day3/objFerramentas"]
+[editable path="Loja2/Pickups/Day4/objTabua"]
+[editable path="Loja2/Pickups/Day4/objCobertor"]
+[editable path="Loja2/Pickups/Day4/objAgua"]
+[editable path="Loja2/Pickups/Day4/objFeijao"]
+[editable path="Loja2/Pickups/Day4/objFerramentas"]
+[editable path="Loja2/Pickups/Day5/objTabua"]
+[editable path="Loja2/Pickups/Day5/objCobertor"]
+[editable path="Loja2/Pickups/Day5/objAgua"]
+[editable path="Loja2/Pickups/Day5/objFeijao"]
+[editable path="Loja2/Pickups/Day5/objFerramentas"]
+[editable path="Loja2/Pickups/Day6/objTabua"]
+[editable path="Loja2/Pickups/Day6/objCobertor"]
+[editable path="Loja2/Pickups/Day6/objAgua"]
+[editable path="Loja2/Pickups/Day6/objFeijao"]
+[editable path="Loja2/Pickups/Day6/objFerramentas"]
+[editable path="Loja2/Pickups/Day7/objTabua"]
+[editable path="Loja2/Pickups/Day7/objCobertor"]
+[editable path="Loja2/Pickups/Day7/objAgua"]
+[editable path="Loja2/Pickups/Day7/objFeijao"]
+[editable path="Loja2/Pickups/Day7/objFerramentas"]
+[editable path="Loja2/Atendente"]
+[editable path="Loja3"]
+[editable path="Loja3/Buyables/Day1/objGalaoAgua"]
+[editable path="Loja3/Buyables/Day1/objGalaoAgua2"]
+[editable path="Loja3/Buyables/Day1/objAgua"]
+[editable path="Loja3/Buyables/Day1/objAgua2"]
+[editable path="Loja3/Buyables/Day1/objAgua3"]
+[editable path="Loja3/Buyables/Day1/objAgua4"]
+[editable path="Loja3/Buyables/Day1/objAgua5"]
+[editable path="Loja3/Buyables/Day1/objMarmita"]
+[editable path="Loja3/Buyables/Day1/objMarmita2"]
+[editable path="Loja3/Buyables/Day1/objFeijao"]
+[editable path="Loja3/Buyables/Day1/objFeijao2"]
+[editable path="Loja3/Buyables/Day1/objFeijao3"]
+[editable path="Loja3/Buyables/Day1/objFeijao4"]
+[editable path="Loja3/Buyables/Day1/objFeijao5"]
+[editable path="Loja3/Buyables/Day2/objGalaoAgua"]
+[editable path="Loja3/Buyables/Day2/objGalaoAgua2"]
+[editable path="Loja3/Buyables/Day2/objAgua"]
+[editable path="Loja3/Buyables/Day2/objAgua2"]
+[editable path="Loja3/Buyables/Day2/objAgua3"]
+[editable path="Loja3/Buyables/Day2/objAgua4"]
+[editable path="Loja3/Buyables/Day2/objAgua5"]
+[editable path="Loja3/Buyables/Day2/objMarmita"]
+[editable path="Loja3/Buyables/Day2/objMarmita2"]
+[editable path="Loja3/Buyables/Day2/objFeijao"]
+[editable path="Loja3/Buyables/Day2/objFeijao2"]
+[editable path="Loja3/Buyables/Day2/objFeijao3"]
+[editable path="Loja3/Buyables/Day2/objFeijao4"]
+[editable path="Loja3/Buyables/Day2/objFeijao5"]
+[editable path="Loja3/Buyables/Day3/objGalaoAgua"]
+[editable path="Loja3/Buyables/Day3/objGalaoAgua2"]
+[editable path="Loja3/Buyables/Day3/objAgua"]
+[editable path="Loja3/Buyables/Day3/objAgua2"]
+[editable path="Loja3/Buyables/Day3/objAgua3"]
+[editable path="Loja3/Buyables/Day3/objAgua4"]
+[editable path="Loja3/Buyables/Day3/objAgua5"]
+[editable path="Loja3/Buyables/Day3/objMarmita"]
+[editable path="Loja3/Buyables/Day3/objMarmita2"]
+[editable path="Loja3/Buyables/Day3/objFeijao"]
+[editable path="Loja3/Buyables/Day3/objFeijao2"]
+[editable path="Loja3/Buyables/Day3/objFeijao3"]
+[editable path="Loja3/Buyables/Day3/objFeijao4"]
+[editable path="Loja3/Buyables/Day3/objFeijao5"]
+[editable path="Loja3/Buyables/Day4/objGalaoAgua"]
+[editable path="Loja3/Buyables/Day4/objGalaoAgua2"]
+[editable path="Loja3/Buyables/Day4/objAgua"]
+[editable path="Loja3/Buyables/Day4/objAgua2"]
+[editable path="Loja3/Buyables/Day4/objAgua3"]
+[editable path="Loja3/Buyables/Day4/objAgua4"]
+[editable path="Loja3/Buyables/Day4/objAgua5"]
+[editable path="Loja3/Buyables/Day4/objMarmita"]
+[editable path="Loja3/Buyables/Day4/objMarmita2"]
+[editable path="Loja3/Buyables/Day4/objFeijao"]
+[editable path="Loja3/Buyables/Day4/objFeijao2"]
+[editable path="Loja3/Buyables/Day4/objFeijao3"]
+[editable path="Loja3/Buyables/Day4/objFeijao4"]
+[editable path="Loja3/Buyables/Day4/objFeijao5"]
+[editable path="Loja3/Buyables/Day5/objGalaoAgua"]
+[editable path="Loja3/Buyables/Day5/objGalaoAgua2"]
+[editable path="Loja3/Buyables/Day5/objAgua"]
+[editable path="Loja3/Buyables/Day5/objAgua2"]
+[editable path="Loja3/Buyables/Day5/objAgua3"]
+[editable path="Loja3/Buyables/Day5/objAgua4"]
+[editable path="Loja3/Buyables/Day5/objAgua5"]
+[editable path="Loja3/Buyables/Day5/objMarmita"]
+[editable path="Loja3/Buyables/Day5/objMarmita2"]
+[editable path="Loja3/Buyables/Day5/objFeijao"]
+[editable path="Loja3/Buyables/Day5/objFeijao2"]
+[editable path="Loja3/Buyables/Day5/objFeijao3"]
+[editable path="Loja3/Buyables/Day5/objFeijao4"]
+[editable path="Loja3/Buyables/Day5/objFeijao5"]
+[editable path="Loja3/Buyables/Day6/objGalaoAgua"]
+[editable path="Loja3/Buyables/Day6/objGalaoAgua2"]
+[editable path="Loja3/Buyables/Day6/objAgua"]
+[editable path="Loja3/Buyables/Day6/objAgua2"]
+[editable path="Loja3/Buyables/Day6/objAgua3"]
+[editable path="Loja3/Buyables/Day6/objAgua4"]
+[editable path="Loja3/Buyables/Day6/objAgua5"]
+[editable path="Loja3/Buyables/Day6/objMarmita"]
+[editable path="Loja3/Buyables/Day6/objMarmita2"]
+[editable path="Loja3/Buyables/Day6/objFeijao"]
+[editable path="Loja3/Buyables/Day6/objFeijao2"]
+[editable path="Loja3/Buyables/Day6/objFeijao3"]
+[editable path="Loja3/Buyables/Day6/objFeijao4"]
+[editable path="Loja3/Buyables/Day6/objFeijao5"]
+[editable path="Loja3/Buyables/Day7/objGalaoAgua"]
+[editable path="Loja3/Buyables/Day7/objGalaoAgua2"]
+[editable path="Loja3/Buyables/Day7/objAgua"]
+[editable path="Loja3/Buyables/Day7/objAgua2"]
+[editable path="Loja3/Buyables/Day7/objAgua3"]
+[editable path="Loja3/Buyables/Day7/objAgua4"]
+[editable path="Loja3/Buyables/Day7/objAgua5"]
+[editable path="Loja3/Buyables/Day7/objMarmita"]
+[editable path="Loja3/Buyables/Day7/objMarmita2"]
+[editable path="Loja3/Buyables/Day7/objFeijao"]
+[editable path="Loja3/Buyables/Day7/objFeijao2"]
+[editable path="Loja3/Buyables/Day7/objFeijao3"]
+[editable path="Loja3/Buyables/Day7/objFeijao4"]
+[editable path="Loja3/Buyables/Day7/objFeijao5"]
+[editable path="Loja3/charGeraldoSalvador"]
+[editable path="Loja3/Atendente"]

@@ -92,9 +92,23 @@ public partial class GameState : Node
         QuestState.Instance.AddQuest(questId);
     }
 
+    public void endingSequence()
+    {
+        if(weirdRouteValue >= 7) endGame("colapsoDoSistema");
+        else if(GetFlag("semtetos_abrigo_inaugurado") && GetFlag("igreja_deus_maquina_concluido") && GetFlag("empregoEstavel") && GetFlag("ultralink_buscaFinalizada") && GetFlag("exposicao")) endGame("desempenhoSatisfatorio");
+        else if(GetFlag("exposicao")) endGame("exposicao");
+        else if(GetFlag("ultralink_atualizada")) endGame("atualizacaoObrigatoria");
+        else if(GetFlag("ultralink_desligada")) endGame("desligamento");
+        else if(GetFlag("igreja_deus_maquina_incentivou_culto")) endGame("deusMaquina");
+        else if(GetFlag("igreja_deus_maquina_rejeitou_culto")) endGame("assimilacao");
+        else if(GetFlag("empregoEstavel")) endGame("empregoEstavel");
+        else if(GetFlag("semtetos_abrigo_inaugurado")) endGame("abrigoInconstante");
+        else endGame("natal");
+    }
+
     public void endGame(string endingName)
     {
-        GetTree().ChangeSceneToFile($"res://Assets/Endings/{endingName}.tscn");
+        GetTree().ChangeSceneToFile($"res://Assets/Scenes/Endings/{endingName}.tscn");
     }
 
     public void AlterarWeirdRouteValue(int novoValor)
@@ -117,5 +131,32 @@ public partial class GameState : Node
         AlterarWeirdRouteValue(
             weirdRouteValue + quantidade
         );
-}
+    }
+
+    public void voltarParaOMenu()
+    {
+        GetTree().ChangeSceneToFile("res://Assets/Scenes/cenaTitulo.tscn");
+        ResetarJogo();
+    }
+
+    public void ResetarJogo()
+    {
+        Flags.Clear();
+
+        weirdRouteValue = 0;
+
+        dialogoAberto = false;
+
+        TempoCongelado = false;
+        cameraInputEnabled = true;
+
+        Input.MouseMode = Input.MouseModeEnum.Visible;
+
+        NeedsState.Instance?.Resetar();
+        InventoryState.Instance?.Resetar();
+        EffectManager.Instance?.Resetar();
+        QuestState.Instance?.Resetar();
+        TimeState.Instance?.Resetar();
+        WorldManager.Instance?.Resetar();
+    }
 }

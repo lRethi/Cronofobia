@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://dxhx0qu21rg3e"]
+
+[ext_resource type="Script" uid="uid://c34nkk713lbx5" path="res://Scripts/Resources/ItemDefinition.cs" id="1_jokvp"]
+[ext_resource type="Texture2D" uid="uid://dkt4504cl13am" path="res://Assets/Sprites/HUD/Botoes/Incorrect.png" id="1_ouef1"]
+
+[resource]
+script = ExtResource("1_jokvp")
+Id = "block_inventario"
+Nome = "Espaço Ocupado"
+Descricao = "Algo está ocupando esse espaço da sua mochila permanentemente."
+Textura = ExtResource("1_ouef1")
+PodeSerUsado = false
+PodeSerDescartado = false
+metadata/_custom_type_script = "uid://c34nkk713lbx5"

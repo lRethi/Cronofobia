@@ -3,6 +3,13 @@
 if GetFlag("semtetos_ferramentas")
 	=> ferramentas_feitas
 
+if GetFlag("semtetos_ponto_conheceu_grupo")
+	=> betoDialogoQuest
+
+Beto: Se você precisar de alguma coisa, fala com a Marta.
+=> END
+
+~ betoDialogoQuest
 Beto: Sem ferramenta, a madeira não serve pra muita coisa.
 Beto: Dá pra tentar fazer na mão, mas aí a gente passa o dia inteiro numa parede.
 

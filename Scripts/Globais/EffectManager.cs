@@ -13,8 +13,7 @@ public partial class EffectManager : Node
     public const string IdFeijoada = "feijoada";
 	public const string IdBlockInventario = "block_inventario";
 
-    [Export]
-    public ItemDefinition[] itensCatalogo = Array.Empty<ItemDefinition>();
+    private ItemDefinition[] itensCatalogo = Array.Empty<ItemDefinition>();
 
     private readonly List<EffectBase> efeitosDisponiveis = new();
     private readonly List<EffectBase> efeitosAtivos = new();
@@ -49,6 +48,16 @@ public partial class EffectManager : Node
 
     public override void _Ready()
     {
+        itensCatalogo = new ItemDefinition[]
+        {
+            GD.Load<ItemDefinition>("res://Assets/Resources/Itens/GarrafaAgua.tres"),
+            GD.Load<ItemDefinition>("res://Assets/Resources/Itens/LataFeijao.tres"),
+            GD.Load<ItemDefinition>("res://Assets/Resources/Itens/Marmita.tres"),
+            GD.Load<ItemDefinition>("res://Assets/Resources/Itens/GalaoAgua.tres"),
+            GD.Load<ItemDefinition>("res://Assets/Resources/Itens/feijoada.tres"),
+            GD.Load<ItemDefinition>("res://Assets/Resources/Itens/BlockInventario.tres")
+        };
+
         efeitosDisponiveis.Add(new Ima());
         efeitosDisponiveis.Add(new NeurochipDeCozinha());
         efeitosDisponiveis.Add(new DetectorMetais());
@@ -373,6 +382,14 @@ public partial class EffectManager : Node
             resultado = efeito.ModificarSedeAoUsar(itemId, resultado);
 
         return resultado;
+    }
+
+    public void Resetar()
+    {
+        efeitosAtivos.Clear();
+
+        erroNoSistemaPendente = false;
+        bloqueouNovasManutencoes = false;
     }
 }
 

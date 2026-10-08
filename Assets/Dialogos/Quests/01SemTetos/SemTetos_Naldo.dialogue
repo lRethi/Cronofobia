@@ -3,6 +3,39 @@
 if GetFlag("semtetos_madeira")
 	=> madeira_feita
 
+if not GetFlag("naldoPrimeiroDialogoVisto")
+	=> naldoPrimeiroDialogo
+
+if GetFlag("semtetos_ponto_conheceu_grupo")
+	=> naldoDialogoQuest
+
+Naldo: ... precisa de mais alguma coisa? Já disse, fala com a Marta.
+=> END
+
+~ naldoPrimeiroDialogo
+Naldo: Ei, você ai.
+Naldo: Parece meio perdido... Precisa de ajuda? Posso te dar algumas dicas.
+- Aceitar dicas. (TUTORIAL)
+	Naldo: Ótimo. Vou te explicar o básico.
+	Naldo: Assim como eu, e mais algumas pessoas dessa cidade, você tem essa coisa no seu braço.
+	Naldo: No fim de cada noite, ela provavelmente vai te lascar, e fazer alguma "manutenção" misteriosa.
+	Naldo: Elas normalmente são horríveis.
+	Naldo: Se algo tá brilhando, significa normalmente que você pode interagir com aquilo - mas as vezes, algumas coisas não brilham.
+	Naldo: Tente conversar com as pessoas por ai, talvez elas possam te ajudar em algo, ou você possa as ajudar em algo também.
+	Naldo: Se lembre, no fim de cada dia, você precisa de duas coisas: se alimentar, e de abrigo.
+	Naldo: 3 refeições por dia, 3 garrafas de água por dia. Uma marmita preenche as 3 refeições e um galão as 3 garrafas.
+	Naldo: Um abrigo pode ser qualquer lugar seguro pra descansar, normalmente becos, mas a Alameda também serve.
+	Naldo: Não passe dois dias no frio, ou dois dias sem comer ou beber, não vai acabar bem.
+	Naldo: Sobreviva, meu amigo. Vai ser natal em uma semana.
+- Recusar dicas.
+	Naldo: Você que sabe.
+Naldo: Mas, se quer uma recomendação... Vai até a Alameda.
+Naldo: A Marta, uma amiga minha, tá juntando um pessoal pra fazer um abrigo para as pessoas como nós.
+Naldo: De rua.
+$> GameState.SetFlag("naldoPrimeiroDialogoVisto")
+=> END
+
+~ naldoDialogoQuest
 Naldo: A gente vai precisar de madeira pra levantar isso.
 
 - Tenho madeira para entregar.

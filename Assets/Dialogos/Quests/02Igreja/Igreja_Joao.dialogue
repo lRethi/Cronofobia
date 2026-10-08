@@ -6,10 +6,19 @@ if GetFlag("igreja_necessitados_entrega_agua")
 	João: O pessoal da igreja conhece gente que quase ninguém mais lembra.
 	=> END
 
+if GetFlag("igreja_necessitados_iniciado")
+	=> joaoDialogoQuest
+
+João: Se você precisa de alguma coisa, devia conversar com o padre, irmão.
+=> END
+
+~ joaoDialogoQuest
 João: O Padre falou que talvez você pudesse trazer água.
 João: A distribuição pública...
 João: Se é que ainda dá pra chamar aquilo de distribuição.
 João: Não chega aqui.
+João: E, a gente da igreja depende bastante disso pra ajudar os necessitados.
+João: Ainda mais agora quando a água ficou tão cara...
 
 - Tenho água.
 	$> InventoryState.OferecerItem()

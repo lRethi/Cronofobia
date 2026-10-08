@@ -24,7 +24,9 @@ public partial class inventarioFuncionamento : Control
             GetNode<TextureRect>("Base/Slot1/TextureRect"),
             GetNode<TextureRect>("Base/Slot2/TextureRect2"),
             GetNode<TextureRect>("Base/Slot3/TextureRect3"),
-            GetNode<TextureRect>("Base/Slot4/TextureRect4")
+            GetNode<TextureRect>("Base/Slot4/TextureRect4"),
+            GetNode<TextureRect>("Base/Base2/Slot1/TextureRect"),
+            GetNode<TextureRect>("Base/Base2/Slot2/TextureRect2")
         };
 
         slotsInventario = new Button[]
@@ -32,7 +34,9 @@ public partial class inventarioFuncionamento : Control
             GetNode<Button>("Base/Slot1"),
             GetNode<Button>("Base/Slot2"),
             GetNode<Button>("Base/Slot3"),
-            GetNode<Button>("Base/Slot4")
+            GetNode<Button>("Base/Slot4"),
+            GetNode<Button>("Base/Base2/Slot1"),
+            GetNode<Button>("Base/Base2/Slot2")
         };
 
         GD.Print("[InventarioUI] _Ready iniciado.");
@@ -40,7 +44,6 @@ public partial class inventarioFuncionamento : Control
         for (int i = 0; i < slotsInventario.Length; i++)
         {
             int index = i;
-
             slotsInventario[i].Pressed += () => SelecionarSlot(index);
             slotsInventario[i].FocusMode = Control.FocusModeEnum.None;
         }
@@ -243,6 +246,7 @@ public partial class inventarioFuncionamento : Control
         GD.Print("[InventarioUI] AtualizarInventario chamado.");
 
         var itens = InventoryState.Instance.ItensInventario;
+        int quantidadeSlots = InventoryState.Instance.QuantidadeSlots;
 
         GD.Print(
             "[InventarioUI] Quantidade de itens: ",
@@ -261,6 +265,17 @@ public partial class inventarioFuncionamento : Control
 
         for (int i = 0; i < slotsInventario.Length; i++)
         {
+            bool slotDesbloqueado = i < quantidadeSlots;
+
+            slotsInventario[i].Visible = slotDesbloqueado;
+
+            if (!slotDesbloqueado)
+            {
+                texturasSlots[i].Texture = null;
+                texturasSlots[i].Visible = false;
+                continue;
+            }
+
             if (i < itens.Count)
             {
                 GD.Print(

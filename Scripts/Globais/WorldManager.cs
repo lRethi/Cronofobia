@@ -60,4 +60,9 @@ public partial class WorldManager : Node
         if (areaAnterior != null)
             areaAnterior.Desativar();
     }
+
+    public void Resetar()
+    {
+        AreaAtual = null;
+    }
 }
