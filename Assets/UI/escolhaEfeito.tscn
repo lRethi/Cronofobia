@@ -21,6 +21,8 @@ offset_left = 228.0
 offset_top = 152.0
 offset_right = 428.0
 offset_bottom = 452.0
+focus_next = NodePath("../Button2")
+focus_previous = NodePath("../Button3")
 
 [node name="Sprite" type="TextureRect" parent="Button" unique_id=98759424]
 visible = false
@@ -29,6 +31,7 @@ offset_left = 50.0
 offset_top = 55.0
 offset_right = 150.0
 offset_bottom = 155.0
+mouse_filter = 2
 texture = ExtResource("2_b5n2j")
 
 [node name="Nome" type="RichTextLabel" parent="Button" unique_id=209768128]
@@ -37,6 +40,7 @@ offset_left = 10.0
 offset_top = 15.0
 offset_right = 190.0
 offset_bottom = 40.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(7.893444e-06, 0.69285226, 0.8833299, 1)
 theme_override_fonts/normal_font = ExtResource("3_yq48k")
 text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
@@ -51,6 +55,7 @@ offset_left = 10.0
 offset_top = 61.0
 offset_right = 190.0
 offset_bottom = 290.0
+mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("4_0nrh2")
 text = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 fit_content = true
@@ -63,6 +68,8 @@ offset_left = 478.0
 offset_top = 153.0
 offset_right = 678.0
 offset_bottom = 453.0
+focus_next = NodePath("../Button3")
+focus_previous = NodePath("../Button")
 
 [node name="Sprite" type="TextureRect" parent="Button2" unique_id=1711173415]
 visible = false
@@ -71,6 +78,7 @@ offset_left = 50.0
 offset_top = 55.0
 offset_right = 150.0
 offset_bottom = 155.0
+mouse_filter = 2
 texture = ExtResource("2_b5n2j")
 
 [node name="Nome" type="RichTextLabel" parent="Button2" unique_id=456486971]
@@ -79,6 +87,7 @@ offset_left = 10.0
 offset_top = 15.0
 offset_right = 190.0
 offset_bottom = 40.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(7.893444e-06, 0.69285226, 0.8833299, 1)
 theme_override_fonts/normal_font = ExtResource("3_yq48k")
 text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
@@ -93,6 +102,7 @@ offset_left = 10.0
 offset_top = 61.0
 offset_right = 190.0
 offset_bottom = 290.0
+mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("4_0nrh2")
 text = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 fit_content = true
@@ -105,6 +115,8 @@ offset_left = 728.0
 offset_top = 153.0
 offset_right = 928.0
 offset_bottom = 453.0
+focus_next = NodePath("../Button")
+focus_previous = NodePath("../Button2")
 
 [node name="Sprite" type="TextureRect" parent="Button3" unique_id=1583495177]
 visible = false
@@ -113,6 +125,7 @@ offset_left = 50.0
 offset_top = 55.0
 offset_right = 150.0
 offset_bottom = 155.0
+mouse_filter = 2
 texture = ExtResource("2_b5n2j")
 
 [node name="Nome" type="RichTextLabel" parent="Button3" unique_id=481761691]
@@ -121,6 +134,7 @@ offset_left = 10.0
 offset_top = 15.0
 offset_right = 190.0
 offset_bottom = 40.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(7.893444e-06, 0.69285226, 0.8833299, 1)
 theme_override_fonts/normal_font = ExtResource("3_yq48k")
 text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
@@ -135,6 +149,7 @@ offset_left = 10.0
 offset_top = 61.0
 offset_right = 190.0
 offset_bottom = 293.0
+mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("4_0nrh2")
 text = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 fit_content = true

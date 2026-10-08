@@ -28,7 +28,7 @@ Gerente: ... Por quê eu deveria sequer cogitar aceitar isso?
 	=> segundo_argumento
 
 - Não quero negociar. Só quero ficar.
-	$> GameState.SetFlag("semtetos_empresa_recusou", true)
+	$> GameState.SetFlag("semtetos_resultado_13_falha", true)
 	Gerente: Então não temos nada para discutir.
 	Gerente: E recomendo que não transforme uma propriedade privada em uma discussão jurídica.
 	=> segundo_argumento
@@ -89,7 +89,7 @@ Gerente: Sem receber nada em troca.
 - Não tenho nada a oferecer.
 	Gerente: Então estamos chegando ao fim.
 	Gerente: Não vejo motivo para a Sutan assumir esse custo.
-	$> GameState.SetFlag("semtetos_empresa_recusou", true)
+	$> GameState.SetFlag("semtetos_resultado_13_falha", true)
 	=> END
 
 
@@ -114,6 +114,7 @@ Gerente: Entendido?
 
 - Aceitar as condições.
 	$> GameState.SetFlag("semtetos_autorizacao_concedida", true)
+	$> GameState.SetFlag("semtetos_resultado_13_sucesso", true)
 	$> GameState.SetFlag("semtetos_empresa_recusou", false)
 	Gerente: Ótimo.
 	Gerente: Vou providenciar o registro da autorização.
@@ -122,7 +123,7 @@ Gerente: Entendido?
 	=> END
 
 - Recusar as condições.
-	$> GameState.SetFlag("semtetos_empresa_recusou", true)
+	$> GameState.SetFlag("semtetos_resultado_13_falha", true)
 	$> GameState.SetFlag("semtetos_autorizacao_concedida", false)
 	Gerente: Nesse caso, não há mais nada que eu possa fazer.
 	Gerente: A propriedade permanece sob responsabilidade da Sutan.
@@ -157,6 +158,7 @@ Gerente: Você tem alguma ideia do que acabou de me dizer?
 	Gerente: Considere isso um favor pessoal.
 
 	$> GameState.SetFlag("semtetos_autorizacao_concedida", true)
+	$> GameState.SetFlag("semtetos_resultado_13_sucesso", true)
 	$> GameState.SetFlag("semtetos_empresa_autorizacao_favor", true)
 	$> GameState.SetFlag("semtetos_empresa_recusou", false)
 	$> GameState.Instance.AdicionarWeirdRouteValue(1)

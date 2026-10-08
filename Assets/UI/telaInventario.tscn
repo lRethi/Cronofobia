@@ -15,11 +15,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dputa"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p6ubn"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_786tl"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sjuhh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_61v60"]
 texture = ExtResource("3_78ui5")
@@ -107,9 +103,7 @@ offset_right = 201.0
 offset_bottom = 197.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_irs17")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_dputa")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_p6ubn")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_786tl")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_sjuhh")
 
 [node name="TextureRect" type="TextureRect" parent="Base/Base2/Slot1" unique_id=412773530]
 layout_mode = 0
@@ -128,9 +122,7 @@ offset_right = 199.0
 offset_bottom = 455.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_irs17")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_dputa")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_p6ubn")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_786tl")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_sjuhh")
 
 [node name="TextureRect2" type="TextureRect" parent="Base/Base2/Slot2" unique_id=530593691]
 layout_mode = 0
@@ -149,9 +141,7 @@ offset_right = 201.0
 offset_bottom = 197.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_irs17")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_dputa")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_p6ubn")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_786tl")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_sjuhh")
 
 [node name="TextureRect" type="TextureRect" parent="Base/Slot1" unique_id=1587469755]
 layout_mode = 0
@@ -170,9 +160,7 @@ offset_right = 448.0
 offset_bottom = 199.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_irs17")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_dputa")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_p6ubn")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_786tl")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_sjuhh")
 
 [node name="TextureRect2" type="TextureRect" parent="Base/Slot2" unique_id=569808047]
 layout_mode = 0
@@ -191,9 +179,7 @@ offset_right = 201.0
 offset_bottom = 449.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_irs17")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_dputa")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_p6ubn")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_786tl")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_sjuhh")
 
 [node name="TextureRect3" type="TextureRect" parent="Base/Slot3" unique_id=192592359]
 layout_mode = 0
@@ -212,9 +198,7 @@ offset_right = 451.0
 offset_bottom = 448.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_irs17")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_dputa")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_p6ubn")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_786tl")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_sjuhh")
 
 [node name="TextureRect4" type="TextureRect" parent="Base/Slot4" unique_id=30274675]
 layout_mode = 0

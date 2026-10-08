@@ -57,9 +57,10 @@ if GetFlag("banco_primeiroSkillCheck") and GetFlag("banco_segundoSkillCheck") an
 	- Aceitar o contrato.
 		Gerente: Assine aqui.
 		$> GameState.SetFlag("semTetos_bancoAjudou", true)
+		$> GameState.SetFlag("semtetos_resultado_13_sucesso", true)
 	- Recusar o contrato.
 		Gerente: Bom, uma pena.
-		$> GameState.SetFlag("semTetos_bancoRecusou", true)
+		$> GameState.SetFlag("semtetos_resultado_13_falha", true)
 else
 	Gerente: Infelizmente, essa proposta não parece de nosso interesse.
 	$> GameState.SetFlag("semTetos_bancoRecusou", true)

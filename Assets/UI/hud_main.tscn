@@ -12,6 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://b27nu4l6bin7d" path="res://Assets/Sprites/HUD/Needs/barraFomeMid1.png" id="10_xo4i5"]
 [ext_resource type="Texture2D" uid="uid://dy1yp6gxsqrov" path="res://Assets/Sprites/HUD/Needs/barraFomeMid2.png" id="11_a53oc"]
 [ext_resource type="Texture2D" uid="uid://m5bii3sw6ba3" path="res://Assets/Sprites/HUD/Needs/barraFomeTop.png" id="12_mdu7y"]
+[ext_resource type="Texture2D" uid="uid://da2f12gv4g325" path="res://Assets/Sprites/HUD/Needs/indicadorFome.webp" id="13_t25ku"]
+[ext_resource type="Script" uid="uid://cqksdw2rl8l03" path="res://Assets/UI/indicadorPerdasGame.cs" id="14_obpbx"]
+[ext_resource type="Texture2D" uid="uid://dr2yx0s06clb8" path="res://Assets/Sprites/HUD/Needs/indicadorSede.webp" id="15_oyluj"]
+[ext_resource type="Texture2D" uid="uid://5wwa76l6l04a" path="res://Assets/Sprites/HUD/Needs/indicadorPolicial.webp" id="16_obpbx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8ctbi"]
 font_size = 24
@@ -164,3 +168,36 @@ offset_right = 148.0
 offset_bottom = 112.0
 texture = ExtResource("12_mdu7y")
 expand_mode = 1
+
+[node name="indicadorFome" type="TextureRect" parent="." unique_id=423372000]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 408.0
+offset_right = 126.0
+offset_bottom = 448.0
+texture = ExtResource("13_t25ku")
+expand_mode = 1
+script = ExtResource("14_obpbx")
+isFome = true
+
+[node name="indicadorSede" type="TextureRect" parent="." unique_id=645960161]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 405.0
+offset_right = 62.0
+offset_bottom = 445.0
+texture = ExtResource("15_oyluj")
+expand_mode = 1
+script = ExtResource("14_obpbx")
+isSede = true
+
+[node name="indicadorPrison" type="TextureRect" parent="." unique_id=1686054860]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 572.0
+offset_right = 183.0
+offset_bottom = 626.0
+texture = ExtResource("16_obpbx")
+expand_mode = 1
+script = ExtResource("14_obpbx")
+isPrison = true

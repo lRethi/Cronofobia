@@ -36,6 +36,9 @@ public partial class cameraBonitaDoFred : Node3D
     private Vector3 savedRotation;
     private Vector3 savedOffset;
 
+    [Export] private uint dialogueCollisionMask = 6;
+    [Export] private float dialogueCollisionMargin = 0.15f;
+
     public float GetCameraYaw()
     {
         return yawRotation;
@@ -209,11 +212,13 @@ public partial class cameraBonitaDoFred : Node3D
                 ? 0.9f
                 : -0.9f;
 
-        dialogueOffset = new Vector3(
-            0.65f * side,
-            0.1f,
-            depth
-        );
+        Vector3 desiredDialogueOffset = new Vector3(
+        0.65f * side,
+        0.1f,
+        depth
+    );
+
+    dialogueOffset = GetSafeDialogueOffset(desiredDialogueOffset);
 
         dialogueRotation = new Vector3(
             2.5f,
@@ -336,5 +341,40 @@ public partial class cameraBonitaDoFred : Node3D
                 0
             );
         }
+    }
+
+    private Vector3 GetSafeDialogueOffset(Vector3 desiredOffset)
+    {
+        Vector3 origin = player.GlobalPosition;
+        Vector3 desiredPosition =
+            player.GlobalTransform.Basis * desiredOffset + origin;
+
+        PhysicsRayQueryParameters3D query =
+            PhysicsRayQueryParameters3D.Create(origin, desiredPosition);
+
+        query.CollisionMask = dialogueCollisionMask;
+
+        if (player is CollisionObject3D collisionObject)
+        {
+            query.Exclude = new Godot.Collections.Array<Rid>
+            {
+                collisionObject.GetRid()
+            };
+        }
+
+        var result = GetWorld3D().DirectSpaceState.IntersectRay(query);
+
+        if (result.Count == 0)
+            return desiredOffset;
+
+        Vector3 collisionPoint = (Vector3)result["position"];
+
+        Vector3 safePosition =
+            collisionPoint -
+            (desiredPosition - origin).Normalized() *
+            dialogueCollisionMargin;
+
+        return player.GlobalTransform.Basis.Inverse() *
+            (safePosition - origin);
     }
 }

@@ -1,8 +1,5 @@
 ~ start
 
-if GetFlag("semtetos_caminho_igreja") and GetFlag("semtetos_resultado_13_sucesso") and not GetFlag("semtetos_inauguracao_realizada")
-	=> inauguracao_abrigo
-
 if GetFlag("semtetos_inauguracao_realizada") and not GetFlag("semtetos_abrigo_inaugurado")
 	=> igreja_feita
 
@@ -27,12 +24,21 @@ if GetFlag("igreja_necessitados_entrega_comida") and GetFlag("igreja_necessitado
 if GetFlag("igreja_palavra_tarefa_concluida") and not GetFlag("igreja_necessitados_concluida")
 	=> necessitados
 
-if not GetFlag("igreja_palavra_aceitou_ajuda")
-	=> palavra
-
 if GetFlag("semtetos_desbloqueou2.1")
 	=> igreja
 
+if not GetFlag("padre_primeiroDialogoVisto")
+	=> padrePrimeiroDialogo
+
+=> END
+
+~ padrePrimeiroDialogo
+Padre: Bom dia, meu filho... Precisa de alguma coisa?
+Padre: Aceitariamos sua ajuda em nossa congregação, caso esteja em seu coração.
+- Oferecer ajuda.
+	=> palavra
+- Ficar em silêncio.
+	Padre: Tenha um bom dia, meu filho.
 => END
 
 ~ igreja
@@ -45,14 +51,18 @@ Padre: Não é pouca coisa.
 	Padre: Então farei o que estiver ao meu alcance.
 	Padre: Uma igreja não precisa de muito para ajudar alguém.
 	Padre: Às vezes, basta ter uma porta e disposição para abri-la.
-	=> END
 
 - Pedir que a igreja ignore o problema do terreno.
 	Padre: Não.
 	Padre: Se há pessoas precisando de ajuda, fechar os olhos não faz o problema desaparecer.
 	Padre: Só torna mais confortável fingir que ele não está lá.
+Padre: Conversarei com os representantes da Sutan.
+Padre: Considere isso resolvido.
+$> GameState.SetFlag("semtetos_resultado_13_sucesso", true)
+if not GetFlag("igreja_palavra_tarefa_concluida")
+	=> palavra
+else
 	=> END
-=> palavra
 
 ~ igreja_feita
 
@@ -107,6 +117,7 @@ Padre: Na maior parte das vezes, é só fazer aquilo que precisa ser feito.
 
 ~ necessitados
 
+Padre: Caso você queira ajudar mais, meu filho..
 Padre: Tenho algumas pessoas que estão precisando de ajuda.
 Padre: Comida, água e alguns recursos básicos.
 Padre: Nada grandioso.

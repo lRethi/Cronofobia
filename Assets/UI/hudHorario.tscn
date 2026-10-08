@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dyq24dhproa5f" path="res://Assets/Sprites/HUD/Relogio/relogioMeiaTarde.png" id="5_yhi3m"]
 [ext_resource type="Texture2D" uid="uid://dkcrkjivhjyvs" path="res://Assets/Sprites/HUD/Relogio/relogioPosTarde.png" id="6_mstrd"]
 [ext_resource type="Texture2D" uid="uid://cslou2hiootju" path="res://Assets/Sprites/HUD/Relogio/relogioNoite.png" id="7_vjqkd"]
+[ext_resource type="Texture2D" uid="uid://6pptpofjuiee" path="res://Assets/Sprites/HUD/Needs/indicadorFrio.webp" id="8_yhi3m"]
+[ext_resource type="Script" uid="uid://cqksdw2rl8l03" path="res://Assets/UI/indicadorPerdasGame.cs" id="9_mstrd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rxsqe"]
 font_size = 18
@@ -62,3 +64,14 @@ offset_bottom = 142.0
 rotation = 1.5707964
 texture = ExtResource("4_1gx03")
 expand_mode = 1
+
+[node name="indicadorFrio" type="TextureRect" parent="." unique_id=953311075]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 149.0
+offset_right = 46.0
+offset_bottom = 189.0
+texture = ExtResource("8_yhi3m")
+expand_mode = 1
+script = ExtResource("9_mstrd")
+isSleep = true

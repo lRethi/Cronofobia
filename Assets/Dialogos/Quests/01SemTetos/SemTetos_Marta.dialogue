@@ -145,6 +145,7 @@ Marta: Bom, banco nunca perde uma oportunidade de colocar o próprio nome em alg
   Marta: Tá bom.
   Marta: Então a gente tenta sozinho.
   Marta: Obrigada pelo que você já fez.
+  $> GameState.Instance.SetFlag("semtetos_resultado_13_falha", true)
   $> GameState.Instance.AdicionarWeirdRouteValue(1)
   => END
 
@@ -153,6 +154,7 @@ Marta: Bom, banco nunca perde uma oportunidade de colocar o próprio nome em alg
 Marta: A autorização saiu.
 Marta: Então agora ninguém pode vir aqui e simplesmente mandar a gente embora.
 Marta: Falta só colocar tudo de pé.
+$> GameState.SetFlag("semtetos_abrigo_inaugurado", true)
 => END
 
 ~ falha
@@ -169,6 +171,7 @@ Marta: Não quero que apareça alguém aqui e transforme isso em problema pra to
 
 - Ajudar a retirar as coisas.
   $> GameState.SetFlag("semtetos_expulsao_concluida", true)
+  $> GameState.SetFlag("semtetos_grupo_abandonado", true)
   Marta: Tá....
   Marta: Então vamos desmontar tudo antes que alguém apareça.
   $> GameState.Instance.AdicionarWeirdRouteValue(1)

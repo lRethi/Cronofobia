@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://c32wknkcg1mr6" path="res://Assets/Sprites/Cenario/Parede/cartorio.png" id="19_nsumc"]
 [ext_resource type="Shape3D" uid="uid://caerhe8enl0m" path="res://Assets/Scenes/ThePlayground_CollisionData/ThePlayground_chiquinho portão_collision.res" id="20_7p1tm"]
 [ext_resource type="Texture2D" uid="uid://cfaquwh153ato" path="res://Assets/Sprites/Cenario/Parede/chiquinho.png" id="21_gn537"]
+[ext_resource type="Shape3D" uid="uid://clkxi1oa3htv4" path="res://Assets/Scenes/playgroundCasasAbandonadas_CollisionData/playgroundCasasAbandonadas_Chiquinho_collision.res" id="22_xcgk8"]
 [ext_resource type="Texture2D" uid="uid://cahg3vqju3c7r" path="res://Assets/Sprites/Cenario/Parede/Fonte grande da praça.png" id="23_bdviu"]
 [ext_resource type="Shape3D" uid="uid://d1i524ixoy80q" path="res://Assets/Scenes/ThePlayground_CollisionData/ThePlayground_CasaChik2_collision.res" id="24_qhp7s"]
 [ext_resource type="Texture2D" uid="uid://cypxgvctms2dq" path="res://Assets/Sprites/Cenario/Parede/A construcao quebrada.png" id="25_ly2ot"]
@@ -122,8 +123,8 @@ tileset_texture = ExtResource("21_gn537")
 tile_size = Vector2i(320, 320)
 selected_tile_uv = Rect2(640, 640, 320, 320)
 selected_tiles = Array[Rect2]([Rect2(640, 640, 320, 320)])
-tileset_zoom = 0.5131581182307065
 smart_select_mode = 1
+main_app_mode = 2
 mesh_mode = 2
 
 [sub_resource type="Resource" id="Resource_x2i27"]
@@ -422,6 +423,12 @@ _tile_anim_data = PackedFloat32Array()
 _quad_chunks = [NodePath("SquareChunk_R0_0_-1_C0")]
 _box_chunks = [NodePath("BoxChunk_R0_0_-1_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
+
+[node name="@StaticBody3D@54469" type="StaticBody3D" parent="Chiquinho" unique_id=1639498331]
+script = ExtResource("5_5ie1x")
+
+[node name="@CollisionShape3D@54468" type="CollisionShape3D" parent="Chiquinho/@StaticBody3D@54469" unique_id=1206514396]
+shape = ExtResource("22_xcgk8")
 
 [node name="CasaChik2" type="Node3D" parent="." unique_id=989977676 node_paths=PackedStringArray("_quad_chunks", "_box_chunks", "_prism_chunks")]
 script = ExtResource("1_xcgk8")
