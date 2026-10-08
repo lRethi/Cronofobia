@@ -1117,6 +1117,12 @@ hideWhenFlag = "valeAlimentacaoVirtual"
 [node name="PhantomCamera3D" parent="Loja3" index="9" unique_id=2119924188]
 transform = Transform3D(0.58688563, 0, 0.80966985, 0, 1, 0, -0.80966985, 0, 0.58688563, 0.29740143, 0.92040634, -0.5542412)
 
+[node name="portaLoja2" parent="Loja3" index="11" unique_id=1353397638 node_paths=PackedStringArray("targetArea")]
+targetArea = NodePath("../../ThePlayground")
+
+[node name="portaLoja" parent="Loja3" index="12" unique_id=1692563808 node_paths=PackedStringArray("targetArea")]
+targetArea = NodePath("../../ThePlayground")
+
 [node name="Camera3D" type="Camera3D" parent="." unique_id=530915317]
 physics_interpolation_mode = 1
 transform = Transform3D(0.58688563, 0, 0.80966985, 0, 1, 0, -0.80966985, 0, 0.58688563, -100.545395, 43.56003, -48.838913)
