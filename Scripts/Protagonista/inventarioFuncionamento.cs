@@ -44,8 +44,12 @@ public partial class inventarioFuncionamento : Control
         for (int i = 0; i < slotsInventario.Length; i++)
         {
             int index = i;
-            slotsInventario[i].Pressed += () => SelecionarSlot(index);
-            slotsInventario[i].FocusMode = Control.FocusModeEnum.None;
+
+            slotsInventario[i].Pressed += () =>
+                SelecionarSlot(index);
+
+            slotsInventario[i].FocusMode =
+                Control.FocusModeEnum.All;
         }
 
         botUsar.Pressed += UsarItem;
@@ -54,21 +58,34 @@ public partial class inventarioFuncionamento : Control
         botSim.Pressed += ConfirmarOferta;
         botNao.Pressed += CancelarOferta;
 
-        InventoryState.Instance.OfertaSolicitada += AbrirParaOferecer;
+        InventoryState.Instance.OfertaSolicitada +=
+            AbrirParaOferecer;
 
-        botUsar.FocusMode = Control.FocusModeEnum.None;
-        botDescartar.FocusMode = Control.FocusModeEnum.None;
-        botSair.FocusMode = Control.FocusModeEnum.None;
-        botSim.FocusMode = Control.FocusModeEnum.None;
-        botNao.FocusMode = Control.FocusModeEnum.None;
+        botUsar.FocusMode =
+            Control.FocusModeEnum.All;
+
+        botDescartar.FocusMode =
+            Control.FocusModeEnum.All;
+
+        botSair.FocusMode =
+            Control.FocusModeEnum.All;
+
+        botSim.FocusMode =
+            Control.FocusModeEnum.All;
+
+        botNao.FocusMode =
+            Control.FocusModeEnum.All;
 
         telaUso.Visible = false;
         telaOferecer.Visible = false;
         Visible = false;
 
-        InventoryState.Instance.InventarioAlterado += AtualizarInventario;
+        InventoryState.Instance.InventarioAlterado +=
+            AtualizarInventario;
 
-        GD.Print("[InventarioUI] Signal InventarioAlterado conectado.");
+        GD.Print(
+            "[InventarioUI] Signal InventarioAlterado conectado."
+        );
 
         AtualizarInventario();
 
@@ -80,7 +97,9 @@ public partial class inventarioFuncionamento : Control
         if (!@event.IsActionPressed("open_inventory"))
             return;
 
-        GD.Print("[InventarioUI] open_inventory pressionado.");
+        GD.Print(
+            "[InventarioUI] open_inventory pressionado."
+        );
 
         if (GameState.Instance == null)
             return;
@@ -97,30 +116,56 @@ public partial class inventarioFuncionamento : Control
     {
         Visible = !Visible;
 
-        GD.Print("[InventarioUI] Inventário visível: ", Visible);
+        GD.Print(
+            "[InventarioUI] Inventário visível: ",
+            Visible
+        );
 
         if (Visible)
         {
             TimeState.Instance.CongelarTempo();
             GameState.Instance.SetCameraInputEnabled(false);
             GameState.Instance.SetCameraMouseCaptured(false);
+
+            FocarPrimeiroSlot();
         }
         else
         {
             telaUso.Visible = false;
             telaOferecer.Visible = false;
+
             slotSelecionado = -1;
             modoOferecer = false;
 
             TimeState.Instance.DescongelarTempo();
+
             GameState.Instance.SetCameraInputEnabled(true);
             GameState.Instance.SetCameraMouseCaptured(true);
         }
     }
 
+    private void FocarPrimeiroSlot()
+    {
+        for (int i = 0;
+             i < slotsInventario.Length;
+             i++)
+        {
+            if (!slotsInventario[i].Visible)
+                continue;
+
+            if (i >= InventoryState.Instance.QuantidadeItens)
+                continue;
+
+            slotsInventario[i].GrabFocus();
+            return;
+        }
+    }
+
     public void AbrirParaOferecer()
     {
-        GD.Print("[InventarioUI] AbrirParaOferecer chamado.");
+        GD.Print(
+            "[InventarioUI] AbrirParaOferecer chamado."
+        );
 
         modoOferecer = true;
         slotSelecionado = -1;
@@ -132,19 +177,32 @@ public partial class inventarioFuncionamento : Control
 
         GameState.Instance.SetCameraInputEnabled(false);
         GameState.Instance.SetCameraMouseCaptured(false);
+
+        FocarPrimeiroSlot();
     }
 
     private void SelecionarSlot(int index)
     {
-        GD.Print("[InventarioUI] SelecionarSlot: ", index);
+        GD.Print(
+            "[InventarioUI] SelecionarSlot: ",
+            index
+        );
 
-        if (index < 0 || index >= InventoryState.Instance.QuantidadeItens)
+        if (
+            index < 0 ||
+            index >= InventoryState.Instance.QuantidadeItens
+        )
         {
-            GD.PrintErr("[InventarioUI] Index de slot inválido.");
+            GD.PrintErr(
+                "[InventarioUI] Index de slot inválido."
+            );
+
             return;
         }
 
-        var itens = InventoryState.Instance.ItensInventario;
+        var itens =
+            InventoryState.Instance.ItensInventario;
+
         var item = itens[index];
 
         GD.Print(
@@ -154,11 +212,18 @@ public partial class inventarioFuncionamento : Control
 
         if (modoOferecer)
         {
-            if (!InventoryState.Instance.PodeOferecerItem(item))
+            if (
+                !InventoryState.Instance
+                    .PodeOferecerItem(item)
+            )
+            {
                 return;
+            }
 
             slotSelecionado = index;
             telaOferecer.Show();
+
+            botSim.GrabFocus();
 
             return;
         }
@@ -172,54 +237,90 @@ public partial class inventarioFuncionamento : Control
         botDescartar.Visible = item.PodeSerDescartado;
 
         telaUso.Show();
+
+        if (botUsar.Visible)
+            botUsar.GrabFocus();
+        else if (botDescartar.Visible)
+            botDescartar.GrabFocus();
+        else
+            botSair.GrabFocus();
     }
 
     private void UsarItem()
     {
-        GD.Print("[InventarioUI] UsarItem. Slot: ", slotSelecionado);
+        GD.Print(
+            "[InventarioUI] UsarItem. Slot: ",
+            slotSelecionado
+        );
 
         if (slotSelecionado < 0)
             return;
 
-        if (InventoryState.Instance.UsarItem(slotSelecionado))
+        if (
+            InventoryState.Instance
+                .UsarItem(slotSelecionado)
+        )
+        {
             FecharTelaUso();
+        }
     }
 
     private void DescartarItem()
     {
-        GD.Print("[InventarioUI] DescartarItem. Slot: ", slotSelecionado);
+        GD.Print(
+            "[InventarioUI] DescartarItem. Slot: ",
+            slotSelecionado
+        );
 
         if (slotSelecionado < 0)
             return;
 
-        if (InventoryState.Instance.RemoverItem(slotSelecionado))
+        if (
+            InventoryState.Instance
+                .RemoverItem(slotSelecionado)
+        )
+        {
             FecharTelaUso();
+        }
     }
 
     private void FecharTelaUso()
     {
-        GD.Print("[InventarioUI] FecharTelaUso.");
+        GD.Print(
+            "[InventarioUI] FecharTelaUso."
+        );
 
         telaUso.Visible = false;
         slotSelecionado = -1;
+
+        FocarPrimeiroSlot();
     }
 
     private void ConfirmarOferta()
     {
-        GD.Print("[InventarioUI] ConfirmarOferta. Slot: ", slotSelecionado);
+        GD.Print(
+            "[InventarioUI] ConfirmarOferta. Slot: ",
+            slotSelecionado
+        );
 
         if (slotSelecionado < 0)
             return;
 
-        var itens = InventoryState.Instance.ItensInventario;
+        var itens =
+            InventoryState.Instance.ItensInventario;
 
         if (slotSelecionado >= itens.Count)
             return;
 
         var item = itens[slotSelecionado];
 
-        if (!InventoryState.Instance.ConfirmarOferta(item))
+        if (
+            !InventoryState.Instance
+                .ConfirmarOferta(item)
+        )
+        {
             return;
+        }
 
         telaOferecer.Hide();
         Hide();
@@ -230,7 +331,9 @@ public partial class inventarioFuncionamento : Control
 
     private void CancelarOferta()
     {
-        GD.Print("[InventarioUI] CancelarOferta.");
+        GD.Print(
+            "[InventarioUI] CancelarOferta."
+        );
 
         InventoryState.Instance.CancelarOferta();
 
@@ -243,10 +346,15 @@ public partial class inventarioFuncionamento : Control
 
     private void AtualizarInventario()
     {
-        GD.Print("[InventarioUI] AtualizarInventario chamado.");
+        GD.Print(
+            "[InventarioUI] AtualizarInventario chamado."
+        );
 
-        var itens = InventoryState.Instance.ItensInventario;
-        int quantidadeSlots = InventoryState.Instance.QuantidadeSlots;
+        var itens =
+            InventoryState.Instance.ItensInventario;
+
+        int quantidadeSlots =
+            InventoryState.Instance.QuantidadeSlots;
 
         GD.Print(
             "[InventarioUI] Quantidade de itens: ",
@@ -263,11 +371,17 @@ public partial class inventarioFuncionamento : Control
             texturasSlots.Length
         );
 
-        for (int i = 0; i < slotsInventario.Length; i++)
+        for (
+            int i = 0;
+            i < slotsInventario.Length;
+            i++
+        )
         {
-            bool slotDesbloqueado = i < quantidadeSlots;
+            bool slotDesbloqueado =
+                i < quantidadeSlots;
 
-            slotsInventario[i].Visible = slotDesbloqueado;
+            slotsInventario[i].Visible =
+                slotDesbloqueado;
 
             if (!slotDesbloqueado)
             {
@@ -282,10 +396,14 @@ public partial class inventarioFuncionamento : Control
                     "[InventarioUI] Slot ",
                     i,
                     " -> ",
-                    itens[i] != null ? itens[i].Nome : "NULL"
+                    itens[i] != null
+                        ? itens[i].Nome
+                        : "NULL"
                 );
 
-                texturasSlots[i].Texture = itens[i].Textura;
+                texturasSlots[i].Texture =
+                    itens[i].Textura;
+
                 texturasSlots[i].Visible = true;
             }
             else
@@ -306,8 +424,11 @@ public partial class inventarioFuncionamento : Control
     {
         if (InventoryState.Instance != null)
         {
-            InventoryState.Instance.OfertaSolicitada -= AbrirParaOferecer;
-            InventoryState.Instance.InventarioAlterado -= AtualizarInventario;
+            InventoryState.Instance.OfertaSolicitada -=
+                AbrirParaOferecer;
+
+            InventoryState.Instance.InventarioAlterado -=
+                AtualizarInventario;
         }
     }
 }

@@ -17,14 +17,20 @@ public partial class cameraBonitaDoFred : Node3D
     [Export]
     private float mouseSensitivity = 0.15f;
 
+    [Export]
+    private float controllerSensitivity = 180f;
+
     private readonly float basePitch = 0f;
     private float yawRotation = 0f;
     private int lastYawState;
+
     private Vector3 currentRotation;
     private Vector3 currentOffset;
+
     private bool dialogueMode = false;
     private bool cameraInicializada = false;
     private bool cameraAtiva = false;
+
     private Vector3 dialogueRotation;
     private Vector3 dialogueOffset;
     private Vector3 savedRotation;
@@ -65,6 +71,7 @@ public partial class cameraBonitaDoFred : Node3D
 
         currentRotation = _pcam.GetThirdPersonRotationDegrees();
         currentOffset = _pcam.FollowOffset;
+
         yawRotation = currentRotation.Y;
         lastYawState = GetYawState();
 
@@ -79,14 +86,48 @@ public partial class cameraBonitaDoFred : Node3D
 
     public override void _Input(InputEvent @event)
     {
-        if (!cameraAtiva || !GameState.cameraInputEnabled || dialogueMode)
+        if (!cameraAtiva ||
+            !GameState.cameraInputEnabled ||
+            dialogueMode)
+        {
             return;
+        }
 
         if (@event is InputEventMouseMotion mouseMotion)
         {
-            yawRotation -= mouseMotion.Relative.X * mouseSensitivity;
+            yawRotation -=
+                mouseMotion.Relative.X *
+                mouseSensitivity;
+
             UpdateCameraRotation();
         }
+    }
+
+    public override void _Process(double delta)
+    {
+        if (!cameraAtiva ||
+            !cameraInicializada ||
+            !GameState.cameraInputEnabled ||
+            dialogueMode ||
+            _pcam == null)
+        {
+            return;
+        }
+
+        float cameraInput = Input.GetAxis(
+            "cam_left",
+            "cam_right"
+        );
+
+        if (Mathf.Abs(cameraInput) < 0.01f)
+            return;
+
+        yawRotation -=
+            cameraInput *
+            controllerSensitivity *
+            (float)delta;
+
+        UpdateCameraRotation();
     }
 
     public void AtivarCamera()
@@ -117,6 +158,7 @@ public partial class cameraBonitaDoFred : Node3D
     public void DesativarCamera()
     {
         cameraAtiva = false;
+
         SetProcessInput(false);
 
         if (_pcam == null)
@@ -134,7 +176,10 @@ public partial class cameraBonitaDoFred : Node3D
         );
     }
 
-    public void StartDialogueCamera(DialogueMarker3D npc, float duration)
+    public void StartDialogueCamera(
+        DialogueMarker3D npc,
+        float duration
+    )
     {
         if (!IsInstanceValid(npc) || _pcam == null)
             return;
@@ -144,6 +189,7 @@ public partial class cameraBonitaDoFred : Node3D
             savedRotation = currentRotation;
             savedOffset = currentOffset;
             dialogueMode = true;
+
             GameState.Instance.SetCameraInputEnabled(false);
         }
 
@@ -153,8 +199,15 @@ public partial class cameraBonitaDoFred : Node3D
             player.GlobalTransform.Basis.Inverse() *
             (npc.GlobalPosition - player.GlobalPosition);
 
-        float side = relativePosition.X >= 0f ? 1f : -1f;
-        float depth = relativePosition.Z >= 0f ? 0.9f : -0.9f;
+        float side =
+            relativePosition.X >= 0f
+                ? 1f
+                : -1f;
+
+        float depth =
+            relativePosition.Z >= 0f
+                ? 0.9f
+                : -0.9f;
 
         dialogueOffset = new Vector3(
             0.65f * side,
@@ -248,7 +301,9 @@ public partial class cameraBonitaDoFred : Node3D
         {
             currentRotation = savedRotation;
             currentOffset = savedOffset;
+
             yawRotation = savedRotation.Y;
+
             dialogueMode = false;
 
             GameState.Instance.SetCameraInputEnabled(true);
