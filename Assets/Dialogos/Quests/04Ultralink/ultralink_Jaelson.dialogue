@@ -53,7 +53,7 @@ if GameState.GetFlag("documento1Encontrado") and GameState.GetFlag("documento2En
 	=> escolhaUpgrade
 
 Jaelson: Conseguiu algum dos documentos?
-- Dizer que sim. [if GameState.GetFlag("ultralink_todasPistasDescobertas") /]
+- Dizer que sim.
 	Jaelson: Ótimo.
 	Jaelson: Tcho ver aqui então...
 	$> InventoryState.OferecerItem()

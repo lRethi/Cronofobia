@@ -74,6 +74,16 @@ public partial class NeedsState : Node
         );
     }
 
+    public void AumentarDinheiro(float value)
+    {
+        varDinheiro += value;
+
+        EmitSignal(
+            SignalName.MoneyChanged,
+            varDinheiro
+        );
+    }
+
     public void AlterarMaximoFome(float novoMaximo)
     {
         maximoFome = Mathf.Max(

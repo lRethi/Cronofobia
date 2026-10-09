@@ -5,7 +5,7 @@ if GetFlag("semTetos_desbloqueou3.1") and not GetFlag("semTetos_bancoAjudou")
 if GetFlag("banco_cadastroFeito") and not GetFlag("banco_oportunidadeRecusada") and not GetFlag("banco_oportunidadeAceita")
 	=> dialogo_Oportunidade
 
-if GetFlag("bancoOportunidadeAceita") and not GetFlag("banco_oportunidadeFinalizada")
+if GetFlag("banco_oportunidadeAceita") and not GetFlag("banco_oportunidadeFinalizada")
 	=> dialogo_OportunidadeResultado
 
 Gerente: Não temos nada a discutir.

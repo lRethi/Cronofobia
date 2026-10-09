@@ -8,7 +8,7 @@ public partial class TimeState : Node
     [Export]
     public float duracaoDiaSegundos = 120f;
 
-    public float minutoDoDia { get; private set; } = 480f;
+    public float minutoDoDia { get; private set; } = 420f;
     public float minutoInicioDia { get; private set; } = 480f;
     public float minutoFimNoite { get; private set; } = 1320f;
 
@@ -109,7 +109,7 @@ public partial class TimeState : Node
 
         float duracaoDia =
             areaAtual.tempoAcelerado
-                ? 120f
+                ? 420f
                 : 1440f;
 
         float deltaF =

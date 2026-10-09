@@ -30,7 +30,7 @@ Homem Suspeito: ...
 	Homem Suspeito: ...
 	Homem Suspeito: Valeu.
 	Homem Suspeito: Aqui, 5 pila, para adocicar seus lábios.
-	$> NeedsState.SetDinheiro(varDinheiro + 5)
+	$> NeedsState.AumentarDinheiro(5)
 	Homem Suspeito: Vamos resolver isso.
 	$> GameState.Instance.AdicionarWeirdRouteValue(1)
 	$> GameState.SetFlag("policial_ajudouCriminosos")
