@@ -616,6 +616,20 @@ cameraScript = NodePath("../../CameraPivot")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.964635, 31.522139, -62.410675)
 script = ExtResource("24_6h5ya")
 
+[node name="OmniLight3D" type="SpotLight3D" parent="." unique_id=116725353]
+transform = Transform3D(0.99995255, 0.0097397, 4.2573584e-10, 0, -4.371139e-08, 1, 0.0097397, -0.99995255, -4.3709317e-08, 0.234178, 35.34101, -52.539795)
+light_energy = 3.0
+spot_range = 17.0
+spot_attenuation = 0.5
+spot_angle = 180.0
+
+[node name="OmniLight3D2" type="SpotLight3D" parent="." unique_id=720618362]
+transform = Transform3D(0.99995255, 0.0097397, 4.2573584e-10, 0, -4.371139e-08, 1, 0.0097397, -0.99995255, -4.3709317e-08, 0.234178, 35.34101, -33.86889)
+light_energy = 3.0
+spot_range = 17.0
+spot_attenuation = 0.5
+spot_angle = 180.0
+
 [node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1393427149 node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
 transform = Transform3D(0.99995255, 0, -0.0097397, 0, 1, 0, 0.0097397, 0, 0.99995255, 0.21104312, 31.779861, -58.24779)

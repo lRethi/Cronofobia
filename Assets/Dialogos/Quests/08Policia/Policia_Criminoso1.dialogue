@@ -14,7 +14,7 @@ Homem Suspeito: ...
 		Homem Suspeito: Vai querer um pacote, ou não?
 		Homem Suspeito: É quinze reais.
 		- Pagar. [if NeedsState.varDinheiro > 15 /]
-			$> NeedsState.SetDinheiro(varDinheiro - 15)
+			$> NeedsState.SetDinheiro(NeedsState.varDinheiro - 15)
 			Homem Suspeito: Pfff... Isso foi grana fácil.
 			| ULTRALINK: {- OvO -} Você aparenta ter sido roubado.
 			Homem Suspeito: Agora some daqui, velhoca.
@@ -30,7 +30,7 @@ Homem Suspeito: ...
 	Homem Suspeito: ...
 	Homem Suspeito: Valeu.
 	Homem Suspeito: Aqui, 5 pila, para adocicar seus lábios.
-	$> NeedsState.AumentarDinheiro(5)
+	$> NeedsState.SetDinheiro(NeedsState.varDinheiro + 5)
 	Homem Suspeito: Vamos resolver isso.
 	$> GameState.Instance.AdicionarWeirdRouteValue(1)
 	$> GameState.SetFlag("policial_ajudouCriminosos")

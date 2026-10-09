@@ -78,10 +78,10 @@ _quad_chunks = [NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R0_0_0
 _box_chunks = [NodePath("BoxChunk_R0_0_-1_C0"), NodePath("BoxChunk_R-1_0_-1_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
-[node name="@StaticBody3D@291986" type="StaticBody3D" parent="Building/Teto" unique_id=249629138]
+[node name="@StaticBody3D@193570" type="StaticBody3D" parent="Building/Teto" unique_id=791701147]
 script = ExtResource("5_231ll")
 
-[node name="@CollisionShape3D@291985" type="CollisionShape3D" parent="Building/Teto/@StaticBody3D@291986" unique_id=1982311377]
+[node name="@CollisionShape3D@193569" type="CollisionShape3D" parent="Building/Teto/@StaticBody3D@193570" unique_id=1960498626]
 shape = ExtResource("6_yvk1x")
 
 [node name="Chão" type="Node3D" parent="Building" unique_id=638474494 node_paths=PackedStringArray("_quad_chunks")]
@@ -97,10 +97,10 @@ _tile_anim_data = PackedFloat32Array()
 _quad_chunks = [NodePath("SquareChunk_R-1_0_-2_C0"), NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R0_0_-1_C0"), NodePath("SquareChunk_R-1_0_0_C0"), NodePath("SquareChunk_R0_0_0_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
-[node name="@StaticBody3D@292946" type="StaticBody3D" parent="Building/Chão" unique_id=70118789]
+[node name="@StaticBody3D@194053" type="StaticBody3D" parent="Building/Chão" unique_id=1903013776]
 script = ExtResource("5_231ll")
 
-[node name="@CollisionShape3D@292945" type="CollisionShape3D" parent="Building/Chão/@StaticBody3D@292946" unique_id=451218797]
+[node name="@CollisionShape3D@194052" type="CollisionShape3D" parent="Building/Chão/@StaticBody3D@194053" unique_id=1026266230]
 shape = ExtResource("8_37nyn")
 
 [node name="Igreja" type="Node3D" parent="Building" unique_id=1843874483 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks")]
@@ -118,10 +118,10 @@ _triangle_chunks = [NodePath("TriangleChunk_R0_0_0_C0"), NodePath("TriangleChunk
 _box_chunks = [NodePath("BoxChunk_R-1_0_0_C0"), NodePath("BoxChunk_R0_0_0_C0"), NodePath("BoxChunk_R-1_0_-1_C0"), NodePath("BoxChunk_R0_0_-1_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
-[node name="@StaticBody3D@295820" type="StaticBody3D" parent="Building/Igreja" unique_id=2145291575]
+[node name="@StaticBody3D@194536" type="StaticBody3D" parent="Building/Igreja" unique_id=327047989]
 script = ExtResource("5_231ll")
 
-[node name="@CollisionShape3D@295819" type="CollisionShape3D" parent="Building/Igreja/@StaticBody3D@295820" unique_id=1081549180]
+[node name="@CollisionShape3D@194535" type="CollisionShape3D" parent="Building/Igreja/@StaticBody3D@194536" unique_id=892704537]
 shape = ExtResource("9_vxtu7")
 
 [node name="Dentro" type="Node3D" parent="Building" unique_id=1160176044 node_paths=PackedStringArray("_quad_chunks", "_triangle_chunks", "_box_chunks", "_prism_chunks")]
@@ -140,10 +140,10 @@ _box_chunks = [NodePath("BoxChunk_R0_0_-1_C0"), NodePath("BoxChunk_R-1_0_-1_C0")
 _prism_chunks = [NodePath("PrismChunk_R-1_0_-1_C0"), NodePath("PrismChunk_R0_0_-1_C0")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
-[node name="@StaticBody3D@294383" type="StaticBody3D" parent="Building/Dentro" unique_id=305995919]
+[node name="@StaticBody3D@195019" type="StaticBody3D" parent="Building/Dentro" unique_id=1409583073]
 script = ExtResource("5_231ll")
 
-[node name="@CollisionShape3D@294382" type="CollisionShape3D" parent="Building/Dentro/@StaticBody3D@294383" unique_id=76351221]
+[node name="@CollisionShape3D@195018" type="CollisionShape3D" parent="Building/Dentro/@StaticBody3D@195019" unique_id=693473537]
 shape = ExtResource("11_2cnm2")
 
 [node name="NPCs" type="Node3D" parent="." unique_id=1358978568]
@@ -197,5 +197,11 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="objDocumento2" parent="." unique_id=1948817863 instance=ExtResource("12_3ym52")]
 transform = Transform3D(-1.1665031, 0, 1.6245832, 0, 2, 0, -1.6245832, 0, -1.1665031, -2.0236151, 0.3612616, -0.36068135)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1542678626]
+transform = Transform3D(1, 0, 0, 0, -0.63252836, 0.77453727, 0, -0.77453727, -0.63252836, 0, 6.3883657, -3)
+spot_range = 15.0
+spot_attenuation = 0.5
+spot_angle = 180.0
 
 [editable path="charGeraldoSalvador"]

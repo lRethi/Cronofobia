@@ -1,4 +1,5 @@
 using Godot;
+using CompraUI = global::cenaCompra;
 
 public partial class genericPickupScript : Area3D
 {
@@ -111,6 +112,9 @@ public partial class genericPickupScript : Area3D
     {
         if (personagem == null || this.Visible == false)
             return;
+        
+        if (CompraUI.HaInstanciaAberta || GameState.TempoCongelado)
+            return;
 
         if (EffectManager.Instance != null &&
             EffectManager.Instance.TemEfeito<Ima>() &&
@@ -187,25 +191,26 @@ public partial class genericPickupScript : Area3D
 
     private void MostrarCenaCompra()
     {
-        if (cenaCompra == null)
+        if (CompraUI.HaInstanciaAberta)
             return;
 
-        var cena = cenaCompra.Instantiate<cenaCompra>();
+        if (cenaCompra == null || GetTree().CurrentScene == null)
+            return;
 
-        GetTree().CurrentScene.AddChild(cena);
+        var cena = cenaCompra.Instantiate<CompraUI>();
+
+        cena.Comprar += ComprarItem;
+        cena.Roubar += RoubarItem;
+        cena.Fechar += FecharCompra;
 
         float precoFinal =
             EffectManager.Instance != null
                 ? EffectManager.Instance.AplicarPreco(item?.Id, preco)
                 : preco;
 
+        GetTree().CurrentScene.AddChild(cena);
+
         cena.SetupScene(precoFinal);
-
-        cena.Comprar += ComprarItem;
-        cena.Roubar += RoubarItem;
-        cena.Fechar += FecharCompra;
-
-        TimeState.Instance.CongelarTempo();
     }
 
     private void ComprarItem(int precoCompra)

@@ -6,7 +6,7 @@ public partial class TimeState : Node
 	public static TimeState Instance { get; private set; }
 
 	[Export]
-	public float duracaoDiaSegundos = 120f;
+	public float duracaoDiaSegundos = 300f;
 
 	public float minutoDoDia { get; private set; } = 420f;
 	public float minutoInicioDia { get; private set; } = 480f;
@@ -45,9 +45,9 @@ public partial class TimeState : Node
 	public int diasSemBeber { get; private set; }
 	public int diasSemAbrigo { get; private set; }
 
-	public static bool lugarParaDormir = true;
-	public static bool comidaSuficiente = true;
-	public static bool aguaSuficiente = true;
+	public static bool lugarParaDormir = false;
+	public static bool comidaSuficiente = false;
+	public static bool aguaSuficiente = false;
 
 	public bool noiteFinalizada { get; private set; }
 
@@ -109,7 +109,7 @@ public partial class TimeState : Node
 
 		float duracaoDia =
 			areaAtual.tempoAcelerado
-				? 420f
+				? 300f
 				: 1440f;
 
 		float deltaF =
@@ -374,8 +374,8 @@ public partial class TimeState : Node
 	{
 		duracaoDiaSegundos = 120f;
 
-		minutoDoDia = 480f;
-		minutoInicioDia = 480f;
+		minutoDoDia = 300f;
+		minutoInicioDia = 300f;
 		minutoFimNoite = 1320f;
 
 		escalaTempo = 1f;
@@ -391,9 +391,9 @@ public partial class TimeState : Node
 		diasSemBeber = 0;
 		diasSemAbrigo = 0;
 
-		lugarParaDormir = true;
-		comidaSuficiente = true;
-		aguaSuficiente = true;
+		lugarParaDormir = false;
+		comidaSuficiente = false;
+		aguaSuficiente = false;
 
 		noiteFinalizada = false;
 

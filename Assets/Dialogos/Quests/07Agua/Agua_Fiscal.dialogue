@@ -1,8 +1,9 @@
-
-
 ~ start
-if TimeState.minutoDoDia > 600 and TimeState.minutoDoDia < 1020
+if TimeState.minutoDoDia < 600 and TimeState.minutoDoDia > 1020
 	=> amigo
+
+if not GetFlag("fiscal_primeiroDialogoVisto")
+	=> fiscalPrimeiroDialogo
 
 Fiscal: A-Ahem... Posso t-te ajudar com mais a-alguma coisa?
 => END
@@ -42,6 +43,7 @@ Fiscal: Não vou aceitar tamanha i-injustiça...
 	$> NeedsState.SetDinheiro(NeedsState.varDinheiro - 10)
 - Ficar em silêncio.
 $> GameState.SetFlag("agua_finalizada", true)
+$> GameState.SetFlag("fiscal_primeiroDialogoVisto", true)
 => END
 
 ~ fiscalWeirdDialogue
@@ -49,6 +51,7 @@ Fiscal: O-O quê?! E-Eles estão ######## ####### ## ###### nas pessoas..?
 Fiscal: I-Isso é a-absurdo! E-Eu vou falar com o meu chefe!
 Fiscal: O-Obrigado por me avisar disso, senhor!
 $> GameState.SetFlag("agua_badEnding", true)
+$> GameState.SetFlag("fiscal_primeiroDialogoVisto", true)
 $> GameState.Instance.AdicionarWeirdRouteValue(1)
 => END
 

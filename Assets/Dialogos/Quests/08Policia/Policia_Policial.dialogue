@@ -19,7 +19,7 @@ Policial: Estou no meio de uma operação.
 	Policial: Vai continuar aqui?
 	- Continuar ali.
 		Policial: ...
-		Policial: Que tal você fazer algo útil do seu tempo, e perguntar para aqueles dois se eles têm você-sabe-o-quê.
+		Policial: Que tal você fazer algo útil do seu tempo, e perguntar para aquele nanico na construção se ele têm você-sabe-o-quê.
 		Policial: Volte aqui e me diga o que você descobriu.
 		$> GameState.SetFlag("policial_propostaRecebida", true)
 	- Ir embora.
@@ -32,7 +32,7 @@ Policial: ...
 Policial: Típico.
 Policial: ...
 Policial: Aqui, pelos seus problemas.
-$> NeedsState.SetDinheiro(varDinheiro + 10)
+$> NeedsState.SetDinheiro(NeedsState.varDinheiro + 10)
 Policial: ...
 Policial: Eu tenho um motivo para prender eles agora, obrigado.
 Policial: ...

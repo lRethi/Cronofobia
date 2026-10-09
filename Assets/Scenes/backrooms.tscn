@@ -66,10 +66,10 @@ _quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C1"), NodePath("SquareChunk_R-1_0
 _box_chunks = [NodePath("BoxChunk_R0_0_-1_C1"), NodePath("BoxChunk_R0_0_0_C1"), NodePath("BoxChunk_R-1_0_0_C1"), NodePath("BoxChunk_R-1_0_-1_C1")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
-[node name="@StaticBody3D@108889" type="StaticBody3D" parent="TileMapLayer3D" unique_id=318387974]
+[node name="@StaticBody3D@182645" type="StaticBody3D" parent="TileMapLayer3D" unique_id=1574408392]
 script = ExtResource("5_arnwf")
 
-[node name="@CollisionShape3D@108888" type="CollisionShape3D" parent="TileMapLayer3D/@StaticBody3D@108889" unique_id=941438329]
+[node name="@CollisionShape3D@182644" type="CollisionShape3D" parent="TileMapLayer3D/@StaticBody3D@182645" unique_id=1855083367]
 shape = ExtResource("6_76bqt")
 
 [node name="TileMapLayer3D_Baked" type="MeshInstance3D" parent="." unique_id=88273790]
@@ -118,5 +118,10 @@ align_transform_with_view = Callable()
 align_position_with_view = Callable()
 align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="DirectionalLight3D" type="SpotLight3D" parent="." unique_id=1220923398]
+transform = Transform3D(1, 0, 0, 0, 0.0213399, 0.9997723, 0, -0.9997723, 0.021339903, 0, 3.3545182, 0)
+light_energy = 2.0
+spot_angle = 82.43
 
 [editable path="charGeraldoSalvador"]

@@ -39,6 +39,11 @@ public partial class inventarioFuncionamento : Control
             GetNode<Button>("Base/Base2/Slot2")
         };
 
+        foreach (TextureRect textura in texturasSlots)
+        {
+            textura.MouseFilter = Control.MouseFilterEnum.Ignore;
+        }
+
         GD.Print("[InventarioUI] _Ready iniciado.");
 
         for (int i = 0; i < slotsInventario.Length; i++)
@@ -90,6 +95,8 @@ public partial class inventarioFuncionamento : Control
         AtualizarInventario();
 
         GD.Print("[InventarioUI] _Ready concluído.");
+
+        InventoryState.Instance.OfertaFinalizada += AoFinalizarOferta;
     }
 
     public override void _UnhandledInput(InputEvent @event)
@@ -97,15 +104,18 @@ public partial class inventarioFuncionamento : Control
         if (!@event.IsActionPressed("open_inventory"))
             return;
 
-        GD.Print(
-            "[InventarioUI] open_inventory pressionado."
-        );
-
         if (GameState.Instance == null)
             return;
 
-        if (GameState.Instance.DialogoAberto)
+        if (GameState.Instance.DialogoAberto && !modoOferecer)
             return;
+
+        if (modoOferecer)
+        {
+            InventoryState.Instance.CancelarOferta();
+            GetViewport().SetInputAsHandled();
+            return;
+        }
 
         AlternarInventario();
 
@@ -344,6 +354,18 @@ public partial class inventarioFuncionamento : Control
         modoOferecer = false;
     }
 
+    private void AoFinalizarOferta()
+    {
+        if (!modoOferecer)
+            return;
+
+        telaOferecer.Hide();
+        Hide();
+
+        slotSelecionado = -1;
+        modoOferecer = false;
+    }
+
     private void AtualizarInventario()
     {
         GD.Print(
@@ -429,6 +451,8 @@ public partial class inventarioFuncionamento : Control
 
             InventoryState.Instance.InventarioAlterado -=
                 AtualizarInventario;
+
+            InventoryState.Instance.OfertaFinalizada -= AoFinalizarOferta;
         }
     }
 }

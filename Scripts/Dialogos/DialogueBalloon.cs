@@ -38,6 +38,11 @@ public partial class DialogueBalloon : CanvasLayer
 
     private bool applyingDialogueLine;
 
+    [Export] public string CancelAction = "cancel_dialogue";
+
+    private int dialogueSession;
+    private bool endingDialogue;
+
     public override void _Ready()
     {
         npcDialogueLayer = GetNode<Control>("%NPCDialogueLayer");
@@ -63,6 +68,12 @@ public partial class DialogueBalloon : CanvasLayer
         responsesMenu.ResponseSelected += response =>
         {
             EffectManager.Instance?.AoEscolherOpcaoDialogo();
+
+            responsesMenu.Hide();
+            playerResponsesLayer.Hide();
+            npcDialogueLayer.Hide();
+            ultralinkDialogueLayer.Hide();
+
             Next(response.NextId);
         };
 
@@ -109,7 +120,12 @@ public partial class DialogueBalloon : CanvasLayer
     public override void _UnhandledInput(InputEvent @event)
     {
         if (!Visible)
+            return;
+
+        if (@event.IsActionPressed(CancelAction))
         {
+            GetViewport().SetInputAsHandled();
+            CancelDialogue();
             return;
         }
 
@@ -125,14 +141,10 @@ public partial class DialogueBalloon : CanvasLayer
         }
 
         if (!isWaitingForInput)
-        {
             return;
-        }
 
         if (dialogueLine.Responses.Count > 0)
-        {
             return;
-        }
 
         if (@event.IsActionPressed(NextAction))
         {
@@ -141,26 +153,42 @@ public partial class DialogueBalloon : CanvasLayer
         }
     }
 
+    private void CancelDialogue()
+    {
+        if (endingDialogue)
+            return;
+
+        if (InventoryState.Instance?.OfertaPendente == true)
+            InventoryState.Instance.CancelarOferta();
+
+        DialogueManager.Instance.EmitSignal(
+            "dialogue_ended",
+            DialogueResource
+        );
+
+        EndDialogue();
+    }
+
     public async void Start(
         Resource dialogueResource = null,
         string title = "",
         Array<Variant> extraGameStates = null
     )
     {
+        int session = ++dialogueSession;
+        endingDialogue = false;
+
         if (!IsNodeReady())
-        {
             await ToSignal(this, SignalName.Ready);
-        }
+
+        if (session != dialogueSession)
+            return;
 
         if (IsInstanceValid(dialogueResource))
-        {
             DialogueResource = dialogueResource;
-        }
 
         if (!string.IsNullOrEmpty(title))
-        {
             StartFromTitle = title;
-        }
 
         if (!IsInstanceValid(DialogueResource))
         {
@@ -176,9 +204,7 @@ public partial class DialogueBalloon : CanvasLayer
         if (extraGameStates != null)
         {
             foreach (Variant gameState in extraGameStates)
-            {
                 temporaryGameStates.Add(gameState);
-            }
         }
 
         isWaitingForInput = false;
@@ -189,13 +215,20 @@ public partial class DialogueBalloon : CanvasLayer
             temporaryGameStates
         );
 
-        Show();
+        if (session != dialogueSession || endingDialogue)
+            return;
 
+        Show();
         ApplyDialogueLine();
     }
 
     public async void Next(string nextId)
     {
+        if (endingDialogue)
+            return;
+
+        int session = dialogueSession;
+
         isWaitingForInput = false;
 
         dialogueLine = await DialogueManager.GetNextDialogueLine(
@@ -203,6 +236,9 @@ public partial class DialogueBalloon : CanvasLayer
             nextId,
             temporaryGameStates
         );
+
+        if (session != dialogueSession || endingDialogue)
+            return;
 
         ApplyDialogueLine();
     }
@@ -213,6 +249,8 @@ public partial class DialogueBalloon : CanvasLayer
         {
             return;
         }
+
+        int session = dialogueSession;
 
         applyingDialogueLine = true;
 
@@ -300,6 +338,9 @@ public partial class DialogueBalloon : CanvasLayer
                 );
             }
 
+            if (session != dialogueSession || endingDialogue)
+                    return;
+
             if (
                 ultralinkDialogueLayer.Visible &&
                 !string.IsNullOrEmpty(
@@ -314,6 +355,9 @@ public partial class DialogueBalloon : CanvasLayer
                     DialogueLabel.SignalName.FinishedTyping
                 );
             }
+
+            if (session != dialogueSession || endingDialogue)
+                return;
 
             if (dialogueLine.Responses.Count > 0)
             {
@@ -332,27 +376,40 @@ public partial class DialogueBalloon : CanvasLayer
 
     private async void EndDialogue()
     {
-        DialogueCameraController.EndDialogue();
-        
+        if (endingDialogue)
+            return;
+
+        endingDialogue = true;
+        dialogueSession++;
+
         isWaitingForInput = false;
+
+        if (dialogueLabel != null && dialogueLabel.IsTyping)
+            dialogueLabel.SkipTyping();
+
+        if (ultralinkLabel != null && ultralinkLabel.IsTyping)
+            ultralinkLabel.SkipTyping();
+
+        DialogueCameraController.EndDialogue();
 
         animationPlayer.Play("NPC_Out");
 
         if (ultralinkDialogueLayer.Visible)
-        {
             animationPlayer.Play("ULTRALINK_Out");
-        }
 
         await ToSignal(
             animationPlayer,
             AnimationPlayer.SignalName.AnimationFinished
         );
 
-        Hide();
+        if (!IsInstanceValid(this))
+            return;
 
         npcDialogueLayer.Hide();
         ultralinkDialogueLayer.Hide();
         playerResponsesLayer.Hide();
+
+        QueueFree();
     }
 
     private void ExtractULTRALINKFace(DialogueLine line)

@@ -76,7 +76,11 @@ public partial class NeedsState : Node
 
     public void AumentarDinheiro(float value)
     {
-        varDinheiro += value;
+        GD.Print("[NeedsState] AumentarDinheiro chamado. Antes: ", varDinheiro);
+
+        SetDinheiro(varDinheiro + value);
+
+        GD.Print("[NeedsState] AumentarDinheiro concluído. Depois: ", varDinheiro);
 
         EmitSignal(
             SignalName.MoneyChanged,

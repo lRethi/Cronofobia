@@ -40,6 +40,14 @@ public partial class GameState : Node
         DialogueManager.DialogueEnded += OnDialogueEnded;
     }
 
+    public void EncerrarDialogoManualmente()
+    {
+        if (!dialogoAberto)
+            return;
+
+        OnDialogueEnded(null);
+    }
+
     public override void _ExitTree()
     {
         DialogueManager.DialogueStarted -= OnDialogueStarted;

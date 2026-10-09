@@ -12,10 +12,9 @@
 [ext_resource type="Shape3D" uid="uid://cv6fe0nywefbd" path="res://Assets/Scenes/Loja2_CollisionData/Loja2_Porta_collision.res" id="8_mnpvg"]
 [ext_resource type="Texture2D" uid="uid://d1mrq7asj83j" path="res://Assets/Sprites/Cenario/Misc/cardoard.png" id="8_pm5w4"]
 [ext_resource type="Texture2D" uid="uid://on0g33jm2uhj" path="res://Assets/Sprites/Objetos/agua.png" id="9_7bu0c"]
-[ext_resource type="Shape3D" uid="uid://dy7cxbpevy25h" path="res://Assets/Scenes/Loja2_CollisionData/Loja2_Mesa_collision.res" id="10_0d5dk"]
 [ext_resource type="PackedScene" uid="uid://d1iedt53ggboo" path="res://Assets/Props/Portas/portaLojaGrade.tscn" id="10_ng17w"]
 [ext_resource type="PackedScene" uid="uid://4cvw5u3glyoy" path="res://Assets/Personagens/Protagonista.tscn" id="11_3t50d"]
-[ext_resource type="Shape3D" uid="uid://dy7cxbpevy25h" path="res://Assets/Scenes/Loja2_CollisionData/Loja2_mesa_collision.res" id="12_1kqbq"]
+[ext_resource type="Shape3D" uid="uid://dy7cxbpevy25h" path="res://Assets/Scenes/Loja2_CollisionData/Loja2_Mesa_collision.res" id="12_1kqbq"]
 [ext_resource type="Script" uid="uid://bt56plut0kdvx" path="res://Scripts/Camera/cameraBonitaDoFred.cs" id="12_ispub"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="13_pm5w4"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="14_7bu0c"]
@@ -116,10 +115,10 @@ _quad_chunks = [NodePath("SquareChunk_R0_0_-1_C1"), NodePath("SquareChunk_R0_0_0
 _box_chunks = [NodePath("BoxChunk_R-1_0_-1_C1"), NodePath("BoxChunk_R-1_0_0_C1"), NodePath("BoxChunk_R0_0_-1_C1"), NodePath("BoxChunk_R0_0_0_C1")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
-[node name="@StaticBody3D@278612" type="StaticBody3D" parent="Loja" unique_id=2006296441]
+[node name="@StaticBody3D@195988" type="StaticBody3D" parent="Loja" unique_id=919149702]
 script = ExtResource("5_xqijk")
 
-[node name="@CollisionShape3D@278611" type="CollisionShape3D" parent="Loja/@StaticBody3D@278612" unique_id=605866939]
+[node name="@CollisionShape3D@195987" type="CollisionShape3D" parent="Loja/@StaticBody3D@195988" unique_id=2129416603]
 shape = ExtResource("6_6ywrt")
 
 [node name="Porta" type="Node3D" parent="." unique_id=1675647979 node_paths=PackedStringArray("_quad_chunks")]
@@ -159,7 +158,7 @@ metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 script = ExtResource("5_xqijk")
 
 [node name="@CollisionShape3D@281012" type="CollisionShape3D" parent="Mesa/@StaticBody3D@281013" unique_id=1928488967]
-shape = ExtResource("10_0d5dk")
+shape = ExtResource("12_1kqbq")
 
 [node name="mesa" type="Node3D" parent="." unique_id=1839103522 node_paths=PackedStringArray("_box_chunks", "_prism_chunks")]
 script = ExtResource("1_v6lsy")
@@ -613,6 +612,13 @@ script = null
 
 [node name="Sprite3D" parent="Atendente/StaticBody3D" parent_id_path=PackedInt32Array(2040080851, 408448575) index="2" unique_id=1766881007]
 alcanceInteracao = 0.0
+
+[node name="OmniLight3D" type="SpotLight3D" parent="." unique_id=214259101]
+transform = Transform3D(0.99995255, 0.0097397, 4.2573584e-10, 0, -4.371139e-08, 1, 0.0097397, -0.99995255, -4.3709317e-08, 0, 4.7683716, 0)
+light_energy = 3.0
+spot_range = 12.0
+spot_attenuation = 0.5
+spot_angle = 180.0
 
 [editable path="charGeraldoSalvador"]
 [editable path="Pickups/Dia1/objAgua"]

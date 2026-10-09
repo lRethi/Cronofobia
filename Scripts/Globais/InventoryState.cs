@@ -35,6 +35,8 @@ public partial class InventoryState : Node
     [Signal]
     public delegate void OfertaFinalizadaEventHandler();
 
+    public bool OfertaPendente { get; private set; }
+
     public override void _Ready()
     {
         if (Instance != null && Instance != this)
@@ -145,17 +147,23 @@ public partial class InventoryState : Node
 
     public async Task OferecerItem()
     {
+        if (OfertaPendente)
+            return;
+
         itemOferecido = null;
         ItemOferecidoId = "";
+        OfertaPendente = true;
 
-        EmitSignal(
-            SignalName.OfertaSolicitada
-        );
-
-        await ToSignal(
+        var esperaOferta = ToSignal(
             this,
             SignalName.OfertaFinalizada
         );
+
+        EmitSignal(SignalName.OfertaSolicitada);
+
+        await esperaOferta;
+
+        OfertaPendente = false;
     }
 
     public bool PodeOferecerItem(ItemDefinition item)
@@ -174,10 +182,10 @@ public partial class InventoryState : Node
 
         itemOferecido = item;
         ItemOferecidoId = item.Id;
+        OfertaPendente = false;
 
-        EmitSignal(
-            SignalName.OfertaFinalizada
-        );
+        EmitSignal(SignalName.OfertaFinalizada);
+
 
         return true;
     }
@@ -186,10 +194,9 @@ public partial class InventoryState : Node
     {
         itemOferecido = null;
         ItemOferecidoId = "";
+        OfertaPendente = false;
 
-        EmitSignal(
-            SignalName.OfertaFinalizada
-        );
+        EmitSignal(SignalName.OfertaFinalizada);
     }
 
     public bool ConsumirItemOferecido()

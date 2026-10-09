@@ -81,6 +81,9 @@ public partial class cameraBonitaDoFred : Node3D
         GameState.Instance.SetCameraInputEnabled(true);
         GameState.Instance.SetCameraMouseCaptured(true);
 
+        _pcamNode.Set("collision_mask", (int)dialogueCollisionMask);
+        _pcamNode.Set("margin", dialogueCollisionMargin);
+
         cameraInicializada = true;
 
         if (cameraAtiva)
@@ -180,11 +183,11 @@ public partial class cameraBonitaDoFred : Node3D
     }
 
     public void StartDialogueCamera(
-        DialogueMarker3D npc,
-        float duration
+    DialogueMarker3D npc,
+    float duration
     )
     {
-        if (!IsInstanceValid(npc) || _pcam == null)
+        if (!IsInstanceValid(npc) || _pcam == null || player == null)
             return;
 
         if (!dialogueMode)
@@ -212,18 +215,26 @@ public partial class cameraBonitaDoFred : Node3D
                 ? 0.9f
                 : -0.9f;
 
-        Vector3 desiredDialogueOffset = new Vector3(
-        0.65f * side,
-        0.1f,
-        depth
-    );
+        Vector3 desiredLocalOffset = new Vector3(
+            0.65f * side,
+            0.1f,
+            depth
+        );
 
-    dialogueOffset = GetSafeDialogueOffset(desiredDialogueOffset);
+        Vector3 desiredWorldOffset =
+            player.GlobalTransform.Basis * desiredLocalOffset;
 
-        dialogueRotation = new Vector3(
+        Vector3 desiredRotation = new Vector3(
             2.5f,
-            currentRotation.Y + (5f * side),
+            savedRotation.Y + (5f * side),
             0f
+        );
+
+        GetSafeDialoguePose(
+            desiredWorldOffset,
+            desiredRotation,
+            out dialogueOffset,
+            out dialogueRotation
         );
 
         Vector3 startRotation = currentRotation;
@@ -343,38 +354,113 @@ public partial class cameraBonitaDoFred : Node3D
         }
     }
 
-    private Vector3 GetSafeDialogueOffset(Vector3 desiredOffset)
+    private void GetSafeDialoguePose(
+    Vector3 desiredWorldOffset,
+    Vector3 desiredRotation,
+    out Vector3 safeOffset,
+    out Vector3 safeRotation
+    )
     {
-        Vector3 origin = player.GlobalPosition;
-        Vector3 desiredPosition =
-            player.GlobalTransform.Basis * desiredOffset + origin;
+        Vector3 initialOffset = currentOffset;
+        Vector3 initialRotation = currentRotation;
+
+        float springLength = _pcamNode.Get("spring_length").AsSingle();
+
+        for (int attempt = 0; attempt < 7; attempt++)
+        {
+            float factor = Mathf.Pow(0.5f, attempt);
+
+            Vector3 candidateOffset =
+                initialOffset.Lerp(desiredWorldOffset, factor);
+
+            Vector3 candidateRotation =
+                initialRotation.Lerp(desiredRotation, factor);
+
+            if (IsDialogueTransitionSafe(
+                initialOffset,
+                initialRotation,
+                candidateOffset,
+                candidateRotation,
+                springLength))
+            {
+                safeOffset = candidateOffset;
+                safeRotation = candidateRotation;
+                return;
+            }
+        }
+
+        safeOffset = initialOffset;
+        safeRotation = initialRotation;
+    }
+
+    private bool IsDialogueTransitionSafe(
+        Vector3 initialOffset,
+        Vector3 initialRotation,
+        Vector3 candidateOffset,
+        Vector3 candidateRotation,
+        float springLength
+    )
+    {
+        Vector3 playerPosition = player.GlobalPosition;
+
+        Vector3 previousAnchor =
+            playerPosition + initialOffset;
+
+        for (int sample = 1; sample <= 5; sample++)
+        {
+            float t = sample / 5f;
+
+            Vector3 offset =
+                initialOffset.Lerp(candidateOffset, t);
+
+            Vector3 rotation =
+                initialRotation.Lerp(candidateRotation, t);
+
+            Vector3 anchor =
+                playerPosition + offset;
+
+            if (!IsRayClear(previousAnchor, anchor))
+                return false;
+
+            Basis cameraBasis = Basis.FromEuler(
+                rotation * Mathf.DegToRad(1f)
+            );
+
+            Vector3 cameraPosition =
+                anchor + cameraBasis.Z * springLength;
+
+            if (!IsRayClear(anchor, cameraPosition))
+                return false;
+
+            previousAnchor = anchor;
+        }
+
+        return true;
+    }
+
+    private bool IsRayClear(Vector3 from, Vector3 to)
+    {
+        if (from.DistanceSquaredTo(to) < 0.0001f)
+            return true;
 
         PhysicsRayQueryParameters3D query =
-            PhysicsRayQueryParameters3D.Create(origin, desiredPosition);
+            PhysicsRayQueryParameters3D.Create(from, to);
 
         query.CollisionMask = dialogueCollisionMask;
+        query.CollideWithAreas = false;
+        query.CollideWithBodies = true;
 
-        if (player is CollisionObject3D collisionObject)
+        if (player is CollisionObject3D playerCollider)
         {
             query.Exclude = new Godot.Collections.Array<Rid>
             {
-                collisionObject.GetRid()
+                playerCollider.GetRid()
             };
         }
 
-        var result = GetWorld3D().DirectSpaceState.IntersectRay(query);
+        var result =
+            GetWorld3D().DirectSpaceState.IntersectRay(query);
 
-        if (result.Count == 0)
-            return desiredOffset;
-
-        Vector3 collisionPoint = (Vector3)result["position"];
-
-        Vector3 safePosition =
-            collisionPoint -
-            (desiredPosition - origin).Normalized() *
-            dialogueCollisionMargin;
-
-        return player.GlobalTransform.Basis.Inverse() *
-            (safePosition - origin);
+        return result.Count == 0;
     }
 }

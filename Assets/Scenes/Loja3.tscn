@@ -97,15 +97,15 @@ _tile_transform_indices = PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
 _tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
 _tile_anim_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1)
 _tile_anim_data = PackedFloat32Array()
-_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C0")]
-_triangle_chunks = [NodePath("TriangleChunk_R-1_0_-1_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C1")]
+_triangle_chunks = [NodePath("TriangleChunk_R-1_0_-1_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C1")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
-[node name="@StaticBody3D@271682" type="StaticBody3D" parent="porta" unique_id=1512926030]
+[node name="@StaticBody3D@199639" type="StaticBody3D" parent="porta" unique_id=22483718]
 script = ExtResource("5_mmsls")
 
-[node name="@CollisionShape3D@271681" type="CollisionShape3D" parent="porta/@StaticBody3D@271682" unique_id=1129179745]
+[node name="@CollisionShape3D@199638" type="CollisionShape3D" parent="porta/@StaticBody3D@199639" unique_id=210577121]
 shape = ExtResource("6_wqp0u")
 
 [node name="TileMapLayer3D" type="Node3D" parent="." unique_id=2090003749 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
@@ -118,14 +118,14 @@ _tile_transform_indices = PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
 _tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
 _tile_anim_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1)
 _tile_anim_data = PackedFloat32Array()
-_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C1")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
-[node name="@StaticBody3D@272642" type="StaticBody3D" parent="TileMapLayer3D" unique_id=1303211430]
+[node name="@StaticBody3D@200122" type="StaticBody3D" parent="TileMapLayer3D" unique_id=1358476605]
 script = ExtResource("5_mmsls")
 
-[node name="@CollisionShape3D@272641" type="CollisionShape3D" parent="TileMapLayer3D/@StaticBody3D@272642" unique_id=1789666473]
+[node name="@CollisionShape3D@200121" type="CollisionShape3D" parent="TileMapLayer3D/@StaticBody3D@200122" unique_id=641392813]
 shape = ExtResource("8_sygq8")
 
 [node name="Mesa" type="Node3D" parent="." unique_id=1320430457 node_paths=PackedStringArray("_quad_chunks", "_box_chunks", "_prism_chunks")]
@@ -138,15 +138,15 @@ _tile_transform_indices = PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
 _tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
 _tile_anim_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1)
 _tile_anim_data = PackedFloat32Array()
-_quad_chunks = [NodePath("SquareChunk_R-1_-1_-1_C0"), NodePath("SquareChunk_R-1_0_-1_C0")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0"), NodePath("BoxChunk_R0_0_-1_C0"), NodePath("BoxChunk_R-1_0_0_C0")]
-_prism_chunks = [NodePath("PrismChunk_R-1_0_-1_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_-1_-1_C1"), NodePath("SquareChunk_R-1_0_-1_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C1"), NodePath("BoxChunk_R0_0_-1_C1"), NodePath("BoxChunk_R-1_0_0_C1")]
+_prism_chunks = [NodePath("PrismChunk_R-1_0_-1_C1")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
-[node name="@StaticBody3D@273602" type="StaticBody3D" parent="Mesa" unique_id=874239589]
+[node name="@StaticBody3D@200605" type="StaticBody3D" parent="Mesa" unique_id=800295975]
 script = ExtResource("5_mmsls")
 
-[node name="@CollisionShape3D@273601" type="CollisionShape3D" parent="Mesa/@StaticBody3D@273602" unique_id=455505659]
+[node name="@CollisionShape3D@200604" type="CollisionShape3D" parent="Mesa/@StaticBody3D@200605" unique_id=1433640557]
 shape = ExtResource("10_lw5xs")
 
 [node name="Dentro" type="Node3D" parent="." unique_id=1278611091 node_paths=PackedStringArray("_quad_chunks")]
@@ -159,13 +159,13 @@ _tile_transform_indices = PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
 _tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
 _tile_anim_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1)
 _tile_anim_data = PackedFloat32Array()
-_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C1")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
-[node name="@StaticBody3D@274565" type="StaticBody3D" parent="Dentro" unique_id=1395992823]
+[node name="@StaticBody3D@201088" type="StaticBody3D" parent="Dentro" unique_id=1529153462]
 script = ExtResource("5_mmsls")
 
-[node name="@CollisionShape3D@274564" type="CollisionShape3D" parent="Dentro/@StaticBody3D@274565" unique_id=236331911]
+[node name="@CollisionShape3D@201087" type="CollisionShape3D" parent="Dentro/@StaticBody3D@201088" unique_id=1315505979]
 shape = ExtResource("12_u6s6a")
 
 [node name="daoe" type="Node3D" parent="." unique_id=151333428 node_paths=PackedStringArray("_box_chunks")]
@@ -178,13 +178,13 @@ _tile_transform_indices = PackedInt32Array(0, 1)
 _tile_transform_data = PackedFloat32Array(0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
 _tile_anim_indices = PackedInt32Array(-1, -1)
 _tile_anim_data = PackedFloat32Array()
-_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C0")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_-1_C1")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
-[node name="@StaticBody3D@276002" type="StaticBody3D" parent="daoe" unique_id=1119927473]
+[node name="@StaticBody3D@201956" type="StaticBody3D" parent="daoe" unique_id=1700431325]
 script = ExtResource("5_mmsls")
 
-[node name="@CollisionShape3D@276001" type="CollisionShape3D" parent="daoe/@StaticBody3D@276002" unique_id=359741537]
+[node name="@CollisionShape3D@201955" type="CollisionShape3D" parent="daoe/@StaticBody3D@201956" unique_id=1379890713]
 shape = ExtResource("14_vokjo")
 
 [node name="pooort" type="Node3D" parent="." unique_id=67718138 node_paths=PackedStringArray("_quad_chunks")]
@@ -197,13 +197,13 @@ _tile_transform_indices = PackedInt32Array(0, 1, 2, 3)
 _tile_transform_data = PackedFloat32Array(1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 1.5707964, 0.7853982, 1.4142135, 0.5, 0.1, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0.1)
 _tile_anim_indices = PackedInt32Array(-1, -1, -1, -1)
 _tile_anim_data = PackedFloat32Array()
-_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C0"), NodePath("SquareChunk_R0_0_-1_C0")]
+_quad_chunks = [NodePath("SquareChunk_R-1_0_-1_C1"), NodePath("SquareChunk_R0_0_-1_C1")]
 metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 
-[node name="@StaticBody3D@276962" type="StaticBody3D" parent="pooort" unique_id=1129301660]
+[node name="@StaticBody3D@202439" type="StaticBody3D" parent="pooort" unique_id=853110463]
 script = ExtResource("5_mmsls")
 
-[node name="@CollisionShape3D@276961" type="CollisionShape3D" parent="pooort/@StaticBody3D@276962" unique_id=1926293566]
+[node name="@CollisionShape3D@202438" type="CollisionShape3D" parent="pooort/@StaticBody3D@202439" unique_id=2114366046]
 shape = ExtResource("15_5kykr")
 
 [node name="Buyables" type="Node3D" parent="." unique_id=1561324257]
@@ -218,6 +218,7 @@ diaMaximo = 1
 [node name="galaoAgua" parent="Buyables/Day1/objGalaoAgua" index="0" unique_id=1963751312]
 preco = 20.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objGalaoAgua2" parent="Buyables/Day1" unique_id=1225094206 instance=ExtResource("9_l7pnp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5076194, 0.9309467, -3.0691466)
@@ -227,6 +228,7 @@ diaMaximo = 1
 [node name="galaoAgua" parent="Buyables/Day1/objGalaoAgua2" index="0" unique_id=1963751312]
 preco = 20.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua" parent="Buyables/Day1" unique_id=1479640235 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.739444, 0.7979553, -3.0719194)
@@ -236,6 +238,7 @@ diaMaximo = 1
 [node name="garrafaAgua" parent="Buyables/Day1/objAgua" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua2" parent="Buyables/Day1" unique_id=21630527 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0687623, 0.7979553, -3.0719194)
@@ -245,6 +248,7 @@ diaMaximo = 1
 [node name="garrafaAgua" parent="Buyables/Day1/objAgua2" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua3" parent="Buyables/Day1" unique_id=1058123009 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3892717, 0.7979553, -3.0719194)
@@ -254,6 +258,7 @@ diaMaximo = 1
 [node name="garrafaAgua" parent="Buyables/Day1/objAgua3" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua4" parent="Buyables/Day1" unique_id=1098243139 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7432547, 0.7979553, -3.0719194)
@@ -263,6 +268,7 @@ diaMaximo = 1
 [node name="garrafaAgua" parent="Buyables/Day1/objAgua4" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua5" parent="Buyables/Day1" unique_id=775291925 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.119441, 0.7979553, -3.0719194)
@@ -272,6 +278,7 @@ diaMaximo = 1
 [node name="garrafaAgua" parent="Buyables/Day1/objAgua5" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objMarmita" parent="Buyables/Day1" unique_id=610517771 instance=ExtResource("10_5gfeg")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -4.3555584, 0.8386617, -1.2075212)
@@ -281,6 +288,7 @@ diaMaximo = 1
 [node name="marmitaPickup" parent="Buyables/Day1/objMarmita" index="0" unique_id=645683784]
 preco = 20.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objMarmita2" parent="Buyables/Day1" unique_id=1636693981 instance=ExtResource("10_5gfeg")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6.6286926, 0.8386617, -1.2075212)
@@ -290,6 +298,7 @@ diaMaximo = 1
 [node name="marmitaPickup" parent="Buyables/Day1/objMarmita2" index="0" unique_id=645683784]
 preco = 20.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao" parent="Buyables/Day1" unique_id=134085674 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8347516, 0.74828535, -1.1822729)
@@ -299,6 +308,7 @@ diaMaximo = 1
 [node name="lataFeijao" parent="Buyables/Day1/objFeijao" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao2" parent="Buyables/Day1" unique_id=1972750741 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1770606, 0.74828535, -1.1822729)
@@ -308,6 +318,7 @@ diaMaximo = 1
 [node name="lataFeijao" parent="Buyables/Day1/objFeijao2" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao3" parent="Buyables/Day1" unique_id=776623145 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5295663, 0.74828535, -1.1822729)
@@ -317,6 +328,7 @@ diaMaximo = 1
 [node name="lataFeijao" parent="Buyables/Day1/objFeijao3" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao4" parent="Buyables/Day1" unique_id=1182759111 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8654156, 0.74828535, -1.1822729)
@@ -326,6 +338,7 @@ diaMaximo = 1
 [node name="lataFeijao" parent="Buyables/Day1/objFeijao4" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao5" parent="Buyables/Day1" unique_id=910106643 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1760387, 0.74828535, -1.1822729)
@@ -335,6 +348,7 @@ diaMaximo = 1
 [node name="lataFeijao" parent="Buyables/Day1/objFeijao5" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="Day2" type="Node3D" parent="Buyables" unique_id=1855482770]
 
@@ -347,6 +361,7 @@ diaMaximo = 2
 [node name="galaoAgua" parent="Buyables/Day2/objGalaoAgua" index="0" unique_id=1963751312]
 preco = 20.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objGalaoAgua2" parent="Buyables/Day2" unique_id=1516767030 instance=ExtResource("9_l7pnp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5076194, 0.9309467, -3.0691466)
@@ -357,6 +372,7 @@ diaMaximo = 2
 [node name="galaoAgua" parent="Buyables/Day2/objGalaoAgua2" index="0" unique_id=1963751312]
 preco = 20.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua" parent="Buyables/Day2" unique_id=306885300 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.739444, 0.7979553, -3.0719194)
@@ -367,6 +383,7 @@ diaMaximo = 2
 [node name="garrafaAgua" parent="Buyables/Day2/objAgua" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua2" parent="Buyables/Day2" unique_id=509729342 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0687623, 0.7979553, -3.0719194)
@@ -377,6 +394,7 @@ diaMaximo = 2
 [node name="garrafaAgua" parent="Buyables/Day2/objAgua2" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua3" parent="Buyables/Day2" unique_id=26649298 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3892717, 0.7979553, -3.0719194)
@@ -387,6 +405,7 @@ diaMaximo = 2
 [node name="garrafaAgua" parent="Buyables/Day2/objAgua3" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua4" parent="Buyables/Day2" unique_id=1826493838 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7432547, 0.7979553, -3.0719194)
@@ -397,6 +416,7 @@ diaMaximo = 2
 [node name="garrafaAgua" parent="Buyables/Day2/objAgua4" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua5" parent="Buyables/Day2" unique_id=1613801755 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.119441, 0.7979553, -3.0719194)
@@ -407,6 +427,7 @@ diaMaximo = 2
 [node name="garrafaAgua" parent="Buyables/Day2/objAgua5" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objMarmita" parent="Buyables/Day2" unique_id=907965318 instance=ExtResource("10_5gfeg")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -4.3555584, 0.8386617, -1.2075212)
@@ -417,6 +438,7 @@ diaMaximo = 2
 [node name="marmitaPickup" parent="Buyables/Day2/objMarmita" index="0" unique_id=645683784]
 preco = 20.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objMarmita2" parent="Buyables/Day2" unique_id=1836982259 instance=ExtResource("10_5gfeg")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6.6286926, 0.8386617, -1.2075212)
@@ -427,6 +449,7 @@ diaMaximo = 2
 [node name="marmitaPickup" parent="Buyables/Day2/objMarmita2" index="0" unique_id=645683784]
 preco = 20.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao" parent="Buyables/Day2" unique_id=1505142353 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8347516, 0.74828535, -1.1822729)
@@ -437,6 +460,7 @@ diaMaximo = 2
 [node name="lataFeijao" parent="Buyables/Day2/objFeijao" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao2" parent="Buyables/Day2" unique_id=1614560868 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1770606, 0.74828535, -1.1822729)
@@ -447,6 +471,7 @@ diaMaximo = 2
 [node name="lataFeijao" parent="Buyables/Day2/objFeijao2" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao3" parent="Buyables/Day2" unique_id=1236980068 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5295663, 0.74828535, -1.1822729)
@@ -457,6 +482,7 @@ diaMaximo = 2
 [node name="lataFeijao" parent="Buyables/Day2/objFeijao3" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao4" parent="Buyables/Day2" unique_id=877152504 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8654156, 0.74828535, -1.1822729)
@@ -467,6 +493,7 @@ diaMaximo = 2
 [node name="lataFeijao" parent="Buyables/Day2/objFeijao4" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao5" parent="Buyables/Day2" unique_id=467037616 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1760387, 0.74828535, -1.1822729)
@@ -477,6 +504,7 @@ diaMaximo = 2
 [node name="lataFeijao" parent="Buyables/Day2/objFeijao5" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="Day3" type="Node3D" parent="Buyables" unique_id=1577210928]
 
@@ -489,6 +517,7 @@ diaMaximo = 3
 [node name="galaoAgua" parent="Buyables/Day3/objGalaoAgua" index="0" unique_id=1963751312]
 preco = 20.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objGalaoAgua2" parent="Buyables/Day3" unique_id=904764090 instance=ExtResource("9_l7pnp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5076194, 0.9309467, -3.0691466)
@@ -499,6 +528,7 @@ diaMaximo = 3
 [node name="galaoAgua" parent="Buyables/Day3/objGalaoAgua2" index="0" unique_id=1963751312]
 preco = 20.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua" parent="Buyables/Day3" unique_id=1766584643 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.739444, 0.7979553, -3.0719194)
@@ -509,6 +539,7 @@ diaMaximo = 3
 [node name="garrafaAgua" parent="Buyables/Day3/objAgua" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua2" parent="Buyables/Day3" unique_id=446407832 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0687623, 0.7979553, -3.0719194)
@@ -519,6 +550,7 @@ diaMaximo = 3
 [node name="garrafaAgua" parent="Buyables/Day3/objAgua2" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua3" parent="Buyables/Day3" unique_id=614813463 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3892717, 0.7979553, -3.0719194)
@@ -529,6 +561,7 @@ diaMaximo = 3
 [node name="garrafaAgua" parent="Buyables/Day3/objAgua3" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua4" parent="Buyables/Day3" unique_id=519812933 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7432547, 0.7979553, -3.0719194)
@@ -539,6 +572,7 @@ diaMaximo = 3
 [node name="garrafaAgua" parent="Buyables/Day3/objAgua4" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua5" parent="Buyables/Day3" unique_id=316367397 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.119441, 0.7979553, -3.0719194)
@@ -549,6 +583,7 @@ diaMaximo = 3
 [node name="garrafaAgua" parent="Buyables/Day3/objAgua5" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objMarmita" parent="Buyables/Day3" unique_id=45372242 instance=ExtResource("10_5gfeg")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -4.3555584, 0.8386617, -1.2075212)
@@ -559,6 +594,7 @@ diaMaximo = 3
 [node name="marmitaPickup" parent="Buyables/Day3/objMarmita" index="0" unique_id=645683784]
 preco = 20.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objMarmita2" parent="Buyables/Day3" unique_id=432656734 instance=ExtResource("10_5gfeg")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6.6286926, 0.8386617, -1.2075212)
@@ -569,6 +605,7 @@ diaMaximo = 3
 [node name="marmitaPickup" parent="Buyables/Day3/objMarmita2" index="0" unique_id=645683784]
 preco = 20.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao" parent="Buyables/Day3" unique_id=2083539159 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8347516, 0.74828535, -1.1822729)
@@ -579,6 +616,7 @@ diaMaximo = 3
 [node name="lataFeijao" parent="Buyables/Day3/objFeijao" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao2" parent="Buyables/Day3" unique_id=147143435 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1770606, 0.74828535, -1.1822729)
@@ -589,6 +627,7 @@ diaMaximo = 3
 [node name="lataFeijao" parent="Buyables/Day3/objFeijao2" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao3" parent="Buyables/Day3" unique_id=792782740 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5295663, 0.74828535, -1.1822729)
@@ -599,6 +638,7 @@ diaMaximo = 3
 [node name="lataFeijao" parent="Buyables/Day3/objFeijao3" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao4" parent="Buyables/Day3" unique_id=1501114667 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8654156, 0.74828535, -1.1822729)
@@ -609,6 +649,7 @@ diaMaximo = 3
 [node name="lataFeijao" parent="Buyables/Day3/objFeijao4" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao5" parent="Buyables/Day3" unique_id=209484315 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1760387, 0.74828535, -1.1822729)
@@ -619,6 +660,7 @@ diaMaximo = 3
 [node name="lataFeijao" parent="Buyables/Day3/objFeijao5" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="Day4" type="Node3D" parent="Buyables" unique_id=1144773137]
 
@@ -631,6 +673,7 @@ diaMaximo = 4
 [node name="galaoAgua" parent="Buyables/Day4/objGalaoAgua" index="0" unique_id=1963751312]
 preco = 20.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objGalaoAgua2" parent="Buyables/Day4" unique_id=1148996139 instance=ExtResource("9_l7pnp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5076194, 0.9309467, -3.0691466)
@@ -641,6 +684,7 @@ diaMaximo = 4
 [node name="galaoAgua" parent="Buyables/Day4/objGalaoAgua2" index="0" unique_id=1963751312]
 preco = 20.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua" parent="Buyables/Day4" unique_id=412967371 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.739444, 0.7979553, -3.0719194)
@@ -651,6 +695,7 @@ diaMaximo = 4
 [node name="garrafaAgua" parent="Buyables/Day4/objAgua" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua2" parent="Buyables/Day4" unique_id=1156113627 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0687623, 0.7979553, -3.0719194)
@@ -661,6 +706,7 @@ diaMaximo = 4
 [node name="garrafaAgua" parent="Buyables/Day4/objAgua2" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua3" parent="Buyables/Day4" unique_id=1658834781 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3892717, 0.7979553, -3.0719194)
@@ -671,6 +717,7 @@ diaMaximo = 4
 [node name="garrafaAgua" parent="Buyables/Day4/objAgua3" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua4" parent="Buyables/Day4" unique_id=177368328 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7432547, 0.7979553, -3.0719194)
@@ -681,6 +728,7 @@ diaMaximo = 4
 [node name="garrafaAgua" parent="Buyables/Day4/objAgua4" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua5" parent="Buyables/Day4" unique_id=620508094 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.119441, 0.7979553, -3.0719194)
@@ -691,6 +739,7 @@ diaMaximo = 4
 [node name="garrafaAgua" parent="Buyables/Day4/objAgua5" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objMarmita" parent="Buyables/Day4" unique_id=1717127911 instance=ExtResource("10_5gfeg")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -4.3555584, 0.8386617, -1.2075212)
@@ -701,6 +750,7 @@ diaMaximo = 4
 [node name="marmitaPickup" parent="Buyables/Day4/objMarmita" index="0" unique_id=645683784]
 preco = 20.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objMarmita2" parent="Buyables/Day4" unique_id=395145635 instance=ExtResource("10_5gfeg")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6.6286926, 0.8386617, -1.2075212)
@@ -711,6 +761,7 @@ diaMaximo = 4
 [node name="marmitaPickup" parent="Buyables/Day4/objMarmita2" index="0" unique_id=645683784]
 preco = 20.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao" parent="Buyables/Day4" unique_id=608009675 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8347516, 0.74828535, -1.1822729)
@@ -721,6 +772,7 @@ diaMaximo = 4
 [node name="lataFeijao" parent="Buyables/Day4/objFeijao" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao2" parent="Buyables/Day4" unique_id=1614414589 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1770606, 0.74828535, -1.1822729)
@@ -731,6 +783,7 @@ diaMaximo = 4
 [node name="lataFeijao" parent="Buyables/Day4/objFeijao2" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao3" parent="Buyables/Day4" unique_id=1350714983 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5295663, 0.74828535, -1.1822729)
@@ -741,6 +794,7 @@ diaMaximo = 4
 [node name="lataFeijao" parent="Buyables/Day4/objFeijao3" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao4" parent="Buyables/Day4" unique_id=1912160657 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8654156, 0.74828535, -1.1822729)
@@ -751,6 +805,7 @@ diaMaximo = 4
 [node name="lataFeijao" parent="Buyables/Day4/objFeijao4" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao5" parent="Buyables/Day4" unique_id=1292757234 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1760387, 0.74828535, -1.1822729)
@@ -761,6 +816,7 @@ diaMaximo = 4
 [node name="lataFeijao" parent="Buyables/Day4/objFeijao5" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="Day5" type="Node3D" parent="Buyables" unique_id=565109525]
 
@@ -773,6 +829,7 @@ diaMaximo = 5
 [node name="galaoAgua" parent="Buyables/Day5/objGalaoAgua" index="0" unique_id=1963751312]
 preco = 20.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objGalaoAgua2" parent="Buyables/Day5" unique_id=330210893 instance=ExtResource("9_l7pnp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5076194, 0.9309467, -3.0691466)
@@ -783,6 +840,7 @@ diaMaximo = 5
 [node name="galaoAgua" parent="Buyables/Day5/objGalaoAgua2" index="0" unique_id=1963751312]
 preco = 20.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua" parent="Buyables/Day5" unique_id=814520155 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.739444, 0.7979553, -3.0719194)
@@ -793,6 +851,7 @@ diaMaximo = 5
 [node name="garrafaAgua" parent="Buyables/Day5/objAgua" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua2" parent="Buyables/Day5" unique_id=1308215551 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0687623, 0.7979553, -3.0719194)
@@ -803,6 +862,7 @@ diaMaximo = 5
 [node name="garrafaAgua" parent="Buyables/Day5/objAgua2" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua3" parent="Buyables/Day5" unique_id=1474751549 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3892717, 0.7979553, -3.0719194)
@@ -813,6 +873,7 @@ diaMaximo = 5
 [node name="garrafaAgua" parent="Buyables/Day5/objAgua3" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua4" parent="Buyables/Day5" unique_id=574890978 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7432547, 0.7979553, -3.0719194)
@@ -823,6 +884,7 @@ diaMaximo = 5
 [node name="garrafaAgua" parent="Buyables/Day5/objAgua4" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua5" parent="Buyables/Day5" unique_id=851591475 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.119441, 0.7979553, -3.0719194)
@@ -833,6 +895,7 @@ diaMaximo = 5
 [node name="garrafaAgua" parent="Buyables/Day5/objAgua5" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objMarmita" parent="Buyables/Day5" unique_id=1444270071 instance=ExtResource("10_5gfeg")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -4.3555584, 0.8386617, -1.2075212)
@@ -843,6 +906,7 @@ diaMaximo = 5
 [node name="marmitaPickup" parent="Buyables/Day5/objMarmita" index="0" unique_id=645683784]
 preco = 20.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objMarmita2" parent="Buyables/Day5" unique_id=2099773265 instance=ExtResource("10_5gfeg")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6.6286926, 0.8386617, -1.2075212)
@@ -853,6 +917,7 @@ diaMaximo = 5
 [node name="marmitaPickup" parent="Buyables/Day5/objMarmita2" index="0" unique_id=645683784]
 preco = 20.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao" parent="Buyables/Day5" unique_id=577022425 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8347516, 0.74828535, -1.1822729)
@@ -863,6 +928,7 @@ diaMaximo = 5
 [node name="lataFeijao" parent="Buyables/Day5/objFeijao" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao2" parent="Buyables/Day5" unique_id=961242239 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1770606, 0.74828535, -1.1822729)
@@ -873,6 +939,7 @@ diaMaximo = 5
 [node name="lataFeijao" parent="Buyables/Day5/objFeijao2" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao3" parent="Buyables/Day5" unique_id=1295777214 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5295663, 0.74828535, -1.1822729)
@@ -883,6 +950,7 @@ diaMaximo = 5
 [node name="lataFeijao" parent="Buyables/Day5/objFeijao3" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao4" parent="Buyables/Day5" unique_id=291805404 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8654156, 0.74828535, -1.1822729)
@@ -893,6 +961,7 @@ diaMaximo = 5
 [node name="lataFeijao" parent="Buyables/Day5/objFeijao4" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao5" parent="Buyables/Day5" unique_id=2036582638 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1760387, 0.74828535, -1.1822729)
@@ -903,6 +972,7 @@ diaMaximo = 5
 [node name="lataFeijao" parent="Buyables/Day5/objFeijao5" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="Day6" type="Node3D" parent="Buyables" unique_id=609283028]
 
@@ -915,6 +985,7 @@ diaMaximo = 6
 [node name="galaoAgua" parent="Buyables/Day6/objGalaoAgua" index="0" unique_id=1963751312]
 preco = 20.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objGalaoAgua2" parent="Buyables/Day6" unique_id=1558156974 instance=ExtResource("9_l7pnp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5076194, 0.9309467, -3.0691466)
@@ -925,6 +996,7 @@ diaMaximo = 6
 [node name="galaoAgua" parent="Buyables/Day6/objGalaoAgua2" index="0" unique_id=1963751312]
 preco = 20.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua" parent="Buyables/Day6" unique_id=146295329 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.739444, 0.7979553, -3.0719194)
@@ -935,6 +1007,7 @@ diaMaximo = 6
 [node name="garrafaAgua" parent="Buyables/Day6/objAgua" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua2" parent="Buyables/Day6" unique_id=2147476808 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0687623, 0.7979553, -3.0719194)
@@ -945,6 +1018,7 @@ diaMaximo = 6
 [node name="garrafaAgua" parent="Buyables/Day6/objAgua2" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua3" parent="Buyables/Day6" unique_id=191400591 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3892717, 0.7979553, -3.0719194)
@@ -955,6 +1029,7 @@ diaMaximo = 6
 [node name="garrafaAgua" parent="Buyables/Day6/objAgua3" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua4" parent="Buyables/Day6" unique_id=341149828 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7432547, 0.7979553, -3.0719194)
@@ -965,6 +1040,7 @@ diaMaximo = 6
 [node name="garrafaAgua" parent="Buyables/Day6/objAgua4" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua5" parent="Buyables/Day6" unique_id=1599102573 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.119441, 0.7979553, -3.0719194)
@@ -975,6 +1051,7 @@ diaMaximo = 6
 [node name="garrafaAgua" parent="Buyables/Day6/objAgua5" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objMarmita" parent="Buyables/Day6" unique_id=1759041799 instance=ExtResource("10_5gfeg")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -4.3555584, 0.8386617, -1.2075212)
@@ -985,6 +1062,7 @@ diaMaximo = 6
 [node name="marmitaPickup" parent="Buyables/Day6/objMarmita" index="0" unique_id=645683784]
 preco = 20.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objMarmita2" parent="Buyables/Day6" unique_id=978860511 instance=ExtResource("10_5gfeg")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6.6286926, 0.8386617, -1.2075212)
@@ -995,6 +1073,7 @@ diaMaximo = 6
 [node name="marmitaPickup" parent="Buyables/Day6/objMarmita2" index="0" unique_id=645683784]
 preco = 20.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao" parent="Buyables/Day6" unique_id=308189079 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8347516, 0.74828535, -1.1822729)
@@ -1005,6 +1084,7 @@ diaMaximo = 6
 [node name="lataFeijao" parent="Buyables/Day6/objFeijao" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao2" parent="Buyables/Day6" unique_id=727921970 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1770606, 0.74828535, -1.1822729)
@@ -1015,6 +1095,7 @@ diaMaximo = 6
 [node name="lataFeijao" parent="Buyables/Day6/objFeijao2" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao3" parent="Buyables/Day6" unique_id=107526297 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5295663, 0.74828535, -1.1822729)
@@ -1025,6 +1106,7 @@ diaMaximo = 6
 [node name="lataFeijao" parent="Buyables/Day6/objFeijao3" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao4" parent="Buyables/Day6" unique_id=936955194 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8654156, 0.74828535, -1.1822729)
@@ -1035,6 +1117,7 @@ diaMaximo = 6
 [node name="lataFeijao" parent="Buyables/Day6/objFeijao4" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao5" parent="Buyables/Day6" unique_id=1491427656 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1760387, 0.74828535, -1.1822729)
@@ -1045,6 +1128,7 @@ diaMaximo = 6
 [node name="lataFeijao" parent="Buyables/Day6/objFeijao5" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="Day7" type="Node3D" parent="Buyables" unique_id=1627681141]
 
@@ -1056,6 +1140,7 @@ diaMinimo = 7
 [node name="galaoAgua" parent="Buyables/Day7/objGalaoAgua" index="0" unique_id=1963751312]
 preco = 20.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objGalaoAgua2" parent="Buyables/Day7" unique_id=131806428 instance=ExtResource("9_l7pnp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5076194, 0.9309467, -3.0691466)
@@ -1065,6 +1150,7 @@ diaMinimo = 7
 [node name="galaoAgua" parent="Buyables/Day7/objGalaoAgua2" index="0" unique_id=1963751312]
 preco = 20.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua" parent="Buyables/Day7" unique_id=446996935 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.739444, 0.7979553, -3.0719194)
@@ -1074,6 +1160,7 @@ diaMinimo = 7
 [node name="garrafaAgua" parent="Buyables/Day7/objAgua" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua2" parent="Buyables/Day7" unique_id=414288085 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0687623, 0.7979553, -3.0719194)
@@ -1083,6 +1170,7 @@ diaMinimo = 7
 [node name="garrafaAgua" parent="Buyables/Day7/objAgua2" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua3" parent="Buyables/Day7" unique_id=529550671 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3892717, 0.7979553, -3.0719194)
@@ -1092,6 +1180,7 @@ diaMinimo = 7
 [node name="garrafaAgua" parent="Buyables/Day7/objAgua3" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua4" parent="Buyables/Day7" unique_id=526472700 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7432547, 0.7979553, -3.0719194)
@@ -1101,6 +1190,7 @@ diaMinimo = 7
 [node name="garrafaAgua" parent="Buyables/Day7/objAgua4" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objAgua5" parent="Buyables/Day7" unique_id=608003635 instance=ExtResource("12_fwolc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.119441, 0.7979553, -3.0719194)
@@ -1110,6 +1200,7 @@ diaMinimo = 7
 [node name="garrafaAgua" parent="Buyables/Day7/objAgua5" index="0" unique_id=1482991818]
 preco = 8.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objMarmita" parent="Buyables/Day7" unique_id=29011888 instance=ExtResource("10_5gfeg")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -4.3555584, 0.8386617, -1.2075212)
@@ -1119,6 +1210,7 @@ diaMinimo = 7
 [node name="marmitaPickup" parent="Buyables/Day7/objMarmita" index="0" unique_id=645683784]
 preco = 20.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objMarmita2" parent="Buyables/Day7" unique_id=48742891 instance=ExtResource("10_5gfeg")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6.6286926, 0.8386617, -1.2075212)
@@ -1128,6 +1220,7 @@ diaMinimo = 7
 [node name="marmitaPickup" parent="Buyables/Day7/objMarmita2" index="0" unique_id=645683784]
 preco = 20.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao" parent="Buyables/Day7" unique_id=164953240 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8347516, 0.74828535, -1.1822729)
@@ -1137,6 +1230,7 @@ diaMinimo = 7
 [node name="lataFeijao" parent="Buyables/Day7/objFeijao" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao2" parent="Buyables/Day7" unique_id=100041177 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1770606, 0.74828535, -1.1822729)
@@ -1146,6 +1240,7 @@ diaMinimo = 7
 [node name="lataFeijao" parent="Buyables/Day7/objFeijao2" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao3" parent="Buyables/Day7" unique_id=54684004 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5295663, 0.74828535, -1.1822729)
@@ -1155,6 +1250,7 @@ diaMinimo = 7
 [node name="lataFeijao" parent="Buyables/Day7/objFeijao3" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao4" parent="Buyables/Day7" unique_id=583927408 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8654156, 0.74828535, -1.1822729)
@@ -1164,6 +1260,7 @@ diaMinimo = 7
 [node name="lataFeijao" parent="Buyables/Day7/objFeijao4" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="objFeijao5" parent="Buyables/Day7" unique_id=724312332 instance=ExtResource("11_s2w77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1760387, 0.74828535, -1.1822729)
@@ -1173,6 +1270,7 @@ diaMinimo = 7
 [node name="lataFeijao" parent="Buyables/Day7/objFeijao5" index="0" unique_id=1762641796]
 preco = 7.0
 compravel = true
+flagToSetOnSteal = "roubouLoja3"
 
 [node name="charGeraldoSalvador" parent="." unique_id=1046664859 node_paths=PackedStringArray("cameraNode", "cameraPivotNode") instance=ExtResource("13_p7ig8")]
 unique_name_in_owner = true
@@ -1227,6 +1325,12 @@ openingTime = 480.0
 closingTime = 1140.0
 isInterior = true
 cantInteractFlag = "roubouLoja3"
+
+[node name="OmniLight3D" type="SpotLight3D" parent="." unique_id=140726177]
+transform = Transform3D(0.99995255, 0.0097397, 4.2573584e-10, 0, -4.371139e-08, 1, 0.0097397, -0.99995255, -4.3709317e-08, -2.4915147, 2.7894971, -3.1229281)
+spot_range = 12.0
+spot_attenuation = 0.5
+spot_angle = 180.0
 
 [editable path="Buyables/Day1/objGalaoAgua"]
 [editable path="Buyables/Day1/objGalaoAgua2"]

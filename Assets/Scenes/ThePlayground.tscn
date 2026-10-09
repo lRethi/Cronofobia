@@ -108,8 +108,11 @@ adjustment_enabled = true
 script = ExtResource("9_an17c")
 duration = 0.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_cd7ii"]
+size = Vector3(26.181213, 5.570801, 18.055878)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_8c2qd"]
-size = Vector3(23.154026, 5.5166016, 10.641553)
+size = Vector3(23.083305, 5.5166016, 10.641553)
 
 [node name="Node3D" type="Node3D" unique_id=1702091423]
 
@@ -1522,13 +1525,14 @@ cameraScript = NodePath("../../../CameraPivot")
 [node name="Safe Zones" type="Node" parent="." unique_id=692858469]
 
 [node name="Alameda" type="Area3D" parent="Safe Zones" unique_id=1338525487 node_paths=PackedStringArray("personagem")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.550285, 0, 53.035976)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.293789, 0, 53.035976)
+priority = 1
 script = ExtResource("92_mii6s")
 personagem = NodePath("../../charGeraldoSalvador")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Safe Zones/Alameda" unique_id=2058485353]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8503895, 2.2583008, -0.6933861)
-shape = SubResource("BoxShape3D_8c2qd")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0059509, 0, -1.2602386)
+shape = SubResource("BoxShape3D_cd7ii")
 
 [node name="Beco1" type="Area3D" parent="Safe Zones" unique_id=1970595189 node_paths=PackedStringArray("personagem")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.885508, 0, 76.9408)

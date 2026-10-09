@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://cslou2hiootju" path="res://Assets/Sprites/HUD/Relogio/relogioNoite.png" id="7_vjqkd"]
 [ext_resource type="Texture2D" uid="uid://6pptpofjuiee" path="res://Assets/Sprites/HUD/Needs/indicadorFrio.webp" id="8_yhi3m"]
 [ext_resource type="Script" uid="uid://cqksdw2rl8l03" path="res://Assets/UI/indicadorPerdasGame.cs" id="9_mstrd"]
+[ext_resource type="Texture2D" uid="uid://ce35elbty7lqj" path="res://Assets/Sprites/HUD/Needs/indicadorPodeDormir.png" id="10_vjqkd"]
+[ext_resource type="Script" uid="uid://dh37fichdkmm3" path="res://Assets/UI/IndicadorPodeDormir.cs" id="11_5aavk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rxsqe"]
 font_size = 18
@@ -75,3 +77,13 @@ texture = ExtResource("8_yhi3m")
 expand_mode = 1
 script = ExtResource("9_mstrd")
 isSleep = true
+
+[node name="indicadorPodeDormir" type="TextureRect" parent="." unique_id=1458034265]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 59.0
+offset_right = 80.0
+offset_bottom = 99.0
+texture = ExtResource("10_vjqkd")
+expand_mode = 1
+script = ExtResource("11_5aavk")
