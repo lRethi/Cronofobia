@@ -110,10 +110,10 @@ script = ExtResource("9_an17c")
 duration = 0.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cd7ii"]
-size = Vector3(11.149996, 7.644104, 7.682769)
+size = Vector3(27.598318, 7.644104, 20.642357)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8c2qd"]
-size = Vector3(23.083305, 5.5166016, 10.641553)
+size = Vector3(11.178669, 5.5166016, 14.889676)
 
 [node name="Node3D" type="Node3D" unique_id=1702091423]
 
@@ -1537,7 +1537,7 @@ script = ExtResource("92_mii6s")
 personagem = NodePath("../../charGeraldoSalvador")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Safe Zones/Alameda" unique_id=2058485353]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0059509, 0, -1.2602386)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9084911, 0, 0.7657852)
 shape = SubResource("BoxShape3D_cd7ii")
 
 [node name="Coreto" type="Area3D" parent="Safe Zones" unique_id=2140412794 node_paths=PackedStringArray("personagem")]
@@ -1547,7 +1547,7 @@ script = ExtResource("92_mii6s")
 personagem = NodePath("../../charGeraldoSalvador")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Safe Zones/Coreto" unique_id=115780395]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5737245, 0.25204468, 1.0252542)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37825704, 0.25204468, 1.020793)
 shape = SubResource("BoxShape3D_cd7ii")
 
 [node name="Posto" type="Area3D" parent="Safe Zones" unique_id=1417763315 node_paths=PackedStringArray("personagem")]
@@ -1557,7 +1557,7 @@ script = ExtResource("92_mii6s")
 personagem = NodePath("../../charGeraldoSalvador")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Safe Zones/Posto" unique_id=2094222795]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1193466, 0.25204468, -0.878479)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8260956, 0.25204468, -1.0598316)
 shape = SubResource("BoxShape3D_cd7ii")
 
 [node name="Estacionamento" type="Area3D" parent="Safe Zones" unique_id=1382856851 node_paths=PackedStringArray("personagem")]
@@ -1567,7 +1567,7 @@ script = ExtResource("92_mii6s")
 personagem = NodePath("../../charGeraldoSalvador")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Safe Zones/Estacionamento" unique_id=212612464]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2726593, 0.78460693, 0.21388245)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.782217, 0.78460693, -1.2222595)
 shape = SubResource("BoxShape3D_cd7ii")
 
 [node name="Beco1" type="Area3D" parent="Safe Zones" unique_id=1970595189 node_paths=PackedStringArray("personagem")]
@@ -1576,7 +1576,7 @@ script = ExtResource("92_mii6s")
 personagem = NodePath("../../charGeraldoSalvador")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Safe Zones/Beco1" unique_id=1985735876]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10694122, 2.2583008, -2.617035)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.60050774, 2.2583008, 3.2483368)
 shape = SubResource("BoxShape3D_8c2qd")
 
 [node name="Beco2" type="Area3D" parent="Safe Zones" unique_id=817362543 node_paths=PackedStringArray("personagem")]
@@ -1585,7 +1585,7 @@ script = ExtResource("92_mii6s")
 personagem = NodePath("../../charGeraldoSalvador")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Safe Zones/Beco2" unique_id=207921812]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0500164, 2.2583008, -0.001045227)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3049202, 2.2583008, -0.001045227)
 shape = SubResource("BoxShape3D_8c2qd")
 
 [node name="Beco3" type="Area3D" parent="Safe Zones" unique_id=156373253 node_paths=PackedStringArray("personagem")]
@@ -1594,7 +1594,7 @@ script = ExtResource("92_mii6s")
 personagem = NodePath("../../charGeraldoSalvador")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Safe Zones/Beco3" unique_id=1701078484]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9084282, 2.2583008, 1.2655296)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9084282, 2.2583008, -0.92918396)
 shape = SubResource("BoxShape3D_8c2qd")
 
 [node name="portaDatacenter" parent="." unique_id=792405160 node_paths=PackedStringArray("personagem") instance=ExtResource("119_v6eui")]
