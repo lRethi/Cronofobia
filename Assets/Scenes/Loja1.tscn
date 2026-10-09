@@ -230,7 +230,7 @@ compravel = true
 flagToSetOnSteal = "roubouLoja1"
 
 [node name="objFerramentas" parent="Pickups/Day1" unique_id=1486293974 instance=ExtResource("13_os6rt")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.5283856, 0.84311795, -5.459429)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.0720484, 0.70134866, -4.227627)
 diaMaximo = 1
 
 [node name="ferramentasPickup" parent="Pickups/Day1/objFerramentas" index="0" unique_id=73228649]
@@ -281,7 +281,7 @@ compravel = true
 flagToSetOnSteal = "roubouLoja1"
 
 [node name="objFerramentas" parent="Pickups/Day2" unique_id=1390091603 instance=ExtResource("13_os6rt")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.5283856, 0.84311795, -5.459429)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.0720484, 0.70134866, -4.227627)
 diaMinimo = 2
 diaMaximo = 2
 
@@ -333,7 +333,7 @@ compravel = true
 flagToSetOnSteal = "roubouLoja1"
 
 [node name="objFerramentas" parent="Pickups/Day3" unique_id=1569327381 instance=ExtResource("13_os6rt")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.5283856, 0.84311795, -5.459429)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.0720484, 0.70134866, -4.227627)
 diaMinimo = 3
 diaMaximo = 3
 
@@ -385,7 +385,7 @@ compravel = true
 flagToSetOnSteal = "roubouLoja1"
 
 [node name="objFerramentas" parent="Pickups/Day4" unique_id=257125961 instance=ExtResource("13_os6rt")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.5283856, 0.84311795, -5.459429)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.0720484, 0.70134866, -4.227627)
 diaMinimo = 4
 diaMaximo = 4
 
@@ -437,7 +437,7 @@ compravel = true
 flagToSetOnSteal = "roubouLoja1"
 
 [node name="objFerramentas" parent="Pickups/Day5" unique_id=954376153 instance=ExtResource("13_os6rt")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.5283856, 0.84311795, -5.459429)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.0720484, 0.70134866, -4.227627)
 diaMinimo = 5
 diaMaximo = 5
 
@@ -489,7 +489,7 @@ compravel = true
 flagToSetOnSteal = "roubouLoja1"
 
 [node name="objFerramentas" parent="Pickups/Day6" unique_id=1570717120 instance=ExtResource("13_os6rt")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.5283856, 0.84311795, -5.459429)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.0720484, 0.70134866, -4.227627)
 diaMinimo = 6
 diaMaximo = 6
 
@@ -537,7 +537,7 @@ compravel = true
 flagToSetOnSteal = "roubouLoja1"
 
 [node name="objFerramentas" parent="Pickups/Day7" unique_id=338576507 instance=ExtResource("13_os6rt")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.5283856, 0.84311795, -5.459429)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.0720484, 0.70134866, -4.227627)
 diaMinimo = 7
 
 [node name="ferramentasPickup" parent="Pickups/Day7/objFerramentas" index="0" unique_id=73228649]
