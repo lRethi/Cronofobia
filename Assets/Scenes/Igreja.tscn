@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="11_u3u8u"]
 [ext_resource type="PackedScene" uid="uid://5vefm8uyc8dw" path="res://Assets/Itens/objDocumento2.tscn" id="12_3ym52"]
 [ext_resource type="PackedScene" uid="uid://m3y1lncvc85w" path="res://Assets/Personagens/Padre.tscn" id="15_u3u8u"]
+[ext_resource type="Script" uid="uid://b6fdptr3kd02o" path="res://Scripts/Geral/safeZoneScript.cs" id="21_yvk1x"]
 
 [sub_resource type="Resource" id="Resource_3ym52"]
 script = ExtResource("3_1icfx")
@@ -59,6 +60,9 @@ mesh_mode = 2
 [sub_resource type="Resource" id="Resource_6wy5s"]
 script = ExtResource("11_u3u8u")
 duration = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_37nyn"]
+size = Vector3(7, 7, 9)
 
 [node name="Igreja" type="Node3D" unique_id=378817196]
 
@@ -203,5 +207,14 @@ transform = Transform3D(1, 0, 0, 0, -0.63252836, 0.77453727, 0, -0.77453727, -0.
 spot_range = 15.0
 spot_attenuation = 0.5
 spot_angle = 180.0
+
+[node name="Posto" type="Area3D" parent="." unique_id=1342376829 node_paths=PackedStringArray("personagem")]
+priority = 1
+script = ExtResource("21_yvk1x")
+personagem = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Posto" unique_id=1243458961]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.044348717, 3.9299927, -1.5370946)
+shape = SubResource("BoxShape3D_37nyn")
 
 [editable path="charGeraldoSalvador"]

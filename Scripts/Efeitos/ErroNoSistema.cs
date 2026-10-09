@@ -2,10 +2,10 @@ using Godot;
 
 public partial class ErroNoSistema : EffectBase
 {
-    public override string Nome => "Erro no Sistema";
+    public override string Nome => "[color=red]Erro no Sistema[color=/red]";
 
     public override string Desc =>
-        "Receba entre 3 e 7 manutenções aleatórias, e deixe de receber novas manutenções nos próximos dias. Algo estranho está acontecendo...";
+        "Receba entre 3 e 7 manutenções aleatórias, e deixe de receber novas manutenções nos próximos dias. [color=red]Algo estranho está acontecendo...[color=/red]";
 
     public override string SpritePath =>
         "res://Assets/Sprites/Placeholder/the_placeholder.png";

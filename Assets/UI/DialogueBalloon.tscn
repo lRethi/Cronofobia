@@ -462,10 +462,10 @@ grow_vertical = 2
 [node name="ResponsesMenu" type="VBoxContainer" parent="DialogueUI/PlayerResponsesLayer" unique_id=323354606 node_paths=PackedStringArray("ResponseTemplate")]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 491.0
-offset_top = 216.0
-offset_right = 644.0
-offset_bottom = 256.0
+offset_left = 500.0
+offset_top = 20.0
+offset_right = 653.0
+offset_bottom = 60.0
 script = ExtResource("2_1sks0")
 ResponseTemplate = NodePath("ResponseExample")
 

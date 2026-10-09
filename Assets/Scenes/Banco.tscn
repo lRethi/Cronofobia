@@ -512,6 +512,7 @@ dialogue = ExtResource("15_n4guv")
 personagem = NodePath("../charGeraldoSalvador")
 
 [node name="Sprite3D" parent="NPC1/StaticBody3D" parent_id_path=PackedInt32Array(1233537819, 408448575) index="2" unique_id=1766881007 node_paths=PackedStringArray("personagem")]
+transform = Transform3D(0.8490133, 0, -0.5283715, 0, 1, 0, 0.5283715, 0, 0.8490133, 0, 0, -0.18372798)
 personagem = NodePath("../../../charGeraldoSalvador")
 
 [node name="NPC2" parent="." unique_id=902328230 node_paths=PackedStringArray("personagem") instance=ExtResource("15_rns8u")]
@@ -520,6 +521,7 @@ dialogue = ExtResource("17_nykpw")
 personagem = NodePath("../charGeraldoSalvador")
 
 [node name="Sprite3D" parent="NPC2/StaticBody3D" parent_id_path=PackedInt32Array(902328230, 408448575) index="2" unique_id=1766881007 node_paths=PackedStringArray("personagem")]
+transform = Transform3D(0.41678578, 0, 0.9090048, 0, 1, 0, -0.9090048, 0, 0.41678578, 0.69691443, 0, -0.5276961)
 personagem = NodePath("../../../charGeraldoSalvador")
 
 [node name="NPC3" parent="." unique_id=832442520 node_paths=PackedStringArray("personagem") instance=ExtResource("16_l4kuq")]
@@ -528,6 +530,7 @@ dialogue = ExtResource("19_3a61m")
 personagem = NodePath("../charGeraldoSalvador")
 
 [node name="Sprite3D" parent="NPC3/StaticBody3D" parent_id_path=PackedInt32Array(832442520, 408448575) index="2" unique_id=1766881007 node_paths=PackedStringArray("personagem")]
+transform = Transform3D(-0.07881094, 0, 0.9968896, 0, 1, 0, -0.9968896, 0, -0.07881094, -1.9726641, 0, 0)
 personagem = NodePath("../../../charGeraldoSalvador")
 
 [node name="NPC4" parent="." unique_id=1819400502 node_paths=PackedStringArray("personagem") instance=ExtResource("17_21xjw")]

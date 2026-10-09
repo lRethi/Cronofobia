@@ -46,5 +46,8 @@ shape = SubResource("SphereShape3D_irs17")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=483277700]
 transform = Transform3D(1, 0, 0, 0, -0.013442844, 0.99990964, 0, -0.99990964, -0.013442844, 0, 0, 0)
-light_color = Color(0.71820784, 0, 0.06291329, 1)
-light_energy = 2.0
+light_color = Color(0.5715523, 0, 0.04047221, 1)
+light_energy = 3.0
+spot_range = 6.32489
+spot_attenuation = 0.5
+spot_angle = 26.342615

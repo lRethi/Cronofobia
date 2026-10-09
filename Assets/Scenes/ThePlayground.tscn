@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://djejviyx22ckv" path="res://Assets/Scenes/playgroundDoohickies.tscn" id="15_2lf08"]
 [ext_resource type="PackedScene" uid="uid://on25u5fk0t3" path="res://Assets/Scenes/playgroundEstruturaBase.tscn" id="16_2x265"]
 [ext_resource type="Script" uid="uid://ctqrihnrqm85g" path="res://Scripts/Globais/TimeState.cs" id="17_3qlyq"]
+[ext_resource type="PackedScene" uid="uid://c6u1mhppcndmo" path="res://Assets/Props/Portas/portaIgreja.tscn" id="17_st4sa"]
 [ext_resource type="PackedScene" uid="uid://dvo2rfyvp1ns0" path="res://Assets/Itens/objGalaoAgua.tscn" id="18_h3j6h"]
 [ext_resource type="PackedScene" uid="uid://d1kp3yfxc7qii" path="res://Assets/Itens/objFeijao.tscn" id="19_qeaow"]
 [ext_resource type="PackedScene" uid="uid://b4mgjc55khc8n" path="res://Assets/Itens/objAgua.tscn" id="20_uipgk"]
@@ -109,7 +110,7 @@ script = ExtResource("9_an17c")
 duration = 0.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cd7ii"]
-size = Vector3(26.181213, 5.570801, 18.055878)
+size = Vector3(11.149996, 7.644104, 7.682769)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8c2qd"]
 size = Vector3(23.083305, 5.5166016, 10.641553)
@@ -180,6 +181,11 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 [node name="Doohickies" parent="Buildings" unique_id=2076119526 instance=ExtResource("15_2lf08")]
 
 [node name="Mapa" parent="Buildings" unique_id=362268939 instance=ExtResource("16_2x265")]
+
+[node name="portaIgreja" parent="Buildings" unique_id=1353397638 node_paths=PackedStringArray("personagem") instance=ExtResource("17_st4sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0016666055, 1.0600002, -62.02151)
+personagem = NodePath("../../charGeraldoSalvador")
+timeLimit = false
 
 [node name="NPCs" type="Node" parent="." unique_id=1183954181]
 
@@ -1532,6 +1538,36 @@ personagem = NodePath("../../charGeraldoSalvador")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Safe Zones/Alameda" unique_id=2058485353]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0059509, 0, -1.2602386)
+shape = SubResource("BoxShape3D_cd7ii")
+
+[node name="Coreto" type="Area3D" parent="Safe Zones" unique_id=2140412794 node_paths=PackedStringArray("personagem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5025165, 9.536743e-07, 1.9276838)
+priority = 1
+script = ExtResource("92_mii6s")
+personagem = NodePath("../../charGeraldoSalvador")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Safe Zones/Coreto" unique_id=115780395]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5737245, 0.25204468, 1.0252542)
+shape = SubResource("BoxShape3D_cd7ii")
+
+[node name="Posto" type="Area3D" parent="Safe Zones" unique_id=1417763315 node_paths=PackedStringArray("personagem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.484673, 9.536743e-07, 16.090755)
+priority = 1
+script = ExtResource("92_mii6s")
+personagem = NodePath("../../charGeraldoSalvador")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Safe Zones/Posto" unique_id=2094222795]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1193466, 0.25204468, -0.878479)
+shape = SubResource("BoxShape3D_cd7ii")
+
+[node name="Estacionamento" type="Area3D" parent="Safe Zones" unique_id=1382856851 node_paths=PackedStringArray("personagem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.367094, 0, 66.79344)
+priority = 1
+script = ExtResource("92_mii6s")
+personagem = NodePath("../../charGeraldoSalvador")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Safe Zones/Estacionamento" unique_id=212612464]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2726593, 0.78460693, 0.21388245)
 shape = SubResource("BoxShape3D_cd7ii")
 
 [node name="Beco1" type="Area3D" parent="Safe Zones" unique_id=1970595189 node_paths=PackedStringArray("personagem")]
