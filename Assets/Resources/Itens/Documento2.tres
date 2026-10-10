@@ -10,5 +10,4 @@ Nome = "Documentos: Parte II"
 Descricao = "Um grupo de papéis. Parece um monte de jargão complicado, mas menciona as palavras: MILITAR, BASE e MORADORES DE RUA."
 Textura = ExtResource("1_i3p3d")
 PodeSerUsado = false
-PodeSerDescartado = false
 metadata/_custom_type_script = "uid://c34nkk713lbx5"

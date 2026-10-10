@@ -10,5 +10,4 @@ Nome = "Documentos: Parte III"
 Descricao = "Um grupo de papéis. Parece um monte de jargão complicado, mas menciona as palavras: MEMÓRIA, OUTROS USUÁRIOS e MENTE DE COLMÉIA."
 Textura = ExtResource("1_rfpyd")
 PodeSerUsado = false
-PodeSerDescartado = false
 metadata/_custom_type_script = "uid://c34nkk713lbx5"

@@ -80,10 +80,10 @@ isSleep = true
 
 [node name="indicadorPodeDormir" type="TextureRect" parent="." unique_id=1458034265]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 59.0
-offset_right = 80.0
-offset_bottom = 99.0
+offset_left = 1080.0
+offset_top = 582.0
+offset_right = 1120.0
+offset_bottom = 622.0
 texture = ExtResource("10_vjqkd")
 expand_mode = 1
 script = ExtResource("11_5aavk")

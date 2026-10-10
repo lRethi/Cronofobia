@@ -208,10 +208,9 @@ spot_range = 15.0
 spot_attenuation = 0.5
 spot_angle = 180.0
 
-[node name="Posto" type="Area3D" parent="." unique_id=1342376829 node_paths=PackedStringArray("personagem")]
+[node name="Posto" type="Area3D" parent="." unique_id=1342376829]
 priority = 1
 script = ExtResource("21_yvk1x")
-personagem = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Posto" unique_id=1243458961]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.044348717, 3.9299927, -1.5370946)

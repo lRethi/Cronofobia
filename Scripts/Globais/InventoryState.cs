@@ -168,8 +168,7 @@ public partial class InventoryState : Node
 
     public bool PodeOferecerItem(ItemDefinition item)
     {
-        return item != null &&
-               item.PodeSerDescartado;
+        return item != null;
     }
 
     public bool ConfirmarOferta(ItemDefinition item)
@@ -185,7 +184,6 @@ public partial class InventoryState : Node
         OfertaPendente = false;
 
         EmitSignal(SignalName.OfertaFinalizada);
-
 
         return true;
     }

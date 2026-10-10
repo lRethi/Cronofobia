@@ -502,9 +502,11 @@ metadata/_custom_type_script = "uid://4kv8f8ejgwqn"
 transform = Transform3D(0.006515166, 0, -1.9999894, 0, 2, 0, 1.9999894, 0, 0.006515166, 6.0021906, 1.1073768, -4.568953)
 dialogue = ExtResource("13_yvlcl")
 personagem = NodePath("../charGeraldoSalvador")
+alcanceInteracao = 2.5
 
 [node name="Sprite3D" parent="Atendente/StaticBody3D" parent_id_path=PackedInt32Array(2040080851, 408448575) index="2" unique_id=1766881007 node_paths=PackedStringArray("personagem")]
 personagem = NodePath("../../../charGeraldoSalvador")
+alcanceInteracao = 2.5
 
 [node name="NPC1" parent="." unique_id=1233537819 node_paths=PackedStringArray("personagem") instance=ExtResource("14_1ybn6")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 2.4840605, 0.8202074, -4.728946)

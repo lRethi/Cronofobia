@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://c2lxt2vjdjb4b" path="res://addons/TileMapLayer3D/nodes/static_collision_body.gd" id="4_vtf5x"]
 [ext_resource type="Shape3D" uid="uid://dtp6iofx4xm70" path="res://Assets/Scenes/World_CollisionData/World_Coreto_collision.res" id="5_butjg"]
 [ext_resource type="PackedScene" uid="uid://dwda84e1ln7l6" path="res://Assets/Scenes/Banco.tscn" id="5_wj32e"]
+[ext_resource type="Shape3D" uid="uid://dta3g1sux2v85" path="res://Assets/Scenes/World_CollisionData/World_Cortes_collision.res" id="5_y66c0"]
 [ext_resource type="Shape3D" uid="uid://dpa1c5gd8uc83" path="res://Assets/Scenes/World_CollisionData/World_PraçaTile2_collision.res" id="6_butjg"]
 [ext_resource type="PackedScene" uid="uid://d4knvl7scsv7n" path="res://Assets/Scenes/DataCenter.tscn" id="6_mgpwa"]
 [ext_resource type="PackedScene" uid="uid://bm2l0cjr6sigw" path="res://Assets/Scenes/Empresa.tscn" id="7_52kks"]
@@ -22,6 +23,15 @@
 [ext_resource type="Script" uid="uid://dhssuh1tvu3lw" path="res://Scripts/Globais/EnemyManager.cs" id="17_xv5rl"]
 [ext_resource type="PackedScene" uid="uid://c4vccexgyrjmw" path="res://Assets/Personagens/Inimigos/droneInimigo.tscn" id="18_cd7ii"]
 [ext_resource type="Script" uid="uid://q6f2atiw38m3" path="res://Scripts/Geral/teleportPlayer.cs" id="19_cd7ii"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_butjg"]
+size = Vector3(4.0541205, 7.644104, 3.9744596)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y66c0"]
+size = Vector3(12.231855, 7.644104, 9.226507)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8geid"]
+size = Vector3(2.0280657, 5.5166016, 10.276014)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w17no"]
 size = Vector3(150.17615, 5.199829, 212.78072)
@@ -325,11 +335,13 @@ collision_priority = 2.0
 
 [node name="Cortes" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="4" unique_id=103720510 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
 _quad_chunks = [NodePath("SquareChunk_R-1_0_0_C1"), NodePath("SquareChunk_R-1_0_1_C1")]
-_box_chunks = [NodePath("BoxChunk_R-1_0_0_C1"), NodePath("BoxChunk_R-1_0_1_C1"), NodePath("BoxChunk_R-1_1_0_C1"), NodePath("BoxChunk_R0_1_0_C1"), NodePath("BoxChunk_R1_1_0_C1")]
+_box_chunks = [NodePath("BoxChunk_R-1_0_0_C1"), NodePath("BoxChunk_R-1_0_1_C1"), NodePath("BoxChunk_R-1_2_0_C1"), NodePath("BoxChunk_R0_2_0_C1"), NodePath("BoxChunk_R1_2_0_C1"), NodePath("BoxChunk_R0_2_-1_C1"), NodePath("BoxChunk_R1_2_-1_C1"), NodePath("BoxChunk_R-1_2_-1_C1"), NodePath("BoxChunk_R2_2_-1_C1")]
 
-[node name="@StaticBody3D@147437" parent="ThePlayground/Buildings/Casas Abandonadas/Cortes" index="0" unique_id=907024533]
-collision_layer = 6
-collision_priority = 2.0
+[node name="@StaticBody3D@40643" type="StaticBody3D" parent="ThePlayground/Buildings/Casas Abandonadas/Cortes" index="17" unique_id=1173233050]
+script = ExtResource("4_vtf5x")
+
+[node name="@CollisionShape3D@40642" type="CollisionShape3D" parent="ThePlayground/Buildings/Casas Abandonadas/Cortes/@StaticBody3D@40643" unique_id=952670244]
+shape = ExtResource("5_y66c0")
 
 [node name="Cortes2" parent="ThePlayground/Buildings/Casas Abandonadas" parent_id_path=PackedInt32Array(1702091423, 1023395689) index="5" unique_id=1139987096 node_paths=PackedStringArray("_quad_chunks", "_box_chunks")]
 _quad_chunks = [NodePath("SquareChunk_R-1_0_0_C1"), NodePath("SquareChunk_R-1_0_1_C1")]
@@ -792,7 +804,7 @@ _quad_chunks = [NodePath("SquareChunk_R0_-1_0_C1"), NodePath("SquareChunk_R0_0_0
 _triangle_chunks = [NodePath("TriangleChunk_R0_0_0_C1"), NodePath("TriangleChunk_R-1_0_0_C1")]
 _box_chunks = [NodePath("BoxChunk_R0_-1_0_C1"), NodePath("BoxChunk_R-1_0_0_C1"), NodePath("BoxChunk_R0_0_0_C1")]
 
-[node name="@StaticBody3D@399218" type="StaticBody3D" parent="ThePlayground/Buildings/Doohickies/Coreto" index="3" unique_id=658327110]
+[node name="@StaticBody3D@399218" type="StaticBody3D" parent="ThePlayground/Buildings/Doohickies/Coreto" index="1" unique_id=658327110]
 collision_layer = 6
 script = ExtResource("4_vtf5x")
 
@@ -922,7 +934,7 @@ _triangle_chunks = [NodePath("TriangleChunk_R0_0_0_C1"), NodePath("TriangleChunk
 _box_chunks = [NodePath("BoxChunk_R-1_0_-1_C1"), NodePath("BoxChunk_R0_0_-1_C1"), NodePath("BoxChunk_R-1_0_0_C1"), NodePath("BoxChunk_R0_0_0_C1"), NodePath("BoxChunk_R-2_0_0_C1"), NodePath("BoxChunk_R1_0_0_C1"), NodePath("BoxChunk_R1_0_-1_C1")]
 _prism_chunks = [NodePath("PrismChunk_R0_0_0_C1"), NodePath("PrismChunk_R-1_0_0_C1")]
 
-[node name="@StaticBody3D@400344" type="StaticBody3D" parent="ThePlayground/Buildings/Mapa/PraçaTile2" index="3" unique_id=1534287383]
+[node name="@StaticBody3D@400344" type="StaticBody3D" parent="ThePlayground/Buildings/Mapa/PraçaTile2" index="1" unique_id=1534287383]
 collision_layer = 6
 script = ExtResource("4_vtf5x")
 
@@ -1206,6 +1218,18 @@ targetArea = NodePath("../../../../Loja3")
 
 [node name="Sprite3D" parent="ThePlayground/Map Props/LampPosts/portaLojaPapelaria1" index="0" unique_id=131051309 node_paths=PackedStringArray("personagem")]
 personagem = NodePath("../../../../charGeraldoSalvador")
+
+[node name="CollisionShape3D" parent="ThePlayground/Safe Zones/Coreto" parent_id_path=PackedInt32Array(1702091423, 2140412794) index="0" unique_id=115780395]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.509321, 0.25204468, 1.0746179)
+shape = SubResource("BoxShape3D_butjg")
+
+[node name="CollisionShape3D" parent="ThePlayground/Safe Zones/Posto" parent_id_path=PackedInt32Array(1702091423, 1417763315) index="0" unique_id=2094222795]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4971962, 0.25204468, -0.6555624)
+shape = SubResource("BoxShape3D_y66c0")
+
+[node name="CollisionShape3D" parent="ThePlayground/Safe Zones/Beco1" parent_id_path=PackedInt32Array(1702091423, 1970595189) index="0" unique_id=1985735876]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07866287, 2.2583008, 0.94150543)
+shape = SubResource("BoxShape3D_8geid")
 
 [node name="portaDatacenter" parent="ThePlayground" index="14" unique_id=792405160 node_paths=PackedStringArray("targetArea")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07970023, 0.9652177, -18.804)

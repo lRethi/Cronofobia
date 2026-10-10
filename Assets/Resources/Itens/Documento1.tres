@@ -10,5 +10,4 @@ Nome = "Documentos: Parte I"
 Descricao = "Um grupo de papéis. Parece um monte de jargão complicado, mas menciona as palavras: EXPERIMENTO, LUCRO e FUTURO."
 Textura = ExtResource("1_4sbpd")
 PodeSerUsado = false
-PodeSerDescartado = false
 metadata/_custom_type_script = "uid://c34nkk713lbx5"

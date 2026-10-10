@@ -10,5 +10,4 @@ Nome = "Documentos: Parte IV"
 Descricao = "Um grupo de papéis. Parece um monte de jargão complicado, mas menciona as palavras: INTELIGÊNCIA ARTIFICIAL, EVOLUÇÃO e ULTRALINK."
 Textura = ExtResource("1_0vkf4")
 PodeSerUsado = false
-PodeSerDescartado = false
 metadata/_custom_type_script = "uid://c34nkk713lbx5"
